@@ -6,13 +6,14 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="controllers"/>
 	<classpathentry kind="src" path="gui"/>
+	<classpathentry kind="src" path="controllers"/>
 	<classpathentry kind="src" path="/OCSF"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFx"/>
 	<classpathentry kind="lib" path="lib/fontawesomefx-8.9.jar"/>
 	<classpathentry kind="lib" path="lib/jfoenix-8.0.10.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/CEMS_Shared"/>
 	<classpathentry kind="lib" path="/CEMS_Shared/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
