@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -7,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" stylesheets="@das.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="91.0" layoutY="52.0" text="Choose Test Type" textFill="#b2b2b2">
          <font>
@@ -16,10 +17,15 @@
       </Label>
       <ImageView fitHeight="290.0" fitWidth="321.0" layoutX="81.0" layoutY="5.0" opacity="0.04" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@logo4.png" />
+            <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
       <Button fx:id="btnManual" focusTraversable="false" layoutX="161.0" layoutY="131.0" mnemonicParsing="false" text="Manual" />
       <Button fx:id="btnComputerized" focusTraversable="false" layoutX="138.0" layoutY="196.0" mnemonicParsing="false" text="Computerized" />
    </children>
+   <stylesheets>
+      <URL value="@das.css" />
+      <URL value="@../css/das.css" />
+      <URL value="@../css/das.css" />
+   </stylesheets>
 </Pane>
