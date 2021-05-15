@@ -1,6 +1,6 @@
 package application;
 
-import gui.LoginController;
+//import gui.LoginController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -14,8 +14,8 @@ public class ClientUI extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		chat = new ClientController("localhost", 5556);
-		LoginController aFrame = new LoginController();
-		aFrame.start(primaryStage);
+		//LoginController aFrame = new LoginController();
+		//aFrame.start(primaryStage);
 	}
 
 }

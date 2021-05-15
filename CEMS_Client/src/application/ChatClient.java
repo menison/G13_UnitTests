@@ -1,7 +1,7 @@
 package application;
 
 import java.io.IOException;
-import gui.EmployeeLoginController;
+//import gui.EmployeeLoginController;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import entities.Message;
@@ -12,7 +12,7 @@ import dataParsing.Parsing;
 
 public class ChatClient extends AbstractClient {
 
-	public static EmployeeLoginController EmployeeLoginController;
+	//public static EmployeeLoginController EmployeeLoginController;
 	public static boolean awaitResponse = false;
 
 	public ChatClient(String host, int port) throws IOException {
