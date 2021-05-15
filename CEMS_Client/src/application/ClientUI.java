@@ -1,10 +1,10 @@
-package app;
+package application;
 
 import gui.LoginController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class Client extends Application {
+public class ClientUI extends Application {
 	public static ClientController chat;
 
 	public static void main(String args[]) throws Exception {

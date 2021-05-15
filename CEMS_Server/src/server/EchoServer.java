@@ -1,6 +1,6 @@
 package server;
 
-import logic.*;
+import logics.*;
 
 import entities.Message;
 
