@@ -1,5 +1,51 @@
 package entities;
 
 public class Question {
+	
+	private String questionID;
+	private String text;
+	private String[] answers;
+	private int correctAnswerIndex;
+	
+	public Question(String questionID, String text, String[] answers, int correctAnswerIndex) {
+		super();
+		this.questionID = questionID;
+		this.text = text;
+		this.answers = answers;
+		this.correctAnswerIndex = correctAnswerIndex;
+	}
 
+	public String getQuestionID() {
+		return questionID;
+	}
+
+	public void setQuestionID(String questionID) {
+		this.questionID = questionID;
+	}
+
+	public String getText() {
+		return text;
+	}
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+	public String[] getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(String[] answers) {
+		this.answers = answers;
+	}
+
+	public int getCorrectAnswerIndex() {
+		return correctAnswerIndex;
+	}
+
+	public void setCorrectAnswerIndex(int correctAnswerIndex) {
+		this.correctAnswerIndex = correctAnswerIndex;
+	}
+	
+	
 }
