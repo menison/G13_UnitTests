@@ -8,8 +8,6 @@ import entities.Message;
 import ocsf.client.AbstractClient;
 import dataParsing.Parsing;
 
-
-
 public class ChatClient extends AbstractClient {
 
 	//public static EmployeeLoginController EmployeeLoginController;
