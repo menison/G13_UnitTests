@@ -1,4 +1,4 @@
-package app;
+package application;
 
 import java.io.IOException;
 import gui.EmployeeLoginController;
@@ -6,7 +6,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import entities.Message;
 import ocsf.client.AbstractClient;
-import parsing.Parsing;
+import dataParsing.Parsing;
 
 
 
