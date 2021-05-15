@@ -3,6 +3,7 @@ package entities;
 import java.util.HashMap;
 
 public class Exam {
+	
 	public String testID;
 	private int allocatedDuration; //given in minutes
 	private String comments4Students;
