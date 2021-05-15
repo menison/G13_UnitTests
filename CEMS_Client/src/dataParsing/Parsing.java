@@ -1,5 +1,7 @@
 package dataParsing;
 
+import entities.Message;
+
 public class Parsing {
 	/**
 	 * @param This class receives all types of messages resulting from clicks in the

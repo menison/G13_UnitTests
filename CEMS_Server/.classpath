@@ -9,5 +9,6 @@
 	<classpathentry exported="true" kind="src" path="/OCSF"/>
 	<classpathentry exported="true" kind="lib" path="lib/mysql-connector-java-8.0.13.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/javaFx"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CEMS_Shared"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
