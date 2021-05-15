@@ -6,8 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import org.controlsfx.control.BreadCrumbBar?>
-
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" stylesheets="@das.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -27,6 +25,5 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <BreadCrumbBar autoNavigationEnabled="false" prefHeight="40.0" prefWidth="335.0" viewOrder="2.0" />
    </children>
 </Pane>
