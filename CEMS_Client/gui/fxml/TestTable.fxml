@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="tblTests" layoutX="39.0" layoutY="111.0" prefHeight="379.0" prefWidth="694.0">
+      <TableView fx:id="tblTests" layoutX="13.0" layoutY="111.0" prefHeight="424.0" prefWidth="900.0">
         <columns>
           <TableColumn prefWidth="75.0" text="TestID" />
-            <TableColumn prefWidth="83.33331298828125" text="TestCode" />
-          <TableColumn prefWidth="134.66668701171875" text="Date" />
-            <TableColumn prefWidth="152.6666259765625" text="AllocatedDuration" />
-            <TableColumn prefWidth="160.00006103515625" text="ActualDuration" />
-            <TableColumn prefWidth="86.66668701171875" text="Grade" />
+            <TableColumn prefWidth="158.0" text="TestCode" />
+          <TableColumn prefWidth="180.0" text="Date" />
+            <TableColumn prefWidth="147.0" text="AllocatedDuration" />
+            <TableColumn prefWidth="161.0" text="ActualDuration" />
+            <TableColumn prefWidth="172.0" text="Grade" />
         </columns>
       </TableView>
       <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
@@ -27,13 +27,13 @@
             <Image url="@logo4.png" />
          </image>
       </ImageView>
-      <Label layoutX="331.0" layoutY="30.0" text="My Tests" textFill="#b2b2b2">
+      <Label layoutX="379.0" layoutY="30.0" text="My Tests" textFill="#b2b2b2">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Button fx:id="btnBack" layoutX="39.0" layoutY="507.0" mnemonicParsing="false" text="Back" />
-      <Button fx:id="btnRequestCopy" layoutX="577.0" layoutY="507.0" mnemonicParsing="false" text="Request Test Copy" />
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="547.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="btnRequestCopy" layoutX="757.0" layoutY="547.0" mnemonicParsing="false" text="Request Test Copy" />
    </children>
    <stylesheets>
       <URL value="@das.css" />
