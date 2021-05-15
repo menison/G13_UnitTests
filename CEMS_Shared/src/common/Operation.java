@@ -6,8 +6,10 @@ package common;
  */
 public enum Operation {
 	
-	WorkerLogin,
-
-	SpecificNumberOfVisitors
+	Operation1,
+	Operation2,
+	Operation3,
+	
+	LastOperation
 
 }
