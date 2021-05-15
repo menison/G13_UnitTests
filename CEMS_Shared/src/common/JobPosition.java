@@ -5,9 +5,7 @@ package common;
  *
  */
 public enum JobPosition {
-	Worker,
-	ServiceWorker,
-	DepartmentManager,
-	ParkManager,
-	Admin
+	Student,
+	Teacher,
+	Principal
 }
