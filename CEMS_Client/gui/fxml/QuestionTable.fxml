@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.QuestionTableController">
+   <children>
+      <JFXButton fx:id="addQuestionBtn" focusTraversable="false" layoutX="36.0" layoutY="439.0" text="Add Question" />
+      <JFXButton fx:id="editQuestionBtn" focusTraversable="false" layoutX="181.0" layoutY="439.0" prefHeight="39.0" prefWidth="122.0" text="Edit Question" />
+      <JFXButton fx:id="closeBtn" focusTraversable="false" layoutX="688.0" layoutY="439.0" prefHeight="39.0" prefWidth="87.0" text="Close" />
+      <ImageView fitHeight="113.0" fitWidth="75.0" layoutX="26.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo4.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="317.0" layoutY="33.0" prefHeight="64.0" prefWidth="166.0" styleClass="login-header" text="Questions" textFill="#b2b2b2">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <TableView fx:id="questionsTable" layoutX="8.0" layoutY="118.0" prefHeight="307.0" prefWidth="783.0">
+        <columns>
+          <TableColumn fx:id="questionIdColumn" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="questionTxtColumn" prefWidth="134.0" text="Question Text" />
+            <TableColumn fx:id="answer1Column" prefWidth="111.0" text="Answer 1" />
+            <TableColumn fx:id="answer2Column" prefWidth="94.0" text="Answer 2" />
+            <TableColumn fx:id="answer3Column" prefWidth="121.0" text="Answer 3" />
+            <TableColumn fx:id="answer4Column" prefWidth="110.0" text="Answer 4" />
+            <TableColumn fx:id="correctAnswerColumn" prefWidth="133.0" text="Correct Answer" />
+        </columns>
+      </TableView>
+   </children>
+</Pane>
