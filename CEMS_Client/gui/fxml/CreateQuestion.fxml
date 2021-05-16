@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="717.0" prefWidth="650.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CreateQuestionController">
+   <children>
+      <ImageView fitHeight="678.0" fitWidth="519.0" layoutX="66.0" layoutY="21.0" opacity="0.02" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo4.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnClose" focusTraversable="false" layoutX="485.0" layoutY="655.0" onAction="#btnCloseClicked" prefHeight="39.0" prefWidth="139.0" text="Close" />
+      <JFXButton focusTraversable="false" layoutX="27.0" layoutY="655.0" prefHeight="39.0" prefWidth="139.0" text="Submit" />
+      <Label layoutX="197.0" layoutY="31.0" prefHeight="64.0" prefWidth="257.0" styleClass="login-header" text="Create Question" textFill="#b2b2b2">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <JFXTextArea fx:id="questionField" focusColor="#ffff8d" labelFloat="true" layoutX="166.0" layoutY="202.0" prefHeight="123.0" prefWidth="319.0" promptText="Question Text*" style="-fx-text-fill: #B2B2B2;" />
+      <JFXTextField fx:id="answer1Field" labelFloat="true" layoutX="21.0" layoutY="348.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 1*" />
+      <JFXTextField fx:id="answer2Field" labelFloat="true" layoutX="383.0" layoutY="348.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 2*" />
+      <JFXTextField fx:id="answer3Field" labelFloat="true" layoutX="21.0" layoutY="416.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 3*" />
+      <JFXTextField fx:id="answer4Field" labelFloat="true" layoutX="383.0" layoutY="416.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 4*" />
+      <JFXRadioButton fx:id="checkAnswer1" layoutX="123.0" layoutY="525.0" selected="true" text="Answer 1" textFill="#ffff8d">
+         <toggleGroup>
+            <ToggleGroup fx:id="ToggleGroup1" />
+         </toggleGroup>
+      </JFXRadioButton>
+      <Label layoutX="123.0" layoutY="489.0" text="Choose Correct Answer:" textFill="#b2b2b2">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+      <JFXRadioButton fx:id="checkAnswer2" layoutX="237.0" layoutY="525.0" text="Answer 2" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
+      <JFXRadioButton fx:id="checkAnswer3" layoutX="345.0" layoutY="525.0" text="Answer 3" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
+      <JFXRadioButton fx:id="checkAnswer4" layoutX="454.0" layoutY="525.0" text="Answer 4" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
+      <JFXButton fx:id="btnClear" layoutX="116.0" layoutY="563.0" onAction="#btnClearclicked" text="Clear" />
+      <JFXComboBox fx:id="chooseSubjectBox" layoutX="166.0" layoutY="140.0" promptText="Subject*" />
+      <JFXComboBox fx:id="chooseCourseBox" layoutX="401.0" layoutY="140.0" promptText="Course*" />
+   </children>
+</Pane>

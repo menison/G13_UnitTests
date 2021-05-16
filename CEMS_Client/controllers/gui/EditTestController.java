@@ -1,4 +1,5 @@
 package gui;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
@@ -6,8 +7,12 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.ImageView;
 
-public class AddTestController {
+public class EditTestController {
+
+    @FXML
+    private ImageView studentCommentsField;
 
     @FXML
     private JFXButton btnAddQuestion;
@@ -28,7 +33,7 @@ public class AddTestController {
     private TableColumn<?, ?> QuestionIDCol;
 
     @FXML
-    private TableColumn<?, ?> PointsCol;
+    private TableColumn<?, ?> pointsCol;
 
     @FXML
     private JFXTextField DurationField;
@@ -40,13 +45,10 @@ public class AddTestController {
     private JFXComboBox<?> chooseCourseBox;
 
     @FXML
-    private JFXTextArea TeacherCommentsField;
+    private JFXTextArea teacherCommentsField;
 
     @FXML
-    private JFXTextArea StudentCommentsField;
-
-    @FXML
-    void btnAddQuestionClicked(ActionEvent event) {
+    void btnAddQuestionclicked(ActionEvent event) {
 
     }
 
