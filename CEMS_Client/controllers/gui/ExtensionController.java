@@ -7,12 +7,12 @@ import javafx.fxml.FXML;
 public class ExtensionController {
 
     @FXML
-    private JFXTextField timeExtensionTxtField;
+    private JFXTextField extension_txtTimeExtension;
 
     @FXML
-    private JFXButton rqstExtensionBtn;
+    private JFXButton extension_btnRqstExtension;
 
     @FXML
-    private JFXButton closeBtn;
+    private JFXButton extension_btnClose;
 
 }

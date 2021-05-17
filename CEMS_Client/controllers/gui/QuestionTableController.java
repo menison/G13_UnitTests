@@ -8,13 +8,13 @@ import javafx.scene.control.TableView;
 public class QuestionTableController {
 
     @FXML
-    private JFXButton addQuestionBtn;
+    private JFXButton questionTbl_btnAddQuestion;
 
     @FXML
-    private JFXButton editQuestionBtn;
+    private JFXButton questionTbl_btnEditQuestion;
 
     @FXML
-    private JFXButton closeBtn;
+    private JFXButton questionTbl_btnClose;
 
     @FXML
     private TableView<?> questionsTable;

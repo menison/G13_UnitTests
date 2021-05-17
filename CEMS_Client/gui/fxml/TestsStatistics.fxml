@@ -11,7 +11,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TestsStatisticsController">
    <children>
-      <JFXButton fx:id="closeBtn" focusTraversable="false" layoutX="699.0" layoutY="439.0" prefHeight="39.0" prefWidth="87.0" text="Close" />
+      <JFXButton fx:id="testsStatistics_btnClose" focusTraversable="false" layoutX="699.0" layoutY="439.0" prefHeight="39.0" prefWidth="87.0" text="Close" />
       <ImageView fitHeight="113.0" fitWidth="75.0" layoutX="26.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/logo4.png" />
@@ -32,6 +32,6 @@
             <TableColumn fx:id="testActuDurationColumn" prefWidth="180.0" text="Actual Duration" />
         </columns>
       </TableView>
-      <JFXButton fx:id="getStatsBtn" focusTraversable="false" layoutX="14.0" layoutY="439.0" prefHeight="39.0" prefWidth="117.0" text="Get Statistics" />
+      <JFXButton fx:id="testsStatistics_btnGetStatistics" focusTraversable="false" layoutX="14.0" layoutY="439.0" prefHeight="39.0" prefWidth="117.0" text="Get Statistics" />
    </children>
 </Pane>

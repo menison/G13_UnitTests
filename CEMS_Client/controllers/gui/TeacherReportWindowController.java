@@ -20,15 +20,15 @@ public class TeacherReportWindowController {
     private NumberAxis histYaxis;
 
     @FXML
-    private JFXTextField teacherNameTxtField;
+    private JFXTextField teacherRprtMenu_txtTeacherName;
 
     @FXML
-    private JFXTextField avgScoreTxtField;
+    private JFXTextField teacherRprtMenu_txtAvg;
 
     @FXML
-    private JFXTextField medianTxtField;
+    private JFXTextField teacherRprtMenu_txtMedian;
 
     @FXML
-    private JFXButton exitBtn;
+    private JFXButton teacherRprtWindow_btnExit;
 
 }

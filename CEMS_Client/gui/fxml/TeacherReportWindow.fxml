@@ -31,14 +31,14 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <JFXTextField id="principalGeneratedReportByText" fx:id="teacherNameTxtField" editable="false" focusTraversable="false" layoutX="14.0" layoutY="141.0" text="By " />
-      <JFXTextField id="principalGeneratedReportAverageScoreText" fx:id="avgScoreTxtField" editable="false" focusTraversable="false" layoutX="14.0" layoutY="282.0" text="Average score" />
-      <JFXTextField id="principalGeneratedReportMedianText" fx:id="medianTxtField" editable="false" focusTraversable="false" layoutX="14.0" layoutY="468.0" text="Median" />
+      <JFXTextField id="principalGeneratedReportByText" fx:id="teacherRprtMenu_txtTeacherName" editable="false" focusTraversable="false" layoutX="14.0" layoutY="141.0" text="By " />
+      <JFXTextField id="principalGeneratedReportAverageScoreText" fx:id="teacherRprtMenu_txtAvg" editable="false" focusTraversable="false" layoutX="14.0" layoutY="282.0" text="Average score" />
+      <JFXTextField id="principalGeneratedReportMedianText" fx:id="teacherRprtMenu_txtMedian" editable="false" focusTraversable="false" layoutX="14.0" layoutY="468.0" text="Median" />
       <Label layoutX="496.0" layoutY="111.0" style="-fx-text-fill: #ffff8d;" text="Histogram">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <JFXButton id="principalGeneratedReportExitButton" fx:id="exitBtn" layoutX="703.0" layoutY="542.0" prefHeight="39.0" prefWidth="66.0" text="Exit" />
+      <JFXButton id="principalGeneratedReportExitButton" fx:id="teacherRprtWindow_btnExit" layoutX="703.0" layoutY="542.0" prefHeight="39.0" prefWidth="66.0" text="Exit" />
    </children>
 </AnchorPane>

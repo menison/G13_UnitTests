@@ -8,7 +8,7 @@ import javafx.scene.control.TableView;
 public class TestsStatisticsController {
 
     @FXML
-    private JFXButton closeBtn;
+    private JFXButton testsStatistics_btnClose;
 
     @FXML
     private TableView<?> testStatisticsTable;
@@ -32,6 +32,6 @@ public class TestsStatisticsController {
     private TableColumn<?, ?> testActuDurationColumn;
 
     @FXML
-    private JFXButton getStatsBtn;
+    private JFXButton testsStatistics_btnGetStatistics;
 
 }
