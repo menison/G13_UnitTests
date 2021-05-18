@@ -30,6 +30,10 @@
     -fx-font-size: 12pt;
 }
 
+.progress-indicator .percentage {
+    -fx-fill: #b2b2b2 ;
+}
+
 .button:hover, .button:focused{
     -fx-border-color: -fx-secondary;
     -fx-background-color: -fx-secondary;

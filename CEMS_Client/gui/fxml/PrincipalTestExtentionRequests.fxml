@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PrincipalTestExtentionRequestsController">
+   <children>
+      <TableView id="principalTestExtentionRequestsTable" fx:id="PrincipalTestExtentionRequests_tblViewRequests" layoutX="14.0" layoutY="101.0" prefHeight="319.0" prefWidth="776.0">
+        <columns>
+          <TableColumn editable="false" prefWidth="139.0" text="Test Code" />
+          <TableColumn editable="false" minWidth="0.0" prefWidth="97.0" text="Teacher" />
+            <TableColumn editable="false" prefWidth="145.0" text="Current Duration" />
+            <TableColumn editable="false" prefWidth="155.0" text="Required Duration" />
+            <TableColumn editable="false" prefWidth="238.0" text="Reason" />
+        </columns>
+      </TableView>
+      <JFXButton id="principalTestExtentionRequestsDoneButton" fx:id="PrincipalTestExtentionRequests_btnDone" buttonType="RAISED" focusTraversable="false" layoutX="371.0" layoutY="466.0" text="Done" />
+      <Label layoutX="264.0" layoutY="37.0" style="-fx-text-fill: #B2B2B2;" text="Test Extention Requests">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="79.0" fitWidth="152.0" layoutX="14.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo4.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="PrincipalTestExtentionRequests_btnDecline" buttonType="RAISED" layoutX="703.0" layoutY="427.0" prefHeight="39.0" prefWidth="87.0" style="-fx-border-color: red;" text="decline " />
+      <JFXButton fx:id="PrincipalTestExtentionRequests_btnApprove" buttonType="RAISED" layoutX="609.0" layoutY="427.0" style="-fx-border-color: green;" text="approve " />
+   </children>
+</AnchorPane>
