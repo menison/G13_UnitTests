@@ -17,7 +17,7 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <Label layoutX="284.0" layoutY="33.0" prefHeight="64.0" prefWidth="232.0" styleClass="login-header" text="Tests Statistics" textFill="#b2b2b2">
+      <Label layoutX="284.0" layoutY="33.0" prefHeight="64.0" prefWidth="232.0" styleClass="login-header" text="Test Statistics" textFill="#b2b2b2">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
