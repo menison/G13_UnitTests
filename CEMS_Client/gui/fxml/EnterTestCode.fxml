@@ -21,8 +21,8 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button focusTraversable="false" layoutX="170.0" layoutY="204.0" mnemonicParsing="false" text="Send" />
-      <JFXTextField focusTraversable="false" layoutX="110.0" layoutY="113.0" promptText="Test Code" />
+      <Button fx:id="EnterTestCode_btnSendCode" focusTraversable="false" layoutX="170.0" layoutY="204.0" mnemonicParsing="false" text="Send" />
+      <JFXTextField fx:id="EnterTestCode_txtCode" focusTraversable="false" layoutX="110.0" layoutY="113.0" promptText="Test Code" />
    </children>
    <stylesheets>
       <URL value="@das.css" />

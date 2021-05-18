@@ -12,14 +12,14 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="612.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TableView fx:id="tblTests" layoutX="13.0" layoutY="111.0" prefHeight="424.0" prefWidth="900.0">
+      <TableView fx:id="myTestsTable_tblTests" layoutX="13.0" layoutY="111.0" prefHeight="424.0" prefWidth="900.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="TestID" />
-            <TableColumn prefWidth="158.0" text="TestCode" />
-          <TableColumn prefWidth="180.0" text="Date" />
-            <TableColumn prefWidth="147.0" text="AllocatedDuration" />
-            <TableColumn prefWidth="161.0" text="ActualDuration" />
-            <TableColumn prefWidth="172.0" text="Grade" />
+          <TableColumn fx:id="myTests_colTestID" prefWidth="75.0" text="TestID" />
+            <TableColumn fx:id="myTests_colTestCode" prefWidth="158.0" text="TestCode" />
+          <TableColumn fx:id="myTests_colDate" prefWidth="180.0" text="Date" />
+            <TableColumn fx:id="myTests_colAllocDuration" prefWidth="147.0" text="AllocatedDuration" />
+            <TableColumn fx:id="myTests_colActualDuration" prefWidth="161.0" text="ActualDuration" />
+            <TableColumn fx:id="myTests_colGrade" prefWidth="172.0" text="Grade" />
         </columns>
       </TableView>
       <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
@@ -32,8 +32,8 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button fx:id="btnBack" layoutX="14.0" layoutY="547.0" mnemonicParsing="false" text="Back" />
-      <Button fx:id="btnRequestCopy" layoutX="757.0" layoutY="547.0" mnemonicParsing="false" text="Request Test Copy" />
+      <Button fx:id="myTestsTable_btnBack" layoutX="14.0" layoutY="547.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="myTestsTable_btnRequestCopy" layoutX="757.0" layoutY="547.0" mnemonicParsing="false" text="Request Test Copy" />
    </children>
    <stylesheets>
       <URL value="@das.css" />
