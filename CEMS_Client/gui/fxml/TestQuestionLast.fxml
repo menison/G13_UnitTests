@@ -24,25 +24,25 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button focusTraversable="false" layoutX="510.0" layoutY="336.0" mnemonicParsing="false" text="Finish" />
+      <Button fx:id="lastQuestion_finishTest" focusTraversable="false" layoutX="510.0" layoutY="336.0" mnemonicParsing="false" text="Finish" />
       <Label layoutX="66.0" layoutY="161.0" text="The question text will be entered here:" textFill="#b2b2b2">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <RadioButton layoutX="66.0" layoutY="200.0" mnemonicParsing="false" selected="true" text="Answer 1" textFill="#b2b2b2" />
-      <RadioButton layoutX="66.0" layoutY="226.0" mnemonicParsing="false" text="Answer 2" textFill="#b2b2b2" />
-      <RadioButton layoutX="66.0" layoutY="281.0" mnemonicParsing="false" text="Answer 4" textFill="#b2b2b2" />
-      <RadioButton layoutX="66.0" layoutY="253.0" mnemonicParsing="false" text="Answer 3" textFill="#b2b2b2" />
-      <ProgressBar layoutX="200.0" layoutY="41.0" prefWidth="200.0" progress="0.88" />
-      <ProgressIndicator layoutX="14.0" layoutY="345.0" progress="0.83" />
+      <RadioButton fx:id="lastQuestion_radioAns1" layoutX="66.0" layoutY="200.0" mnemonicParsing="false" selected="true" text="Answer 1" textFill="#b2b2b2" />
+      <RadioButton fx:id="lastQuestion_radioAns2" layoutX="66.0" layoutY="226.0" mnemonicParsing="false" text="Answer 2" textFill="#b2b2b2" />
+      <RadioButton fx:id="lastQuestion_radioAns4" layoutX="66.0" layoutY="281.0" mnemonicParsing="false" text="Answer 4" textFill="#b2b2b2" />
+      <RadioButton fx:id="lastQuestion_radioAns3" layoutX="66.0" layoutY="253.0" mnemonicParsing="false" text="Answer 3" textFill="#b2b2b2" />
+      <ProgressBar fx:id="lastQuestion_progressBar" layoutX="200.0" layoutY="41.0" prefWidth="200.0" progress="0.88" />
+      <ProgressIndicator fx:id="lastQuestion_pieProgressIndic" layoutX="14.0" layoutY="345.0" progress="0.83" />
       <Label layoutX="52.0" layoutY="347.0" text="Time Elapsed:" textFill="#b2b2b2">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXTextField editable="false" layoutX="142.0" layoutY="337.0" prefHeight="37.0" prefWidth="51.0" text="#min" />
-      <Button layoutX="441.0" layoutY="336.0" mnemonicParsing="false" text="Back" />
+      <JFXTextField fx:id="lastQuestion_timeElapsed" editable="false" layoutX="142.0" layoutY="337.0" prefHeight="37.0" prefWidth="51.0" text="#min" />
+      <Button fx:id="lastQuestion_back" layoutX="441.0" layoutY="336.0" mnemonicParsing="false" text="Back" />
    </children>
    <stylesheets>
       <URL value="@das.css" />

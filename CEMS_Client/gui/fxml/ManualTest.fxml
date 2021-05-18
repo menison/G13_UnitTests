@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -22,31 +22,26 @@
             <Font size="28.0" />
          </font>
       </Label>
-<<<<<<< Upstream, based on branch 'master' of https://github.com/menison/G13_TheGreatProject.git
-      <Button fx:id="manualTest_btnDownload" layoutX="69.0" layoutY="194.0" mnemonicParsing="false" text="Download Test" />
-      <Label layoutX="53.0" layoutY="140.0" prefHeight="55.0" prefWidth="162.0" text="Download the test:" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
-=======
-      <Button fx:id="btnDownload" layoutX="69.0" layoutY="194.0" mnemonicParsing="false" text="Download Test" />
-      <Label layoutX="62.0" layoutY="140.0" prefHeight="55.0" prefWidth="143.0" text="Download the test:" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
->>>>>>> e468804 Small gui change
+      <Button fx:id="manualTest_btnDownload" layoutX="68.0" layoutY="200.0" mnemonicParsing="false" text="Download Test" />
+      <Label layoutX="89.0" layoutY="146.0" prefHeight="55.0" prefWidth="59.0" text="Ready?" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Button fx:id="manualTest_btnUpload" layoutX="416.0" layoutY="194.0" mnemonicParsing="false" text="Upload Test" />
-      <Label layoutX="380.0" layoutY="147.0" prefHeight="40.0" prefWidth="181.0" text="Choose a file to upload:" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
+      <Button fx:id="manualTest_btnUpload" layoutX="393.0" layoutY="200.0" mnemonicParsing="false" text="Upload Test" />
+      <Label layoutX="418.0" layoutY="154.0" prefHeight="40.0" prefWidth="59.0" text="Done? " textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <ProgressIndicator fx:id="manualTest_pieProgressIndicator" layoutX="198.0" layoutY="274.0" progress="0.0" />
-      <Label layoutX="238.0" layoutY="267.0" prefHeight="40.0" prefWidth="97.0" text=" Time Elapsed:" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
+      <ProgressIndicator fx:id="manualTest_pieProgressIndicator" layoutX="197.0" layoutY="274.0" progress="0.0" />
+      <Label layoutX="231.0" layoutY="267.0" prefHeight="40.0" prefWidth="97.0" text=" Time Elapsed:" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="manualTest_txtElapsedTime" editable="false" layoutX="345.0" layoutY="275.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="46.0" text="#min" />
-      <Button fx:id="manualTest_btnSendTest" layoutX="269.0" layoutY="336.0" mnemonicParsing="false" text="Send" />
+      <JFXTextField fx:id="manualTest_txtElapsedTime" editable="false" layoutX="328.0" layoutY="275.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="46.0" text="#min" />
+      <Button fx:id="manualTest_btnSend" layoutX="269.0" layoutY="336.0" mnemonicParsing="false" text="Send" />
    </children>
    <stylesheets>
       <URL value="@das.css" />

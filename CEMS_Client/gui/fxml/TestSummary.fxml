@@ -24,11 +24,6 @@
          </font>
       </Label>
       <Button fx:id="finalTestReview_btnSubmit" focusTraversable="false" layoutX="510.0" layoutY="336.0" mnemonicParsing="false" text="Submit" />
-      <Label layoutX="184.0" layoutY="157.0" text="Question 1:" textFill="#b2b2b2">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
       <ProgressBar fx:id="finalTestReview_barProgression" layoutX="200.0" layoutY="41.0" prefWidth="200.0" progress="1.0" />
       <ProgressIndicator fx:id="finalTestReview_pieProgressInd" layoutX="14.0" layoutY="345.0" progress="0.83" />
       <Label layoutX="52.0" layoutY="347.0" text="Time Elapsed:" textFill="#b2b2b2">
@@ -37,32 +32,7 @@
          </font>
       </Label>
       <JFXTextField fx:id="finalTestReview_txtElapsedTime" editable="false" layoutX="142.0" layoutY="337.0" prefHeight="37.0" prefWidth="51.0" text="#min" />
-      <Button fx:id="btnBack" layoutX="433.0" layoutY="336.0" mnemonicParsing="false" onAction="#finalTestReview_btnBacl" text="Back" />
-      <Label layoutX="184.0" layoutY="187.0" text="Question 2:" textFill="#b2b2b2">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="184.0" layoutY="272.0" text="Question 5:" textFill="#b2b2b2">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="184.0" layoutY="216.0" text="Question 3:" textFill="#b2b2b2">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Label layoutX="184.0" layoutY="244.0" text="Question 4:" textFill="#b2b2b2">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="finalTes" editable="false" layoutX="285.0" layoutY="155.0" minHeight="25.0" prefHeight="25.0" prefWidth="151.0" text="#of selected answer" />
-      <JFXTextField fx:id="txtQ2" editable="false" layoutX="285.0" layoutY="185.0" minHeight="25.0" prefHeight="25.0" prefWidth="151.0" text="#of selected answer" />
-      <JFXTextField fx:id="txtQ3" editable="false" layoutX="285.0" layoutY="214.0" minHeight="25.0" prefHeight="25.0" prefWidth="151.0" text="#of selected answer" />
-      <JFXTextField fx:id="txtQ4" editable="false" layoutX="285.0" layoutY="242.0" minHeight="25.0" prefHeight="25.0" prefWidth="151.0" text="#of selected answer" />
-      <JFXTextField fx:id="txtQ5" editable="false" layoutX="285.0" layoutY="270.0" minHeight="25.0" prefHeight="25.0" prefWidth="151.0" text="#of selected answer" />
+      <Button fx:id="finalTestReview_btnBacl" layoutX="433.0" layoutY="336.0" mnemonicParsing="false" text="Back" />
    </children>
    <stylesheets>
       <URL value="@das.css" />
