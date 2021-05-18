@@ -16,7 +16,7 @@
          </image>
       </ImageView>
       <Button layoutX="251.0" layoutY="161.0" mnemonicParsing="false" text="Take a test" />
-      <Label layoutX="226.0" layoutY="80.0" text="Manual Test" textFill="#b2b2b2">
+      <Label layoutX="212.0" layoutY="80.0" text="Student Menu" textFill="#b2b2b2">
          <font>
             <Font size="28.0" />
          </font>
