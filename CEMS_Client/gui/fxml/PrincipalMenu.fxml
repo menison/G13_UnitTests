@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PrincipalMenuController">
+   <children>
+      <ImageView fitHeight="492.0" fitWidth="385.0" layoutX="8.0" layoutY="15.0" opacity="0.04" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo4.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="115.0" layoutY="46.0" style="-fx-text-fill: #B2B2B2;" text="Principal Menu">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+      <JFXButton id="principalMenuReportsButton" fx:id="PrincipalMenu_btnReports" focusTraversable="false" layoutX="121.0" layoutY="137.0" prefHeight="39.0" prefWidth="160.0" text="Reports" />
+      <JFXButton id="principalMenuExtensionButton" fx:id="PrincipalMenu_btnExtensionRequests" focusTraversable="false" layoutX="121.0" layoutY="209.0" text="Extension Requests" />
+      <JFXButton fx:id="PrincipalMenu_btnLogout" focusTraversable="false" layoutX="120.0" layoutY="365.0" prefHeight="39.0" prefWidth="160.0" style="-fx-border-color: red;" text="Logout" />
+   </children>
+</AnchorPane>
