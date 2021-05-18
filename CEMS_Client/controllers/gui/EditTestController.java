@@ -4,6 +4,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -48,7 +50,7 @@ public class EditTestController {
     private JFXTextArea EditTest_teacherCommentsField;
 
     @FXML
-    private JFXTextArea EditTest_studentComentsField;
+    private JFXTextArea EditTest_studentCommentsField;
 
     @FXML
     void EditTest_btnAddQuestionclicked(ActionEvent event) {

@@ -7,7 +7,7 @@ package common;
 public enum Operation {
 	
 	Operation1,
-	Operation2,
+	LoggedOut,
 	Operation3,
 	
 	LastOperation
