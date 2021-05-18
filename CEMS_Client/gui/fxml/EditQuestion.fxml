@@ -20,19 +20,19 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnClose" focusTraversable="false" layoutX="485.0" layoutY="655.0" onAction="#btnCloseClicked" prefHeight="39.0" prefWidth="139.0" text="Close" />
-      <JFXButton fx:id="btnSubmit" focusTraversable="false" layoutX="27.0" layoutY="655.0" onAction="#btnSubmitClicked" prefHeight="39.0" prefWidth="139.0" text="Submit" />
+      <JFXButton fx:id="EditQuestion_btnClose" focusTraversable="false" layoutX="485.0" layoutY="655.0" onAction="#EditQuestion_btnCloseClicked" prefHeight="39.0" prefWidth="139.0" text="Close" />
+      <JFXButton fx:id="EditQuestion_btnSubmit" focusTraversable="false" layoutX="27.0" layoutY="655.0" onAction="#EditQuestion_btnSubmitClicked" prefHeight="39.0" prefWidth="139.0" text="Submit" />
       <Label layoutX="209.0" layoutY="33.0" prefHeight="64.0" prefWidth="217.0" styleClass="login-header" text="Edit Question" textFill="#b2b2b2">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <JFXTextArea fx:id="questionField" focusColor="#ffff8d" labelFloat="true" layoutX="166.0" layoutY="202.0" prefHeight="123.0" prefWidth="319.0" promptText="Question Text*" style="-fx-text-fill: #B2B2B2;" />
-      <JFXTextField fx:id="asnwer1Field" labelFloat="true" layoutX="21.0" layoutY="348.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 1*" />
-      <JFXTextField fx:id="answer2Field" labelFloat="true" layoutX="383.0" layoutY="348.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 2*" />
-      <JFXTextField fx:id="answer3Field" labelFloat="true" layoutX="21.0" layoutY="416.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 3*" />
-      <JFXTextField fx:id="answer4Field" labelFloat="true" layoutX="383.0" layoutY="416.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 4*" />
-      <JFXRadioButton fx:id="checkAnswer1" layoutX="123.0" layoutY="525.0" selected="true" text="Answer 1" textFill="#ffff8d">
+      <JFXTextArea fx:id="EditQuestion_questionField" focusColor="#ffff8d" labelFloat="true" layoutX="166.0" layoutY="202.0" prefHeight="123.0" prefWidth="319.0" promptText="Question Text*" style="-fx-text-fill: #B2B2B2;" />
+      <JFXTextField fx:id="EditQuestion_asnwer1Field" labelFloat="true" layoutX="21.0" layoutY="348.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 1*" />
+      <JFXTextField fx:id="EditQuestion_answer2Field" labelFloat="true" layoutX="383.0" layoutY="348.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 2*" />
+      <JFXTextField fx:id="EditQuestion_answer3Field" labelFloat="true" layoutX="21.0" layoutY="416.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 3*" />
+      <JFXTextField fx:id="EditQuestion_answer4Field" labelFloat="true" layoutX="383.0" layoutY="416.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 4*" />
+      <JFXRadioButton fx:id="EditQuestion_checkAnswer1" layoutX="123.0" layoutY="525.0" selected="true" text="Answer 1" textFill="#ffff8d">
          <toggleGroup>
             <ToggleGroup fx:id="ToggleGroup1" />
          </toggleGroup>
@@ -42,12 +42,12 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <JFXRadioButton fx:id="checkAnswer2" layoutX="237.0" layoutY="525.0" text="Answer 2" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
-      <JFXRadioButton fx:id="checkAnswer3" layoutX="345.0" layoutY="525.0" text="Answer 3" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
-      <JFXRadioButton fx:id="checkAnswer4" layoutX="454.0" layoutY="525.0" text="Answer 4" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
-      <JFXButton fx:id="btnClear" layoutX="116.0" layoutY="563.0" onAction="#btnClearClicked" text="Clear" />
-      <JFXComboBox fx:id="chooseSubjectBox" layoutX="166.0" layoutY="140.0" promptText="Subject*" />
-      <JFXComboBox fx:id="chooseCourseBox" layoutX="401.0" layoutY="140.0" promptText="Course*" />
+      <JFXRadioButton fx:id="EditQuestion_checkAnswer2" layoutX="237.0" layoutY="525.0" text="Answer 2" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
+      <JFXRadioButton fx:id="EditQuestion_checkAnswer3" layoutX="345.0" layoutY="525.0" text="Answer 3" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
+      <JFXRadioButton fx:id="EditQuestion_checkAnswer4" layoutX="454.0" layoutY="525.0" text="Answer 4" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
+      <JFXButton fx:id="EditQuestion_btnClear" layoutX="116.0" layoutY="563.0" onAction="#EditQuestion_btnClearClicked" text="Clear" />
+      <JFXComboBox fx:id="EditQuestion_chooseSubjectBox" layoutX="166.0" layoutY="140.0" promptText="Subject*" />
+      <JFXComboBox fx:id="EditQuestion_chooseCourseBox" layoutX="401.0" layoutY="140.0" promptText="Course*" />
    </children>
    <stylesheets>
       <URL value="@../../../Downloads/das.css" />

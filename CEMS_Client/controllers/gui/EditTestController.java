@@ -15,55 +15,58 @@ public class EditTestController {
     private ImageView studentCommentsField;
 
     @FXML
-    private JFXButton btnAddQuestion;
+    private JFXButton EditTest_btnAddQuestion;
 
     @FXML
-    private JFXButton btnDeleteQuestion;
+    private JFXButton EditTest_btnDeleteQuestion;
 
     @FXML
-    private JFXButton btnClose;
+    private JFXButton EditTest_btnClose;
 
     @FXML
-    private JFXButton btnSubmit;
+    private JFXButton EditTest_btnSubmit;
 
     @FXML
-    private TableView<?> QuestionsTable;
+    private TableView<?> EditTest_tblQuestions;
 
     @FXML
-    private TableColumn<?, ?> QuestionIDCol;
+    private TableColumn<?, ?> EditTest_QuestionIDCol;
 
     @FXML
-    private TableColumn<?, ?> pointsCol;
+    private TableColumn<?, ?> EditTest_pointsCol;
 
     @FXML
-    private JFXTextField DurationField;
+    private JFXTextField EditTest_DurationField;
 
     @FXML
-    private JFXComboBox<?> chooseSubjectBox;
+    private JFXComboBox<?> EditTest_chooseSubjectBox;
 
     @FXML
-    private JFXComboBox<?> chooseCourseBox;
+    private JFXComboBox<?> EditTest_chooseCourseBox;
 
     @FXML
-    private JFXTextArea teacherCommentsField;
+    private JFXTextArea EditTest_teacherCommentsField;
 
     @FXML
-    void btnAddQuestionclicked(ActionEvent event) {
+    private JFXTextArea EditTest_studentComentsField;
+
+    @FXML
+    void EditTest_btnAddQuestionclicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnCloseClicked(ActionEvent event) {
+    void EditTest_btnCloseClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnDeleteQuestionClicked(ActionEvent event) {
+    void EditTest_btnDeleteQuestionClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnSubmitClicked(ActionEvent event) {
+    void EditTest_btnSubmitClicked(ActionEvent event) {
 
     }
 

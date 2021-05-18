@@ -1,4 +1,5 @@
 package gui;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -6,21 +7,21 @@ import javafx.fxml.FXML;
 public class ActivateTestController {
 
     @FXML
-    private JFXTextField pinCodeField;
+    private JFXTextField ActivateTest_pinCodeField;
 
     @FXML
-    private JFXButton btnActivate;
+    private JFXButton ActivateTest_btnActivate;
 
     @FXML
-    private JFXButton btnClose;
+    private JFXButton ActivateTest_btnClose;
 
     @FXML
-    void btnActivateClicked(ActionEvent event) {
+    void ActivateTest_btnActivateClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnCloseClicked(ActionEvent event) {
+    void ActivateTest_btnCloseClicked(ActionEvent event) {
 
     }
 

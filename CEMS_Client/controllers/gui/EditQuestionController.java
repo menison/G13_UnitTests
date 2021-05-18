@@ -11,62 +11,62 @@ import javafx.scene.control.ToggleGroup;
 public class EditQuestionController {
 
     @FXML
-    private JFXButton btnClose;
+    private JFXButton EditQuestion_btnClose;
 
     @FXML
-    private JFXButton btnSubmit;
+    private JFXButton EditQuestion_btnSubmit;
 
     @FXML
-    private JFXTextArea questionField;
+    private JFXTextArea EditQuestion_questionField;
 
     @FXML
-    private JFXTextField asnwer1Field;
+    private JFXTextField EditQuestion_asnwer1Field;
 
     @FXML
-    private JFXTextField answer2Field;
+    private JFXTextField EditQuestion_answer2Field;
 
     @FXML
-    private JFXTextField answer3Field;
+    private JFXTextField EditQuestion_answer3Field;
 
     @FXML
-    private JFXTextField answer4Field;
+    private JFXTextField EditQuestion_answer4Field;
 
     @FXML
-    private JFXRadioButton checkAnswer1;
+    private JFXRadioButton EditQuestion_checkAnswer1;
 
     @FXML
     private ToggleGroup ToggleGroup1;
 
     @FXML
-    private JFXRadioButton checkAnswer2;
+    private JFXRadioButton EditQuestion_checkAnswer2;
 
     @FXML
-    private JFXRadioButton checkAnswer3;
+    private JFXRadioButton EditQuestion_checkAnswer3;
 
     @FXML
-    private JFXRadioButton checkAnswer4;
+    private JFXRadioButton EditQuestion_checkAnswer4;
 
     @FXML
-    private JFXButton btnClear;
+    private JFXButton EditQuestion_btnClear;
 
     @FXML
-    private JFXComboBox<?> chooseSubjectBox;
+    private JFXComboBox<?> EditQuestion_chooseSubjectBox;
 
     @FXML
-    private JFXComboBox<?> chooseCourseBox;
+    private JFXComboBox<?> EditQuestion_chooseCourseBox;
 
     @FXML
-    void btnClearClicked(ActionEvent event) {
+    void EditQuestion_btnClearClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnCloseClicked(ActionEvent event) {
+    void EditQuestion_btnCloseClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnSubmitClicked(ActionEvent event) {
+    void EditQuestion_btnSubmitClicked(ActionEvent event) {
 
     }
 

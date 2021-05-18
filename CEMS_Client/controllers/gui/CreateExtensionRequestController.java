@@ -1,4 +1,3 @@
-package gui;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
@@ -7,36 +6,36 @@ import javafx.scene.control.TableView;
 public class PleaseProvideControllerClassName {
 
     @FXML
-    private JFXButton btnExtend;
+    private JFXButton RequestExtension_btnExtend;
 
     @FXML
-    private JFXButton btnClose;
+    private JFXButton RequestExtension_btnClose;
 
     @FXML
-    private TableView<?> testTable;
+    private TableView<?> RequestExtension_tblTest;
 
     @FXML
-    private TableColumn<?, ?> TestIDCol;
+    private TableColumn<?, ?> RequestExtension_TestIDCol;
 
     @FXML
-    private TableColumn<?, ?> subjectCol;
+    private TableColumn<?, ?> RequestExtension_subjectCol;
 
     @FXML
-    private TableColumn<?, ?> courseCol;
+    private TableColumn<?, ?> RequestExtension_courseCol;
 
     @FXML
-    private TableColumn<?, ?> durationCol;
+    private TableColumn<?, ?> RequestExtension_durationCol;
 
     @FXML
-    private TableColumn<?, ?> composerCol;
+    private TableColumn<?, ?> RequestExtension_composerCol;
 
     @FXML
-    void btnCloseClicked(ActionEvent event) {
+    void RequestExtension_btnCloseClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnExtendClicked(ActionEvent event) {
+    void RequestExtension_btnExtendClicked(ActionEvent event) {
 
     }
 

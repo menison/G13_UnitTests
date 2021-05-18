@@ -1,5 +1,6 @@
-import com.jfoenix.controls.JFXButton;
+package gui;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
@@ -10,58 +11,58 @@ import javafx.scene.control.TableView;
 public class AddTestController {
 
     @FXML
-    private JFXButton btnAddQuestion;
+    private JFXButton CreateTest_btnAddQuestion;
 
     @FXML
-    private JFXButton btnDeleteQuestion;
+    private JFXButton CreateTest_btnDeleteQuestion;
 
     @FXML
-    private JFXButton btnClose;
+    private JFXButton CreateTest_btnClose;
 
     @FXML
-    private JFXButton btnSubmit;
+    private JFXButton CreateTest_btnSubmit;
 
     @FXML
-    private TableView<?> QuestionsTable;
+    private TableView<?> CreateTest_tblQuestions;
 
     @FXML
-    private TableColumn<?, ?> QuestionIDCol;
+    private TableColumn<?, ?> CreateTest_QuestionIDCol;
 
     @FXML
-    private TableColumn<?, ?> PointsCol;
+    private TableColumn<?, ?> CreateTest_PointsCol;
 
     @FXML
-    private JFXTextField DurationField;
+    private JFXTextField CreateTest_DurationField;
 
     @FXML
-    private JFXComboBox<?> chooseSubjectBox;
+    private JFXComboBox<?> CreateTest_chooseSubjectBox;
 
     @FXML
-    private JFXComboBox<?> chooseCourseBox;
+    private JFXComboBox<?> CreateTest_chooseCourseBox;
 
     @FXML
-    private JFXTextArea TeacherCommentsField;
+    private JFXTextArea CreateTest_TeacherCommentsField;
 
     @FXML
-    private JFXTextArea StudentCommentsField;
+    private JFXTextArea CreateTest_StudentCommentsField;
 
     @FXML
-    void btnAddQuestionClicked(ActionEvent event) {
+    void CreateTest_btnAddQuestionClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnCloseClicked(ActionEvent event) {
+    void CreateTest_btnCloseClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnDeleteQuestionClicked(ActionEvent event) {
+    void CreateTest_btnDeleteQuestionClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnSubmitClicked(ActionEvent event) {
+    void CreateTest_btnSubmitClicked(ActionEvent event) {
 
     }
 

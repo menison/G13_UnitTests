@@ -20,26 +20,26 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="btnAddQuestion" focusTraversable="false" layoutX="21.0" layoutY="579.0" onAction="#btnAddQuestionclicked" prefHeight="39.0" prefWidth="139.0" text="Add Question" />
-      <JFXButton fx:id="btnDeleteQuestion" focusTraversable="false" layoutX="165.0" layoutY="579.0" onAction="#btnDeleteQuestionClicked" prefHeight="39.0" prefWidth="139.0" text="Delete Question" />
-      <JFXButton fx:id="btnClose" focusTraversable="false" layoutX="485.0" layoutY="655.0" onAction="#btnCloseClicked" prefHeight="39.0" prefWidth="139.0" text="Close" />
-      <JFXButton fx:id="btnSubmit" focusTraversable="false" layoutX="21.0" layoutY="655.0" onAction="#btnSubmitClicked" prefHeight="39.0" prefWidth="125.0" text="Submit" />
+      <JFXButton fx:id="EditTest_btnAddQuestion" focusTraversable="false" layoutX="21.0" layoutY="579.0" onAction="#EditTest_btnAddQuestionclicked" prefHeight="39.0" prefWidth="139.0" text="Add Question" />
+      <JFXButton fx:id="EditTest_btnDeleteQuestion" focusTraversable="false" layoutX="165.0" layoutY="579.0" onAction="#EditTest_btnDeleteQuestionClicked" prefHeight="39.0" prefWidth="139.0" text="Delete Question" />
+      <JFXButton fx:id="EditTest_btnClose" focusTraversable="false" layoutX="485.0" layoutY="655.0" onAction="#EditTest_btnCloseClicked" prefHeight="39.0" prefWidth="139.0" text="Close" />
+      <JFXButton fx:id="EditTest_btnSubmit" focusTraversable="false" layoutX="21.0" layoutY="655.0" onAction="#EditTest_btnSubmitClicked" prefHeight="39.0" prefWidth="125.0" text="Submit" />
       <Label layoutX="250.0" layoutY="23.0" prefHeight="64.0" prefWidth="150.0" styleClass="login-header" text="Edit Test" textFill="#b2b2b2">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <TableView fx:id="QuestionsTable" layoutX="21.0" layoutY="135.0" prefHeight="432.0" prefWidth="282.0">
+      <TableView fx:id="EditTest_tblQuestions" layoutX="21.0" layoutY="135.0" prefHeight="432.0" prefWidth="282.0">
         <columns>
-          <TableColumn fx:id="QuestionIDCol" prefWidth="123.0" text="Question ID" />
-          <TableColumn fx:id="pointsCol" prefWidth="149.0" text="Points" />
+          <TableColumn fx:id="EditTest_QuestionIDCol" prefWidth="123.0" text="Question ID" />
+          <TableColumn fx:id="EditTest_pointsCol" prefWidth="149.0" text="Points" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="DurationField" labelFloat="true" layoutX="313.0" layoutY="226.0" prefHeight="25.0" prefWidth="150.0" promptText="Test Duration(min)*" />
-      <JFXComboBox fx:id="chooseSubjectBox" layoutX="313.0" layoutY="135.0" promptText="Subject*" />
-      <JFXComboBox fx:id="chooseCourseBox" layoutX="314.0" layoutY="173.0" prefHeight="25.0" prefWidth="86.0" promptText="Course*" />
-      <JFXTextArea fx:id="teacherCommentsField" focusColor="#ffff8d" layoutX="313.0" layoutY="278.0" prefHeight="133.0" prefWidth="319.0" style="-fx-text-fill: #B2B2B2;" text="Teacher Comments" />
-      <JFXTextArea focusColor="#ffff8d" layoutX="313.0" layoutY="433.0" prefHeight="133.0" prefWidth="319.0" style="-fx-text-fill: #B2B2B2;" text="Student Comments" />
+      <JFXTextField fx:id="EditTest_DurationField" labelFloat="true" layoutX="313.0" layoutY="226.0" prefHeight="25.0" prefWidth="150.0" promptText="Test Duration(min)*" />
+      <JFXComboBox fx:id="EditTest_chooseSubjectBox" layoutX="313.0" layoutY="135.0" promptText="Subject*" />
+      <JFXComboBox fx:id="EditTest_chooseCourseBox" layoutX="314.0" layoutY="173.0" prefHeight="25.0" prefWidth="86.0" promptText="Course*" />
+      <JFXTextArea fx:id="EditTest_teacherCommentsField" focusColor="#ffff8d" layoutX="313.0" layoutY="278.0" prefHeight="133.0" prefWidth="319.0" style="-fx-text-fill: #B2B2B2;" text="Teacher Comments" />
+      <JFXTextArea fx:id="EditTest_studentComentsField" focusColor="#ffff8d" layoutX="313.0" layoutY="433.0" prefHeight="133.0" prefWidth="319.0" style="-fx-text-fill: #B2B2B2;" text="Student Comments" />
    </children>
    <stylesheets>
       <URL value="@../../../Downloads/das.css" />

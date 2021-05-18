@@ -1,4 +1,5 @@
 package gui;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
@@ -10,54 +11,62 @@ import javafx.scene.control.ToggleGroup;
 public class CreateQuestionController {
 
     @FXML
-    private JFXButton btnClose;
+    private JFXButton CreateQuestion_btnClose;
 
     @FXML
-    private JFXTextArea questionField;
+    private JFXButton CreateQuestion_btnSubmit;
 
     @FXML
-    private JFXTextField answer1Field;
+    private JFXTextArea CreateQuestion_questionField;
 
     @FXML
-    private JFXTextField answer2Field;
+    private JFXTextField CreateQuestion_answer1Field;
 
     @FXML
-    private JFXTextField answer3Field;
+    private JFXTextField CreateQuestion_answer2Field;
 
     @FXML
-    private JFXTextField answer4Field;
+    private JFXTextField CreateQuestion_answer3Field;
 
     @FXML
-    private JFXRadioButton checkAnswer1;
+    private JFXTextField CreateQuestion_answer4Field;
+
+    @FXML
+    private JFXRadioButton CreateQuestion_checkAnswer1;
 
     @FXML
     private ToggleGroup ToggleGroup1;
 
     @FXML
-    private JFXRadioButton checkAnswer2;
+    private JFXRadioButton CreateQuestion_checkAnswer2;
 
     @FXML
-    private JFXRadioButton checkAnswer3;
+    private JFXRadioButton CreateQuestion_checkAnswer3;
 
     @FXML
-    private JFXRadioButton checkAnswer4;
+    private JFXRadioButton CreateQuestion_checkAnswer4;
 
     @FXML
-    private JFXButton btnClear;
+    private JFXButton CreateQuestion_btnClear;
 
     @FXML
-    private JFXComboBox<?> chooseSubjectBox;
+    private JFXComboBox<?> CreateQuestion_chooseSubjectBox;
 
     @FXML
-    private JFXComboBox<?> chooseCourseBox;
+    private JFXComboBox<?> CreateQuestion_chooseCourseBox;
 
     @FXML
-    void btnClearclicked(ActionEvent event) {
+    void CreateQuestion_btnCloseClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnCloseClicked(ActionEvent event) {
+    void CreateQuestion_btnSubmitClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void btnClearclicked(ActionEvent event) {
 
     }
 

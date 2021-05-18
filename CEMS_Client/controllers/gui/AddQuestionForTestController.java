@@ -1,4 +1,5 @@
 package gui;
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
@@ -8,47 +9,47 @@ import javafx.scene.control.TableView;
 public class AddQuestionForTestController {
 
     @FXML
-    private JFXButton btnSearch;
+    private JFXButton ChooseQuestion_btnSearch;
 
     @FXML
-    private JFXButton btnClose;
+    private JFXButton ChooseQuestion_btnClose;
 
     @FXML
-    private JFXButton btnAdd;
+    private JFXButton ChooseQuestion_btnAdd;
 
     @FXML
-    private TableView<?> questionTable;
+    private TableView<?> ChooseQuestion_tblQuestion;
 
     @FXML
-    private TableColumn<?, ?> qustionIDcol;
+    private TableColumn<?, ?> ChooseQuestion_qustionIDcol;
 
     @FXML
-    private TableColumn<?, ?> subjectCol;
+    private TableColumn<?, ?> ChooseQuestion_subjectCol;
 
     @FXML
-    private TableColumn<?, ?> CourseCol;
+    private TableColumn<?, ?> ChooseQuestion_CourseCol;
 
     @FXML
-    private TableColumn<?, ?> composerCol;
+    private TableColumn<?, ?> ChooseQuestion_composerCol;
 
     @FXML
-    private JFXTextField courseNameField;
+    private JFXTextField ChooseQuestion_courseNameField;
 
     @FXML
-    private JFXTextField pointsField;
+    private JFXTextField ChooseQuestion_pointsField;
 
     @FXML
-    void btnAddClicked(ActionEvent event) {
+    void ChooseQuestion_btnAddClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnCloseClicked(ActionEvent event) {
+    void ChooseQuestion_btnCloseClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void btnSearchClicked(ActionEvent event) {
+    void ChooseQuestion_btnSearchClicked(ActionEvent event) {
 
     }
 
