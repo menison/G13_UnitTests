@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.createExtensionReController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.CreateExtensionRequestController">
    <children>
       <JFXButton fx:id="RequestExtension_btnExtend" focusTraversable="false" layoutX="26.0" layoutY="439.0" onAction="#Extend" prefHeight="39.0" prefWidth="117.0" text="Extend" />
       <JFXButton fx:id="RequestExtension_btnClose" focusTraversable="false" layoutX="549.0" layoutY="439.0" onAction="#close" prefHeight="39.0" prefWidth="87.0" text="Close" />
