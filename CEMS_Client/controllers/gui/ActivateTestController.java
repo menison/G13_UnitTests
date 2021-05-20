@@ -2,8 +2,6 @@ package gui;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 public class ActivateTestController {
@@ -18,12 +16,12 @@ public class ActivateTestController {
     private JFXButton ActivateTest_btnClose;
 
     @FXML
-    void ActivateTest_btnActivateClicked(ActionEvent event) {
+    void Activate(ActionEvent event) {
 
     }
 
     @FXML
-    void ActivateTest_btnCloseClicked(ActionEvent event) {
+    void close(ActionEvent event) {
 
     }
 

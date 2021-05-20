@@ -1,7 +1,6 @@
 package gui;
 
 import com.jfoenix.controls.JFXButton;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -33,12 +32,12 @@ public class CreateExtensionRequestController {
     private TableColumn<?, ?> RequestExtension_composerCol;
 
     @FXML
-    void RequestExtension_btnCloseClicked(ActionEvent event) {
+    void Extend(ActionEvent event) {
 
     }
 
     @FXML
-    void RequestExtension_btnExtendClicked(ActionEvent event) {
+    void close(ActionEvent event) {
 
     }
 

@@ -5,8 +5,6 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 
@@ -58,17 +56,17 @@ public class EditQuestionController {
     private JFXComboBox<?> EditQuestion_chooseCourseBox;
 
     @FXML
-    void EditQuestion_btnClearClicked(ActionEvent event) {
+    void clear(ActionEvent event) {
 
     }
 
     @FXML
-    void EditQuestion_btnCloseClicked(ActionEvent event) {
+    void close(ActionEvent event) {
 
     }
 
     @FXML
-    void EditQuestion_btnSubmitClicked(ActionEvent event) {
+    void submitQuestion(ActionEvent event) {
 
     }
 

@@ -2,8 +2,6 @@ package gui;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -41,17 +39,17 @@ public class AddQuestionForTestController {
     private JFXTextField ChooseQuestion_pointsField;
 
     @FXML
-    void ChooseQuestion_btnAddClicked(ActionEvent event) {
+    void AddQuestion(ActionEvent event) {
 
     }
 
     @FXML
-    void ChooseQuestion_btnCloseClicked(ActionEvent event) {
+    void close(ActionEvent event) {
 
     }
 
     @FXML
-    void ChooseQuestion_btnSearchClicked(ActionEvent event) {
+    void search(ActionEvent event) {
 
     }
 

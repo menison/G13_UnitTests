@@ -19,9 +19,9 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="ChooseQuestion_btnSearch" focusTraversable="false" layoutX="312.0" layoutY="180.0" onAction="#ChooseQuestion_btnSearchClicked" prefHeight="39.0" prefWidth="125.0" text="Search" />
-      <JFXButton fx:id="ChooseQuestion_btnClose" focusTraversable="false" layoutX="549.0" layoutY="646.0" onAction="#ChooseQuestion_btnCloseClicked" prefHeight="39.0" prefWidth="64.0" text="Close" />
-      <JFXButton fx:id="ChooseQuestion_btnAdd" layoutX="31.0" layoutY="646.0" onAction="#ChooseQuestion_btnAddClicked" prefHeight="39.0" prefWidth="64.0" text="Add" />
+      <JFXButton fx:id="ChooseQuestion_btnSearch" focusTraversable="false" layoutX="312.0" layoutY="180.0" onAction="#search" prefHeight="39.0" prefWidth="125.0" text="Search" />
+      <JFXButton fx:id="ChooseQuestion_btnClose" focusTraversable="false" layoutX="549.0" layoutY="646.0" onAction="#close" prefHeight="39.0" prefWidth="64.0" text="Close" />
+      <JFXButton fx:id="ChooseQuestion_btnAdd" layoutX="31.0" layoutY="646.0" onAction="#AddQuestion" prefHeight="39.0" prefWidth="64.0" text="Add" />
       <Label layoutX="183.0" layoutY="23.0" prefHeight="64.0" prefWidth="285.0" styleClass="login-header" text="Choose Question" textFill="#b2b2b2">
          <font>
             <Font name="System Bold" size="26.0" />

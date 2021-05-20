@@ -20,8 +20,8 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="EditQuestion_btnClose" focusTraversable="false" layoutX="485.0" layoutY="655.0" onAction="#EditQuestion_btnCloseClicked" prefHeight="39.0" prefWidth="139.0" text="Close" />
-      <JFXButton fx:id="EditQuestion_btnSubmit" focusTraversable="false" layoutX="27.0" layoutY="655.0" onAction="#EditQuestion_btnSubmitClicked" prefHeight="39.0" prefWidth="139.0" text="Submit" />
+      <JFXButton fx:id="EditQuestion_btnClose" focusTraversable="false" layoutX="485.0" layoutY="655.0" onAction="#close" prefHeight="39.0" prefWidth="139.0" text="Close" />
+      <JFXButton fx:id="EditQuestion_btnSubmit" focusTraversable="false" layoutX="27.0" layoutY="655.0" onAction="#submitQuestion" prefHeight="39.0" prefWidth="139.0" text="Submit" />
       <Label layoutX="209.0" layoutY="33.0" prefHeight="64.0" prefWidth="217.0" styleClass="login-header" text="Edit Question" textFill="#b2b2b2">
          <font>
             <Font name="System Bold" size="26.0" />
@@ -45,7 +45,7 @@
       <JFXRadioButton fx:id="EditQuestion_checkAnswer2" layoutX="237.0" layoutY="525.0" text="Answer 2" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
       <JFXRadioButton fx:id="EditQuestion_checkAnswer3" layoutX="345.0" layoutY="525.0" text="Answer 3" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
       <JFXRadioButton fx:id="EditQuestion_checkAnswer4" layoutX="454.0" layoutY="525.0" text="Answer 4" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
-      <JFXButton fx:id="EditQuestion_btnClear" layoutX="116.0" layoutY="563.0" onAction="#EditQuestion_btnClearClicked" text="Clear" />
+      <JFXButton fx:id="EditQuestion_btnClear" layoutX="116.0" layoutY="563.0" onAction="#clear" text="Clear" />
       <JFXComboBox fx:id="EditQuestion_chooseSubjectBox" layoutX="166.0" layoutY="140.0" promptText="Subject*" />
       <JFXComboBox fx:id="EditQuestion_chooseCourseBox" layoutX="401.0" layoutY="140.0" promptText="Course*" />
    </children>
