@@ -69,13 +69,11 @@ public class ManualTestController {
 		try {
 			root = loader.load();
 			Scene scene = new Scene(root);
+			primaryStage.setTitle("Manual Test");
+			primaryStage.setScene(scene);
+			primaryStage.show();
 		} catch (IOException e) {
-			
 			e.printStackTrace();
 		}
-		
-		primaryStage.setTitle("Manual Test");
-		primaryStage.setScene(scene);
-		primaryStage.show();
 	}
 }
