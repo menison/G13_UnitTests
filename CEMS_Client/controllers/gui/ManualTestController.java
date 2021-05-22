@@ -1,6 +1,7 @@
 package gui;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -11,18 +12,19 @@ import common.Operation;
 import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
-public class ManualTestController implements Initializable {
+public class ManualTestController {
 
 	private File SolutionFile;
-	
-	@FXML
-	private ImageView cemsLogo;
 
 	@FXML
 	private Button manualTest_btnDownload;
@@ -41,8 +43,9 @@ public class ManualTestController implements Initializable {
 
 	@FXML
     void downloadTest(ActionEvent event) {
+		Stage stage = new Stage();
 		FileChooser fc = new FileChooser();
-		File f = fc.showSaveDialog(null);
+		File f = fc.showSaveDialog(stage);
 		ClientUI.chat.accept(new Message(Operation.DownloadManualTest, (Object)f));
 		
 		
@@ -59,10 +62,20 @@ public class ManualTestController implements Initializable {
 		ClientUI.chat.accept(new Message(Operation.UploadManualTest, (Object)SolutionFile));
 	}
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void start(Stage primaryStage) {
+		Pane root;
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/fxml/ManualTest.fxml"));
+		try {
+			root = loader.load();
+			Scene scene = new Scene(root);
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 		
-		
+		primaryStage.setTitle("Manual Test");
+		primaryStage.setScene(scene);
+		primaryStage.show();
 	}
-
 }

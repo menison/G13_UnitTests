@@ -6,12 +6,13 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TestQuestionMiddleController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TestQuestionMiddleController">
    <children>
       <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -29,10 +30,13 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <RadioButton fx:id="middleQuestion_radioAns1" layoutX="66.0" layoutY="200.0" mnemonicParsing="false" selected="true" text="Answer 1" textFill="#b2b2b2" />
-      <RadioButton fx:id="middleQuestion_radioAns2" layoutX="66.0" layoutY="226.0" mnemonicParsing="false" text="Answer 2" textFill="#b2b2b2" />
-      <RadioButton fx:id="middleQuestion_radioAns4" layoutX="66.0" layoutY="281.0" mnemonicParsing="false" text="Answer 4" textFill="#b2b2b2" />
-      <RadioButton fx:id="middleQuestion_radioAns3" layoutX="66.0" layoutY="253.0" mnemonicParsing="false" text="Answer 3" textFill="#b2b2b2" />
+      <RadioButton fx:id="middleQuestion_radioAns1" layoutX="66.0" layoutY="200.0" mnemonicParsing="false" selected="true" text="Answer 1" textFill="#b2b2b2">
+         <toggleGroup>
+            <ToggleGroup fx:id="toggleGroup" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="middleQuestion_radioAns2" layoutX="66.0" layoutY="226.0" mnemonicParsing="false" text="Answer 2" textFill="#b2b2b2" toggleGroup="$toggleGroup" />
+      <RadioButton fx:id="middleQuestion_radioAns4" layoutX="66.0" layoutY="281.0" mnemonicParsing="false" text="Answer 4" textFill="#b2b2b2" toggleGroup="$toggleGroup" />
+      <RadioButton fx:id="middleQuestion_radioAns3" layoutX="66.0" layoutY="253.0" mnemonicParsing="false" text="Answer 3" textFill="#b2b2b2" toggleGroup="$toggleGroup" />
       <ProgressBar fx:id="middleQuestion_progressBar" layoutX="200.0" layoutY="41.0" prefWidth="200.0" progress="0.54" />
       <ProgressIndicator fx:id="middleQuestion_pieProgressIndic" layoutX="14.0" layoutY="345.0" progress="0.83" />
       <Label layoutX="52.0" layoutY="347.0" text="Time Elapsed:" textFill="#b2b2b2">

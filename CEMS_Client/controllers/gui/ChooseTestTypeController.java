@@ -22,31 +22,16 @@ public class ChooseTestTypeController {
 
 	@FXML
 	void openCompTest(ActionEvent event) {
-		openNewScene("/fxml/ManualTest.fxml", event);
+		openNewScene("/fxml/EnterStudentId.fxml", event);
 	}
 
 	@FXML
 	void openManualTest(ActionEvent event) {
-		openNewScene("/fxml/ManualTest.fxml", event);
-	}
-
-	private void openNewScene(String FXML, ActionEvent event) {
-
-		FXMLLoader loader = new FXMLLoader();
-		((Node) event.getSource()).getScene().getWindow().hide();
+		ManualTestController mtc = new ManualTestController();
 		Stage primaryStage = new Stage();
-		primaryStage.setResizable(false);
-		primaryStage.setOnCloseRequest(e -> e.consume());
-		Pane root;
-		try {
-			root = loader.load(getClass().getResource(FXML).openStream());
-			Scene scene = new Scene(root);
-			primaryStage.setTitle("GoNature");
-			primaryStage.setScene(scene);
-			primaryStage.show();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		mtc.start(primaryStage);
 	}
+
+
 
 }

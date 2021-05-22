@@ -25,19 +25,19 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button fx:id="firstQuestion_btnNext" focusTraversable="false" layoutX="510.0" layoutY="336.0" mnemonicParsing="false" text="Next" />
+      <Button fx:id="firstQuestion_btnNext" focusTraversable="false" layoutX="510.0" layoutY="336.0" mnemonicParsing="false" onAction="#goNextQuestion" text="Next" />
       <Label layoutX="66.0" layoutY="161.0" text="The question text will be entered here:" textFill="#b2b2b2">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <RadioButton fx:id="firstQuestion_radioAns1" layoutX="66.0" layoutY="200.0" mnemonicParsing="false" text="Answer 1" textFill="#b2b2b2">
+      <RadioButton fx:id="firstQuestion_radioAns1" layoutX="66.0" layoutY="200.0" mnemonicParsing="false" selected="true" text="Answer 1" textFill="#b2b2b2">
          <toggleGroup>
             <ToggleGroup fx:id="toggleGroup1" />
          </toggleGroup></RadioButton>
       <RadioButton fx:id="firstQuestion_radioAns2" layoutX="66.0" layoutY="226.0" mnemonicParsing="false" text="Answer 2" textFill="#b2b2b2" toggleGroup="$toggleGroup1" />
       <RadioButton fx:id="firstQuestion_radioAns4" layoutX="66.0" layoutY="281.0" mnemonicParsing="false" text="Answer 4" textFill="#b2b2b2" toggleGroup="$toggleGroup1" />
-      <RadioButton fx:id="firstQuestion_radioAns3" layoutX="66.0" layoutY="253.0" mnemonicParsing="false" selected="true" text="Answer 3" textFill="#b2b2b2" toggleGroup="$toggleGroup1" />
+      <RadioButton fx:id="firstQuestion_radioAns3" layoutX="66.0" layoutY="253.0" mnemonicParsing="false" text="Answer 3" textFill="#b2b2b2" toggleGroup="$toggleGroup1" />
       <ProgressBar fx:id="firstQuestion_progressBar" layoutX="200.0" layoutY="41.0" prefWidth="200.0" progress="0.0" />
       <ProgressIndicator fx:id="firstQuestion_pieProgressIndicator" layoutX="14.0" layoutY="345.0" progress="0.0" />
       <Label layoutX="52.0" layoutY="347.0" text="Time Elapsed:" textFill="#b2b2b2">

@@ -13,7 +13,7 @@ public abstract class AbstractController {
 	public static DataManager dataManager = DataManager.getDataManager();
 
 	public AbstractController() {
-		// TODO Auto-generated constructor stub
+	
 	}
 	
 	public static void SendToServer(Message msg) { 
