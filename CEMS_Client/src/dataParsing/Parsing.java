@@ -13,7 +13,7 @@ public class Parsing {
 		
 		switch (receivedMessage.getOperationType()) {
 		
-		case Zibi:
+		case Operation1:
 			
 			break;
 

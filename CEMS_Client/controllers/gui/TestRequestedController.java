@@ -27,7 +27,7 @@ public class TestRequestedController {
 		//Parent root = FXMLLoader.load(getClass().getResource("TestRequested.fxml"));
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("TestRequested.fxml"));
+		loader.setLocation(getClass().getResource("/fxml/TestRequested.fxml"));
 		root = loader.load();
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("Test Requested");
