@@ -20,8 +20,8 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <Button fx:id="chooseTestType_btnManual" focusTraversable="false" layoutX="161.0" layoutY="131.0" mnemonicParsing="false" text="Manual" />
-      <Button fx:id="chooseTestType_btnComput" focusTraversable="false" layoutX="138.0" layoutY="196.0" mnemonicParsing="false" text="Computerized" />
+      <Button fx:id="chooseTestType_btnManual" focusTraversable="false" layoutX="161.0" layoutY="131.0" mnemonicParsing="false" onAction="#openManualTest" text="Manual" />
+      <Button fx:id="chooseTestType_btnComput" focusTraversable="false" layoutX="138.0" layoutY="196.0" mnemonicParsing="false" onAction="#openCompTest" text="Computerized" />
    </children>
    <stylesheets>
       <URL value="@das.css" />

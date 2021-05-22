@@ -9,7 +9,7 @@ public enum Operation {
 	Operation1,
 	LoggedOut,
 	Operation3,
-	
+	SendTestCode,
 	LastOperation
 
 }
