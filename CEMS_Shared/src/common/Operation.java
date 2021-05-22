@@ -10,6 +10,8 @@ public enum Operation {
 	LoggedOut,
 	Operation3,
 	SendTestCode,
+	DownloadManualTest,
+	UploadManualTest,
 	LastOperation
 
 }
