@@ -1,6 +1,8 @@
 package gui;
 
 import com.jfoenix.controls.JFXTextField;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
@@ -37,4 +39,9 @@ public class TestQuestionFirstController {
     @FXML
     private JFXTextField firstQuestion_txtElapsedTime;
 
+    @FXML
+    void goNextQuestion(ActionEvent event) {
+
+    	
+    }
 }

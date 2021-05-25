@@ -1,9 +1,12 @@
 package gui;
 
 import java.io.IOException;
+import java.util.Timer;
 
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,18 +21,6 @@ public class EnterStudentIdController {
 
     @FXML
     private JFXTextField testInfo_txtEnterUserID;
-
-    @FXML
-    private JFXTextField testInfo_txtStartTime;
-
-    @FXML
-    private JFXTextField testInfo_txtEndTime;
-
-    @FXML
-    private JFXTextField testInfo_txtEndTimeEQuarter;
-
-    @FXML
-    private JFXTextField testInfo_txtEndTimeEHalf;
 
     @FXML
     private JFXTextField testInfo_txtContactMail;
@@ -51,6 +42,13 @@ public class EnterStudentIdController {
 			e.printStackTrace();
 		}
 	}
-	
+
+    @FXML
+    void StartTest(ActionEvent event) {
+    //create executed test instance
+    	Timer.
+    	// open question form according to the kitzon case
+    	
+    }
 	
 }

@@ -24,7 +24,7 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button fx:id="lastQuestion_finishTest" focusTraversable="false" layoutX="510.0" layoutY="336.0" mnemonicParsing="false" text="Finish" />
+      <Button fx:id="lastQuestion_finishTest" focusTraversable="false" layoutX="510.0" layoutY="336.0" mnemonicParsing="false" onAction="#reviewBeforeFinish" text="Finish" />
       <Label layoutX="66.0" layoutY="161.0" text="The question text will be entered here:" textFill="#b2b2b2">
          <font>
             <Font size="15.0" />
@@ -42,7 +42,7 @@
          </font>
       </Label>
       <JFXTextField fx:id="lastQuestion_timeElapsed" editable="false" layoutX="142.0" layoutY="337.0" prefHeight="37.0" prefWidth="51.0" text="#min" />
-      <Button fx:id="lastQuestion_back" layoutX="441.0" layoutY="336.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="lastQuestion_back" layoutX="441.0" layoutY="336.0" mnemonicParsing="false" onAction="#backToPrevQuestion" text="Back" />
    </children>
    <stylesheets>
       <URL value="@das.css" />

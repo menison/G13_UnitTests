@@ -1,5 +1,9 @@
 package gui;
 
+import application.ClientUI;
+import common.Operation;
+import entities.Message;
+import entities.Test;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,25 +17,25 @@ import javafx.stage.Stage;
 public class TestTableController {
 
     @FXML
-    private TableView<?> myTestsTable_tblTests;
+    private TableView<Test> myTestsTable_tblTests;
 
     @FXML
-    private TableColumn<?, ?> myTests_colTestID;
+    private TableColumn<Test, String> myTests_colTestID;
 
     @FXML
-    private TableColumn<?, ?> myTests_colTestCode;
+    private TableColumn<Test, String> myTests_colTestCode;
 
     @FXML
-    private TableColumn<?, ?> myTests_colDate;
+    private TableColumn<Test, String> myTests_colDate;
 
     @FXML
-    private TableColumn<?, ?> myTests_colAllocDuration;
+    private TableColumn<Test, Integer> myTests_colAllocDuration;
 
     @FXML
-    private TableColumn<?, ?> myTests_colActualDuration;
+    private TableColumn<Test, Integer> myTests_colActualDuration;
 
     @FXML
-    private TableColumn<?, ?> myTests_colGrade;
+    private TableColumn<Test, Integer> myTests_colGrade;
 
     @FXML
     private Button myTestsTable_btnBack;
@@ -56,14 +60,14 @@ public class TestTableController {
     }
     
     public void start(Stage primaryStage) throws Exception {	
-		//Parent root = FXMLLoader.load(getClass().getResource("TestRequested.fxml"));
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("TestTable.fxml"));
+		loader.setLocation(getClass().getResource("/fxml/TestTable.fxml"));
 		root = loader.load();
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("Test Table");
 		primaryStage.setScene(scene);
-		primaryStage.show();	
+		primaryStage.show();
+		ClientUI.chat.accept(new Message(Operation.GetTestTable));
 	}
 }

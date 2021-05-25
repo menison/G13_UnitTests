@@ -12,7 +12,6 @@ public class Test {
 	private String commentsForTeachers;
 	private String currExecutionCode;
 	private HashMap <Question, Integer> pointDistribution;
-	private int NumberOfQuestion;
 	private boolean isActivated;
 
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
@@ -28,7 +27,42 @@ public class Test {
 		this.pointDistribution = pointDistribution;
 		this.isActivated = isActivated;
 	}
-	
+
+	public int howManyQuestions() {
+		return questions.size();
+	}
+
+	public ArrayList<Question> getQuestions() {
+		return questions;
+	}
+
+	public String getTestID() {
+		return testID;
+	}
+
+	public int getAllocatedDuration() {
+		return allocatedDuration;
+	}
+
+	public String getCommentsForStudents() {
+		return commentsForStudents;
+	}
+
+	public String getCommentsForTeachers() {
+		return commentsForTeachers;
+	}
+
+	public String getCurrExecutionCode() {
+		return currExecutionCode;
+	}
+
+	public HashMap<Question, Integer> getPointDistribution() {
+		return pointDistribution;
+	}
+
+	public boolean isActivated() {
+		return isActivated;
+	}
 	
 	
 }

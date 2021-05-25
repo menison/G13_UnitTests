@@ -1,6 +1,8 @@
 package gui;
 
 import com.jfoenix.controls.JFXTextField;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressBar;
@@ -35,5 +37,15 @@ public class TestQuestionLastController {
 
     @FXML
     private Button lastQuestion_back;
+
+    @FXML
+    void backToPrevQuestion(ActionEvent event) {
+
+    }
+
+    @FXML
+    void reviewBeforeFinish(ActionEvent event) {
+
+    }
 
 }
