@@ -42,7 +42,8 @@ public class Query {
 		try {
 			StatementOfResultSet = connection.createStatement();
 			Resultset = StatementOfResultSet.executeQuery(query);
-
+			//Resultset.next();
+			//System.out.println(Resultset.getString(1));
 			return Resultset;
 		} catch (SQLException e) {
 			EchoServer.SC.addToTextArea("ERROR--> geting data from server");

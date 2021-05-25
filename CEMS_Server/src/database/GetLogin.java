@@ -32,7 +32,7 @@ public class GetLogin {
 			returnMessage=new Message(Operation.Login,Permission.NULL);
 		}
 		else {
-			switch(resultSet.getString(6)) {
+			switch(resultSet.getString(7)) {
 			case "Student":
 				returnMessage=studentLoginData();
 				break;
@@ -56,8 +56,8 @@ public class GetLogin {
 	public static Message teacherLoginData() throws SQLException {
 		Teacher teacher;
 		Message returnMessage;
-		teacher=new Teacher(resultSet.getString(0),resultSet.getString(1),resultSet.getString(2),resultSet.getString(3)
-				,resultSet.getString(4),resultSet.getString(5),resultSet.getString(6));
+		teacher=new Teacher(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4)
+				,resultSet.getString(5),resultSet.getString(6),resultSet.getString(7));
 		resultSet.close();
 		if(usersloggedIn.contains(teacher.getPersonalSID())) {
 			return new Message(Operation.Login,Permission.AlreadyLoggedIn);
