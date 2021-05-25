@@ -56,10 +56,9 @@ public class TestTableController {
     }
     
     public void start(Stage primaryStage) throws Exception {	
-		//Parent root = FXMLLoader.load(getClass().getResource("TestRequested.fxml"));
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("TestTable.fxml"));
+		loader.setLocation(getClass().getResource("/fxml/TestTable.fxml"));
 		root = loader.load();
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("Test Table");

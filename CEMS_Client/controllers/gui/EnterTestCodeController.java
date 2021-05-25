@@ -7,7 +7,11 @@ import common.Operation;
 import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class EnterTestCodeController {
 
@@ -25,5 +29,16 @@ public class EnterTestCodeController {
     void SendTestCode(ActionEvent event) {
     	ClientUI.chat.accept(new Message(Operation.SendTestCode, (Object)getTestCode()));
     }
+    
+    public void start(Stage primaryStage) throws Exception {	
+    	Pane root;
+    	FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/fxml/EnterTestCode.fxml"));
+		root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setTitle("Enter Test Code");
+		primaryStage.setScene(scene);
+		primaryStage.show();	
+	}
     
 }
