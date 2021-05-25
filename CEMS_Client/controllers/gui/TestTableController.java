@@ -1,5 +1,8 @@
 package gui;
 
+import application.ClientUI;
+import common.Operation;
+import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -63,6 +66,7 @@ public class TestTableController {
 		Scene scene = new Scene(root);
 		primaryStage.setTitle("Test Table");
 		primaryStage.setScene(scene);
-		primaryStage.show();	
+		primaryStage.show();
+		ClientUI.chat.accept(new Message(Operation.GetTestTable));
 	}
 }
