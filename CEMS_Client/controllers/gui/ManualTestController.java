@@ -2,22 +2,16 @@ package gui;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXTextField;
-
 import application.ClientUI;
 import common.Operation;
 import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;

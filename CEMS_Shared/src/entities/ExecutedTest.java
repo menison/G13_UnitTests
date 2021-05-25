@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ExecutedTest extends Test {
+	
+	private String executionCodePK = null;
+	
 	public ExecutedTest(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
 			String commentsForTeachers, String currExecutionCode, HashMap<Question, Integer> pointDistribution,
 			boolean isActivated) {
@@ -11,7 +14,18 @@ public class ExecutedTest extends Test {
 				pointDistribution, isActivated);
 	}
 
-	private String executionCodePK;
+	public String getExecutionCodePK() {
+		return executionCodePK;
+	}
+
+	public void setExecutionCodePK(String executionCodePK) {
+		this.executionCodePK = executionCodePK;
+	}
+
+	
+	
+
+	
 
 
 }
