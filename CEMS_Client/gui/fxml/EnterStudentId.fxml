@@ -22,53 +22,24 @@
             <Font size="28.0" />
          </font>
       </Label>
-      <Button fx:id="testInfo_btnStartTest" focusTraversable="false" layoutX="195.0" layoutY="480.0" mnemonicParsing="false" text="Start Test" />
-      <JFXTextField fx:id="testInfo_txtEnterUserID" focusTraversable="false" labelFloat="true" layoutX="250.0" layoutY="411.0" promptText="Enter ID" />
-      <Label layoutX="14.0" layoutY="417.0" text="Enter your ID to start the test:" textFill="#b2b2b2">
+      <Button fx:id="testInfo_btnStartTest" focusTraversable="false" layoutX="195.0" layoutY="480.0" mnemonicParsing="false" onAction="#StartTest" text="Start Test" />
+      <JFXTextField fx:id="testInfo_txtEnterUserID" focusTraversable="false" labelFloat="true" layoutX="249.0" layoutY="425.0" promptText="Enter ID" />
+      <Label layoutX="14.0" layoutY="431.0" text="Enter your ID to start the test:" textFill="#b2b2b2">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="36.0" layoutY="81.0" text="Start time:" textFill="#b2b2b2">
+      <Label layoutX="59.0" layoutY="104.0" prefHeight="25.0" prefWidth="366.0" text="For any questions, contact the teacher via mail:" textFill="#b2b2b2">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Label layoutX="34.0" layoutY="119.0" text="End time:" textFill="#b2b2b2">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="34.0" layoutY="159.0" text="End time with 25% extension:" textFill="#b2b2b2">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="34.0" layoutY="200.0" text="End time with 50% extension:" textFill="#b2b2b2">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Label layoutX="34.0" layoutY="239.0" text="Contact email:" textFill="#b2b2b2">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <JFXTextField fx:id="testInfo_txtStartTime" editable="false" focusTraversable="false" layoutX="371.0" layoutY="82.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="59.0" text="HH:MM" />
-      <JFXTextField fx:id="testInfo_txtEndTime" editable="false" focusTraversable="false" layoutX="371.0" layoutY="119.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="59.0" text="HH:MM" />
-      <JFXTextField fx:id="testInfo_txtEndTimeEQuarter" editable="false" focusTraversable="false" layoutX="371.0" layoutY="159.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="59.0" text="HH:MM" />
-      <JFXTextField fx:id="testInfo_txtEndTimeEHalf" editable="false" focusTraversable="false" layoutX="371.0" layoutY="201.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="59.0" text="HH:MM" />
-      <JFXTextField fx:id="testInfo_txtContactMail" editable="false" focusTraversable="false" layoutX="148.0" layoutY="240.0" minHeight="25.0" prefHeight="25.0" prefWidth="147.0" text="name@domain.com" />
-      <JFXTextArea fx:id="testInfo_txtArea_testInstruc" focusTraversable="false" layoutX="101.0" layoutY="280.0" prefHeight="93.0" prefWidth="305.0" style="-fx-border-color: #4d4d4d; -fx-border-width: 2px;" unFocusColor="#4d4d4d00">
+      <JFXTextField fx:id="testInfo_txtContactMail" editable="false" focusTraversable="false" layoutX="162.0" layoutY="146.0" minHeight="25.0" prefHeight="25.0" prefWidth="147.0" text="name@domain.com" />
+      <JFXTextArea fx:id="testInfo_txtArea_testInstruc" focusTraversable="false" layoutX="40.0" layoutY="184.0" prefHeight="217.0" prefWidth="415.0" style="-fx-border-color: #4d4d4d; -fx-border-width: 2px;" unFocusColor="#4d4d4d00">
          <font>
             <Font size="27.0" />
          </font>
       </JFXTextArea>
-      <Label layoutX="167.0" layoutY="312.0" text="Additional Test Info" textFill="#ffff8d">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
    </children>
    <stylesheets>
       <URL value="@das.css" />

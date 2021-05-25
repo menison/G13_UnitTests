@@ -1,5 +1,6 @@
 package cachedUserData;
 
+import entities.Test;
 import entities.User;
 
 /**
@@ -9,6 +10,8 @@ import entities.User;
  */
 public class DataManager {
 	private static DataManager instance = null;
+
+	private Test testInExecution;
 	private User currentUser;
 	private boolean PreOrder;
 	private double GlobalPrice;
@@ -55,6 +58,10 @@ public class DataManager {
 	public void clearAll() {
 		this.currentUser = null;
 		this.PreOrder = false;
+	}
+	
+	public Test getTestInExecution() {
+		return testInExecution;
 	}
 	
 }
