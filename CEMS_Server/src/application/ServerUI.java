@@ -1,5 +1,7 @@
 package application;
 
+import gui.ServerController;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -10,7 +12,7 @@ import javafx.stage.Stage;
  */
 public class ServerUI extends Application {
 
-	final public static int DEFAULT_PORT = 5555;
+	final public static int DEFAULT_PORT = 5556;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {

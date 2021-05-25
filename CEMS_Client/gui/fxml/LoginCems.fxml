@@ -23,7 +23,7 @@
                </font>
             </Label>
             <JFXButton fx:id="login_btnLogin" focusTraversable="false" layoutX="70.0" layoutY="299.0" onAction="#login" prefHeight="39.0" prefWidth="71.0" text="Login" />
-            <JFXButton fx:id="login_btnCancel" focusTraversable="false" layoutX="182.0" layoutY="299.0" text="Cancel" />
+            <JFXButton fx:id="login_btnCancel" focusTraversable="false" layoutX="182.0" layoutY="299.0" onAction="#Exit" text="Cancel" />
             <FontAwesomeIconView glyphName="KEY" layoutX="21.0" layoutY="240.0" size="30.0" />
             <FontAwesomeIconView glyphName="USER" layoutX="24.0" layoutY="166.0" size="30.0" />
             <FontAwesomeIconView glyphName="LOCK" size="30.0" text="" wrappingWidth="15.0" />

@@ -1,4 +1,4 @@
-package logic;
+package logics;
 
 
 import ocsf.server.ConnectionToClient;

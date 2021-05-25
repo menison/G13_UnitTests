@@ -27,6 +27,10 @@ public class Message implements Serializable {
 		this.Operation = operationType;
 		this.obj = obj;
 	}
+	public Message(Operation operationType,Permission permission) {
+		this.Operation=operationType;
+		this.permission=permission;
+	}
 
 	public Message(Operation operationType) {
 		this.Operation = operationType;
@@ -40,11 +44,11 @@ public class Message implements Serializable {
 		this.Operation = operationType;
 	}
 
-	public Permission getPermesion() {
+	public Permission getPermission() {
 		return permission;
 	}
 
-	public void setPermesion(Permission permesion) {
+	public void setPermission(Permission permesion) {
 		permission = permesion;
 	}
 

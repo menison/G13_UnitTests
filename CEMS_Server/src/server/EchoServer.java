@@ -2,6 +2,8 @@ package server;
 
 import logics.*;
 
+import java.sql.SQLException;
+
 import entities.Message;
 
 import gui.ServerController;
@@ -25,11 +27,11 @@ public class EchoServer extends AbstractServer {
 	
 	/**
 	 *Receives a message from the client and converts it to a message that the server can read
+	 * @throws SQLException 
 	 */
-	public void handleMessageFromClient(Object msg, ConnectionToClient client) {
+	public void handleMessageFromClient(Object msg, ConnectionToClient client)  {
 		LogicController.UpdateClientTable(msg, client);
 		returnMessage = DataParsing.Start(msg);
-		
 		sendToAllClients(returnMessage);
 	}
 

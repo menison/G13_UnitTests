@@ -13,7 +13,7 @@ public class Parsing {
 		
 		switch (receivedMessage.getOperationType()) {
 		
-		case Operation1:
+		case Login:
 			
 			break;
 

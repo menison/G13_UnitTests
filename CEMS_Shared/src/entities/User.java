@@ -28,7 +28,7 @@ public abstract class User implements Serializable {
 		this.email = email;
 		this.role = role;
 	}
-
+	
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
