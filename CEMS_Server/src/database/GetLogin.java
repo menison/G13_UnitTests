@@ -39,7 +39,7 @@ public class GetLogin {
 			case "Teacher":
 				returnMessage=teacherLoginData();
 				break;
-			case "Principle":
+			case "Principal":
 				returnMessage=principalLoginData();
 				break;
 			default:
@@ -66,7 +66,7 @@ public class GetLogin {
 		returnMessage=new Message(Operation.Login,teacher);
 		returnMessage.setPermission(DataParsing.getPermission(teacher.getPassword(), Data.get(1)));
 		if(returnMessage.getPermission().equals(Permission.yes))
-			ServerController.sc.addToTextArea(teacher.getFirstName()+"the"+teacher.getRole()+"connected to the server");
+			ServerController.sc.addToTextArea(teacher.getFirstName()+" the "+teacher.getRole()+" connected to the server");
 		else
 			ServerController.sc.addToTextArea(teacher.getFirstName()+"failed to connect to the server");
 		return returnMessage;
@@ -75,8 +75,8 @@ public class GetLogin {
 	public static Message studentLoginData() throws SQLException {
 		Student student;
 		Message returnMessage;
-		student=new Student(resultSet.getString(0),resultSet.getString(1),resultSet.getString(2),resultSet.getString(3)
-				,resultSet.getString(4),resultSet.getString(5),resultSet.getString(6));
+		student=new Student(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4)
+				,resultSet.getString(5),resultSet.getString(6),resultSet.getString(7));
 		resultSet.close();
 		if(usersloggedIn.contains(student.getPersonalSID())) {
 			return new Message(Operation.Login,Permission.AlreadyLoggedIn);
@@ -85,7 +85,7 @@ public class GetLogin {
 		returnMessage=new Message(Operation.Login,student);
 		returnMessage.setPermission(DataParsing.getPermission(student.getPassword(), Data.get(1)));
 		if(returnMessage.getPermission().equals(Permission.yes))
-			ServerController.sc.addToTextArea(student.getFirstName()+"the"+student.getRole()+"connected to the server");
+			ServerController.sc.addToTextArea(student.getFirstName()+" the "+student.getRole()+" connected to the server");
 		else
 			ServerController.sc.addToTextArea(student.getFirstName()+"failed to connect to the server");
 		return returnMessage;
@@ -94,8 +94,8 @@ public class GetLogin {
 	public static Message principalLoginData() throws SQLException {
 		Principal principal;
 		Message returnMessage;
-		principal=new Principal(resultSet.getString(0),resultSet.getString(1),resultSet.getString(2),resultSet.getString(3)
-				,resultSet.getString(4),resultSet.getString(5),resultSet.getString(6));
+		principal=new Principal(resultSet.getString(1),resultSet.getString(2),resultSet.getString(3),resultSet.getString(4)
+				,resultSet.getString(5),resultSet.getString(6),resultSet.getString(7));
 		resultSet.close();
 		if(usersloggedIn.contains(principal.getPersonalSID())) {
 			return new Message(Operation.Login,Permission.AlreadyLoggedIn);
@@ -104,7 +104,7 @@ public class GetLogin {
 		returnMessage=new Message(Operation.Login,principal);
 		returnMessage.setPermission(DataParsing.getPermission(principal.getPassword(), Data.get(1)));
 		if(returnMessage.getPermission().equals(Permission.yes))
-			ServerController.sc.addToTextArea(principal.getFirstName()+"the"+principal.getRole()+"connected to the server");
+			ServerController.sc.addToTextArea(principal.getFirstName()+" the "+principal.getRole()+" connected to the server");
 		else
 			ServerController.sc.addToTextArea(principal.getFirstName()+"failed to connect to the server");
 		return returnMessage;

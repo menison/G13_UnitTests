@@ -92,6 +92,52 @@ public class Login extends AbstractController {
 				break;
 			}
 		}
+		if (receivedMessage.getObj() instanceof Student) {
+			Student student=(Student)receivedMessage.getObj();
+			switch (receivedMessage.getPermission()) {
+			case yes:
+				dataManager.setCurrentUser(student);
+				dataManager.setPreOrder(false);
+				LoginCemsController.setStudentLogin(student, event);
+				break;
+			case no:
+				//EmployeeLoginController.EmployeeLoginController.setError("Wrong User Name or Password");
+				break;
+			case NULL:
+				//EmployeeLoginController.EmployeeLoginController.setError("The user does not exist");
+				break;
+
+			case AlreadyLoggedIn:
+				//EmployeeLoginController.EmployeeLoginController.setError("The user already logged in");
+				break;
+
+			default:
+				break;
+			}
+		}
+		if (receivedMessage.getObj() instanceof Principal) {
+			Principal principal=(Principal)receivedMessage.getObj();
+			switch (receivedMessage.getPermission()) {
+			case yes:
+				dataManager.setCurrentUser(principal);
+				dataManager.setPreOrder(false);
+				LoginCemsController.setPrincipalLogin(principal, event);
+				break;
+			case no:
+				//EmployeeLoginController.EmployeeLoginController.setError("Wrong User Name or Password");
+				break;
+			case NULL:
+				//EmployeeLoginController.EmployeeLoginController.setError("The user does not exist");
+				break;
+
+			case AlreadyLoggedIn:
+				//EmployeeLoginController.EmployeeLoginController.setError("The user already logged in");
+				break;
+
+			default:
+				break;
+			}
+		}
 	}
 
 //	public static void resiveSubLogin(Object msg) {

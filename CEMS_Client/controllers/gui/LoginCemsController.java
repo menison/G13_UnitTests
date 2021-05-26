@@ -1,6 +1,7 @@
 package gui;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 
@@ -19,6 +20,8 @@ import javafx.stage.Stage;
 import request.AbstractController;
 import request.Login;
 import entities.Message;
+import entities.Principal;
+import entities.Student;
 import entities.Teacher;
 import common.Operation;
 
@@ -80,21 +83,51 @@ public class LoginCemsController extends AbstractController {
 		primaryStage.show();	
 	}
     
-	public static void setTeacherLogin(Teacher teacher, ActionEvent event) {
-		Stage newStage = new Stage();
+	public static void setTeacherLogin(Teacher teacher,ActionEvent event) {
 		Platform.runLater(new Runnable() {
+
 			@Override
 			public void run() {
-				FXMLLoader loader = new FXMLLoader();
-				Pane root;
+				Stage newStage = new Stage();
+				TeacherMenuController tmc = new TeacherMenuController();
 				try {
-		        	Stage stage = (Stage) login_btnLogin.getScene().getWindow();
-		        	TeacherMenuController tmc = new TeacherMenuController();
-		        	tmc.start(newStage);
-		        	stage.close();
-				} catch (IOException e) {
+					tmc.start(newStage);
+				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+				}
+				((Node) event.getSource()).getScene().getWindow().hide();
+			}
+		});
+
+	}
+	public static void setStudentLogin(Student student,ActionEvent event) {
+		Platform.runLater(new Runnable() {
+
+			@Override
+			public void run() {
+				Stage newStage = new Stage();
+				StudentMenuController smc = new StudentMenuController();
+				try {
+					smc.start(newStage);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				((Node) event.getSource()).getScene().getWindow().hide();
+			}
+		});
+
+	}
+	public static void setPrincipalLogin(Principal principal,ActionEvent event) {
+		Platform.runLater(new Runnable() {
+
+			@Override
+			public void run() {
+				Stage newStage = new Stage();
+				PrincipalMenuController pmc = new PrincipalMenuController();
+				try {
+					pmc.start(newStage);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

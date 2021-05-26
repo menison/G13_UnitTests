@@ -1,6 +1,8 @@
 package dataParsing;
 
 import entities.Message;
+import gui.LoginCemsController;
+import request.Login;
 
 public class Parsing {
 	/**
@@ -14,7 +16,7 @@ public class Parsing {
 		switch (receivedMessage.getOperationType()) {
 		
 		case Login:
-			
+			Login.receiveLogin(receivedMessage);
 			break;
 
 		default:
