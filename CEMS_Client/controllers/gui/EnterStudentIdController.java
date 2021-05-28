@@ -46,7 +46,6 @@ public class EnterStudentIdController {
     @FXML
     void StartTest(ActionEvent event) {
     //create executed test instance
-    	Timer.
     	// open question form according to the kitzon case
     	
     }

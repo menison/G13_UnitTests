@@ -20,7 +20,7 @@
             <TableColumn editable="false" prefWidth="238.0" text="Reason" />
         </columns>
       </TableView>
-      <JFXButton id="principalTestExtentionRequestsDoneButton" fx:id="PrincipalTestExtentionRequests_btnDone" buttonType="RAISED" focusTraversable="false" layoutX="371.0" layoutY="466.0" text="Done" />
+      <JFXButton id="principalTestExtentionRequestsDoneButton" fx:id="PrincipalTestExtentionRequests_btnDone" buttonType="RAISED" focusTraversable="false" layoutX="371.0" layoutY="466.0" onAction="#PrincipalTestExtentionRequests_btnDoneClicked" text="Done" />
       <Label layoutX="264.0" layoutY="37.0" style="-fx-text-fill: #B2B2B2;" text="Test Extention Requests">
          <font>
             <Font size="26.0" />

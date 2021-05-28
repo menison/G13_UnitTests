@@ -25,7 +25,7 @@ public class GetLogin {
 	@SuppressWarnings("unchecked")
 	public static Message userLoginData(Message object) {
 		Data = (ArrayList<String>) object.getObj();
-		resultSet = Query.SelectTableWhere("users.xls", "Username", Data.get(0));
+		resultSet = Query.SelectTableWhere("user", "username", Data.get(0));
 		Message returnMessage;
 		try {
 		if(!resultSet.next()) {

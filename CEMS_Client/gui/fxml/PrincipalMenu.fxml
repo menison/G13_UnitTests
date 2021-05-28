@@ -19,8 +19,8 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <JFXButton id="principalMenuReportsButton" fx:id="PrincipalMenu_btnReports" focusTraversable="false" layoutX="121.0" layoutY="137.0" prefHeight="39.0" prefWidth="160.0" text="Reports" />
-      <JFXButton id="principalMenuExtensionButton" fx:id="PrincipalMenu_btnExtensionRequests" focusTraversable="false" layoutX="121.0" layoutY="209.0" text="Extension Requests" />
-      <JFXButton fx:id="PrincipalMenu_btnLogout" focusTraversable="false" layoutX="120.0" layoutY="365.0" prefHeight="39.0" prefWidth="160.0" style="-fx-border-color: red;" text="Logout" />
+      <JFXButton id="principalMenuReportsButton" fx:id="PrincipalMenu_btnReports" focusTraversable="false" layoutX="121.0" layoutY="137.0" onAction="#PrincipalMenu_btnReportsClicked" prefHeight="39.0" prefWidth="160.0" text="Reports" />
+      <JFXButton id="principalMenuExtensionButton" fx:id="PrincipalMenu_btnExtensionRequests" focusTraversable="false" layoutX="121.0" layoutY="209.0" onAction="#PrincipalMenu_btnExtensionRequestsClicked" text="Extension Requests" />
+      <JFXButton fx:id="PrincipalMenu_btnLogout" focusTraversable="false" layoutX="120.0" layoutY="365.0" onAction="#PrincipalMenu_btnLogoutClicked" prefHeight="39.0" prefWidth="160.0" style="-fx-border-color: red;" text="Logout" />
    </children>
 </AnchorPane>
