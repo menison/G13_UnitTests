@@ -30,6 +30,15 @@
     -fx-font-size: 12pt;
 }
 
+.logout-btn{
+    -fx-text-fill: -fx-primarytext;
+    -fx-background-color: -fx-primary;
+    -fx-border-color: #FF0000;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-font-size: 12pt;
+}
+
 .progress-indicator .percentage {
     -fx-fill: #b2b2b2 ;
 }
@@ -37,6 +46,12 @@
 .button:hover, .button:focused{
     -fx-border-color: -fx-secondary;
     -fx-background-color: -fx-secondary;
+    -fx-text-fill: -fx-primary;
+}
+
+.logout-btn:hover, .logout-btn:focused{
+	-fx-border-color: #FF0000;
+    -fx-background-color: #FF0000;
     -fx-text-fill: -fx-primary;
 }
 
