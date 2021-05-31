@@ -3,6 +3,7 @@ package logics;
 
 
 import common.Permission;
+import dataParsing.GetTestTable;
 import database.GetLogin;
 import entities.Message;
 import server.EchoServer;
@@ -20,6 +21,8 @@ public class DataParsing {
 		
 		case Login:
 			return GetLogin.userLoginData(receivedMessage);
+		case GetTestTable:
+			return GetTestTable.getTestTable(receivedMessage);
 		default:
 			break;
 				
