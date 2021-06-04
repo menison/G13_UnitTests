@@ -3,6 +3,7 @@ package dataParsing;
 import entities.Message;
 import gui.LoginCemsController;
 import request.Login;
+import request.StudentTestTable;
 
 public class Parsing {
 	/**
@@ -17,6 +18,9 @@ public class Parsing {
 		
 		case Login:
 			Login.receiveLogin(receivedMessage);
+			break;
+		case GetTestTable:
+			StudentTestTable.setTable(receivedMessage);
 			break;
 
 		default:

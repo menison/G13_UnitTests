@@ -23,6 +23,8 @@ public class GetTestTable {
 		Connection con = SetConnectionDB.start();
 		TestForTable t;
 		testList = new ArrayList<TestForTable>();
+		String returnStr = "";
+		Message messageToReturn;
 		try {
 			stmt = con.createStatement();
 			rs = stmt.executeQuery("SELECT * FROM executedtest;");
@@ -35,9 +37,15 @@ public class GetTestTable {
 			}
 			System.out.println("Success setting table");
 			rs.close();
+			for(int i = 0; i < testList.size();i++) {
+				returnStr += testList.get(i);
+				returnStr += "/";
+			}
 			//arrayToSend.add(testList);
 			//return new Message(Operation.GetTestTable,arrayToSend);
-			return new Message(Operation.GetTestTable,testList);
+			messageToReturn = new Message(Operation.GetTestTable,returnStr);
+			//return new Message(Operation.GetTestTable,testList);
+			return messageToReturn;
 		} catch	(SQLException e) {
 			System.out.println("Error setting table");
 			e.printStackTrace();

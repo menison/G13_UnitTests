@@ -1,10 +1,15 @@
 package gui;
 
+import application.ClientUI;
+import common.Operation;
+import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -15,14 +20,29 @@ public class StudentMenuController {
 	private Button studentMenu_showTests;
 	@FXML
 	private Button studentMenu_logOut;
+	private TestTableController showTTController;
 	
 	@FXML
     void showTestTable(ActionEvent event) throws Exception {
-    	Stage newStage = new Stage();
+		FXMLLoader loader = new FXMLLoader();
+    	//Stage newStage = new Stage();
     	Stage stage = (Stage) studentMenu_showTests.getScene().getWindow();
-    	TestTableController ttc = new TestTableController();
-    	ttc.start(newStage);
     	stage.close();
+    	Stage primaryStage = new Stage();
+    	//ImageView iv = new ImageView(getClass().getResource("/img/logo4.png").toExternalForm());
+    	Pane root = loader.load(getClass().getResource("/fxml/TestTable.fxml").openStream());
+    	//TestTableController ttc = new TestTableController();
+    	//ttc.start(newStage);
+    	showTTController = loader.getController();
+    	ClientUI.chat.accept(new Message(Operation.GetTestTable));
+    	showTTController.setTable();
+    	//stage.close();
+    	Scene scene = new Scene(root);
+    	scene.getStylesheets().add(getClass().getResource("/css/das.css").toExternalForm());
+    	primaryStage.getIcons().add(new Image("/img/logo4.png"));
+		primaryStage.setTitle("Test Table");
+		primaryStage.setScene(scene);		
+		primaryStage.show();
     }
 	
 	@FXML

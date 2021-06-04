@@ -1,6 +1,9 @@
 package cachedUserData;
 
+import java.util.ArrayList;
+
 import entities.Test;
+import entities.TestForTable;
 import entities.User;
 
 /**
@@ -15,6 +18,7 @@ public class DataManager {
 	private User currentUser;
 	private boolean PreOrder;
 	private double GlobalPrice;
+	private ArrayList<TestForTable> executedExams;
 	
 	private DataManager() {
 		this.currentUser = null;
@@ -62,6 +66,14 @@ public class DataManager {
 	
 	public Test getTestInExecution() {
 		return testInExecution;
+	}
+	
+	public void setExecutedExams(ArrayList<TestForTable> testList) {
+		this.executedExams = testList;
+	}
+	
+	public ArrayList<TestForTable> getExecutedExams() {
+		return executedExams;
 	}
 	
 }

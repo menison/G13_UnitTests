@@ -17,4 +17,57 @@ public class TestForTable {
 		this.ActualDuration = ActualDuration;
 		this.grade = grade;
 	}
+	
+	@Override
+	public String toString() {
+		return(this.testID+","+this.testCode+","+this.Date+","+this.allocatedDuration+
+				","+this.ActualDuration+","+this.grade);
+	}
+	public String getTestID() {
+		return testID;
+	}
+
+	public void setTestID(String testID) {
+		this.testID = testID;
+	}
+
+	public String getTestCode() {
+		return testCode;
+	}
+
+	public void setTestCode(String testCode) {
+		this.testCode = testCode;
+	}
+
+	public String getDate() {
+		return Date;
+	}
+
+	public void setDate(String date) {
+		Date = date;
+	}
+
+	public int getAllocatedDuration() {
+		return allocatedDuration;
+	}
+
+	public void setAllocatedDuration(int allocatedDuration) {
+		this.allocatedDuration = allocatedDuration;
+	}
+
+	public int getActualDuration() {
+		return ActualDuration;
+	}
+
+	public void setActualDuration(int actualDuration) {
+		ActualDuration = actualDuration;
+	}
+
+	public int getGrade() {
+		return grade;
+	}
+
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
 }
