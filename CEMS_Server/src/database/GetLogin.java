@@ -10,7 +10,6 @@ import entities.Message;
 import entities.Principal;
 import entities.Student;
 import entities.Teacher;
-import entities.User;
 import gui.ServerController;
 import logics.DataParsing;
 import server.EchoServer;

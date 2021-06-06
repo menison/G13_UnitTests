@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import common.Operation;
-import common.Permission;
 import database.SetConnectionDB;
 import entities.Message;
 import entities.TestForTable;
