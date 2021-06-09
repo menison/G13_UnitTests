@@ -1,11 +1,15 @@
 package gui;
 
 import java.io.IOException;
-import java.util.Timer;
 
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
+import application.ClientUI;
+import cachedUserData.DataManager;
+import common.Operation;
+import entities.ExecutedTest;
+import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,6 +45,9 @@ public class EnterStudentIdController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		DataManager dm = DataManager.getDataManager();
+		ExecutedTest execTest = dm.getTestInExecution();
+		ClientUI.chat.accept(new Message(Operation.getInstructionsAndMail, execTest.getExecutionCodePK()));
 	}
 
     @FXML
@@ -49,5 +56,13 @@ public class EnterStudentIdController {
     	// open question form according to the kitzon case
     	
     }
+
+	public void setTestInfo_txtArea_testInstruc(JFXTextArea testInfo_txtArea_testInstruc) {
+		this.testInfo_txtArea_testInstruc = testInfo_txtArea_testInstruc;
+	}
+
+	public void setTestInfo_txtContactMail(JFXTextField testInfo_txtContactMail) {
+		this.testInfo_txtContactMail = testInfo_txtContactMail;
+	}
 	
 }

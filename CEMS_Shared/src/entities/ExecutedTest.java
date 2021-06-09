@@ -8,7 +8,7 @@ public class ExecutedTest extends Test {
 	
 	private String executionCodePK = null;
 	private HashMap<Question, Integer> answers;
-	//private Student studentThatExecuted;
+	private Student executedBy;
 	private int actualDuration;
 	private LocalTime startTime;
 	private LocalTime endTime;
@@ -44,10 +44,13 @@ public class ExecutedTest extends Test {
 		return endTime;
 	}
 
-	
-	
+	public Student getExecutedBy() {
+		return executedBy;
+	}
 
-	
+	public void setExecutedBy(Student executedBy) {
+		this.executedBy = executedBy;
+	}
 
 
 }
