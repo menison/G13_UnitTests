@@ -1,9 +1,9 @@
 package dataParsing;
 
 import entities.Message;
-import gui.LoginCemsController;
 import request.Login;
 import request.StudentTestTable;
+import request.TestCodeValidation;
 
 public class Parsing {
 	/**
@@ -22,7 +22,10 @@ public class Parsing {
 		case GetTestTable:
 			StudentTestTable.setTable(receivedMessage);
 			break;
-
+		case SendTestCode:
+			TestCodeValidation.informUser(receivedMessage);
+			break;
+			
 		default:
 			break;
 		}

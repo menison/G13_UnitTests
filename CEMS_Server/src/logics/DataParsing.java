@@ -4,6 +4,7 @@ package logics;
 
 import common.Permission;
 import dataParsing.GetTestTable;
+import dataParsing.TestCodeValidation;
 import database.GetLogin;
 import entities.Message;
 import server.EchoServer;
@@ -23,6 +24,8 @@ public class DataParsing {
 			return GetLogin.userLoginData(receivedMessage);
 		case GetTestTable:
 			return GetTestTable.getTestTable(receivedMessage);
+		case SendTestCode:
+			return TestCodeValidation.validateTestCode(receivedMessage);
 		default:
 			break;
 				

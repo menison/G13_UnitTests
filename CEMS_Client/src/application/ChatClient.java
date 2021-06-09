@@ -21,9 +21,9 @@ public class ChatClient extends AbstractClient {
 	 * This function receives a message from the server and converts it so that the client side will understand it.
 	 */
 	public void handleMessageFromServer(Object msg) {
-		Message resivedMessage = (Message) msg;
+		Message receivedMessage = (Message) msg;
 		awaitResponse = false;
-		Parsing.Message(resivedMessage);
+		Parsing.Message(receivedMessage);
 
 	}
 
