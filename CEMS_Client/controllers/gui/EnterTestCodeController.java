@@ -37,9 +37,11 @@ public class EnterTestCodeController {
     void SendTestCode(ActionEvent event) throws Exception {
     	ClientUI.chat.accept(new Message(Operation.SendTestCode, (Object)getTestCode())); 
     	
-    	
     	Alert pop = new Alert(AlertType.WARNING);
+    	pop.setContentText("Beware - you are about to start a test. This action cannot"
+    			+ "be canceled");
     	pop.showAndWait();
+    	
     	Stage stage = (Stage) EnterTestCode_btnSendCode.getScene().getWindow();
     	Stage primaryStage = new Stage();
     	ChooseTestTypeController cttc = new ChooseTestTypeController();

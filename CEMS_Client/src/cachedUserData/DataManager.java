@@ -75,5 +75,9 @@ public class DataManager {
 	public ArrayList<TestForTable> getExecutedExams() {
 		return executedExams;
 	}
+
+	public void setTestInExecution(Test testInExecution) {
+		this.testInExecution = testInExecution;
+	}
 	
 }
