@@ -1,6 +1,7 @@
 package dataParsing;
 
 import entities.Message;
+import request.FullTestTable;
 import request.Login;
 import request.StudentTestTable;
 import request.TestCodeValidation;
@@ -24,6 +25,9 @@ public class Parsing {
 			break;
 		case SendTestCode:
 			TestCodeValidation.informUser(receivedMessage);
+			break;
+		case GetFullTestTable:
+			FullTestTable.setTable(receivedMessage);
 			break;
 			
 		default:

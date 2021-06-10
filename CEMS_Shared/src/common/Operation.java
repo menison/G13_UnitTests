@@ -16,5 +16,6 @@ public enum Operation {
 	UploadManualTest,
 	LastOperation,
 	GetTestTable,
-	getInstructionsAndMail
+	getInstructionsAndMail,
+	GetFullTestTable
 }

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import entities.ExecutedTest;
 import entities.Test;
+import entities.TestForFullTable;
 import entities.TestForTable;
 import entities.User;
 
@@ -20,6 +21,7 @@ public class DataManager {
 	private boolean PreOrder;
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
+	private ArrayList<TestForFullTable> fullTestList;
 	
 	private DataManager() {
 		this.currentUser = null;
@@ -79,6 +81,12 @@ public class DataManager {
 
 	public void setTestInExecution(ExecutedTest testInExecution) {
 		this.testInExecution = testInExecution;
+	}
+	public void setFullTable(ArrayList<TestForFullTable> testList) {
+		this.fullTestList = testList;
+	}
+	public ArrayList<TestForFullTable> getFullTable() {
+		return this.fullTestList;
 	}
 	
 }
