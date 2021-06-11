@@ -1,15 +1,14 @@
 package entities;
 
 import java.time.LocalTime;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ExecutedTest  {
 	
+	private Student executedBy;
 	private Test testInExecution;
 	private String executionCodePK = null;
 	private HashMap<Question, Integer> answers;
-	private Student executedBy;
 	private int actualDuration;
 	private LocalTime startTime;
 	private LocalTime endTime;
@@ -19,7 +18,7 @@ public class ExecutedTest  {
 			Student executedBy, int actualDuration, LocalTime startTime, LocalTime endTime) {
 		super();
 		this.testInExecution = testInExecution;
-		this.executionCodePK = executionCodePK;
+		this.executionCodePK = testInExecution.getCurrExecutionCode();
 		this.answers = answers;
 		this.executedBy = executedBy;
 		this.actualDuration = actualDuration;
@@ -57,6 +56,10 @@ public class ExecutedTest  {
 
 	public void setExecutedBy(Student executedBy) {
 		this.executedBy = executedBy;
+	}
+
+	public Test getTestInExecution() {
+		return testInExecution;
 	}
 
 
