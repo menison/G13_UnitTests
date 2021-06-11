@@ -337,6 +337,16 @@
     -fx-padding: 5px;
 }
 
+.jfx-combo-box {
+    -fx-text-inner-color: -fx-secondary;
+    -fx-prompt-text-fill: -fx-secondary;
+}
+
+.jfx-combo-box .cell {
+	-fx-background-color: -fx-primary;
+    -fx-text-fill: -fx-secondary;
+}
+
 .common-label{
     -fx-background-color: transparent;
     -fx-text-fill: -fx-secondary;

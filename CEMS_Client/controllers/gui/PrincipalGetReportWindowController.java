@@ -5,7 +5,6 @@ import java.io.IOException;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,34 +16,41 @@ import javafx.stage.Stage;
 
 public class PrincipalGetReportWindowController {
 
-    @FXML
-    private JFXComboBox<?> PrincipalGetReportWindow_generateByCombo;
+	@FXML
+	private JFXComboBox<String> PrincipalGetReportWindow_generateByCombo;
 
-    @FXML
-    private JFXTextField PrincipalGetReportWindow_valueTxt;
+	@FXML
+	private JFXTextField PrincipalGetReportWindow_valueTxt;
 
-    @FXML
-    private JFXButton PrincipalGetReportWindow_btnSubmit;
+	@FXML
+	private JFXButton PrincipalGetReportWindow_btnSubmit;
 
-    @FXML
-    private Button PrincipalGetReportWindow_btnBack;
+	@FXML
+	private Button PrincipalGetReportWindow_btnBack;
 
-    public void start(Stage newStage) throws IOException {
-    	Pane root;
-    	FXMLLoader loader = new FXMLLoader();
+	public void start(Stage newStage) throws IOException {
+		Pane root;
+		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/fxml/PrincipalGetReportWindow.fxml"));
 		root = loader.load();
 		Scene scene = new Scene(root);
 		newStage.setTitle("Report Requests");
 		newStage.setScene(scene);
-		newStage.show();	
+		newStage.show();
 	}
-    @FXML
-    void PrincipalGetReportWindow_btnBackClicked(ActionEvent event) throws Exception {
-    	Stage newStage = new Stage();
-    	Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	PrincipalMenuController pmc = new PrincipalMenuController();
-    	pmc.start(newStage);
-    	currentStage.close();
-    }
+
+	@FXML
+	void PrincipalGetReportWindow_btnBackClicked(ActionEvent event) throws Exception {
+		Stage newStage = new Stage();
+		Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		PrincipalMenuController pmc = new PrincipalMenuController();
+		pmc.start(newStage);
+		currentStage.close();
+	}
+	
+	@FXML
+	public void initialize() {
+		PrincipalGetReportWindow_generateByCombo.getItems().addAll("Teacher", "Course", "Student");
+	}
+	
 }
