@@ -29,6 +29,10 @@ public class Parsing {
 		case GetFullTestTable:
 			FullTestTable.setTable(receivedMessage);
 			break;
+		case DownloadManualTest:
+			break;
+		case UploadManualTest:
+			break;
 			
 		default:
 			break;

@@ -1,5 +1,7 @@
 package gui;
 
+import java.io.IOException;
+
 import application.ClientUI;
 import common.Operation;
 import entities.Message;
@@ -9,7 +11,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -54,15 +55,18 @@ public class StudentMenuController {
     	stage.close();
     }
 	
-	public void start(Stage primaryStage) throws Exception {	
-		//Parent root = FXMLLoader.load(getClass().getResource("TestRequested.fxml"));
-    	Pane root;
+	public void start(Stage primaryStage){	
+		Pane root;
     	FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/fxml/StudentMenu.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		primaryStage.setTitle("Student Menu");
-		primaryStage.setScene(scene);
-		primaryStage.show();	
+		try {
+			root = loader.load();
+			Scene scene = new Scene(root);
+			primaryStage.setTitle("Student Menu");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

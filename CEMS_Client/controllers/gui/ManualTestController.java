@@ -37,7 +37,7 @@ public class ManualTestController {
 
 	@FXML
     void downloadTest(ActionEvent event) {
-		Stage stage = new Stage();
+		Stage stage = (Stage) manualTest_btnDownload.getScene().getWindow();
 		FileChooser fc = new FileChooser();
 		File f = fc.showSaveDialog(stage);
 		ClientUI.chat.accept(new Message(Operation.DownloadManualTest, (Object)f));
@@ -47,13 +47,18 @@ public class ManualTestController {
 
 	@FXML
 	void uploadTest(ActionEvent event) {
+		Stage stage = (Stage) manualTest_btnUpload.getScene().getWindow();
 		FileChooser fc = new FileChooser();
-		SolutionFile = fc.showOpenDialog(null);
+		SolutionFile = fc.showOpenDialog(stage);
+		ClientUI.chat.accept(new Message(Operation.UploadManualTest, (Object)SolutionFile));
 	}
 
 	@FXML
 	void sendManualTest(ActionEvent event) {
 		ClientUI.chat.accept(new Message(Operation.UploadManualTest, (Object)SolutionFile));
+		TestFinalController tfc = new TestFinalController();
+		Stage primaryStage = new Stage();
+		tfc.start(primaryStage);
 	}
 
 	public void start(Stage primaryStage) {

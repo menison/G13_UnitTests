@@ -4,15 +4,11 @@ import java.util.ArrayList;
 
 import cachedUserData.DataManager;
 import common.Operation;
-import common.Permission;
 import entities.Message;
 import entities.Teacher;
-import entities.User;
 import gui.LoginCemsController;
 import entities.Student;
 import entities.Principal;
-//import gui.EmployeeLoginController; - should import teacher,student and principal login controllers.
-//import gui.TravelerLoginController;
 import javafx.event.ActionEvent;
 
 /**
@@ -51,17 +47,6 @@ public class Login extends AbstractController {
 		SendToServer(sendMessage);
 	}
 
-//	public static void requestVisitorLogin(String id, ActionEvent BtnEvent) {
-//		event = BtnEvent;
-//		Message sendMessage = new Message(Operation.VisitorLogin, id);
-//		SendToServer(sendMessage);
-//	}
-
-//	public static void requestSubLogin(String id, ActionEvent BtnEvent) {
-//		event = BtnEvent;
-//		Message sendMessage = new Message(Operation.SubNumberLogin, id);
-//		SendToServer(sendMessage);
-//	}
 
 	/**
 	 * @param msg this function receive massage from the server and display it to

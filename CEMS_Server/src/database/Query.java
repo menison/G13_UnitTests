@@ -41,7 +41,6 @@ public class Query {
 			toReturn = stmt.executeQuery("SELECT * FROM test WHERE isActivated = true AND"
 					+ " currExecutionCode= " + testExecCode + ";");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return toReturn;

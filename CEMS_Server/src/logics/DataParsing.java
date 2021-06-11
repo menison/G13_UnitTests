@@ -29,6 +29,10 @@ public class DataParsing {
 			return TestCodeValidation.validateTestCode(receivedMessage);
 		case GetFullTestTable:
 			return GetFullTestTable.getTestTable(receivedMessage);
+		case DownloadManualTest:
+			return null;
+		case UploadManualTest:
+			return null;
 		default:
 			break;
 				
