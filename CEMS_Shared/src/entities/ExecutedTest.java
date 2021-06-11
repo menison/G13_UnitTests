@@ -4,8 +4,9 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ExecutedTest extends Test {
+public class ExecutedTest  {
 	
+	private Test testInExecution;
 	private String executionCodePK = null;
 	private HashMap<Question, Integer> answers;
 	private Student executedBy;
@@ -13,11 +14,17 @@ public class ExecutedTest extends Test {
 	private LocalTime startTime;
 	private LocalTime endTime;
 	
-	public ExecutedTest(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
-			String commentsForTeachers, String currExecutionCode, HashMap<Question, Integer> pointDistribution,
-			boolean isActivated) {
-		super(questions, testID, allocatedDuration, commentsForStudents, commentsForTeachers, currExecutionCode,
-				pointDistribution, isActivated);
+
+	public ExecutedTest(Test testInExecution, String executionCodePK, HashMap<Question, Integer> answers,
+			Student executedBy, int actualDuration, LocalTime startTime, LocalTime endTime) {
+		super();
+		this.testInExecution = testInExecution;
+		this.executionCodePK = executionCodePK;
+		this.answers = answers;
+		this.executedBy = executedBy;
+		this.actualDuration = actualDuration;
+		this.startTime = startTime;
+		this.endTime = endTime;
 	}
 
 	public String getExecutionCodePK() {
