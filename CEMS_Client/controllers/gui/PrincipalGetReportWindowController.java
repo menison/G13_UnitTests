@@ -1,10 +1,15 @@
 package gui;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+
+import application.ClientUI;
+import common.Operation;
+import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,4 +58,17 @@ public class PrincipalGetReportWindowController {
 		PrincipalGetReportWindow_generateByCombo.getItems().addAll("Teacher", "Course", "Student");
 	}
 	
+	@FXML
+	void PrincipalGetReportWindow_btnSubmitClicked(ActionEvent event) throws Exception {
+		String values = "";
+		values += PrincipalGetReportWindow_generateByCombo.getSelectionModel().getSelectedItem();
+		values +="_";
+		values +=PrincipalGetReportWindow_valueTxt.getText();
+		ClientUI.chat.accept(new Message(Operation.PrincipalGetReport ,values));
+		Stage newStage = new Stage();
+		Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		PrincipalGeneratedReportController pgmc = new PrincipalGeneratedReportController();
+		pgmc.start(newStage);
+		currentStage.close();
+	}
 }

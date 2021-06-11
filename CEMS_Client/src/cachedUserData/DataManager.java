@@ -3,6 +3,7 @@ package cachedUserData;
 import java.util.ArrayList;
 
 import entities.ExecutedTest;
+import entities.Report;
 import entities.TestForFullTable;
 import entities.TestForTable;
 import entities.User;
@@ -21,6 +22,7 @@ public class DataManager {
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
 	private ArrayList<TestForFullTable> fullTestList;
+	private Report report;
 	
 	private DataManager() {
 		this.currentUser = null;
@@ -87,5 +89,11 @@ public class DataManager {
 	public ArrayList<TestForFullTable> getFullTable() {
 		return this.fullTestList;
 	}
-	
+	public Report getReport() {
+		return report;
+	}
+
+	public void setReport(Report report) {
+		this.report = report;
+	}
 }
