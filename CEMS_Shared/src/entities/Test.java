@@ -10,12 +10,14 @@ public class Test {
 	private String commentsForStudents;
 	private String commentsForTeachers;
 	private String currExecutionCode;
-	private int[] pointDistribution;
+	private String[] pointDistribution;
+	private String teacherComposed;
 	private boolean isActivated;
 
 
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
-			String commentsForTeachers, String currExecutionCode, int[] pointDistribution, boolean isActivated) {
+			String commentsForTeachers, String currExecutionCode, 
+			String[] pointDistribution, boolean isActivated, String composedBy) {
 		super();
 		this.questions = questions;
 		this.testID = testID;
@@ -25,6 +27,11 @@ public class Test {
 		this.currExecutionCode = currExecutionCode;
 		this.pointDistribution = pointDistribution;
 		this.isActivated = isActivated;
+		this.teacherComposed = composedBy;
+	}
+
+	public String getComposedBy() {
+		return teacherComposed;
 	}
 
 	public int howManyQuestions() {
@@ -55,7 +62,7 @@ public class Test {
 		return currExecutionCode;
 	}
 
-	public int[] getPointDistribution() {
+	public String[] getPointDistribution() {
 		return pointDistribution;
 	}
 

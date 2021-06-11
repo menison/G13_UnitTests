@@ -3,16 +3,18 @@ package entities;
 public class Question {
 	
 	private String questionID;
-	private String text;
+	private String text, teacherComposed;
 	private String[] answers;
 	private int correctAnswerIndex;
 	
-	public Question(String questionID, String text, String[] answers, int correctAnswerIndex) {
+	public Question(String questionID, String text, String[] answers, int correctAnswerIndex, 
+			String teacherComposed) {
 		super();
 		this.questionID = questionID;
 		this.text = text;
 		this.answers = answers;
 		this.correctAnswerIndex = correctAnswerIndex;
+		this.teacherComposed = teacherComposed;
 	}
 
 	public String getQuestionID() {
@@ -45,6 +47,10 @@ public class Question {
 
 	public void setCorrectAnswerIndex(int correctAnswerIndex) {
 		this.correctAnswerIndex = correctAnswerIndex;
+	}
+
+	public String getTeacherComposed() {
+		return teacherComposed;
 	}
 	
 	

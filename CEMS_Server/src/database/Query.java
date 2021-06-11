@@ -32,6 +32,21 @@ public class Query {
 		return toReturn;
 	}
 	
+	public static ResultSet getTestByExecutionCode(String testExecCode) {
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT * FROM test WHERE isActivated = true AND"
+					+ " currExecutionCode= " + testExecCode + ";");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return toReturn;
+	}
+	
 	
 	public static String getFullNameByID(String personalID) throws SQLException {
 		ResultSet rs = resultqueryFrom("SELECT firstName, LastName FROM User WHERE personalSID = '"+personalID+"'");

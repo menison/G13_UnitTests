@@ -1,20 +1,19 @@
 package entities;
 
 import java.time.LocalTime;
-import java.util.HashMap;
 
 public class ExecutedTest  {
 	
 	private Student executedBy;
 	private Test testInExecution;
 	private String executionCodePK = null;
-	private HashMap<Question, Integer> answers;
+	private int[] answers;
 	private int actualDuration;
 	private LocalTime startTime;
 	private LocalTime endTime;
 	
 
-	public ExecutedTest(Test testInExecution, String executionCodePK, HashMap<Question, Integer> answers,
+	public ExecutedTest(Test testInExecution, String executionCodePK, int[] answers,
 			Student executedBy, int actualDuration, LocalTime startTime, LocalTime endTime) {
 		super();
 		this.testInExecution = testInExecution;
@@ -34,7 +33,7 @@ public class ExecutedTest  {
 		this.executionCodePK = executionCodePK;
 	}
 
-	public HashMap<Question, Integer> getAnswers() {
+	public int[] getAnswers() {
 		return answers;
 	}
 
