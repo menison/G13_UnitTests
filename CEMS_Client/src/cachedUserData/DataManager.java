@@ -3,7 +3,6 @@ package cachedUserData;
 import java.util.ArrayList;
 
 import entities.ExecutedTest;
-import entities.Test;
 import entities.TestForFullTable;
 import entities.TestForTable;
 import entities.User;

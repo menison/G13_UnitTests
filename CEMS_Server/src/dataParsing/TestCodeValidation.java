@@ -4,10 +4,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 import common.Operation;
 import database.SetConnectionDB;
+import entities.ExecutedTest;
 import entities.Message;
 import gui.ServerController;
 
@@ -18,7 +18,7 @@ public class TestCodeValidation {
 		Connection con = SetConnectionDB.start();
 		String desiredTestToValidate = (String) object.getObj();
 		Message messageToReturn;
-		ArrayList<Object> tuple = new ArrayList<>();
+		ExecutedTest execTest;
 		
 		try {
 			stmt = con.createStatement();
@@ -28,16 +28,10 @@ public class TestCodeValidation {
 
 			System.out.println("Success setting table");
 
-			
-			if (rs.getString(1) != null) //figure out which coloumn contains currExecCode
-			{
-				for (int i=1; i< numOfTuples; i++)
-					tuple.add(rs.getString(i));
-			
-				messageToReturn = new Message(Operation.SendTestCode, tuple);
-			}
-			else
-				messageToReturn = new Message(Operation.SendTestCode, "false");
+		while (rs.next())
+		{
+			execTest = new ExecutedTest(rs.getString(1),  );
+		}
 			rs.close();
 			return messageToReturn;
 		} catch (SQLException e) {

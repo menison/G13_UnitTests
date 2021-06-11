@@ -13,11 +13,16 @@ public class ExecutedTest extends Test {
 	private LocalTime startTime;
 	private LocalTime endTime;
 	
+
 	public ExecutedTest(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
 			String commentsForTeachers, String currExecutionCode, HashMap<Question, Integer> pointDistribution,
-			boolean isActivated) {
+			boolean isActivated, String executionCodePK, int actualDuration, LocalTime startTime, LocalTime endTime) {
 		super(questions, testID, allocatedDuration, commentsForStudents, commentsForTeachers, currExecutionCode,
 				pointDistribution, isActivated);
+		this.executionCodePK = executionCodePK;
+		this.actualDuration = actualDuration;
+		this.startTime = startTime;
+		this.endTime = endTime;
 	}
 
 	public String getExecutionCodePK() {
