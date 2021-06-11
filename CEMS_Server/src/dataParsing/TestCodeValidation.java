@@ -66,7 +66,7 @@ public class TestCodeValidation {
 					0, null, null);
 		}
 			rs.close();
-			.TestCodeValidation. messageToReturn;
+			//TestCodeValidation. messageToReturn;
 		} catch (SQLException e) {
 			System.out.println("Error validating TestCode");
 			e.printStackTrace();
