@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
-import common.Operation;
 import database.SetConnectionDB;
 import entities.ExecutedTest;
 import entities.Message;
+import entities.Question;
+import entities.Test;
 import gui.ServerController;
 
 public class TestCodeValidation {
@@ -19,6 +21,7 @@ public class TestCodeValidation {
 		String desiredTestToValidate = (String) object.getObj();
 		Message messageToReturn;
 		ExecutedTest execTest;
+		ArrayList<Question> questions;
 		
 		try {
 			stmt = con.createStatement();
@@ -30,7 +33,17 @@ public class TestCodeValidation {
 
 		while (rs.next())
 		{
-			//execTest = new ExecutedTest(rs.getString(1),  );
+			String testID = rs.getString(1);
+			String[] arr= rs.getString(2).split(",");
+			questions = new ArrayList<Question>();
+			for (int i=0; i<arr.length; i++)
+			{
+				Question qToAdd = new Question(arr[i], getQuestionText(), arr, i);
+				questions.add(qToAdd);
+			}
+			Test testInExecution = new Test(null, desiredTestToValidate, 0, desiredTestToValidate, desiredTestToValidate, desiredTestToValidate, null, false);
+			execTest = new ExecutedTest(testInExecution, desiredTestToValidate, null, studentExecuting,
+					0, null, null);
 		}
 			rs.close();
 			//return messageToReturn;
