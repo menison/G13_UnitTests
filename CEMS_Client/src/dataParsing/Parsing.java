@@ -3,6 +3,7 @@ package dataParsing;
 import entities.Message;
 import request.FullTestTable;
 import request.Login;
+import request.ManualTestDownloader;
 import request.StudentTestTable;
 import request.TestCodeValidation;
 
@@ -30,6 +31,7 @@ public class Parsing {
 			FullTestTable.setTable(receivedMessage);
 			break;
 		case DownloadManualTest:
+			ManualTestDownloader.simulateManualTestExecution(receivedMessage);
 			break;
 		case UploadManualTest:
 			break;

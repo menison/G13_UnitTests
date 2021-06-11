@@ -5,6 +5,7 @@ package logics;
 import common.Permission;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
+import dataParsing.ManualTestDownloader;
 import dataParsing.TestCodeValidation;
 import database.GetLogin;
 import entities.Message;
@@ -30,7 +31,7 @@ public class DataParsing {
 		case GetFullTestTable:
 			return GetFullTestTable.getTestTable(receivedMessage);
 		case DownloadManualTest:
-			return null;
+			return ManualTestDownloader.downloadManualTest(receivedMessage);
 		case UploadManualTest:
 			return null;
 		default:
