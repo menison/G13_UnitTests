@@ -26,7 +26,6 @@ public class Query {
 			toReturn = stmt.executeQuery("SELECT * FROM question WHERE questionID= " 
 			+ questionID + ";");
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return toReturn;
@@ -75,6 +74,20 @@ public class Query {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static ResultSet getExecutionCodesHistory() {
+		
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT * FROM execodehistory;");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
 	}
 	
 
