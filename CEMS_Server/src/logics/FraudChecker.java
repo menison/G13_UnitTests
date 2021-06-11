@@ -7,7 +7,7 @@ import entities.Student;
 
 public class FraudChecker {
 	
-	public ArrayList<Student> checkFraud(ArrayList<ExecutedTest> testsToCheck){
+	public ArrayList<Student> checkFraud(ArrayList<ExecutedTest> testsToCheck) {
 		
 		
 		
