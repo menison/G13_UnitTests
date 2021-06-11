@@ -24,7 +24,7 @@ public class TestCodeValidation {
 			Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setContentText("Test code is valid, let's continue!");
 			alert.showAndWait();
-			ExecutedTest executed = new ExecutedTest(null, null, 0, null, null, null, null, false);
+			//ExecutedTest executed = new ExecutedTest(null, null, 0, null, null, null, null, false);
 		}
 
 	}

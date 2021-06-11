@@ -30,10 +30,10 @@ public class TestCodeValidation {
 
 		while (rs.next())
 		{
-			execTest = new ExecutedTest(rs.getString(1),  );
+			//execTest = new ExecutedTest(rs.getString(1),  );
 		}
 			rs.close();
-			return messageToReturn;
+			//return messageToReturn;
 		} catch (SQLException e) {
 			System.out.println("Error validating TestCode");
 			e.printStackTrace();
