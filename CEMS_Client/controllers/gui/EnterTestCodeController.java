@@ -3,6 +3,7 @@ package gui;
 import com.jfoenix.controls.JFXTextField;
 
 import application.ClientUI;
+import cachedUserData.DataManager;
 import common.Operation;
 import entities.Message;
 import entities.Test;
@@ -35,7 +36,9 @@ public class EnterTestCodeController {
     
     @FXML
     void SendTestCode(ActionEvent event) throws Exception {
-    	ClientUI.chat.accept(new Message(Operation.SendTestCode, (Object)getTestCode())); 
+    	DataManager dm = DataManager.getDataManager();
+    	String toAccept = getTestCode() + "," + dm.getCurrentUser().getPersonalSID();
+    	ClientUI.chat.accept(new Message(Operation.SendTestCode, (Object)toAccept)); 
     	
     	Alert pop = new Alert(AlertType.WARNING);
     	pop.setContentText("Beware - you are about to start a test. This action cannot"

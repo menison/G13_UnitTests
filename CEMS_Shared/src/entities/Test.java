@@ -12,12 +12,12 @@ public class Test {
 	private String currExecutionCode;
 	private String[] pointDistribution;
 	private String teacherComposed;
-	private boolean isActivated;
+	private int isActivated;
 
 
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
 			String commentsForTeachers, String currExecutionCode, 
-			String[] pointDistribution, boolean isActivated, String composedBy) {
+			String[] pointDistribution, int isActivated, String composedBy) {
 		super();
 		this.questions = questions;
 		this.testID = testID;
@@ -66,7 +66,7 @@ public class Test {
 		return pointDistribution;
 	}
 
-	public boolean isActivated() {
+	public int isActivated() {
 		return isActivated;
 	}
 	
