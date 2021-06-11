@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import entities.TestForFullTable;
+import gui.ServerController;
 import server.EchoServer;
 
 public class Query {
@@ -20,17 +22,15 @@ public class Query {
 	
 	
 	
+	public static String getFullNameByID(String personalID) throws SQLException {
+		ResultSet rs = resultqueryFrom("SELECT firstName, LastName FROM User WHERE personalSID = '"+personalID+"'");
+			return rs.getString(1)+" "+rs.getString(2);
+	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public static ResultSet SelectFullTable(String tableName) {
+		return resultqueryFrom("SELECT * FROM" + tableName );
+	}
 	
 	//------------------------------------------------------------------------------------------------------
 	
@@ -51,5 +51,6 @@ public class Query {
 		}
 		return null;
 	}
+	
 
 }
