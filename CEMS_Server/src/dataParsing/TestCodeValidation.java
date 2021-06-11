@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import common.Operation;
 import database.Query;
 import database.SetConnectionDB;
 import entities.ExecutedTest;
@@ -20,18 +21,17 @@ public class TestCodeValidation {
 		Connection con = SetConnectionDB.start();
 		String toSplit = (String)object.getObj();
 		String[] splitted = toSplit.split(",");
-		String desiredTestToValidate = splitted[0];
+		String desiredTestToValidate= splitted[0];
 		String studentExecuting = splitted[1];
-		Message messageToReturn;
 		ExecutedTest execTest;
 		ArrayList<Question> questions;
 		
 		try {
 			stmt = con.createStatement();
 			rs = Query.getTestByExecutionCode(desiredTestToValidate);
-
-		while (rs.next())
-		{
+			if (!rs.next()) {
+				return new Message(Operation.SendTestCode, "false");
+			}
 			String testID = rs.getString(1);
 			String questionText = null, commentsForStudents = rs.getString(4);
 			String commentsForTeachers = rs.getString(5);
@@ -42,31 +42,30 @@ public class TestCodeValidation {
 			String[] arr = rs.getString(2).split(",");
 			questions = new ArrayList<Question>();
 			String[] pointsDistribution = rs.getString(7).split(",");
-			String teacherComposed = rs.getString(9);
+			String teacherComposedTest = rs.getString(9);
 			
 			for (int i=0; i<arr.length; i++)
 			{
 				ResultSet questionTuple = Query.getQuestionByID(arr[i]);
-				while (rs.next()) {
-					questionText = questionTuple.getString(2);
-					answers = questionTuple.getString(3).split(",");
-					correctAnswerIndex = questionTuple.getInt(4);
-				}
-					
+				rs.next(); 
+				questionText = questionTuple.getString(2);
+				answers = questionTuple.getString(3).split(",");
+				correctAnswerIndex = questionTuple.getInt(4);
+				String teacherComposedQuestion = questionTuple.getString(5);
 				Question qToAdd = new Question(arr[i], questionText, answers, correctAnswerIndex,
-						teacherComposed);
+						teacherComposedQuestion);
 				questions.add(qToAdd);
 			}
 			 
 			Test testInExecution = new Test(questions, testID, allocatedDuration, commentsForStudents, 
 					commentsForTeachers, desiredTestToValidate, pointsDistribution, isActivated, 
-					teacherComposed);
+					teacherComposedTest);
 			
 			execTest = new ExecutedTest(testInExecution, desiredTestToValidate, null, studentExecuting,
 					0, null, null);
-		}
+		
 			rs.close();
-			//TestCodeValidation. messageToReturn;
+			return new Message(Operation.SendTestCode, execTest);
 		} catch (SQLException e) {
 			System.out.println("Error validating TestCode");
 			e.printStackTrace();

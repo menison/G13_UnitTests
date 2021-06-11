@@ -5,8 +5,8 @@ import com.jfoenix.controls.JFXTextField;
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
+import entities.ExecutedTest;
 import entities.Message;
-import entities.Test;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,8 +28,6 @@ public class EnterTestCodeController {
     @FXML
     private Button EnterTestCode_btnBack;
     
-    private Test testInExecution;
-    
     public String getTestCode() {
     	return EnterTestCode_txtCode.getText();
     }
@@ -38,8 +36,24 @@ public class EnterTestCodeController {
     void SendTestCode(ActionEvent event) throws Exception {
     	DataManager dm = DataManager.getDataManager();
     	String toAccept = getTestCode() + "," + dm.getCurrentUser().getPersonalSID();
+    	
+    	
     	ClientUI.chat.accept(new Message(Operation.SendTestCode, (Object)toAccept)); 
     	
+    	ExecutedTest execTest = dm.getTestInExecution();
+    	if (execTest == null) {
+    		Alert alert = new Alert(AlertType.ERROR);
+			alert.setContentText("Test code is not valid.");
+			alert.showAndWait();
+			
+			Stage current = (Stage) EnterTestCode_btnSendCode.getScene().getWindow();
+			current.close();
+			
+			Stage primaryStage = new Stage();
+			start(primaryStage);
+			
+    	}
+    		 	
     	Alert pop = new Alert(AlertType.WARNING);
     	pop.setContentText("Beware - you are about to start a test. This action cannot"
     			+ "be canceled");

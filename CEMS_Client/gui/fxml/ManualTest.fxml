@@ -17,19 +17,19 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <Label layoutX="225.0" layoutY="39.0" text="Manual Test" textFill="#b2b2b2">
+      <Label layoutX="211.0" layoutY="80.0" text="Manual Test" textFill="#b2b2b2">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
       <Button fx:id="manualTest_btnDownload" layoutX="68.0" layoutY="200.0" mnemonicParsing="false" onAction="#downloadTest" text="Download Test" />
-      <Label layoutX="89.0" layoutY="146.0" prefHeight="55.0" prefWidth="59.0" text="Ready?" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
+      <Label layoutX="103.0" layoutY="147.0" prefHeight="55.0" prefWidth="59.0" text="Ready?" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
       <Button fx:id="manualTest_btnUpload" layoutX="393.0" layoutY="200.0" mnemonicParsing="false" onAction="#uploadTest" text="Upload Test" />
-      <Label layoutX="418.0" layoutY="154.0" prefHeight="40.0" prefWidth="59.0" text="Done? " textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
+      <Label layoutX="424.0" layoutY="155.0" prefHeight="40.0" prefWidth="59.0" text="Done? " textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
          <font>
             <Font size="17.0" />
          </font>

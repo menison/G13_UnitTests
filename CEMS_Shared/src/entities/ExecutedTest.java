@@ -5,7 +5,7 @@ import java.time.LocalTime;
 public class ExecutedTest  {
 	
 	private String studentExecuting;
-	private Test testInExecution;
+	private Test test;
 	private String executionCodePK = null;
 	private int[] answers;
 	private int actualDuration;
@@ -13,11 +13,11 @@ public class ExecutedTest  {
 	private LocalTime endTime;
 	
 
-	public ExecutedTest(Test testInExecution, String executionCodePK, int[] answers,
+	public ExecutedTest(Test test, String executionCodePK, int[] answers,
 			String studentExecuting, int actualDuration, LocalTime startTime, LocalTime endTime) {
 		super();
-		this.testInExecution = testInExecution;
-		this.executionCodePK = testInExecution.getCurrExecutionCode();
+		this.test = test;
+		this.executionCodePK = test.getCurrExecutionCode();
 		this.answers = answers;
 		this.studentExecuting = studentExecuting;
 		this.actualDuration = actualDuration;
@@ -57,8 +57,8 @@ public class ExecutedTest  {
 		this.studentExecuting = executedBy;
 	}
 
-	public Test getTestInExecution() {
-		return testInExecution;
+	public Test getTest() {
+		return test;
 	}
 
 
