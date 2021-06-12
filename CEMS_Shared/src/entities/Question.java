@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Arrays;
+
 public class Question {
 	
 	private String questionID;
@@ -52,6 +54,10 @@ public class Question {
 	public String getTeacherComposed() {
 		return teacherComposed;
 	}
-	
+	@Override
+	public String toString() {
+		return(questionID + "," + text + "," + teacherComposed + "," + Arrays.toString(answers) + "," + 
+				correctAnswerIndex);
+	}
 	
 }

@@ -18,31 +18,35 @@ public class Query {
 	//INSERT HERE MORE QUERIES-----------------------------------------------------------------------------
 	
 	public static ResultSet getQuestionByID(String questionID) {
-		Connection con = SetConnectionDB.start();
-		Statement stmt;
-		ResultSet toReturn = null;
-		try {
-			stmt = con.createStatement();
-			toReturn = stmt.executeQuery("SELECT * FROM question WHERE questionID= " 
-			+ questionID + ";");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return toReturn;
+//		Connection con = SetConnectionDB.start();
+//		Statement stmt;
+//		ResultSet toReturn = null;
+//		try {
+//			stmt = con.createStatement();
+//			toReturn = stmt.executeQuery("SELECT * FROM question WHERE questionID= " 
+//			+ questionID + ";");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return toReturn;
+		return resultqueryFrom("SELECT * FROM question WHERE questionID= " 
+				+ questionID + ";");
 	}
 	
 	public static ResultSet getTestByExecutionCode(String testExecCode) {
-		Connection con = SetConnectionDB.start();
-		Statement stmt;
-		ResultSet toReturn = null;
-		try {
-			stmt = con.createStatement();;
-			toReturn = stmt.executeQuery("SELECT * FROM test WHERE isActivated = true AND"
-					+ " currExecCode= \"" + testExecCode + "\";");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return toReturn;
+//		Connection con = SetConnectionDB.start();
+//		Statement stmt;
+//		ResultSet toReturn = null;
+//		try {
+//			stmt = con.createStatement();;
+//			toReturn = stmt.executeQuery("SELECT * FROM test WHERE isActivated = true AND"
+//					+ " currExecCode= \"" + testExecCode + "\";");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return toReturn;
+		return resultqueryFrom("SELECT * FROM test WHERE isActivated = true AND"
+				+ " currExecCode= \"" + testExecCode + "\";");
 	}
 	
 	
