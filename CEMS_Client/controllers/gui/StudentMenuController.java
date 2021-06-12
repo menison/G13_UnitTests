@@ -3,6 +3,7 @@ package gui;
 import java.io.IOException;
 
 import application.ClientUI;
+import cachedUserData.DataManager;
 import common.Operation;
 import entities.Message;
 import javafx.event.ActionEvent;
@@ -26,18 +27,15 @@ public class StudentMenuController {
 	@FXML
     void showTestTable(ActionEvent event) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
-    	//Stage newStage = new Stage();
     	Stage stage = (Stage) studentMenu_showTests.getScene().getWindow();
+    	DataManager dm = DataManager.getDataManager();
     	stage.close();
     	Stage primaryStage = new Stage();
-    	//ImageView iv = new ImageView(getClass().getResource("/img/logo4.png").toExternalForm());
     	Pane root = loader.load(getClass().getResource("/fxml/TestTable.fxml").openStream());
-    	//TestTableController ttc = new TestTableController();
-    	//ttc.start(newStage);
     	showTTController = loader.getController();
-    	ClientUI.chat.accept(new Message(Operation.GetTestTable));
-    	showTTController.setTable();
-    	//stage.close();
+    	ClientUI.chat.accept(new Message(Operation.GetTestTable,dm.getCurrentUser().getPersonalSID()));
+    	if(dm.getExecutedExams() != null)
+    		showTTController.setTable();
     	Scene scene = new Scene(root);
     	scene.getStylesheets().add(getClass().getResource("/css/das.css").toExternalForm());
     	primaryStage.getIcons().add(new Image("/img/logo4.png"));
