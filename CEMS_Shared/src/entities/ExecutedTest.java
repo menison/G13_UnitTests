@@ -1,10 +1,15 @@
 package entities;
 
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Arrays;
 
-public class ExecutedTest  {
+public class ExecutedTest implements Serializable  {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7952896035972742953L;
 	private String studentExecuting;
 	private Test test;
 	private String executionCodePK = null;

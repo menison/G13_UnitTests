@@ -1,7 +1,5 @@
 package logics;
 
-
-
 import common.Permission;
 
 import dataParsing.GetFullTestTable;
