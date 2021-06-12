@@ -2,7 +2,10 @@ package logics;
 
 
 
+import java.sql.SQLException;
+
 import common.Permission;
+import dataParsing.ActivateTest;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.TestCodeValidation;
@@ -29,6 +32,8 @@ public class DataParsing {
 			return TestCodeValidation.validateTestCode(receivedMessage);
 		case GetFullTestTable:
 			return GetFullTestTable.getTestTable(receivedMessage);
+		case ActivateTestCode:
+			return ActivateTest.validateAndActivate(receivedMessage);
 		default:
 			break;
 				

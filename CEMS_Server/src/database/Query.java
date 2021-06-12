@@ -19,18 +19,28 @@ public class Query {
 	
 	//INSERT HERE MORE QUERIES-----------------------------------------------------------------------------
 	
-	
+	//David
 	
 	
 	public static String getFullNameByID(String personalID) throws SQLException {
-		ResultSet rs = resultqueryFrom("SELECT firstName, LastName FROM User WHERE personalSID = '"+personalID+"'");
+		ResultSet rs = resultqueryFrom("SELECT firstName, LastName FROM user WHERE personalSID = '" + personalID + "';");
+		System.out.println(personalID);
+		System.out.println(rs.getString(1)+" "+rs.getString(2));
 			return rs.getString(1)+" "+rs.getString(2);
 	}
 	
 	
 	public static ResultSet SelectFullTable(String tableName) {
-		return resultqueryFrom("SELECT * FROM" + tableName );
+		return resultqueryFrom("SELECT * FROM " + tableName );
 	}
+	public static ResultSet getTestListForTeacherFullTable() {
+		return resultqueryFrom("select test.testID, field.name as field, course.name as course , test.allocatedDuration, User.firstName, User.lastname\r\n"
+				+ "from course, user , test,field,\r\n"
+				+ "(Select SUBSTR(testid, 1, 2) as fieldID, SUBSTR(testid, 3,2) as courseID , testID from test) as IDS\r\n"
+				+ "where course.ID=IDS.courseID and field.ID=IDS.fieldID and test.ComposedBy=user.personalSID and IDS.testID = test.testID");
+	}
+	
+	
 	
 	//------------------------------------------------------------------------------------------------------
 	

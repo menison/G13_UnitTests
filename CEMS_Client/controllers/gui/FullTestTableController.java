@@ -1,10 +1,14 @@
 package gui;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
 
+import application.ClientUI;
 import cachedUserData.DataManager;
+import common.Operation;
+import entities.Message;
 import entities.TestForFullTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -63,4 +68,40 @@ public class FullTestTableController {
 		fullTestTable_composerColumn.setCellValueFactory(new PropertyValueFactory<>("composer"));
 		fullTestTbl.setItems(tests);
 	}
+
+    @FXML
+    void ActivateTest(ActionEvent event) throws IOException {
+    	Object selectedItems=fullTestTbl.getSelectionModel().getSelectedItem().getTestID();
+    	if(selectedItems!=null);
+    	{
+
+    	Stage stage = new Stage();
+    	ActivateTestController activateTest= new ActivateTestController();
+    	activateTest.start(stage);
+		DataManager dm = DataManager.getDataManager();
+		dm.setTestID(selectedItems.toString());
+    	}
+    	
+    	
+    }
+
+    @FXML
+    void Close(ActionEvent event) throws Exception {
+    	Stage newStage = new Stage();
+    	Stage stage = (Stage) fullTestTable_btnClose.getScene().getWindow();
+    	TeacherMenuController tmc = new TeacherMenuController();
+    	tmc.start(newStage);
+    	stage.close();
+    }
+
+    @FXML
+    void EditTest(ActionEvent event) {
+
+    }
+
+    @FXML
+    void addTest(ActionEvent event) {
+
+    }
+
 }

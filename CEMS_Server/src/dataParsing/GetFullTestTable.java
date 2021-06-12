@@ -20,29 +20,28 @@ public class GetFullTestTable {
 		ArrayList<TestForFullTable> testList;
 		Statement stmt;
 		ResultSet rs;
+		ResultSet rs2;
 		String composer;
-		ResultSet field;
-		ResultSet course;
-		Connection con = SetConnectionDB.start();
-		
+		String courseName;
+		String fieldName;
 		TestForFullTable t;
 		testList = new ArrayList<TestForFullTable>();
 		String returnStr = "";
 		Message messageToReturn;
 		try {
-			rs = Query.SelectFullTable("Test");
+			rs = Query.getTestListForTeacherFullTable();
 			ServerController.sc.addToTextArea("Fetching tests");
-			//arrayToSend.add(Convert.FromResultsetToExecutedTest(rs));
-			while (rs.next()) {
-			composer=Query.getFullNameByID(rs.getString(9));
 			
-				
+			while (rs.next()) {
+
+			fieldName=rs.getString(2);
+			courseName=rs.getString(3);
+			composer=rs.getString(6)+" "+rs.getString(5);
 				// TestForFullTable(String testID,String subject,String course,int duration,String composer,composerID)
-				t = new TestForFullTable(rs.getString(1),rs.getString(2),rs.getString(3),
+				t = new TestForFullTable(rs.getString(1),fieldName,courseName,
 						rs.getInt(4),composer);
 				testList.add(t);
 			}
-			System.out.println("Success setting table");
 			rs.close();
 			for(int i = 0; i < testList.size();i++) {
 				returnStr += testList.get(i);
@@ -54,7 +53,6 @@ public class GetFullTestTable {
 			//return new Message(Operation.GetTestTable,testList);
 			return messageToReturn;
 		} catch	(SQLException e) {
-			System.out.println("Error setting table");
 			e.printStackTrace();
 		}
 		return null;

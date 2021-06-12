@@ -21,7 +21,16 @@ public class DataManager {
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
 	private ArrayList<TestForFullTable> fullTestList;
+	private String testID;
 	
+	public String getTestID() {
+		return testID;
+	}
+
+	public void setTestID(String testID) {
+		this.testID = testID;
+	}
+
 	private DataManager() {
 		this.currentUser = null;
 		this.PreOrder = false;
