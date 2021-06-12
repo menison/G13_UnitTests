@@ -1,10 +1,13 @@
 package database;
 
+import java.sql.Blob;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import entities.ExecutedTest;
 import server.EchoServer;
 
 public class Query {
@@ -68,7 +71,30 @@ public class Query {
 		return toReturn;
 	}
 
+	
+	public static void writeManualTestBlobToDB(Blob b1, ExecutedTest excTest) {
+		Connection con = SetConnectionDB.start();
+		
+		String studentID = excTest.getExecutedBy();
+		String execCode = excTest.getExecutionCodePK();
+		String query = "UPDATE executedtest SET " + "SET uploadedmtest = ? " + "WHERE TestCode = ? " + "AND " + "ExecutedBy = ?" + ";";
+		try {
+			PreparedStatement toReturn = con.prepareStatement(query);
+			toReturn.setBlob(1, b1);
+			toReturn.setString(2, execCode);
+			toReturn.setString(3, studentID);
+			toReturn.executeUpdate();
+			System.out.println("Stored the file in the BLOB column.");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	//------------------------------------------------------------------------------------------------------
+	
+
+
 	// ------------------------------------------------------------------------------------------------------
+
 
 	private static ResultSet resultqueryFrom(String query) {
 		Connection connection = SetConnectionDB.start();
@@ -94,7 +120,7 @@ public class Query {
 
 		try {
 			StatementOfResultSet = connection.createStatement();
-			StatementOfResultSet.executeQuery(query);
+			StatementOfResultSet.executeUpdate(query);
 			// Resultset.next();
 			// System.out.println(Resultset.getString(1));
 

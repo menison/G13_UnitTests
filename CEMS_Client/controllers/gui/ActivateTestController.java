@@ -1,9 +1,15 @@
 package gui;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.JFXTimePicker;
 
 import application.ClientUI;
 import cachedUserData.DataManager;
@@ -30,7 +36,11 @@ public class ActivateTestController {
     @FXML
     private Label errorTxt;
     
+    @FXML
+    private JFXDatePicker ActivateTest_dateSelect;
 
+    @FXML
+    private JFXTimePicker ActivateTest_timeSelect;
     
 	public void start(Stage newStage) throws IOException {
     	Pane root;
@@ -45,20 +55,43 @@ public class ActivateTestController {
     @FXML
     void Activate(ActionEvent event) {
 		DataManager dm = DataManager.getDataManager();
-    	String[] toSend = new String[2];
+    	String[] toSend = new String[5];
     	String pinCode = ActivateTest_pinCodeField.getText();
     	if(pinCode.length()!=4) {
     		errorTxt.setText("Code must be 4 characters");
     		errorTxt.setVisible(true);
     	}
-    	
+    	else if(ActivateTest_dateSelect.getValue()==null){
+    		errorTxt.setText("please choose a date");
+    		errorTxt.setVisible(true);
+    		
+    	}
+    	else if(ActivateTest_timeSelect.getValue()==null){
+    		errorTxt.setText("please choose time");
+    		errorTxt.setVisible(true);
+    		
+    	}
+    		
+
     	else {
+    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+        	LocalDate date =ActivateTest_dateSelect.getValue();
+        	String dateString = date.format(formatter);
+;
+        	LocalTime time =ActivateTest_timeSelect.getValue();
+        	DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmmss");
+        	String timeString = time.format(timeFormatter);
+        	
     	errorTxt.setVisible(false);
     	toSend[0]=pinCode;
     	toSend[1]=dm.getTestID();
+    	toSend[2]=dateString;
+    	toSend[3]=timeString;
+    	toSend[4]=dm.getCurrentUser().getPersonalSID();
+		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,toSend));
     	}
     	
-		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,toSend));
+    	
     }
 
     @FXML
@@ -69,3 +102,4 @@ public class ActivateTestController {
     
 
 }
+
