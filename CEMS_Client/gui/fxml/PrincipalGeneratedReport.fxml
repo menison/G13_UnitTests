@@ -32,14 +32,13 @@
          </image>
       </ImageView>
       <JFXTextField id="principalGeneratedReportByText" fx:id="PrincipalGeneratedReport_byTxt" editable="false" focusTraversable="false" layoutX="14.0" layoutY="141.0" text="By " />
-      <JFXTextField id="principalGeneratedReportAverageScoreText" fx:id="PrincipalGeneratedReport_AverageScoreTxt" editable="false" focusTraversable="false" layoutX="14.0" layoutY="282.0" text="Average score" />
-      <JFXTextField id="principalGeneratedReportMedianText" fx:id="PrincipalGeneratedReport_medianTxt" editable="false" focusTraversable="false" layoutX="14.0" layoutY="468.0" text="Median" />
+      <JFXTextField id="principalGeneratedReportAverageScoreText" fx:id="PrincipalGeneratedReport_AverageScoreTxt" editable="false" focusTraversable="false" layoutX="14.0" layoutY="274.0" text="Average score" />
+      <JFXTextField id="principalGeneratedReportMedianText" fx:id="PrincipalGeneratedReport_medianTxt" editable="false" focusTraversable="false" layoutX="14.0" layoutY="408.0" text="Median" />
       <Label layoutX="496.0" layoutY="111.0" style="-fx-text-fill: #ffff8d;" text="Histogram">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <JFXButton id="principalGeneratedReportExitButton" fx:id="PrincipalGeneratedReport_btnExit" layoutX="703.0" layoutY="542.0" onAction="#PrincipalGeneratedReport_btnExitClicked" prefHeight="39.0" prefWidth="66.0" text="Exit" />
+      <JFXButton id="principalGeneratedReportExitButton" fx:id="PrincipalGeneratedReport_btnExit" layoutX="703.0" layoutY="542.0" onAction="#PrincipalGeneratedReport_btnExitClicked" prefHeight="39.0" prefWidth="66.0" text="Back" />
    </children>
 </AnchorPane>
-

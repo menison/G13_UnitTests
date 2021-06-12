@@ -3,13 +3,10 @@ package dataParsing;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import common.Operation;
 import database.Query;
 import entities.Message;
-import entities.Report;
 import gui.ServerController;
 
 public class PrincipalGetReport {
@@ -28,7 +25,6 @@ public class PrincipalGetReport {
 		case "Teacher":
 				query = "SELECT Grade FROM ExecutedTest WHERE ComposedBy = " +  generetaedValue + ";";
 			break;
-		
 		}
 		ArrayList<String> gradesList;
 		ResultSet rs;
