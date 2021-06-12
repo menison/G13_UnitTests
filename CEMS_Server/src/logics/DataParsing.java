@@ -3,6 +3,7 @@ package logics;
 
 
 import common.Permission;
+
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.ManualTestDownloader;
@@ -25,6 +26,8 @@ public class DataParsing {
 		
 		case Login:
 			return GetLogin.userLoginData(receivedMessage);
+		case Logout:
+			return GetLogin.logOut(receivedMessage);
 		case GetTestTable:
 			return GetTestTable.getTestTable(receivedMessage);
 		case SendTestCode:
@@ -35,7 +38,7 @@ public class DataParsing {
 			return ManualTestDownloader.downloadManualTest(receivedMessage);
 		case UploadManualTest:
 			return null;
-		case PrincipalGetReport:
+		case GetReport:
 			return PrincipalGetReport.getReport(receivedMessage);
 		default:
 			break;

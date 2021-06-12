@@ -7,7 +7,6 @@ package common;
 public enum Operation {
 	
 	Operation1,
-	LoggedOut,
 	Login,
 	Logout,
 	Operation3,
@@ -18,5 +17,5 @@ public enum Operation {
 	GetTestTable,
 	getInstructionsAndMail,
 	GetFullTestTable,
-	PrincipalGetReport
+	GetReport
 }

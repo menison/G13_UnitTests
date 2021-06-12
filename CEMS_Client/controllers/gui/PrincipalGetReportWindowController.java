@@ -64,7 +64,7 @@ public class PrincipalGetReportWindowController {
 		values += PrincipalGetReportWindow_generateByCombo.getSelectionModel().getSelectedItem();
 		values +="_";
 		values +=PrincipalGetReportWindow_valueTxt.getText();
-		ClientUI.chat.accept(new Message(Operation.PrincipalGetReport ,values));
+		ClientUI.chat.accept(new Message(Operation.GetReport ,values));
 		Stage newStage = new Stage();
 		Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		PrincipalGeneratedReportController pgmc = new PrincipalGeneratedReportController();

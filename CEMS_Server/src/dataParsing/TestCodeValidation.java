@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import common.Operation;
+import common.Permission;
 import database.Query;
 import database.SetConnectionDB;
 import entities.ExecutedTest;
@@ -25,13 +26,15 @@ public class TestCodeValidation {
 		String studentExecuting = splitted[1];
 		ExecutedTest execTest;
 		ArrayList<Question> questions;
+		Message messageToReturn;
 		
 		try {
 			stmt = con.createStatement();
 			rs = Query.getTestByExecutionCode(desiredTestToValidate);
-			if (!rs.next()) {
-				return new Message(Operation.SendTestCode, "false");
-			}
+//			if (rs.next()) {
+//				return new Message(Operation.SendTestCode, "false");
+//			}
+			rs.next();
 			String testID = rs.getString(1);
 			String questionText = null, commentsForStudents = rs.getString(4);
 			String commentsForTeachers = rs.getString(5);
@@ -43,13 +46,15 @@ public class TestCodeValidation {
 			questions = new ArrayList<Question>();
 			String[] pointsDistribution = rs.getString(7).split(",");
 			String teacherComposedTest = rs.getString(9);
-			
+			System.out.println("Finished reading from rs");
 			for (int i=0; i<arr.length; i++)
 			{
 				ResultSet questionTuple = Query.getQuestionByID(arr[i]);
-				rs.next(); 
+				questionTuple.next(); 
 				questionText = questionTuple.getString(2);
 				answers = questionTuple.getString(3).split(",");
+				System.out.println("Question: " + questionText);
+				System.out.println("Answers: " + answers[0]+","+ answers[1]+","+ answers[2]+","+ answers[3]);
 				correctAnswerIndex = questionTuple.getInt(4);
 				String teacherComposedQuestion = questionTuple.getString(5);
 				Question qToAdd = new Question(arr[i], questionText, answers, correctAnswerIndex,
@@ -63,13 +68,20 @@ public class TestCodeValidation {
 			
 			execTest = new ExecutedTest(testInExecution, desiredTestToValidate, null, studentExecuting,
 					0, null, null);
-		
+			execTest.setComposedBy(teacherComposedTest);
 			rs.close();
-			return new Message(Operation.SendTestCode, execTest);
+			messageToReturn = new Message(Operation.SendTestCode, execTest);
+			messageToReturn.setPermission(Permission.yes);
+			return messageToReturn;
 		} catch (SQLException e) {
 			System.out.println("Error validating TestCode");
 			e.printStackTrace();
 		}
 		return null;
+	}
+	public static String getExecTestStr(ExecutedTest test) {
+		String str = new String();
+		
+		return str;
 	}
 }

@@ -9,6 +9,7 @@ import common.Operation;
 import entities.Message;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
@@ -64,6 +65,29 @@ public class TeacherMenuController {
 		primaryStage.show();
 
     }
+    @FXML 
+	void logOut(ActionEvent event) throws IOException {
+		Stage newStage = new Stage();
+		LoginCemsController lcc = new LoginCemsController();
+		try {
+			lcc.start(newStage);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		((Node) event.getSource()).getScene().getWindow().hide();
+		
+	}
+    
+    @FXML 
+	void testsForReport(ActionEvent event) throws IOException {
+		Stage newStage = new Stage();
+		Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		TestsStatisticsController tsc = new TestsStatisticsController();
+		tsc.start(newStage);
+		currentStage.close();
+	}
+    
 
 
 }
