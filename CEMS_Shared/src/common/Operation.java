@@ -21,5 +21,8 @@ public enum Operation {
 	GetTestsForTeacherReport,
 	ActivateTestCode,
 	GetSubjectsAndCourses,
-	GetQuestions
+	GetQuestions,
+	ActivateTestCodeFailed,
+	ActivateTestCodeSuccess
+	
 }

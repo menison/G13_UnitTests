@@ -21,7 +21,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 
 public class ActivateTestController {
 	
@@ -58,28 +60,31 @@ public class ActivateTestController {
     	String[] toSend = new String[5];
     	String pinCode = ActivateTest_pinCodeField.getText();
     	if(pinCode.length()!=4) {
-    		errorTxt.setText("Code must be 4 characters");
-    		errorTxt.setVisible(true);
+    		Alert alert = new Alert(AlertType.WARNING);
+			alert.setContentText("Code must be 4 characters.");
+			alert.showAndWait();
+
     	}
     	else if(ActivateTest_dateSelect.getValue()==null){
-    		errorTxt.setText("please choose a date");
-    		errorTxt.setVisible(true);
-    		
+    		Alert alert = new Alert(AlertType.WARNING);
+			alert.setContentText("please choose a date.");
+			alert.showAndWait();
+
     	}
     	else if(ActivateTest_timeSelect.getValue()==null){
-    		errorTxt.setText("please choose time");
-    		errorTxt.setVisible(true);
-    		
+    		Alert alert = new Alert(AlertType.WARNING);
+			alert.setContentText("please choose time.");
+			alert.showAndWait();
     	}
     		
 
     	else {
-    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyy");
         	LocalDate date =ActivateTest_dateSelect.getValue();
         	String dateString = date.format(formatter);
 ;
         	LocalTime time =ActivateTest_timeSelect.getValue();
-        	DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmmss");
+        	DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmm");
         	String timeString = time.format(timeFormatter);
         	
     	errorTxt.setVisible(false);
@@ -89,6 +94,23 @@ public class ActivateTestController {
     	toSend[3]=timeString;
     	toSend[4]=dm.getCurrentUser().getPersonalSID();
 		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,toSend));
+		
+		if(!dm.isActivateSuccess()) {
+	    	
+    		Alert alert = new Alert(AlertType.WARNING);
+			alert.setContentText(dm.getActivateMsg());
+			System.out.println(dm.isActivateSuccess());
+			alert.showAndWait();
+		}
+		else {
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setContentText(dm.getActivateMsg());
+			alert.showAndWait();
+			System.out.println(dm.isActivateSuccess());
+	    	Stage stage = (Stage) ActivateTest_btnActivate.getScene().getWindow();
+	    	stage.close();
+		}
+		
     	}
     	
     	

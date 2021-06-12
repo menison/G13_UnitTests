@@ -25,8 +25,25 @@ public class DataManager {
 	private ArrayList<Question> questions;
 	private String testID;
 	private Report report;
-
+	private String activateMsg;
+	private boolean activateSuccess;
 	
+	public String getActivateMsg() {
+		return activateMsg;
+	}
+
+	public void setActivateMsg(String activateMsg) {
+		this.activateMsg = activateMsg;
+	}
+
+	public boolean isActivateSuccess() {
+		return activateSuccess;
+	}
+
+	public void setActivateSuccess(boolean activateSuccess) {
+		this.activateSuccess = activateSuccess;
+	}
+
 	public String getTestID() {
 		return testID;
 	}
