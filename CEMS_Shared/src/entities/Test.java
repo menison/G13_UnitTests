@@ -18,6 +18,8 @@ public class Test implements Serializable {
 	private String currExecutionCode;
 	private String[] pointDistribution;
 	private String teacherComposed;
+	private String subject;
+	private String course;
 	private int isActivated;
 
 
