@@ -8,11 +8,6 @@ import entities.TestForFullTable;
 import entities.TestForTable;
 import entities.User;
 
-/**
- * @author avivs100
- *	Singleton whose job it is to know and hold the 
- *details of the current user of the system
- */
 public class DataManager {
 	private static DataManager instance = null;
 

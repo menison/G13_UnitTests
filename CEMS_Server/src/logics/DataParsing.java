@@ -8,6 +8,7 @@ import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.ManualTestDownloader;
 import dataParsing.PrincipalGetReport;
+import dataParsing.TeacherGetAllSelfExecutedTests;
 import dataParsing.TestCodeValidation;
 import database.GetLogin;
 import entities.Message;
@@ -40,10 +41,10 @@ public class DataParsing {
 			return null;
 		case GetReport:
 			return PrincipalGetReport.getReport(receivedMessage);
+		case GetTestsForTeacherReport:
+			return TeacherGetAllSelfExecutedTests.getAllSelfExecutedTests(receivedMessage);
 		default:
 			break;
-				
-	
 		}
 		return null;
 	}

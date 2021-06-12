@@ -33,7 +33,7 @@ public class PrincipalGetReport {
 		gradesList.add(generetaedValue);
 		Message messageToReturn;
 		try {	
-			rs = Query.principalGetReport(query);
+			rs = Query.getReport(query);
 			ServerController.sc.addToTextArea("Fetching grades of : " + generetaedBy + " " + generetaedValue);
 			while (rs.next()) {
 				gradesList.add(rs.getString(1));

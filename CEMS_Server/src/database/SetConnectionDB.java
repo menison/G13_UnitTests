@@ -17,7 +17,7 @@ public class SetConnectionDB {
 
 	public static String DBhost = "localhost";
 	public static String DBname = "query";
-	public static String DBPassword = "davidNkin1";
+	public static String DBPassword = "In511995";
 	public static String DBuser = "root";
 
 	private SetConnectionDB() {
@@ -53,5 +53,4 @@ public class SetConnectionDB {
 		}
 		return instance.conn;
 	}
-
 }

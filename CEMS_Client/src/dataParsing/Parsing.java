@@ -6,6 +6,7 @@ import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
 import request.StudentTestTable;
+import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
 
 public class Parsing {
@@ -38,10 +39,13 @@ public class Parsing {
 			ManualTestDownloader.simulateManualTestExecution(receivedMessage);
 			break;
 		case UploadManualTest:
+			break;
 		case GetReport:
 			PrincipalSetReport.generateReport(receivedMessage);
 			break;
-			
+		case GetTestsForTeacherReport:
+			TeacherSetTableForSelfTests.setTableForSelfTests(receivedMessage);
+			break;
 		default:
 			break;
 		}
