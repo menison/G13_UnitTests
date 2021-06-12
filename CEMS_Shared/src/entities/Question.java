@@ -1,9 +1,14 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Question {
+public class Question implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2659289080390862340L;
 	private String questionID;
 	private String text, teacherComposed;
 	private String[] answers;
