@@ -36,7 +36,7 @@ public class Query {
 		Statement stmt;
 		ResultSet toReturn = null;
 		try {
-			stmt = con.createStatement();
+			stmt = con.createStatement();;
 			toReturn = stmt.executeQuery("SELECT * FROM test WHERE isActivated = true AND"
 					+ " currExecCode= \"" + testExecCode + "\";");
 		} catch (SQLException e) {

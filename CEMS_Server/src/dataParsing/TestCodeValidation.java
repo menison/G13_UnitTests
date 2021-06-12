@@ -68,7 +68,7 @@ public class TestCodeValidation {
 			
 			execTest = new ExecutedTest(testInExecution, desiredTestToValidate, null, studentExecuting,
 					0, null, null);
-		
+			execTest.setComposedBy(teacherComposedTest);
 			rs.close();
 			messageToReturn = new Message(Operation.SendTestCode, execTest);
 			messageToReturn.setPermission(Permission.yes);
