@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXTextField;
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
+import entities.ExecutedTest;
 import entities.Message;
 import entities.Test;
 import javafx.event.ActionEvent;
@@ -65,11 +66,16 @@ public class ManualTestController {
 	void uploadTest(ActionEvent event) {
 		Stage stage = (Stage) manualTest_btnUpload.getScene().getWindow();
 		FileChooser fc = new FileChooser();
-		fc.setInitialDirectory(filepath);
+		//fc.setInitialDirectory(new File(filepath.getAbsolutePath()));
 		fc.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"));
 		fc.setSelectedExtensionFilter(new ExtensionFilter("txt","*.txt"));
 		SolutionFile = fc.showOpenDialog(stage);
-		ClientUI.chat.accept(new Message(Operation.UploadManualTest, (Object)SolutionFile));
+		DataManager dm = DataManager.getDataManager();
+		Object[] arr = new Object[2];
+		ExecutedTest execTest = dm.getTestInExecution();
+		arr[0] = (Object) SolutionFile;
+		arr[1] = (Object) execTest;
+		ClientUI.chat.accept(new Message(Operation.UploadManualTest, (Object)arr));
 		System.out.println("Test uploaded successfully. You may send it now\n.");
 	}
 
