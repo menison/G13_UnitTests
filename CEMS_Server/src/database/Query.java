@@ -70,7 +70,7 @@ public class Query {
 		}
 		return toReturn;
 	}
-<<<<<<< HEAD
+
 	
 	public static void writeManualTestBlobToDB(Blob b1, ExecutedTest excTest) {
 		Connection con = SetConnectionDB.start();
@@ -91,11 +91,11 @@ public class Query {
 	}
 	//------------------------------------------------------------------------------------------------------
 	
-=======
+
 
 	// ------------------------------------------------------------------------------------------------------
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 	private static ResultSet resultqueryFrom(String query) {
 		Connection connection = SetConnectionDB.start();
 		Statement StatementOfResultSet;
