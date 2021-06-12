@@ -20,14 +20,20 @@ public class ChooseTestTypeController {
 	void openCompTest(ActionEvent event) {
 		EnterStudentIdController esic = new EnterStudentIdController();
 		Stage primaryStage = new Stage();
+		Stage stage = (Stage) chooseTestType_btnComput.getScene().getWindow();
+		stage.close();
 		esic.start(primaryStage);
+		
 	}
 
 	@FXML
 	void openManualTest(ActionEvent event) {
 		ManualTestController mtc = new ManualTestController();
 		Stage primaryStage = new Stage();
+		Stage stage = (Stage) chooseTestType_btnComput.getScene().getWindow();
+		stage.close();
 		mtc.start(primaryStage);
+		
 	}
 
 	public void start(Stage primaryStage) throws Exception {

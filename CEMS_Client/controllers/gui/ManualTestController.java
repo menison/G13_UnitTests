@@ -39,6 +39,8 @@ public class ManualTestController {
 
 	@FXML
 	private Button manualTest_btnSend;
+	
+	private File filepath;
 
 	@FXML
     void downloadTest(ActionEvent event) {
@@ -47,8 +49,10 @@ public class ManualTestController {
 		Test test = dm.getTestInExecution().getTest();
 		FileChooser fc = new FileChooser();
 		fc.setInitialFileName(test.getTestID() + "_" + test.getCurrExecutionCode()+".txt");
-		fc.setSelectedExtensionFilter(new ExtensionFilter("txt",".txt"));
+		fc.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"));
+		fc.setSelectedExtensionFilter(new ExtensionFilter("txt","*.txt"));
 		File file = fc.showSaveDialog(stage);
+		filepath = file;
 		Object[] arr = new Object[2];
 		arr[0] = (Object)file;
 		arr[1] = (Object)test;
@@ -61,6 +65,9 @@ public class ManualTestController {
 	void uploadTest(ActionEvent event) {
 		Stage stage = (Stage) manualTest_btnUpload.getScene().getWindow();
 		FileChooser fc = new FileChooser();
+		fc.setInitialDirectory(filepath);
+		fc.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"));
+		fc.setSelectedExtensionFilter(new ExtensionFilter("txt","*.txt"));
 		SolutionFile = fc.showOpenDialog(stage);
 		ClientUI.chat.accept(new Message(Operation.UploadManualTest, (Object)SolutionFile));
 		System.out.println("Test uploaded successfully. You may send it now\n.");

@@ -18,7 +18,7 @@ public class ExecutedTest implements Serializable  {
 	private int actualDuration;
 	private LocalTime startTime;
 	private LocalTime endTime;
-	private Date date;
+	private String date;
 	private String composedBy;
 	
 	public ExecutedTest(Test test, String executionCodePK, int[] answers,
@@ -80,5 +80,13 @@ public class ExecutedTest implements Serializable  {
 		return(studentExecuting + "," + test.toString() + "," + executionCodePK +
 				"," + Arrays.toString(answers) + "," + actualDuration + "," + startTime + 
 				"," + endTime + "," + composedBy);
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 }

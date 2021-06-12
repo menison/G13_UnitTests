@@ -6,7 +6,7 @@ import entities.ExecutedTest;
 import entities.Question;
 
 public class TestChecker {
-	public int checkTest(ExecutedTest toCheck) {
+	public static int checkTest(ExecutedTest toCheck) {
 		int grade = 0;
 		ArrayList<Question> questions = toCheck.getTest().getQuestions();	
 		int[] answersToCheck = toCheck.getAnswers();

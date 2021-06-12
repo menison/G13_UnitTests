@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -58,10 +59,10 @@ public class EnterTestCodeController {
 			alert.setContentText("Test code is valid, let's continue!");
 			alert.showAndWait();
 	    	Stage stage = (Stage) EnterTestCode_btnSendCode.getScene().getWindow();
+	    	stage.close();
 	    	Stage primaryStage = new Stage();
 	    	ChooseTestTypeController cttc = new ChooseTestTypeController();
 	    	cttc.start(primaryStage);
-	    	stage.close();
     	}
     }
     
@@ -70,8 +71,8 @@ public class EnterTestCodeController {
     	Stage newStage = new Stage();
     	Stage stage = (Stage) EnterTestCode_btnBack.getScene().getWindow();
     	StudentMenuController smc = new StudentMenuController();
-    	smc.start(newStage);
     	stage.close();
+    	smc.start(newStage);
     }
     public void start(Stage primaryStage) throws Exception {	
     	Pane root;
