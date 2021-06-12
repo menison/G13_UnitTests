@@ -19,6 +19,7 @@ public enum Operation {
 	GetFullTestTable,
 	GetReport,
 	GetTestsForTeacherReport,
-	ActivateTestCode
-
+	ActivateTestCode,
+	GetSubjectsAndCourses,
+	GetQuestions
 }

@@ -5,6 +5,7 @@ import request.FullTestTable;
 import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
+import request.SetTestsValues;
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
@@ -45,6 +46,12 @@ public class Parsing {
 			break;
 		case GetTestsForTeacherReport:
 			TeacherSetTableForSelfTests.setTableForSelfTests(receivedMessage);
+			break;
+		case GetSubjectsAndCourses:
+			SetTestsValues.setSubjects(receivedMessage);
+			break;
+		case GetQuestions:
+			SetTestsValues.setQuestions(receivedMessage);
 			break;
 		default:
 			break;

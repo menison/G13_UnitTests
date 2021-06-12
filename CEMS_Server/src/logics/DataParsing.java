@@ -1,19 +1,12 @@
 package logics;
 
-
-
-
-import java.sql.SQLException;
-
-
-
 import common.Permission;
-
 import dataParsing.ActivateTest;
-
+import dataParsing.AddTestsOperations;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.ManualTestDownloader;
+import dataParsing.ManualTestUploader;
 import dataParsing.PrincipalGetReport;
 import dataParsing.TeacherGetAllSelfExecutedTests;
 import dataParsing.TestCodeValidation;
@@ -47,12 +40,15 @@ public class DataParsing {
 		case DownloadManualTest:
 			return ManualTestDownloader.downloadManualTest(receivedMessage);
 		case UploadManualTest:
-			return null;
+			return ManualTestUploader.uploadManualTest(receivedMessage);
 		case GetReport:
 			return PrincipalGetReport.getReport(receivedMessage);
 		case GetTestsForTeacherReport:
 			return TeacherGetAllSelfExecutedTests.getAllSelfExecutedTests(receivedMessage);
-
+		case GetSubjectsAndCourses:
+			return AddTestsOperations.getSubjectsAndCourses(receivedMessage);
+		case GetQuestions:
+			return AddTestsOperations.getQuestions(receivedMessage);
 		default:
 			break;
 		}

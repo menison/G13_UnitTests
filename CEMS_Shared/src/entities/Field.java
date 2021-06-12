@@ -1,9 +1,14 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Field {
+public class Field implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String ID;
 	private String name;
 	private ArrayList<Course> courseList;
@@ -13,6 +18,17 @@ public class Field {
 		ID = iD;
 		this.name = name;
 		this.courseList = courseList;
+	}
+	
+	public Field(String iD, String name) {
+		super();
+		ID = iD;
+		this.name=name;
+	}
+	
+	public Field(String iD) {
+		super();
+		ID = iD;
 	}
 
 	public String getID() {
@@ -37,6 +53,11 @@ public class Field {
 
 	public void addToFieldCourseList(Course courseToAdd) {
 		this.courseList.add(courseToAdd);
+	}
+	
+	@Override
+	public String toString() {
+		return this.name;
 	}
 	
 

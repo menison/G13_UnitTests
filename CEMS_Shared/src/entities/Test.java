@@ -41,7 +41,24 @@ public class Test implements Serializable {
 		this.teacherComposed = composedBy;
 	}
 	
-	
+
+	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
+			String commentsForTeachers, String currExecutionCode, String[] pointDistribution, String teacherComposed,
+			String subject, String course, int isActivated) {
+		super();
+		this.questions = questions;
+		this.testID = testID;
+		this.allocatedDuration = allocatedDuration;
+		this.commentsForStudents = commentsForStudents;
+		this.commentsForTeachers = commentsForTeachers;
+		this.currExecutionCode = currExecutionCode;
+		this.pointDistribution = pointDistribution;
+		this.teacherComposed = teacherComposed;
+		this.subject = subject;
+		this.course = course;
+		this.isActivated = isActivated;
+	}
+
 
 	public String getComposedBy() {
 		return teacherComposed;

@@ -2,7 +2,10 @@ package cachedUserData;
 
 import java.util.ArrayList;
 
+import entities.Course;
 import entities.ExecutedTest;
+import entities.Field;
+import entities.Question;
 import entities.Report;
 import entities.TestForFullTable;
 import entities.TestForTable;
@@ -17,6 +20,10 @@ public class DataManager {
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
 	private ArrayList<TestForFullTable> fullTestList;
+	private ArrayList<Field> fields;
+	private ArrayList<Course> courses;
+	private ArrayList<Question> questions;
+
 	private String testID;
 	private Report report;
 
@@ -100,5 +107,27 @@ public class DataManager {
 
 	public void setReport(Report report) {
 		this.report = report;
+	}
+	
+	public ArrayList<Field> getFields() {
+		return fields;
+	}
+
+	public void setFields(ArrayList<Field> fields) {
+		this.fields = fields;
+	}
+	public ArrayList<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(ArrayList<Course> courses) {
+		this.courses = courses;
+	}
+	public ArrayList<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(ArrayList<Question> question) {
+		this.questions = question;
 	}
 }

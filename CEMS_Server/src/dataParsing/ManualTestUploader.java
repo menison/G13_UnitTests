@@ -8,7 +8,7 @@ import entities.Message;
 import entities.Test;
 
 public class ManualTestUploader {
-	public Message uploadManualTest(Object obj) {
+	public static Message uploadManualTest(Object obj) {
 		Object[] arr = new Object[2];
 		arr = (Object[]) obj;
 		File f = (File) arr[0];
