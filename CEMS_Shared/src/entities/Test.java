@@ -1,11 +1,16 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Test {
+public class Test implements Serializable {
 	
-    public ArrayList<Question> questions = new ArrayList<>();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 945059225263917860L;
+	public ArrayList<Question> questions = new ArrayList<>();
 	public String testID;
 	private int allocatedDuration; //given in minutes
 	private String commentsForStudents;
