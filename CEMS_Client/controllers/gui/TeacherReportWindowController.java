@@ -41,7 +41,6 @@ public class TeacherReportWindowController {
 
     @FXML
     private JFXButton teacherRprtWindow_btnExit;
-
 	public void start(Stage newStage) {
 		Pane root = null;
 		FXMLLoader loader = new FXMLLoader();
@@ -66,6 +65,8 @@ public class TeacherReportWindowController {
 		currentStage.close();
 	}
 	
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@FXML
 	public void initialize() {
 		DataManager dm = DataManager.getDataManager();

@@ -50,23 +50,11 @@ public class TeacherMenuController {
 
 	@FXML
 	void testTable(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		// Stage newStage = new Stage();
-		Stage stage = (Stage) teacherMenu_btnTestTable.getScene().getWindow();
-		stage.close();
-		Stage primaryStage = new Stage();
-		Pane root = loader.load(getClass().getResource("/fxml/FullTestTable.fxml").openStream());
-		showFTTController = loader.getController();
+		FullTestTableController ftt  = new FullTestTableController();
 		ClientUI.chat.accept(new Message(Operation.GetFullTestTable));
-		showFTTController.setTable();
-		// stage.close();
-		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/css/das.css").toExternalForm());
-		primaryStage.getIcons().add(new Image("/img/logo4.png"));
-		primaryStage.setTitle("Test Table");
-		primaryStage.setScene(scene);
-		primaryStage.show();
-
+		Stage primaryStage = new Stage();
+		ftt.start(primaryStage);
+		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
 	}
 
 	@FXML

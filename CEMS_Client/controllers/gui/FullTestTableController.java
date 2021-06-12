@@ -56,7 +56,20 @@ public class FullTestTableController {
     private TableColumn<TestForFullTable, String> fullTestTable_composerColumn;
 
 
-	public void setTable() {
+	public void start(Stage primaryStage) throws IOException {
+		Pane root;
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/fxml/FullTestTable.fxml"));
+		root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setTitle("Full Test Table");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+	}
+	
+	@FXML
+	public void initialize() {
 		DataManager dm = DataManager.getDataManager();
 		ArrayList<TestForFullTable> t = new ArrayList<>(); 
 		t=dm.getFullTable();
@@ -103,5 +116,4 @@ public class FullTestTableController {
     void addTest(ActionEvent event) {
 
     }
-
 }
