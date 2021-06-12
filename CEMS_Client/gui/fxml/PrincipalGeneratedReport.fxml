@@ -39,6 +39,6 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <JFXButton id="principalGeneratedReportExitButton" fx:id="PrincipalGeneratedReport_btnExit" layoutX="703.0" layoutY="542.0" onAction="#PrincipalGeneratedReport_btnExitClicked" prefHeight="39.0" prefWidth="66.0" text="Back" />
+      <JFXButton id="principalGeneratedReportExitButton" fx:id="PrincipalGeneratedReport_btnExit" layoutX="703.0" layoutY="542.0" onAction="#PrincipalGeneratedReport_btnExitClicked" prefHeight="39.0" prefWidth="66.0" styleClass="logout-btn" text="Back" />
    </children>
 </AnchorPane>

@@ -39,7 +39,7 @@ public class PrincipalGetReport {
 				gradesList.add(rs.getString(1));
 			}
 			rs.close();
-			messageToReturn = new Message(Operation.PrincipalGetReport,gradesList);
+			messageToReturn = new Message(Operation.GetReport,gradesList);
 			return messageToReturn;
 		} catch	(SQLException e) {
 			System.out.println("Error setting table");

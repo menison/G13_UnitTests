@@ -38,7 +38,7 @@ public class DataParsing {
 			return ManualTestDownloader.downloadManualTest(receivedMessage);
 		case UploadManualTest:
 			return null;
-		case PrincipalGetReport:
+		case GetReport:
 			return PrincipalGetReport.getReport(receivedMessage);
 		default:
 			break;

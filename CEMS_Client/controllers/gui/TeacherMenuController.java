@@ -78,6 +78,16 @@ public class TeacherMenuController {
 		((Node) event.getSource()).getScene().getWindow().hide();
 		
 	}
+    
+    @FXML 
+	void testsForReport(ActionEvent event) throws IOException {
+		Stage newStage = new Stage();
+		Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		TestsStatisticsController tsc = new TestsStatisticsController();
+		tsc.start(newStage);
+		currentStage.close();
+	}
+    
 
 
 }

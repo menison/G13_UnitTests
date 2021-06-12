@@ -38,7 +38,7 @@ public class Parsing {
 			ManualTestDownloader.simulateManualTestExecution(receivedMessage);
 			break;
 		case UploadManualTest:
-		case PrincipalGetReport:
+		case GetReport:
 			PrincipalSetReport.generateReport(receivedMessage);
 			break;
 			

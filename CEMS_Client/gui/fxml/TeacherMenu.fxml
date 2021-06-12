@@ -22,7 +22,7 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <JFXButton fx:id="teacherMenu_btnTestsStats" focusTraversable="false" layoutX="234.0" layoutY="202.0" prefHeight="39.0" prefWidth="137.0" text="Tests Statistics" />
+      <JFXButton fx:id="teacherMenu_btnTestsStats" focusTraversable="false" layoutX="234.0" layoutY="202.0" onAction="#testsForReport" prefHeight="39.0" prefWidth="137.0" text="Tests Statistics" />
       <JFXButton fx:id="teacherMenu_btnLogout" focusTraversable="false" layoutX="265.0" layoutY="415.0" onAction="#logOut" styleClass="logout-btn" text="Logout" />
    </children>
 </Pane>
