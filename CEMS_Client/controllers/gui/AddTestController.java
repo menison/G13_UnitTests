@@ -17,12 +17,12 @@ import common.Operation;
 import entities.Course;
 import entities.Field;
 import entities.Message;
+import entities.Question;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.Pane;
@@ -43,13 +43,13 @@ public class AddTestController {
 	private JFXButton CreateTest_btnSubmit;
 
 	@FXML
-	private TableView<?> CreateTest_tblQuestions;
+	private TableView<Question> CreateTest_tblQuestions;
 
 	@FXML
-	private TableColumn<?, ?> CreateTest_QuestionIDCol;
+	private TableColumn<Question, String> CreateTest_QuestionIDCol;
 
 	@FXML
-	private TableColumn<?, ?> CreateTest_PointsCol;
+	private TableColumn<Question, String> CreateTest_PointsCol;
 
 	@FXML
 	private JFXTextField CreateTest_DurationField;
@@ -91,14 +91,16 @@ public class AddTestController {
 				CreateTest_chooseCourseBox.getItems().add(c);
 			}
 		});
+		
 	}
 
 	@FXML
 	void addQuestion(ActionEvent event) throws IOException {
+		ArrayList<Question> questions = new ArrayList<Question>();
 		AddQuestionForTestController aqftc = new AddQuestionForTestController();
 		ClientUI.chat.accept(new Message(Operation.GetFullTestTable));
 		Stage primaryStage = new Stage();
-		aqftc.start(primaryStage);
+		aqftc.start(primaryStage,questions);
 	}
 
 	@FXML

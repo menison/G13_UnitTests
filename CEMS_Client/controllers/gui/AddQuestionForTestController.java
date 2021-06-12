@@ -1,6 +1,7 @@
 package gui;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -26,7 +27,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class AddQuestionForTestController {
-
+	private ArrayList<Question> questions;
     @FXML
     private JFXButton ChooseQuestion_btnClose;
 
@@ -56,7 +57,8 @@ public class AddQuestionForTestController {
 
     @FXML
     void AddQuestion(ActionEvent event) {
-
+    	Question question = ChooseQuestion_tblQuestion.getSelectionModel().getSelectedItem();
+    	this.questions.add(question);
     }
 
     @FXML
@@ -66,7 +68,8 @@ public class AddQuestionForTestController {
     	stage.close();
     }
 
-	public void start(Stage newStage) throws IOException {
+	public void start(Stage newStage,ArrayList<Question> questions) throws IOException {
+		this.questions = questions;
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/fxml/AddQuestionForTest.fxml"));

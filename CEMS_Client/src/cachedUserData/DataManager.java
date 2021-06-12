@@ -23,7 +23,6 @@ public class DataManager {
 	private ArrayList<Field> fields;
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
-
 	private String testID;
 	private Report report;
 
