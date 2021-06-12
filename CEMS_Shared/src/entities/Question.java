@@ -1,18 +1,27 @@
 package entities;
 
-public class Question {
+import java.io.Serializable;
+import java.util.Arrays;
+
+public class Question implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2659289080390862340L;
 	private String questionID;
-	private String text;
+	private String text, teacherComposed;
 	private String[] answers;
 	private int correctAnswerIndex;
 	
-	public Question(String questionID, String text, String[] answers, int correctAnswerIndex) {
+	public Question(String questionID, String text, String[] answers, int correctAnswerIndex, 
+			String teacherComposed) {
 		super();
 		this.questionID = questionID;
 		this.text = text;
 		this.answers = answers;
 		this.correctAnswerIndex = correctAnswerIndex;
+		this.teacherComposed = teacherComposed;
 	}
 
 	public String getQuestionID() {
@@ -46,6 +55,14 @@ public class Question {
 	public void setCorrectAnswerIndex(int correctAnswerIndex) {
 		this.correctAnswerIndex = correctAnswerIndex;
 	}
-	
+
+	public String getTeacherComposed() {
+		return teacherComposed;
+	}
+	@Override
+	public String toString() {
+		return(questionID + "," + text + "," + teacherComposed + "," + Arrays.toString(answers) + "," + 
+				correctAnswerIndex);
+	}
 	
 }

@@ -67,7 +67,7 @@ public class GetLogin {
 		if(returnMessage.getPermission().equals(Permission.yes))
 			ServerController.sc.addToTextArea(teacher.getFirstName()+" the "+teacher.getRole()+" connected to the server");
 		else
-			ServerController.sc.addToTextArea(teacher.getFirstName()+"failed to connect to the server");
+			ServerController.sc.addToTextArea(teacher.getFirstName()+" failed to connect to the server");
 		return returnMessage;
 	}
 	
@@ -86,7 +86,7 @@ public class GetLogin {
 		if(returnMessage.getPermission().equals(Permission.yes))
 			ServerController.sc.addToTextArea(student.getFirstName()+" the "+student.getRole()+" connected to the server");
 		else
-			ServerController.sc.addToTextArea(student.getFirstName()+"failed to connect to the server");
+			ServerController.sc.addToTextArea(student.getFirstName()+" failed to connect to the server");
 		return returnMessage;
 	}
 	
@@ -105,8 +105,14 @@ public class GetLogin {
 		if(returnMessage.getPermission().equals(Permission.yes))
 			ServerController.sc.addToTextArea(principal.getFirstName()+" the "+principal.getRole()+" connected to the server");
 		else
-			ServerController.sc.addToTextArea(principal.getFirstName()+"failed to connect to the server");
+			ServerController.sc.addToTextArea(principal.getFirstName()+" failed to connect to the server");
 		return returnMessage;
+	}
+	
+	public static Message logOut(Message msg) {
+		String id=(String)msg.getObj();
+		usersloggedIn.remove(id);
+		return new Message(Operation.Logout,id);
 	}
 	
 	

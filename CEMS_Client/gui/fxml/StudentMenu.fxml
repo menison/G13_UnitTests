@@ -21,6 +21,6 @@
          </font>
       </Label>
       <Button fx:id="studentMenu_showTests" focusTraversable="false" layoutX="230.0" layoutY="220.0" mnemonicParsing="false" onAction="#showTestTable" text="Show test scores" />
-      <Button fx:id="studentMenu_logOut" focusTraversable="false" layoutX="263.0" layoutY="333.0" mnemonicParsing="false" styleClass="logout-btn" text="Logout" />
+      <Button fx:id="studentMenu_logOut" focusTraversable="false" layoutX="263.0" layoutY="333.0" mnemonicParsing="false" onAction="#logOut" styleClass="logout-btn" text="Logout" />
    </children>
 </Pane>

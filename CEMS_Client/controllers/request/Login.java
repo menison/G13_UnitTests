@@ -7,12 +7,9 @@ import common.Operation;
 import common.Permission;
 import entities.Message;
 import entities.Teacher;
-import entities.User;
 import gui.LoginCemsController;
 import entities.Student;
 import entities.Principal;
-//import gui.EmployeeLoginController; - should import teacher,student and principal login controllers.
-//import gui.TravelerLoginController;
 import javafx.event.ActionEvent;
 
 /**
@@ -26,7 +23,7 @@ public class Login extends AbstractController {
 	private static ActionEvent event;
 
 	public static void LogOut(String Id) {
-		Message sendMessage = new Message(Operation.LoggedOut, Id);
+		Message sendMessage = new Message(Operation.Logout, Id);
 		DataManager.getDataManager().clearAll();
 		SendToServer(sendMessage);
 	}
@@ -51,17 +48,6 @@ public class Login extends AbstractController {
 		SendToServer(sendMessage);
 	}
 
-//	public static void requestVisitorLogin(String id, ActionEvent BtnEvent) {
-//		event = BtnEvent;
-//		Message sendMessage = new Message(Operation.VisitorLogin, id);
-//		SendToServer(sendMessage);
-//	}
-
-//	public static void requestSubLogin(String id, ActionEvent BtnEvent) {
-//		event = BtnEvent;
-//		Message sendMessage = new Message(Operation.SubNumberLogin, id);
-//		SendToServer(sendMessage);
-//	}
 
 	/**
 	 * @param msg this function receive massage from the server and display it to
@@ -69,6 +55,10 @@ public class Login extends AbstractController {
 	 */
 	public static void receiveLogin(Object msg) {
 		Message receivedMessage = (Message) msg;
+		if(receivedMessage.getPermission()==Permission.NULL) {
+			LoginCemsController.loginCemsController.setError("The user does not exist");
+			return;
+		}
 		if (receivedMessage.getObj() instanceof Teacher) {
 			Teacher teacher=(Teacher)receivedMessage.getObj();
 			switch (receivedMessage.getPermission()) {
@@ -79,13 +69,12 @@ public class Login extends AbstractController {
 				break;
 			case no:
 				//EmployeeLoginController.EmployeeLoginController.setError("Wrong User Name or Password");
-				break;
-			case NULL:
-				//EmployeeLoginController.EmployeeLoginController.setError("The user does not exist");
+				LoginCemsController.loginCemsController.setError("Wrong User Name or Password");
 				break;
 
 			case AlreadyLoggedIn:
 				//EmployeeLoginController.EmployeeLoginController.setError("The user already logged in");
+				LoginCemsController.loginCemsController.setError("The user already logged in");
 				break;
 
 			default:
@@ -102,13 +91,12 @@ public class Login extends AbstractController {
 				break;
 			case no:
 				//EmployeeLoginController.EmployeeLoginController.setError("Wrong User Name or Password");
-				break;
-			case NULL:
-				//EmployeeLoginController.EmployeeLoginController.setError("The user does not exist");
+				LoginCemsController.loginCemsController.setError("Wrong User Name or Password");
 				break;
 
 			case AlreadyLoggedIn:
 				//EmployeeLoginController.EmployeeLoginController.setError("The user already logged in");
+				LoginCemsController.loginCemsController.setError("The user already logged in");
 				break;
 
 			default:
@@ -125,13 +113,12 @@ public class Login extends AbstractController {
 				break;
 			case no:
 				//EmployeeLoginController.EmployeeLoginController.setError("Wrong User Name or Password");
-				break;
-			case NULL:
-				//EmployeeLoginController.EmployeeLoginController.setError("The user does not exist");
+				LoginCemsController.loginCemsController.setError("Wrong User Name or Password");
 				break;
 
 			case AlreadyLoggedIn:
 				//EmployeeLoginController.EmployeeLoginController.setError("The user already logged in");
+				LoginCemsController.loginCemsController.setError("The user already logged in");
 				break;
 
 			default:

@@ -3,15 +3,11 @@ package cachedUserData;
 import java.util.ArrayList;
 
 import entities.ExecutedTest;
+import entities.Report;
 import entities.TestForFullTable;
 import entities.TestForTable;
 import entities.User;
 
-/**
- * @author avivs100
- *	Singleton whose job it is to know and hold the 
- *details of the current user of the system
- */
 public class DataManager {
 	private static DataManager instance = null;
 
@@ -21,7 +17,11 @@ public class DataManager {
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
 	private ArrayList<TestForFullTable> fullTestList;
+<<<<<<< HEAD
 	private String testID;
+=======
+	private Report report;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	
 	public String getTestID() {
 		return testID;
@@ -96,5 +96,11 @@ public class DataManager {
 	public ArrayList<TestForFullTable> getFullTable() {
 		return this.fullTestList;
 	}
-	
+	public Report getReport() {
+		return report;
+	}
+
+	public void setReport(Report report) {
+		this.report = report;
+	}
 }

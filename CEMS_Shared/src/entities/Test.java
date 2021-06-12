@@ -1,21 +1,29 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-public class Test {
+public class Test implements Serializable {
 	
-    public ArrayList<Question> questions = new ArrayList<>();
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 945059225263917860L;
+	public ArrayList<Question> questions = new ArrayList<>();
 	public String testID;
 	private int allocatedDuration; //given in minutes
 	private String commentsForStudents;
 	private String commentsForTeachers;
 	private String currExecutionCode;
-	private int[] pointDistribution;
-	private boolean isActivated;
+	private String[] pointDistribution;
+	private String teacherComposed;
+	private int isActivated;
 
 
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
-			String commentsForTeachers, String currExecutionCode, int[] pointDistribution, boolean isActivated) {
+			String commentsForTeachers, String currExecutionCode, 
+			String[] pointDistribution, int isActivated, String composedBy) {
 		super();
 		this.questions = questions;
 		this.testID = testID;
@@ -25,6 +33,11 @@ public class Test {
 		this.currExecutionCode = currExecutionCode;
 		this.pointDistribution = pointDistribution;
 		this.isActivated = isActivated;
+		this.teacherComposed = composedBy;
+	}
+
+	public String getComposedBy() {
+		return teacherComposed;
 	}
 
 	public int howManyQuestions() {
@@ -55,13 +68,23 @@ public class Test {
 		return currExecutionCode;
 	}
 
-	public int[] getPointDistribution() {
+	public String[] getPointDistribution() {
 		return pointDistribution;
 	}
 
-	public boolean isActivated() {
+	public int isActivated() {
 		return isActivated;
 	}
-	
+	@Override
+	public String toString() {
+		String str = new String();
+		for (Question q : questions) 
+		{ 
+		    str+=q;
+		}
+		return(str + "," + testID + "," + allocatedDuration + "," + commentsForStudents +
+				"," + commentsForTeachers + "," + currExecutionCode + "," +
+				Arrays.toString(pointDistribution) + "," + teacherComposed + "," + isActivated);
+	}
 	
 }

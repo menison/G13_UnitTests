@@ -9,29 +9,24 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TestsStatisticsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="371.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TestsStatisticsController">
    <children>
-      <JFXButton fx:id="testsStatistics_btnClose" focusTraversable="false" layoutX="699.0" layoutY="439.0" prefHeight="39.0" prefWidth="87.0" text="Close" />
-      <ImageView fitHeight="113.0" fitWidth="75.0" layoutX="26.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <JFXButton fx:id="testsStatistics_btnClose" focusTraversable="false" layoutX="188.0" layoutY="436.0" onAction="#testsStatistics_btnCloseClicked" prefHeight="39.0" prefWidth="109.0" styleClass="logout-btn" text="Back" />
+      <ImageView fitHeight="64.0" fitWidth="47.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <Label layoutX="284.0" layoutY="33.0" prefHeight="64.0" prefWidth="232.0" styleClass="login-header" text="Test Statistics" textFill="#b2b2b2">
+      <Label layoutX="100.0" layoutY="33.0" prefHeight="64.0" prefWidth="172.0" styleClass="login-header" text="Test Statistics" textAlignment="RIGHT" textFill="#b2b2b2">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <TableView fx:id="testStatisticsTable" layoutX="8.0" layoutY="118.0" prefHeight="307.0" prefWidth="784.0">
+      <TableView fx:id="testStatisticsTable" layoutX="65.0" layoutY="97.0" prefHeight="307.0" prefWidth="232.0">
         <columns>
-          <TableColumn fx:id="testIdColumn" prefWidth="111.0" text="Test ID" />
-            <TableColumn fx:id="testCodeColumn" prefWidth="110.0" text="Test Code" />
-            <TableColumn fx:id="testSubjectColumn" prefWidth="121.0" text="Subject" />
-            <TableColumn fx:id="testCourseColumn" prefWidth="106.0" text="Course" />
-            <TableColumn fx:id="testAllocDurationColumn" prefWidth="152.0" text="Allocated Duration" />
-            <TableColumn fx:id="testActuDurationColumn" prefWidth="180.0" text="Actual Duration" />
+          <TableColumn fx:id="testIdColumn" prefWidth="230.0" text="Test ID" />
         </columns>
       </TableView>
-      <JFXButton fx:id="testsStatistics_btnGetStatistics" focusTraversable="false" layoutX="14.0" layoutY="439.0" prefHeight="39.0" prefWidth="117.0" text="Get Statistics" />
+      <JFXButton fx:id="testsStatistics_btnGetStatistics" focusTraversable="false" layoutX="65.0" layoutY="436.0" onAction="#getReport" prefHeight="39.0" prefWidth="109.0" text="Get Report" />
    </children>
 </Pane>

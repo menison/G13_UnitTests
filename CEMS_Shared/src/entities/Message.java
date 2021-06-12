@@ -1,6 +1,7 @@
 package entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import common.Operation;
 import common.Permission;
@@ -22,7 +23,7 @@ public class Message implements Serializable {
 		this.obj = obj;
 		this.permission = permission;
 	}
-
+	
 	public Message(Operation operationType, Object obj) {
 		this.Operation = operationType;
 		this.obj = obj;

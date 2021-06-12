@@ -53,7 +53,7 @@ public class TestQuestionMiddleController {
     	
     	CurrentQuestionIndex--;
     	
-    	int numOfQuestions = dm.getTestInExecution().howManyQuestions();
+    	int numOfQuestions = dm.getTestInExecution().getTest().howManyQuestions();
     	middleQuestion_progressBar.setProgress(CurrentQuestionIndex / numOfQuestions);
     	
     	if (CurrentQuestionIndex == 1)
@@ -68,7 +68,7 @@ public class TestQuestionMiddleController {
     	
     	CurrentQuestionIndex++;
     	
-    	int numOfQuestions = dm.getTestInExecution().howManyQuestions();
+    	int numOfQuestions = dm.getTestInExecution().getTest().howManyQuestions();
     	middleQuestion_progressBar.setProgress(CurrentQuestionIndex / numOfQuestions);
     
     	if (CurrentQuestionIndex == numOfQuestions)

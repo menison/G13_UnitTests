@@ -3,7 +3,10 @@ package dataParsing;
 import entities.Message;
 import request.FullTestTable;
 import request.Login;
+import request.ManualTestDownloader;
+import request.PrincipalSetReport;
 import request.StudentTestTable;
+import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
 
 public class Parsing {
@@ -20,6 +23,9 @@ public class Parsing {
 		case Login:
 			Login.receiveLogin(receivedMessage);
 			break;
+		case Logout:
+			Login.receivedLogOut(receivedMessage);
+			break;
 		case GetTestTable:
 			StudentTestTable.setTable(receivedMessage);
 			break;
@@ -29,7 +35,17 @@ public class Parsing {
 		case GetFullTestTable:
 			FullTestTable.setTable(receivedMessage);
 			break;
-			
+		case DownloadManualTest:
+			ManualTestDownloader.simulateManualTestExecution(receivedMessage);
+			break;
+		case UploadManualTest:
+			break;
+		case GetReport:
+			PrincipalSetReport.generateReport(receivedMessage);
+			break;
+		case GetTestsForTeacherReport:
+			TeacherSetTableForSelfTests.setTableForSelfTests(receivedMessage);
+			break;
 		default:
 			break;
 		}
