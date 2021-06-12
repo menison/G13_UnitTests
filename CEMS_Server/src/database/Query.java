@@ -17,9 +17,7 @@ public class Query {
 	
 	//INSERT HERE MORE QUERIES-----------------------------------------------------------------------------
 	
-<<<<<<< HEAD
-	//David
-=======
+
 	public static ResultSet getQuestionByID(String questionID) {
 //		Connection con = SetConnectionDB.start();
 //		Statement stmt;
@@ -51,7 +49,6 @@ public class Query {
 		return resultqueryFrom("SELECT * FROM test WHERE isActivated = true AND"
 				+ " currExecCode= \"" + testExecCode + "\";");
 	}
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	
 	
 	public static String getFullNameByID(String personalID) throws SQLException {
