@@ -53,17 +53,16 @@ public class EnterTestCodeController {
 			start(primaryStage);
 			
     	}
-    		 	
-    	Alert pop = new Alert(AlertType.WARNING);
-    	pop.setContentText("Beware - you are about to start a test. This action cannot"
-    			+ "be canceled");
-    	pop.showAndWait();
-    	
-    	Stage stage = (Stage) EnterTestCode_btnSendCode.getScene().getWindow();
-    	Stage primaryStage = new Stage();
-    	ChooseTestTypeController cttc = new ChooseTestTypeController();
-    	cttc.start(primaryStage);
-    	stage.close();
+    	else {
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setContentText("Test code is valid, let's continue!");
+			alert.showAndWait();
+	    	Stage stage = (Stage) EnterTestCode_btnSendCode.getScene().getWindow();
+	    	Stage primaryStage = new Stage();
+	    	ChooseTestTypeController cttc = new ChooseTestTypeController();
+	    	cttc.start(primaryStage);
+	    	stage.close();
+    	}
     }
     
     @FXML

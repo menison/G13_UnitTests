@@ -31,10 +31,10 @@ public class TestCodeValidation {
 		try {
 			stmt = con.createStatement();
 			rs = Query.getTestByExecutionCode(desiredTestToValidate);
-//			if (rs.next()) {
-//				return new Message(Operation.SendTestCode, "false");
-//			}
-			rs.next();
+			if (!rs.next()) {
+				return new Message(Operation.SendTestCode, "false");
+			}
+			//rs.next();
 			String testID = rs.getString(1);
 			String questionText = null, commentsForStudents = rs.getString(4);
 			String commentsForTeachers = rs.getString(5);
