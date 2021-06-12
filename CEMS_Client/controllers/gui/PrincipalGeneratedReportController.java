@@ -16,7 +16,7 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+@SuppressWarnings({ "unchecked", "rawtypes" })
 public class PrincipalGeneratedReportController {
 
     @FXML

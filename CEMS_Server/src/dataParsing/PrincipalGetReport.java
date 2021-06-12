@@ -15,16 +15,18 @@ import gui.ServerController;
 public class PrincipalGetReport {
 	public static Message getReport(Message msg) {
 		
-		String studentQuery = null;
+		String query = null;
 		String generetaedBy = ((String) msg.getObj()).split("_")[0];
 		String generetaedValue = ((String) msg.getObj()).split("_")[1];
 		switch(generetaedBy) {
 		case "Student":
-				studentQuery = "SELECT Grade FROM ExecutedTest WHERE ExecutedBy = " +  generetaedValue + ";";
+				query = "SELECT Grade FROM ExecutedTest WHERE ExecutedBy = " +  generetaedValue + ";";
 			break;
 		case "Course":
+				query = "SELECT Grade FROM ExecutedTest WHERE testID LIKE " +  "'" + generetaedValue +"%' ;";
 			break;
 		case "Teacher":
+				query = "SELECT Grade FROM ExecutedTest WHERE ComposedBy = " +  generetaedValue + ";";
 			break;
 		
 		}
@@ -35,7 +37,7 @@ public class PrincipalGetReport {
 		gradesList.add(generetaedValue);
 		Message messageToReturn;
 		try {	
-			rs = Query.principalGetReport(studentQuery);
+			rs = Query.principalGetReport(query);
 			ServerController.sc.addToTextArea("Fetching grades of : " + generetaedBy + " " + generetaedValue);
 			while (rs.next()) {
 				gradesList.add(rs.getString(1));

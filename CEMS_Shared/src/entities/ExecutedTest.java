@@ -11,8 +11,8 @@ public class ExecutedTest  {
 	private int actualDuration;
 	private LocalTime startTime;
 	private LocalTime endTime;
+	private String composedBy;
 	
-
 	public ExecutedTest(Test test, String executionCodePK, int[] answers,
 			String studentExecuting, int actualDuration, LocalTime startTime, LocalTime endTime) {
 		super();
@@ -60,6 +60,11 @@ public class ExecutedTest  {
 	public Test getTest() {
 		return test;
 	}
+	public String getComposedBy() {
+		return composedBy;
+	}
 
-
+	public void setComposedBy(String composedBy) {
+		this.composedBy = composedBy;
+	}
 }
