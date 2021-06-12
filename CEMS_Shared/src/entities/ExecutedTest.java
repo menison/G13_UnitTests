@@ -3,6 +3,7 @@ package entities;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Arrays;
+import java.util.Date;
 
 public class ExecutedTest implements Serializable  {
 	
@@ -17,6 +18,7 @@ public class ExecutedTest implements Serializable  {
 	private int actualDuration;
 	private LocalTime startTime;
 	private LocalTime endTime;
+	private Date date;
 	private String composedBy;
 	
 	public ExecutedTest(Test test, String executionCodePK, int[] answers,
