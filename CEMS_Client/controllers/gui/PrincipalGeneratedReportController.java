@@ -60,6 +60,7 @@ public class PrincipalGeneratedReportController {
 	
 	@FXML
 	void PrincipalGeneratedReport_btnExitClicked(ActionEvent event) throws Exception {
+		DataManager.getDataManager().getReport().getGradesAndAppearance().clear();
     	Stage newStage = new Stage();
     	Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     	PrincipalGetReportWindowController pgrwc = new PrincipalGetReportWindowController();

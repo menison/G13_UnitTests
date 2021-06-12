@@ -8,6 +8,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 
 import application.ClientUI;
+import cachedUserData.DataManager;
 import common.Operation;
 import entities.Message;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -65,10 +67,18 @@ public class PrincipalGetReportWindowController {
 		values +="_";
 		values +=PrincipalGetReportWindow_valueTxt.getText();
 		ClientUI.chat.accept(new Message(Operation.GetReport ,values));
-		Stage newStage = new Stage();
-		Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		PrincipalGeneratedReportController pgmc = new PrincipalGeneratedReportController();
-		pgmc.start(newStage);
-		currentStage.close();
+		if(DataManager.getDataManager().getReport() == null || DataManager.getDataManager().getReport().getGradesAndAppearance().isEmpty()) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setContentText("There is no data for " + PrincipalGetReportWindow_generateByCombo.getSelectionModel().getSelectedItem() +"-" +PrincipalGetReportWindow_valueTxt.getText());
+			alert.showAndWait();
+		}
+		else {
+			Stage newStage = new Stage();
+			Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			PrincipalGeneratedReportController pgmc = new PrincipalGeneratedReportController();
+			pgmc.start(newStage);
+			currentStage.close();
+		}
 	}
 }
