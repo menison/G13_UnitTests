@@ -19,6 +19,9 @@ public class Test implements Serializable {
 	private String[] pointDistribution;
 	private String teacherComposed;
 	private int isActivated;
+	private String activatedBy;
+	private String dateOfStart;
+	private String timeOfStart;
 
 
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
@@ -85,6 +88,30 @@ public class Test implements Serializable {
 		return(str + "," + testID + "," + allocatedDuration + "," + commentsForStudents +
 				"," + commentsForTeachers + "," + currExecutionCode + "," +
 				Arrays.toString(pointDistribution) + "," + teacherComposed + "," + isActivated);
+	}
+
+	public String getTimeOfStart() {
+		return timeOfStart;
+	}
+
+	public void setTimeOfStart(String timeOfStart) {
+		this.timeOfStart = timeOfStart;
+	}
+
+	public String getDateOfStart() {
+		return dateOfStart;
+	}
+
+	public void setDateOfStart(String dateOfStart) {
+		this.dateOfStart = dateOfStart;
+	}
+
+	public String getActivatedBy() {
+		return activatedBy;
+	}
+
+	public void setActivatedBy(String activatedBy) {
+		this.activatedBy = activatedBy;
 	}
 	
 }
