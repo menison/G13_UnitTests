@@ -1,6 +1,7 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Test {
 	
@@ -69,6 +70,16 @@ public class Test {
 	public int isActivated() {
 		return isActivated;
 	}
-	
+	@Override
+	public String toString() {
+		String str = new String();
+		for (Question q : questions) 
+		{ 
+		    str+=q;
+		}
+		return(str + "," + testID + "," + allocatedDuration + "," + commentsForStudents +
+				"," + commentsForTeachers + "," + currExecutionCode + "," +
+				Arrays.toString(pointDistribution) + "," + teacherComposed + "," + isActivated);
+	}
 	
 }

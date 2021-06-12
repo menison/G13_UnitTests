@@ -1,6 +1,7 @@
 package entities;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 
 public class ExecutedTest  {
 	
@@ -66,5 +67,11 @@ public class ExecutedTest  {
 
 	public void setComposedBy(String composedBy) {
 		this.composedBy = composedBy;
+	}
+	@Override
+	public String toString() {
+		return(studentExecuting + "," + test.toString() + "," + executionCodePK +
+				"," + Arrays.toString(answers) + "," + actualDuration + "," + startTime + 
+				"," + endTime + "," + composedBy);
 	}
 }
