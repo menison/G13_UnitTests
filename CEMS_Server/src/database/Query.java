@@ -28,6 +28,10 @@ public class Query {
 		return resultqueryFrom(
 				"SELECT * FROM test WHERE isActivated = true AND" + " currExecCode= \"" + testExecCode + "\";");
 	}
+	
+	public static ResultSet getEmailByComposerId(String composerId) {
+		return resultqueryFrom("SELECT * FROM user WHERE personalSID = " + composerId + ";");
+	}
 
 	public static String getFullNameByID(String personalID) throws SQLException {
 		ResultSet rs = resultqueryFrom(

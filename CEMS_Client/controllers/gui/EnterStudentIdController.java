@@ -35,6 +35,10 @@ public class EnterStudentIdController {
 	public void start(Stage primaryStage) {
 		Pane root;
     	FXMLLoader loader = new FXMLLoader();
+    	DataManager dm = DataManager.getDataManager();
+		ExecutedTest execTest = dm.getTestInExecution();
+		String commentsForStudent;
+		String email;
 		loader.setLocation(getClass().getResource("/fxml/EnterStudentId.fxml"));
 		try {
 			root = loader.load();
@@ -45,9 +49,9 @@ public class EnterStudentIdController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		DataManager dm = DataManager.getDataManager();
-		ExecutedTest execTest = dm.getTestInExecution();
-		ClientUI.chat.accept(new Message(Operation.getInstructionsAndMail, execTest.getExecutionCodePK()));
+		commentsForStudent = execTest.getTest().getCommentsForStudents();
+		ClientUI.chat.accept(new Message(Operation.getInstructionsAndMail, execTest.getComposedBy()));
+		email = dm.getCurrentExecEmail();
 	}
 
     @FXML

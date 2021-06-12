@@ -19,8 +19,16 @@ public class DataManager {
 	private ArrayList<TestForFullTable> fullTestList;
 	private String testID;
 	private Report report;
-
+	private String currentExecEmail;
 	
+	public String getCurrentExecEmail() {
+		return currentExecEmail;
+	}
+
+	public void setCurrentExecEmail(String currentExecEmail) {
+		this.currentExecEmail = currentExecEmail;
+	}
+
 	public String getTestID() {
 		return testID;
 	}

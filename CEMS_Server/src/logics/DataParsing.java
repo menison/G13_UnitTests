@@ -2,6 +2,7 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
+import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.ManualTestDownloader;
@@ -44,7 +45,8 @@ public class DataParsing {
 			return PrincipalGetReport.getReport(receivedMessage);
 		case GetTestsForTeacherReport:
 			return TeacherGetAllSelfExecutedTests.getAllSelfExecutedTests(receivedMessage);
-
+		case getInstructionsAndMail:
+			return GetCurrentExecutionExamEmail.getComposerEmail(receivedMessage);
 		default:
 			break;
 		}
