@@ -71,7 +71,6 @@ public class TestCodeValidation {
 			execTest.setComposedBy(teacherComposedTest);
 			rs.close();
 			messageToReturn = new Message(Operation.SendTestCode, execTest);
-			messageToReturn.setPermission(Permission.yes);
 			return messageToReturn;
 		} catch (SQLException e) {
 			System.out.println("Error validating TestCode");

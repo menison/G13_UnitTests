@@ -10,7 +10,6 @@ public class TestCodeValidation {
 
 	public static void informUser(Message receivedMessage) {
 		
-		
 		if (receivedMessage.getObj() == "false") {
 			DataManager dm = DataManager.getDataManager();
 			dm.setTestInExecution(null);
