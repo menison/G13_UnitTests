@@ -120,7 +120,7 @@ public class Query {
 
 		try {
 			StatementOfResultSet = connection.createStatement();
-			StatementOfResultSet.executeQuery(query);
+			StatementOfResultSet.executeUpdate(query);
 			// Resultset.next();
 			// System.out.println(Resultset.getString(1));
 
