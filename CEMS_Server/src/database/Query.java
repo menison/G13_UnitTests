@@ -60,6 +60,20 @@ public class Query {
 		return resultqueryFrom(query);
 	}
 	
+	public static ResultSet getExecutionCodesHistory() {
+		
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT * FROM execodehistory;");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+	}
+	
 	//------------------------------------------------------------------------------------------------------
 	
 	private static ResultSet resultqueryFrom(String query) {
@@ -80,19 +94,7 @@ public class Query {
 		return null;
 	}
 
-	public static ResultSet getExecutionCodesHistory() {
-		
-		Connection con = SetConnectionDB.start();
-		Statement stmt;
-		ResultSet toReturn = null;
-		try {
-			stmt = con.createStatement();
-			toReturn = stmt.executeQuery("SELECT * FROM execodehistory;");
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return toReturn;
-	}
+
 	
 
 }

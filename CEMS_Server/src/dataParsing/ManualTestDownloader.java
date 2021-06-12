@@ -27,9 +27,10 @@ public class ManualTestDownloader {
 	
 			myWriter.write("manual test to execute - testID:"+ t.getTestID() +
 					", executionCode:"+ t.getCurrExecutionCode());
+			myWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return new Message(Operation.DownloadManualTest, "downloaded");
+		return new Message(Operation.DownloadManualTest, manualTest);
 	}
 }
