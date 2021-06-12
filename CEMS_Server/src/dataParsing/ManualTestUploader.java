@@ -6,6 +6,7 @@ import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import database.Query;
 import database.SetConnectionDB;
 import entities.ExecutedTest;
 import entities.Message;
@@ -22,7 +23,7 @@ public class ManualTestUploader {
 			Connection c = SetConnectionDB.start();
 			Blob b = c.createBlob();
 			b.setBytes(1,fileContent);
-			Query.
+			Query.writeManualTestBlobToDB(b, t);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
