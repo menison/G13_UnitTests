@@ -19,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
@@ -56,7 +57,20 @@ public class FullTestTableController {
     private TableColumn<TestForFullTable, String> fullTestTable_composerColumn;
 
 
-	public void setTable() {
+	public void start(Stage primaryStage) throws IOException {
+		Pane root;
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(getClass().getResource("/fxml/FullTestTable.fxml"));
+		root = loader.load();
+		Scene scene = new Scene(root);
+		primaryStage.setTitle("Full Test Table");
+		primaryStage.setScene(scene);
+		primaryStage.show();
+		
+	}
+	
+	@FXML
+	public void initialize() {
 		DataManager dm = DataManager.getDataManager();
 		ArrayList<TestForFullTable> t = new ArrayList<>(); 
 		t=dm.getFullTable();
@@ -80,9 +94,7 @@ public class FullTestTableController {
     	activateTest.start(stage);
 		DataManager dm = DataManager.getDataManager();
 		dm.setTestID(selectedItems.toString());
-    	}
-    	
-    	
+    	}	
     }
 
     @FXML
@@ -100,8 +112,11 @@ public class FullTestTableController {
     }
 
     @FXML
-    void addTest(ActionEvent event) {
-
+    void addTest(ActionEvent event) throws IOException {
+		Stage newStage = new Stage();
+		Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		AddTestController atc = new AddTestController();
+		atc.start(newStage);
+		currentStage.close();
     }
-
 }

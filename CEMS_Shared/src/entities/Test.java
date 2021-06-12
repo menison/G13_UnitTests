@@ -18,6 +18,8 @@ public class Test implements Serializable {
 	private String currExecutionCode;
 	private String[] pointDistribution;
 	private String teacherComposed;
+	private String subject;
+	private String course;
 	private int isActivated;
 	private String activatedBy;
 	private String dateOfStart;
@@ -38,6 +40,8 @@ public class Test implements Serializable {
 		this.isActivated = isActivated;
 		this.teacherComposed = composedBy;
 	}
+	
+	
 
 	public String getComposedBy() {
 		return teacherComposed;
