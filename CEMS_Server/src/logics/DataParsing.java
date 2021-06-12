@@ -3,6 +3,7 @@ package logics;
 
 
 import common.Permission;
+
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.TestCodeValidation;
@@ -23,6 +24,8 @@ public class DataParsing {
 		
 		case Login:
 			return GetLogin.userLoginData(receivedMessage);
+		case Logout:
+			return GetLogin.logOut(receivedMessage);
 		case GetTestTable:
 			return GetTestTable.getTestTable(receivedMessage);
 		case SendTestCode:

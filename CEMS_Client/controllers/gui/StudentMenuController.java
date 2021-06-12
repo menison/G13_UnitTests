@@ -1,11 +1,14 @@
 package gui;
 
+import java.io.IOException;
+
 import application.ClientUI;
 import common.Operation;
 import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -64,5 +67,19 @@ public class StudentMenuController {
 		primaryStage.setTitle("Student Menu");
 		primaryStage.setScene(scene);
 		primaryStage.show();	
+	}
+	
+	@FXML
+	void logOut(ActionEvent event) throws IOException {
+		Stage newStage = new Stage();
+		LoginCemsController lcc = new LoginCemsController();
+		try {
+			lcc.start(newStage);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		((Node) event.getSource()).getScene().getWindow().hide();
+		
 	}
 }

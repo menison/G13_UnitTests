@@ -109,6 +109,12 @@ public class GetLogin {
 		return returnMessage;
 	}
 	
+	public static Message logOut(Message msg) {
+		String id=(String)msg.getObj();
+		usersloggedIn.remove(id);
+		return new Message(Operation.Logout,id);
+	}
+	
 	
 
 }

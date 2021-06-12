@@ -1,23 +1,27 @@
 package gui;
 
 import java.io.IOException;
-
+import java.net.URL;
 import java.util.ArrayList;
-
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
+import cachedUserData.DataManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import request.AbstractController;
+import javafx.scene.control.Label;
 import request.Login;
 import entities.Message;
 import entities.Principal;
@@ -25,7 +29,9 @@ import entities.Student;
 import entities.Teacher;
 import common.Operation;
 
-public class LoginCemsController extends AbstractController {
+public class LoginCemsController extends AbstractController implements Initializable{
+	
+	public static LoginCemsController loginCemsController;
 
     @FXML
     private JFXPasswordField login_txtPassword;
@@ -38,6 +44,9 @@ public class LoginCemsController extends AbstractController {
 
     @FXML
     private JFXButton login_btnCancel;
+    
+    @FXML
+    private Label TxtError;
     
 //    @FXML
 //    void login(ActionEvent event) throws Exception {
@@ -133,6 +142,26 @@ public class LoginCemsController extends AbstractController {
 					e.printStackTrace();
 				}
 				((Node) event.getSource()).getScene().getWindow().hide();
+			}
+		});
+
+	}
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		if(DataManager.getDataManager().getCurrentUser()!=null)
+			Login.LogOut(DataManager.getDataManager().getCurrentUser().getPersonalSID());
+		loginCemsController =this;	
+		TxtError.setVisible(false);
+		
+	}
+	
+	public void setError(String msg) {
+		Platform.runLater(new Runnable() {
+			@Override
+			public void run() {
+				TxtError.setVisible(true);
+				TxtError.setText(msg);
+				TxtError.setAlignment(Pos.CENTER);
 			}
 		});
 

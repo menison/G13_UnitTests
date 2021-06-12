@@ -1,5 +1,7 @@
 package gui;
 
+import java.io.IOException;
+
 import com.jfoenix.controls.JFXButton;
 
 import javafx.event.ActionEvent;
@@ -49,11 +51,16 @@ public class PrincipalMenuController {
     }
     @FXML
     void PrincipalMenu_btnLogoutClicked(ActionEvent event) throws Exception {
-    	Stage newStage = new Stage();
-    	Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	LoginCemsController lcc = new LoginCemsController();
-    	lcc.start(newStage);
-    	currentStage.close();
+		Stage newStage = new Stage();
+		LoginCemsController lcc = new LoginCemsController();
+		try {
+			lcc.start(newStage);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		((Node) event.getSource()).getScene().getWindow().hide();
     }
+
 
 }
