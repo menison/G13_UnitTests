@@ -18,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
 public class ManualTestController {
@@ -42,10 +43,12 @@ public class ManualTestController {
 	@FXML
     void downloadTest(ActionEvent event) {
 		Stage stage = (Stage) manualTest_btnDownload.getScene().getWindow();
-		FileChooser fc = new FileChooser();
-		File file = fc.showSaveDialog(stage);
 		DataManager dm = DataManager.getDataManager();
 		Test test = dm.getTestInExecution().getTest();
+		FileChooser fc = new FileChooser();
+		fc.setInitialFileName(test.getTestID() + "_" + test.getCurrExecutionCode());
+		fc.setSelectedExtensionFilter(new ExtensionFilter(".txt"));
+		File file = fc.showSaveDialog(stage);
 		Object[] arr = new Object[2];
 		arr[0] = (Object)file;
 		arr[1] = (Object)test;
