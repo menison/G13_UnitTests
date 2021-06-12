@@ -17,11 +17,8 @@ public enum Operation {
 	GetTestTable,
 	getInstructionsAndMail,
 	GetFullTestTable,
-<<<<<<< HEAD
-	ActivateTestCode
-	
-=======
 	GetReport,
-	GetTestsForTeacherReport
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+	GetTestsForTeacherReport,
+	ActivateTestCode
+
 }

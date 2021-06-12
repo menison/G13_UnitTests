@@ -1,18 +1,16 @@
 package logics;
 
-<<<<<<< HEAD
+
 
 
 import java.sql.SQLException;
 
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
-import common.Permission;
-<<<<<<< HEAD
-import dataParsing.ActivateTest;
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+import common.Permission;
+
+import dataParsing.ActivateTest;
+
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.ManualTestDownloader;
@@ -43,12 +41,9 @@ public class DataParsing {
 		case SendTestCode:
 			return TestCodeValidation.validateTestCode(receivedMessage);
 		case GetFullTestTable:
-<<<<<<< HEAD
 			return GetFullTestTable.getTestTable(receivedMessage);
 		case ActivateTestCode:
-			return ActivateTest.validateAndActivate(receivedMessage);
-=======
-			return GetFullTestTable.getTestTable(receivedMessage);
+			return ActivateTest.validateAndActivate(receivedMessage);	
 		case DownloadManualTest:
 			return ManualTestDownloader.downloadManualTest(receivedMessage);
 		case UploadManualTest:
@@ -57,7 +52,7 @@ public class DataParsing {
 			return PrincipalGetReport.getReport(receivedMessage);
 		case GetTestsForTeacherReport:
 			return TeacherGetAllSelfExecutedTests.getAllSelfExecutedTests(receivedMessage);
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 		default:
 			break;
 		}
