@@ -2,10 +2,7 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
-<<<<<<< HEAD
 import dataParsing.AddTestsOperations;
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.ManualTestDownloader;

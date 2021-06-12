@@ -79,7 +79,6 @@ public class AddTestController {
 
 	@FXML
 	public void initialize() {
-//		Map<Field, List<Course>> map = new HashMap<Field, List<Course>>();
 		ClientUI.chat.accept(new Message(Operation.GetSubjectsAndCourses));
 		for (Field f : DataManager.getDataManager().getFields()) {
 			CreateTest_chooseSubjectBox.getItems().add(f);
@@ -95,8 +94,11 @@ public class AddTestController {
 	}
 
 	@FXML
-	void addQuestion(ActionEvent event) {
-
+	void addQuestion(ActionEvent event) throws IOException {
+		AddQuestionForTestController aqftc = new AddQuestionForTestController();
+		ClientUI.chat.accept(new Message(Operation.GetFullTestTable));
+		Stage primaryStage = new Stage();
+		aqftc.start(primaryStage);
 	}
 
 	@FXML
