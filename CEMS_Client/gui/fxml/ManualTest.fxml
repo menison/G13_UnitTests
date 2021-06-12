@@ -40,7 +40,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="manualTest_txtElapsedTime" editable="false" layoutX="328.0" layoutY="275.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="46.0" text="#min" />
+      <JFXTextField fx:id="manualTest_txtElapsedTime" editable="false" focusTraversable="false" layoutX="328.0" layoutY="275.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="46.0" text="#min" />
       <Button fx:id="manualTest_btnSend" focusTraversable="false" layoutX="269.0" layoutY="336.0" mnemonicParsing="false" onAction="#sendManualTest" text="Send" />
    </children>
    <stylesheets>

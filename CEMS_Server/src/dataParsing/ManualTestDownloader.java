@@ -10,8 +10,9 @@ import entities.Test;
 
 public class ManualTestDownloader {
 	public static Message downloadManualTest(Object obj) {
+		Message msg = (Message)obj;
 		Object[] arr = new Object[2];
-		arr = (Object[]) obj;
+		arr = (Object[]) msg.getObj();
 		File f = (File) arr[0];
 		Test t = (Test) arr[1];
 		String desiredPathToSave = f.getAbsolutePath();

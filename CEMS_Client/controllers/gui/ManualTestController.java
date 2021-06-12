@@ -46,8 +46,8 @@ public class ManualTestController {
 		DataManager dm = DataManager.getDataManager();
 		Test test = dm.getTestInExecution().getTest();
 		FileChooser fc = new FileChooser();
-		fc.setInitialFileName(test.getTestID() + "_" + test.getCurrExecutionCode());
-		fc.setSelectedExtensionFilter(new ExtensionFilter(".txt"));
+		fc.setInitialFileName(test.getTestID() + "_" + test.getCurrExecutionCode()+".txt");
+		fc.setSelectedExtensionFilter(new ExtensionFilter("txt",".txt"));
 		File file = fc.showSaveDialog(stage);
 		Object[] arr = new Object[2];
 		arr[0] = (Object)file;
