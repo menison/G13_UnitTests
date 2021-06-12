@@ -22,9 +22,9 @@
             <Font size="26.0" />
          </font>
       </Label>
-      <JFXComboBox id="principalGetReportGenerateByComboBox" fx:id="PrincipalGetReportWindow_generateByCombo" focusColor="#ffff8d" focusTraversable="false" labelFloat="true" layoutX="49.0" layoutY="138.0" prefHeight="37.0" prefWidth="145.0" promptText="Generate By" />
+      <JFXComboBox id="principalGetReportGenerateByComboBox" fx:id="PrincipalGetReportWindow_generateByCombo" focusColor="#ffff8d" focusTraversable="false" labelFloat="true" layoutX="44.0" layoutY="138.0" prefHeight="37.0" prefWidth="145.0" promptText="Generate By" />
       <JFXTextField id="principalGetReportValueText" fx:id="PrincipalGetReportWindow_valueTxt" focusTraversable="false" labelFloat="true" layoutX="210.0" layoutY="138.0" prefHeight="11.0" prefWidth="180.0" promptText="Value" />
-      <JFXButton id="principalGetReportSubmitButton" fx:id="PrincipalGetReportWindow_btnSubmit" buttonType="RAISED" defaultButton="true" focusTraversable="false" layoutX="419.0" layoutY="137.0" prefHeight="0.0" prefWidth="145.0" text="Submit" />
+      <JFXButton id="principalGetReportSubmitButton" fx:id="PrincipalGetReportWindow_btnSubmit" buttonType="RAISED" defaultButton="true" focusTraversable="false" layoutX="419.0" layoutY="137.0" onAction="#PrincipalGetReportWindow_btnSubmitClicked" prefHeight="0.0" prefWidth="145.0" text="Submit" />
       <Button id="principalGetReportBackButton" fx:id="PrincipalGetReportWindow_btnBack" cancelButton="true" focusTraversable="false" layoutX="14.0" layoutY="247.0" mnemonicParsing="false" onAction="#PrincipalGetReportWindow_btnBackClicked" prefHeight="28.0" prefWidth="59.0" text="Back" />
    </children>
 </AnchorPane>

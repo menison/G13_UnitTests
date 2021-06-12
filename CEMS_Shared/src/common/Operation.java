@@ -16,5 +16,6 @@ public enum Operation {
 	LastOperation,
 	GetTestTable,
 	getInstructionsAndMail,
-	GetFullTestTable
+	GetFullTestTable,
+	PrincipalGetReport
 }

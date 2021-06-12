@@ -6,6 +6,8 @@ import common.Permission;
 
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
+import dataParsing.ManualTestDownloader;
+import dataParsing.PrincipalGetReport;
 import dataParsing.TestCodeValidation;
 import database.GetLogin;
 import entities.Message;
@@ -32,6 +34,12 @@ public class DataParsing {
 			return TestCodeValidation.validateTestCode(receivedMessage);
 		case GetFullTestTable:
 			return GetFullTestTable.getTestTable(receivedMessage);
+		case DownloadManualTest:
+			return ManualTestDownloader.downloadManualTest(receivedMessage);
+		case UploadManualTest:
+			return null;
+		case PrincipalGetReport:
+			return PrincipalGetReport.getReport(receivedMessage);
 		default:
 			break;
 				
