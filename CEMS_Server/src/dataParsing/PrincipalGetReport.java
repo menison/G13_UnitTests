@@ -25,6 +25,9 @@ public class PrincipalGetReport {
 		case "Teacher":
 				query = "SELECT Grade FROM ExecutedTest WHERE ComposedBy = " +  generetaedValue + ";";
 			break;
+		case "Test":
+			query = "SELECT Grade FROM ExecutedTest WHERE testID = " + generetaedValue +";";
+		break;
 		}
 		ArrayList<String> gradesList;
 		ResultSet rs;

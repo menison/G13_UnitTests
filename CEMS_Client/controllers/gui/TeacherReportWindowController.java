@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXButton;
 
 import com.jfoenix.controls.JFXTextField;
 
+import cachedUserData.DataManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -62,6 +64,19 @@ public class TeacherReportWindowController {
 		TestsStatisticsController tsc = new TestsStatisticsController();
 		tsc.start(newStage);
 		currentStage.close();
+	}
+	
+	@FXML
+	public void initialize() {
+		DataManager dm = DataManager.getDataManager();
+		teacherRprtMenu_txtTeacherName.setText(teacherRprtMenu_txtTeacherName.getText() + ": " + dm.getReport().getGegeneratedBy()+ "-" + dm.getReport().getValue());
+		teacherRprtMenu_txtAvg.setText(teacherRprtMenu_txtAvg.getText() + ": " + dm.getReport().getAverageScore());
+		teacherRprtMenu_txtMedian.setText(teacherRprtMenu_txtMedian.getText() + ": " + dm.getReport().getMedian());
+		XYChart.Series set1 = new XYChart.Series<>();
+		for (Integer key : dm.getReport().getGradesAndAppearance().keySet()) {
+			set1.getData().add(new XYChart.Data(key.toString(),dm.getReport().getGradesAndAppearance().get(key)));
+		}
+		histogramChart.getData().addAll(set1);
 	}
 
 }

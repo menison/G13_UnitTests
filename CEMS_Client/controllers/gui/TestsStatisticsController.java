@@ -4,7 +4,10 @@ import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
 
+import application.ClientUI;
 import cachedUserData.DataManager;
+import common.Operation;
+import entities.Message;
 import entities.TestForTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -55,6 +58,11 @@ public class TestsStatisticsController {
 	
     @FXML 
 	void getReport(ActionEvent event) throws IOException {
+		String values = "";
+		values += "Test";
+		values +="_";
+		values += testStatisticsTable.getSelectionModel().getSelectedItem().getTestID();
+		ClientUI.chat.accept(new Message(Operation.GetReport ,values));
 		Stage newStage = new Stage();
 		Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		TeacherReportWindowController trwc = new TeacherReportWindowController();
