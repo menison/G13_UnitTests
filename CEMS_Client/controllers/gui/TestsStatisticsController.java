@@ -4,6 +4,10 @@ import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
 
+import cachedUserData.DataManager;
+import entities.TestForTable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -20,27 +25,19 @@ public class TestsStatisticsController {
     private JFXButton testsStatistics_btnClose;
 
     @FXML
-    private TableView<?> testStatisticsTable;
+    private TableView<TestForTable> testStatisticsTable;
 
     @FXML
-    private TableColumn<?, ?> testIdColumn;
-
-    @FXML
-    private TableColumn<?, ?> testCodeColumn;
+    private TableColumn<TestForTable, String> testIdColumn;
 
     @FXML
     private JFXButton testsStatistics_btnGetStatistics;
 
-	public void start(Stage newStage) {
-		Pane root = null;
+	public void start(Stage newStage) throws IOException {
+		Pane root;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/fxml/TestsStatistics.fxml"));
-		try {
-			root = loader.load();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		root = loader.load();
 		Scene scene = new Scene(root);
 		newStage.setTitle("Tests Statistics");
 		newStage.setScene(scene);
@@ -63,6 +60,14 @@ public class TestsStatisticsController {
 		TeacherReportWindowController trwc = new TeacherReportWindowController();
 		trwc.start(newStage);
 		currentStage.close();
+	}
+    
+	@FXML
+	public void initialize() {
+		DataManager dm = DataManager.getDataManager();
+    	ObservableList<TestForTable> tests = FXCollections.observableArrayList(dm.getExecutedExams());
+    	testIdColumn.setCellValueFactory(new PropertyValueFactory<>("testID"));
+    	testStatisticsTable.setItems(tests);
 	}
 	
 	

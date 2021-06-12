@@ -24,8 +24,7 @@
       </Label>
       <TableView fx:id="testStatisticsTable" layoutX="65.0" layoutY="97.0" prefHeight="307.0" prefWidth="232.0">
         <columns>
-          <TableColumn fx:id="testIdColumn" prefWidth="111.0" text="Test ID" />
-            <TableColumn fx:id="testCodeColumn" prefWidth="110.0" text="Test Code" />
+          <TableColumn fx:id="testIdColumn" prefWidth="230.0" text="Test ID" />
         </columns>
       </TableView>
       <JFXButton fx:id="testsStatistics_btnGetStatistics" focusTraversable="false" layoutX="65.0" layoutY="436.0" onAction="#getReport" prefHeight="39.0" prefWidth="109.0" text="Get Report" />

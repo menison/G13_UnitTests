@@ -60,7 +60,7 @@ public class Query {
 		return resultqueryFrom("SELECT * FROM" + tableName );
 	}
 	
-	public static ResultSet principalGetReport(String query) {
+	public static ResultSet getReport(String query) {
 		return resultqueryFrom(query);
 	}
 	

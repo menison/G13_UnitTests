@@ -17,5 +17,6 @@ public enum Operation {
 	GetTestTable,
 	getInstructionsAndMail,
 	GetFullTestTable,
-	GetReport
+	GetReport,
+	GetTestsForTeacherReport
 }

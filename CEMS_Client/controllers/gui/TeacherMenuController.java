@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.jfoenix.controls.JFXButton;
 
 import application.ClientUI;
+import cachedUserData.DataManager;
 import common.Operation;
 import entities.Message;
 import javafx.fxml.FXML;
@@ -81,6 +82,7 @@ public class TeacherMenuController {
     
     @FXML 
 	void testsForReport(ActionEvent event) throws IOException {
+		ClientUI.chat.accept(new Message(Operation.GetTestsForTeacherReport ,DataManager.getDataManager().getCurrentUser().getPersonalSID()));
 		Stage newStage = new Stage();
 		Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		TestsStatisticsController tsc = new TestsStatisticsController();

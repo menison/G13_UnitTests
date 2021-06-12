@@ -18,6 +18,10 @@ public class TestForTable {
 		this.grade = grade;
 	}
 	
+	public TestForTable(String testID) {
+		this.testID = testID;
+	}
+	
 	@Override
 	public String toString() {
 		return(this.testID+","+this.testCode+","+this.Date+","+this.allocatedDuration+
