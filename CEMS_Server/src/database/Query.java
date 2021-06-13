@@ -71,6 +71,19 @@ public class Query {
 		return toReturn;
 	}
 
+	public static ResultSet getAllExecutedTestsByCode(String testCode) {
+
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT * FROM executedtest WHERE TestCode= " + testCode + ";");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+	}
 	
 	public static void writeManualTestBlobToDB(Blob b1, ExecutedTest excTest) {
 		Connection con = SetConnectionDB.start();
