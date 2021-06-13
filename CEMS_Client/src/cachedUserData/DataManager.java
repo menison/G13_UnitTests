@@ -10,6 +10,7 @@ import entities.QuestionForCreateTest;
 import entities.Report;
 import entities.TestForFullTable;
 import entities.TestForTable;
+import entities.TestToConfirm;
 import entities.User;
 import javafx.scene.control.TableView;
 
@@ -21,6 +22,7 @@ public class DataManager {
 	private boolean PreOrder;
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
+	private ArrayList<TestToConfirm> testsToConfirm;
 	private ArrayList<TestForFullTable> fullTestList;
 	private ArrayList<Field> fields;
 	private ArrayList<Course> courses;
@@ -165,6 +167,14 @@ public class DataManager {
 
 	public void setAddTestMsg(String addTestMsg) {
 		this.addTestMsg = addTestMsg;
+	}
+
+	public ArrayList<TestToConfirm> getTestsToConfirm() {
+		return testsToConfirm;
+	}
+
+	public void setTestsToConfirm(ArrayList<TestToConfirm> testsToConfirm) {
+		this.testsToConfirm = testsToConfirm;
 	}
 
 

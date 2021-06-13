@@ -3,6 +3,7 @@ package logics;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 import database.Query;
@@ -43,13 +44,18 @@ public class FraudChecker {
 		int[] answers2 = s2.getIntAnswers();
 		int counter = 0;
 		int loopSize = answers1.length;
-		for (int i=0; i<loopSize; i++)
-			if (answers1[i] == answers2[i])
-				counter++;
 		
-		if (counter == loopSize)
+		if (Arrays.equals(answers1, answers2)) 
 			return true;
 		return false;
+		
+//		for (int i=0; i<loopSize; i++)
+//			if (answers1[i] == answers2[i])
+//				counter++;
+//		
+//		if (counter == loopSize)
+//			return true;
+//		return false;
 	}
 
 	

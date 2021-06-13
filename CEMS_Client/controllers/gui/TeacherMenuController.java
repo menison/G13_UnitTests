@@ -12,8 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -34,18 +32,21 @@ public class TeacherMenuController {
 
 	@FXML
 	private JFXButton teacherMenu_btnLogout;
-	private FullTestTableController showFTTController;
 
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage){
 		// Parent root = FXMLLoader.load(getClass().getResource("TestRequested.fxml"));
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/fxml/TeacherMenu.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		primaryStage.setTitle("Teacher Menu");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		try {
+			root = loader.load();
+			Scene scene = new Scene(root);
+			primaryStage.setTitle("Teacher Menu");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML

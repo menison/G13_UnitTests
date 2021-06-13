@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="343.0" prefWidth="677.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTextField fx:id="calculatedGrade_txtField" layoutX="289.0" layoutY="128.0" />
+      <JFXTextField fx:id="newGrade_txtField" layoutX="289.0" layoutY="183.0" />
+      <JFXToggleButton fx:id="confimation_slideBar" layoutX="161.0" layoutY="56.0" onAction="#changeGrade" text="Change the automatically calculated grade" textFill="#b2b2b2" />
+      <Label layoutX="61.0" layoutY="136.0" text="Automatically calculated grade:" textFill="#b2b2b2" />
+      <Label layoutX="190.0" layoutY="191.0" text="New Grade:" textFill="#b2b2b2" />
+      <Label layoutX="105.0" layoutY="247.0" text="Reason for grade change:" textFill="#b2b2b2" />
+      <JFXTextField fx:id="reasonForChange_txtField" layoutX="289.0" layoutY="239.0" />
+      <Label layoutX="229.0" layoutY="14.0" text="CONFIRMATION" textFill="#b2b2b2">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="105.0" fitWidth="103.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo4.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="confirmation_btnClose" layoutX="590.0" layoutY="283.0" onAction="#close" text="Close" />
+   </children>
+</AnchorPane>
