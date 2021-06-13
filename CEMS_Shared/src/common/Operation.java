@@ -26,7 +26,7 @@ public enum Operation {
 	ActivateTestCodeFailed,
 	ActivateTestCodeSuccess,
 	GetQuestionInfo,
-	GetTestsActivatedByTeachger,
+	GetTestsActivatedByTeacher,
 	GetAmountOfTests,
 	AddNewTest,
 	GetTestConfirmationTable,

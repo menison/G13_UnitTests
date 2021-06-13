@@ -8,6 +8,7 @@ import request.HandleActivateStatus;
 import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
+import request.SetTestConfirmationTable;
 import request.SetTestsValues;
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
@@ -62,7 +63,7 @@ public class Parsing {
 		case ActivateTestCodeSuccess:
 		HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
-		case GetTestsActivatedByTeachger:
+		case GetTestsActivatedByTeacher:
 			AddTeacherTestsToDM.add(receivedMessage);
 		case GetAmountOfTests:
 			SetTestsValues.setAmountOfTests(receivedMessage);
@@ -73,6 +74,8 @@ public class Parsing {
 		case ChangeAmountOfTestsInCourseTable:
 			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
 			break;
+		case GetTestConfirmationTable:
+			SetTestConfirmationTable.set(receivedMessage);
 		default:
 			break;
 		}

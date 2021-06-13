@@ -4,6 +4,7 @@ import common.Permission;
 import dataParsing.ActivateTest;
 import dataParsing.AddTestsOperations;
 import dataParsing.GetFullTestTable;
+import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestTable;
 import dataParsing.HandleTestsActivatedByTeacher;
 import dataParsing.ManualTestDownloader;
@@ -56,6 +57,8 @@ public class DataParsing {
 			return AddTestsOperations.addTest(receivedMessage);
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
+		case GetTestConfirmationTable:
+			return GetTestConfirmationTable.get(receivedMessage);
 		default:
 			break;
 		}

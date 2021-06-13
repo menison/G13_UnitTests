@@ -1,19 +1,27 @@
 package entities;
 
-public class TestToConfirm {
+import java.io.Serializable;
+
+public class TestToConfirm implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 473453805476116538L;
 	private String testID;
 	private String testCode;
 	private String date;
 	private String executedBy;
-	private int Grade;
+	private int grade;
+	private int isSuspect;
 	
-	public TestToConfirm(String testID, String testCode, String date, String executedBy, int grade) {
+	public TestToConfirm(String testID, String testCode, String date, String executedBy, int grade, int isSuspect) {
 		super();
 		this.testID = testID;
 		this.testCode = testCode;
 		this.date = date;
 		this.executedBy = executedBy;
-		Grade = grade;
+		this.grade = grade;
+		this.isSuspect = isSuspect;
 	}
 
 	public String getTestID() {
@@ -49,13 +57,22 @@ public class TestToConfirm {
 	}
 
 	public int getGrade() {
-		return Grade;
+		return grade;
 	}
 
 	public void setGrade(int grade) {
-		Grade = grade;
+		this.grade = grade;
 	}
-	
+
+	public int getIsSuspect() {
+		return isSuspect;
+	}
+
+	public void setIsSuspect(int isSuspect) {
+		this.isSuspect = isSuspect;
+	}
+
+
 	
 	
 }

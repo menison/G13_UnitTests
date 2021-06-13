@@ -106,6 +106,36 @@ public class Query {
 			e.printStackTrace();
 		}
 	}
+	
+	public static ResultSet getAllTestsActivatedByTeacherID(String teacherID) {
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT code FROM activatedtest WHERE ActivatedBy= " + teacherID + 
+					" AND isActive = 0" + ";");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+		
+	}
+	
+	public static ResultSet getAllExecutedTestsToConfirmByCode(String testCode) {
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT * FROM executedtest WHERE TestCode= " + testCode +
+					" AND isGradeAuthorized = 0" + ";");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+	}
+	
 	//------------------------------------------------------------------------------------------------------
 	
 
@@ -146,5 +176,7 @@ public class Query {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 }
