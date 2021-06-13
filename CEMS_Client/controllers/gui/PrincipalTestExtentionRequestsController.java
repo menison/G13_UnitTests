@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXButton;
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
+import entities.Extension;
 import entities.Message;
 import entities.Question;
 import entities.TestToConfirm;
@@ -26,25 +27,25 @@ import javafx.stage.Stage;
 public class PrincipalTestExtentionRequestsController {
 
     @FXML
-    private TableView<TestToConfirm> PrincipalTestExtentionRequests_tblViewRequests;
+    private TableView<Extension> PrincipalTestExtentionRequests_tblViewRequests;
 
     @FXML
-    private TableColumn<TestToConfirm, String> PrincipalTestExtentionRequests_testCodeCol;
+    private TableColumn<Extension, String> PrincipalTestExtentionRequests_testCodeCol;
 
     @FXML
-    private TableColumn<TestToConfirm, String> PrincipalTestExtentionRequests_requestedByCol;
+    private TableColumn<Extension, String> PrincipalTestExtentionRequests_requestedByCol;
 
     @FXML
-    private TableColumn<TestToConfirm, Integer> PrincipalTestExtentionRequests_newDurationCol;
+    private TableColumn<Extension, Integer> PrincipalTestExtentionRequests_newDurationCol;
 
     @FXML
-    private TableColumn<TestToConfirm, String> PrincipalTestExtentionRequests_reasonCol;
+    private TableColumn<Extension, String> PrincipalTestExtentionRequests_reasonCol;
 
     @FXML
-    private TableColumn<TestToConfirm, Integer> PrincipalTestExtentionRequests_isAuthorizedCol;
+    private TableColumn<Extension, Integer> PrincipalTestExtentionRequests_isAuthorizedCol;
 
     @FXML
-    private TableColumn<TestToConfirm, Integer> PrincipalTestExtentionRequests_isRelevantCol;
+    private TableColumn<Extension, Integer> PrincipalTestExtentionRequests_isRelevantCol;
 
     @FXML
     private JFXButton PrincipalTestExtentionRequests_btnDone;
@@ -77,16 +78,14 @@ public class PrincipalTestExtentionRequestsController {
 	@FXML
 	public void initialize() {
 		ClientUI.chat.accept(new Message(Operation.GetExtensionRequests));
-		ObservableList<TestToConfirm> tests = FXCollections
-				.observableArrayList(DataManager.getDataManager().getTestToConfirm());
-		PrincipalTestExtentionRequests_testCodeCol.setCellValueFactory(new PropertyValueFactory<>("testID"));
-		PrincipalTestExtentionRequests_requestedByCol.setCellValueFactory(new PropertyValueFactory<>("text"));
-		PrincipalTestExtentionRequests_newDurationCol.setCellValueFactory(new PropertyValueFactory<>("answersString"));
-		PrincipalTestExtentionRequests_reasonCol.setCellValueFactory(new PropertyValueFactory<>("correctAnswerIndex"));
-		PrincipalTestExtentionRequests_isAuthorizedCol.setCellValueFactory(new PropertyValueFactory<>("teacherComposed"));
-		PrincipalTestExtentionRequests_isRelevantCol.setCellValueFactory(new PropertyValueFactory<>("teacherComposed"));
+		ObservableList<Extension> tests = FXCollections
+				.observableArrayList(DataManager.getDataManager().getExtensionRequests());
+		PrincipalTestExtentionRequests_testCodeCol.setCellValueFactory(new PropertyValueFactory<>("testCode"));
+		PrincipalTestExtentionRequests_requestedByCol.setCellValueFactory(new PropertyValueFactory<>("requestedBy"));
+		PrincipalTestExtentionRequests_newDurationCol.setCellValueFactory(new PropertyValueFactory<>("newDuration"));
+		PrincipalTestExtentionRequests_reasonCol.setCellValueFactory(new PropertyValueFactory<>("reason"));
+		PrincipalTestExtentionRequests_isAuthorizedCol.setCellValueFactory(new PropertyValueFactory<>("isRelevant"));
+		PrincipalTestExtentionRequests_isRelevantCol.setCellValueFactory(new PropertyValueFactory<>("isAuthorized"));
 		PrincipalTestExtentionRequests_tblViewRequests.setItems(tests);
-
 	}
-
 }

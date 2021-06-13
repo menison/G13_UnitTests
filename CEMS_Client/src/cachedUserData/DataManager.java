@@ -30,22 +30,13 @@ public class DataManager {
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
-	private ArrayList<TestToConfirm> testToConfirm;
+	private ArrayList<Extension> extensionRequests;
 	private String testID;
 	private Report report;
-
 	private String currentExecEmail;
-
 	private String activateMsg;
 	private String addTestMsg;
 	private Extension extension;
-	
-	
-	
-	
-	
-
-
 	private boolean activateSuccess;
 	
 	private ArrayList<ActivatedTest> teacherActivatedTests;
@@ -220,21 +211,23 @@ public class DataManager {
 	public void setTestsToConfirm(ArrayList<TestToConfirm> testsToConfirm) {
 		this.testsToConfirm = testsToConfirm;
 	}
-<<<<<<< HEAD
 
-	public ArrayList<TestToConfirm> getTestToConfirm() {
-		return testToConfirm;
+
+	public ArrayList<Extension> getExtensionRequests() {
+		return extensionRequests;
 	}
 
-	public void setTestToConfirm(ArrayList<TestToConfirm> testToConfirm) {
-		this.testToConfirm = testToConfirm;
+
+	public void setExtensionRequests(ArrayList<Extension> extensionRequests) {
+		this.extensionRequests = extensionRequests;
 	}
+
 }
 
-=======
-}
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
+
 
 
 

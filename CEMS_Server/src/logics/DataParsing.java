@@ -13,6 +13,7 @@ import dataParsing.GetTestTable;
 import dataParsing.HandleTestsActivatedByTeacher;
 import dataParsing.ManualTestDownloader;
 import dataParsing.ManualTestUploader;
+import dataParsing.PrincipalGetExtentionRequests;
 import dataParsing.PrincipalGetReport;
 import dataParsing.SetCompletedStudentExam;
 import dataParsing.TeacherGetAllSelfExecutedTests;
@@ -70,6 +71,8 @@ public class DataParsing {
 			return AddTestsOperations.addTest(receivedMessage);
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
+		case GetExtensionRequests:
+			return PrincipalGetExtentionRequests.getExtensions(receivedMessage);
 		default:
 			break;
 		}
