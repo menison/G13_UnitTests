@@ -124,6 +124,11 @@ public class ActivateTestController {
 
 		alert.showAndWait();
     }
+	@FXML
+	public void initialize() {
+		ActivateTest_timeSelect.getEditor().setDisable(true);
+		ActivateTest_dateSelect.getEditor().setDisable(true);
+	}
 
 }
 
