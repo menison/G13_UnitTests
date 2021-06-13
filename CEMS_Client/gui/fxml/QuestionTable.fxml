@@ -13,7 +13,7 @@
    <children>
       <JFXButton fx:id="questionTbl_btnAddQuestion" focusTraversable="false" layoutX="36.0" layoutY="439.0" onAction="#addQuestion" text="Add Question" />
       <JFXButton fx:id="questionTbl_btnEditQuestion" focusTraversable="false" layoutX="181.0" layoutY="439.0" prefHeight="39.0" prefWidth="122.0" text="Edit Question" />
-      <JFXButton fx:id="questionTbl_btnClose" focusTraversable="false" layoutX="688.0" layoutY="439.0" prefHeight="39.0" prefWidth="87.0" text="Close" />
+      <JFXButton fx:id="questionTbl_btnClose" focusTraversable="false" layoutX="688.0" layoutY="439.0" onAction="#close" prefHeight="39.0" prefWidth="87.0" text="Close" />
       <ImageView fitHeight="113.0" fitWidth="75.0" layoutX="26.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/logo4.png" />

@@ -34,6 +34,7 @@ public class EchoServer extends AbstractServer {
 		LogicController.UpdateClientTable(msg, client);
 		returnMessage = DataParsing.Start(msg);
 		sendToAllClients(returnMessage);
+		
 	}
 
 	/**

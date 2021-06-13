@@ -37,7 +37,7 @@ public class GenerateQuestionID {
 	public static void setAddQuestionMsg(Message msg) {
 		String str=(String)msg.getObj();
 		DataManager dm=DataManager.getDataManager();
-		dm.setAddTestMsg(str);
+		dm.setAddQuestionMsg(str);
 	}
 	
 	public static void setIncNumOfQuestionMsg(Message msg) {

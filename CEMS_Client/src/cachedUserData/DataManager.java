@@ -35,35 +35,38 @@ public class DataManager {
 	private Report report;
 	private String currentExecEmail;
 	private String activateMsg;
-<<<<<<< HEAD
-	private String addTestMsg;
-=======
+
 	private String addTestMsg;
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 	private String addQuestionMsg;
 	private String incQuestionNumMsg;
 	private String amountOfQuestions;
 	private int tempNumOfQuestionsForCourse;
+	private int flag1=0;
+	private int flag2=0;
 
-<<<<<<< HEAD
 
-=======
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	private Extension extension;
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
+
 	private boolean activateSuccess;
 	
-<<<<<<< HEAD
+	public void incFlag1() {
+		flag1++;
+	}
+	public void incFlag2() {
+		flag2++;
+	}
+	
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
+
 	public void setAddQuestionMsg(String msg) {
 		this.addQuestionMsg=msg;
 	}
@@ -77,11 +80,10 @@ public class DataManager {
 		return incQuestionNumMsg;
 	}
 	
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
 	private ArrayList<ActivatedTest> teacherActivatedTests;
 
 	
@@ -112,12 +114,10 @@ public class DataManager {
 	public void setTeacherActivatedTests(ArrayList<ActivatedTest> teacherActivatedTests) {
 		this.teacherActivatedTests = teacherActivatedTests;
 	}
-<<<<<<< HEAD
-
-=======
 
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
 	public String getActivateMsg() {
 		return activateMsg;
 	}

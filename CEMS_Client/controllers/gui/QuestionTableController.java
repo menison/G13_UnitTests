@@ -73,6 +73,14 @@ public class QuestionTableController{
 		CreateQuestionController cqc  = new CreateQuestionController();	
 		Stage primaryStage = new Stage();
 		cqc.start(primaryStage);
+		//((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
+	}
+	
+	@FXML
+	void close(ActionEvent event) throws IOException {
+		TeacherMenuController tmc  = new TeacherMenuController();	
+		Stage primaryStage = new Stage();
+		tmc.start(primaryStage);
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
 	}
 

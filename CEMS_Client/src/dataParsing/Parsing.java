@@ -4,25 +4,21 @@ import entities.Message;
 import gui.ActivateTestController;
 import request.AddTeacherTestsToDM;
 import request.FullTestTable;
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
+
 import request.GenerateQuestionID;
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 
 import request.GetCurrentExecEmail;
 
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 import request.HandleActivateStatus;
 
 import request.Login;
@@ -110,24 +106,20 @@ public class Parsing {
 		case AddNewTest:
 			SetTestsValues.addNewTest(receivedMessage);
 			break;
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		case AddQuestionToDatabase:
 			GenerateQuestionID.setAddQuestionMsg(receivedMessage);
 			break;
 		case IncrementNumOfQuestionsInCourse:
 			GenerateQuestionID.setIncNumOfQuestionMsg(receivedMessage);
 			break;
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 		case ChangeAmountOfTestsInCourseTable:
 			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
+			break;
 		case GetExtensionRequests:
 			PrincipalExtentionRequests.principalSetExtentionRequests(receivedMessage);
 			break;
@@ -142,17 +134,20 @@ public class Parsing {
 		}
 			
 		case GetTestConfirmationTable:
-<<<<<<< HEAD
+
 			SetTestConfirmationTable.set(receivedMessage);
-=======
-			SetTestConfirmationTable.set(receivedMessage);
+			break;
+
 		case ApproveExtensionRequests:
 			PrincipalExtentionRequests.principalApproveExtentionRequests(receivedMessage);
+			break;
 		case DeclineExtensionRequests:
 			PrincipalExtentionRequests.principalDeclineExtentionRequests(receivedMessage);
+			break;
 		case GetTestsActivatedByTeachger:
 			AddTeacherTestsToDM.add(receivedMessage);
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+			break;
+
 		default:
 			break;
 		}

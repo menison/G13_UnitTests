@@ -112,6 +112,16 @@ public class CreateQuestionController {
 
     @FXML
     void close(ActionEvent event) {
+    	Stage newStage = new Stage();
+    	Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	//QuestionTableController qtc = new QuestionTableController();
+    	//try {
+		//	qtc.start(newStage);
+		//} catch (IOException e) {
+		//	// TODO Auto-generated catch block
+		//	e.printStackTrace();
+		//}
+    	//currentStage.close();
 
     }
 
@@ -133,13 +143,13 @@ public class CreateQuestionController {
     	//Map the selected correct answer
     	
     	if(CreateQuestion_checkAnswer1.isSelected())
-    		correctAnswer=1;
+    		correctAnswer=0;
     	if(CreateQuestion_checkAnswer2.isSelected())
-    		correctAnswer=2;
+    		correctAnswer=1;
     	if(CreateQuestion_checkAnswer3.isSelected())
-    		correctAnswer=3;
+    		correctAnswer=2;
     	if(CreateQuestion_checkAnswer4.isSelected())
-    		correctAnswer=4;  	
+    		correctAnswer=3;  	
     	String[] answers=new String[4];
     	answers[0]=CreateQuestion_answer1Field.getText();
     	answers[1]=CreateQuestion_answer2Field.getText();
@@ -151,8 +161,8 @@ public class CreateQuestionController {
     	ClientUI.chat.accept(new Message(Operation.AddQuestionToDatabase,qst));
     	confirmPopUp(DataManager.getDataManager().getQuestionMsg());
 		QuestionTableController qtc = new QuestionTableController();
-		Stage primaryStage = new Stage();
-		qtc.start(primaryStage);
+		//Stage primaryStage = new Stage();
+		//qtc.start(primaryStage);
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     	
 

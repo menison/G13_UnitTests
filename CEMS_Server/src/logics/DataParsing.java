@@ -2,26 +2,26 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
+
 import dataParsing.AddQuestionOperations;
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
+
 
 import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
 
-<<<<<<< HEAD
+
 
 import dataParsing.AddTestsOperations;
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
 
 import dataParsing.AddTestsOperations;
 import dataParsing.ExtensionRequest;
@@ -91,19 +91,19 @@ public class DataParsing {
 			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
+
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
 		case IncrementNumOfQuestionsInCourse:
 			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
+
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case GetTestsActivatedByTeachger:
@@ -111,9 +111,7 @@ public class DataParsing {
 		case GetExtensionRequests:
 			return PrincipalGetExtentionRequests.getExtensions(receivedMessage);
 		case GetTestConfirmationTable:
-<<<<<<< HEAD
-			return GetTestConfirmationTable.get(receivedMessage);
-=======
+
 			return GetTestConfirmationTable.get(receivedMessage);
 
 		case ApproveExtensionRequests:
@@ -125,7 +123,7 @@ public class DataParsing {
 			return ExtensionRequest.handleExtension(receivedMessage);
 			
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 		default:
 			break;
 		}

@@ -34,11 +34,10 @@ public class Query {
 				"SELECT * FROM test WHERE isActivated = true AND" + " currExecCode= \"" + testExecCode + "\";");
 	}
 	
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
 	public static void InsertQuestionToDataBase(Question qst) {
 			updateQuery("INSERT INTO `query`.`question` (`questionID`, `text`, `answers`, `correctAnswerIndex`, `composedBy`) "
 				+ "VALUES ('"+qst.getQuestionID()+"', '"+qst.getText()+"', '"+qst.getAnswersString()+"', '"+qst.getCorrectAnswerIndex()+"', '"+qst.getTeacherComposed()+"');");
@@ -50,17 +49,11 @@ public class Query {
 	public static ResultSet SelectColumnTableWhere(String selColumn,String tableName,String column,String item) {
 		return resultqueryFrom("SELECT "+selColumn+  " FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 	public static ResultSet getEmailByComposerId(String composerId) {
 		return resultqueryFrom("SELECT * FROM user WHERE personalSID = " + composerId + ";");
-<<<<<<< HEAD
 
-=======
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	}
 
 	public static String getFullNameByID(String personalID) throws SQLException {
@@ -202,6 +195,7 @@ public class Query {
 		try {
 			StatementOfResultSet = connection.createStatement();
 			StatementOfResultSet.executeUpdate(query);
+			System.out.println("POTATO\n");
 			// Resultset.next();
 			// System.out.println(Resultset.getString(1));
 
