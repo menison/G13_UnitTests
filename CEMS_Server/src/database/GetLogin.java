@@ -61,11 +61,13 @@ public class GetLogin {
 		if(usersloggedIn.contains(teacher.getPersonalSID())) {
 			return new Message(Operation.Login,Permission.AlreadyLoggedIn);
 		}
-		usersloggedIn.add(teacher.getPersonalSID());
+		
 		returnMessage=new Message(Operation.Login,teacher);
 		returnMessage.setPermission(DataParsing.getPermission(teacher.getPassword(), Data.get(1)));
-		if(returnMessage.getPermission().equals(Permission.yes))
+		if(returnMessage.getPermission().equals(Permission.yes)) {
+			usersloggedIn.add(teacher.getPersonalSID());
 			ServerController.sc.addToTextArea(teacher.getFirstName()+" the "+teacher.getRole()+" connected to the server");
+		}
 		else
 			ServerController.sc.addToTextArea(teacher.getFirstName()+" failed to connect to the server");
 		return returnMessage;
@@ -80,11 +82,13 @@ public class GetLogin {
 		if(usersloggedIn.contains(student.getPersonalSID())) {
 			return new Message(Operation.Login,Permission.AlreadyLoggedIn);
 		}
-		usersloggedIn.add(student.getPersonalSID());
+		
 		returnMessage=new Message(Operation.Login,student);
 		returnMessage.setPermission(DataParsing.getPermission(student.getPassword(), Data.get(1)));
-		if(returnMessage.getPermission().equals(Permission.yes))
+		if(returnMessage.getPermission().equals(Permission.yes)) {
 			ServerController.sc.addToTextArea(student.getFirstName()+" the "+student.getRole()+" connected to the server");
+			usersloggedIn.add(student.getPersonalSID());
+		}
 		else
 			ServerController.sc.addToTextArea(student.getFirstName()+" failed to connect to the server");
 		return returnMessage;
@@ -99,11 +103,13 @@ public class GetLogin {
 		if(usersloggedIn.contains(principal.getPersonalSID())) {
 			return new Message(Operation.Login,Permission.AlreadyLoggedIn);
 		}
-		usersloggedIn.add(principal.getPersonalSID());
+		
 		returnMessage=new Message(Operation.Login,principal);
 		returnMessage.setPermission(DataParsing.getPermission(principal.getPassword(), Data.get(1)));
-		if(returnMessage.getPermission().equals(Permission.yes))
+		if(returnMessage.getPermission().equals(Permission.yes)) {
 			ServerController.sc.addToTextArea(principal.getFirstName()+" the "+principal.getRole()+" connected to the server");
+			usersloggedIn.add(principal.getPersonalSID());
+		}
 		else
 			ServerController.sc.addToTextArea(principal.getFirstName()+" failed to connect to the server");
 		return returnMessage;

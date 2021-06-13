@@ -2,11 +2,18 @@ package cachedUserData;
 
 import java.util.ArrayList;
 
+import entities.ActivatedTest;
+import entities.Course;
 import entities.ExecutedTest;
+import entities.Field;
+import entities.Question;
+import entities.QuestionForCreateTest;
 import entities.Report;
 import entities.TestForFullTable;
 import entities.TestForTable;
+import entities.TestToConfirm;
 import entities.User;
+import javafx.scene.control.TableView;
 
 public class DataManager {
 	private static DataManager instance = null;
@@ -16,17 +23,55 @@ public class DataManager {
 	private boolean PreOrder;
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
+	private ArrayList<TestToConfirm> testsToConfirm;
 	private ArrayList<TestForFullTable> fullTestList;
+	private ArrayList<Field> fields;
+	private ArrayList<Course> courses;
+	private ArrayList<Question> questions;
+	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
 	private String testID;
 	private Report report;
+<<<<<<< HEAD
 	private String currentExecEmail;
+=======
+	private String activateMsg;
+	private String addTestMsg;
+
+	private boolean activateSuccess;
+	private ArrayList<ActivatedTest> teacherActivatedTests;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	
+<<<<<<< HEAD
 	public String getCurrentExecEmail() {
 		return currentExecEmail;
 	}
 
 	public void setCurrentExecEmail(String currentExecEmail) {
 		this.currentExecEmail = currentExecEmail;
+=======
+	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
+		return teacherActivatedTests;
+	}
+
+	public void setTeacherActivatedTests(ArrayList<ActivatedTest> teacherActivatedTests) {
+		this.teacherActivatedTests = teacherActivatedTests;
+	}
+
+	public String getActivateMsg() {
+		return activateMsg;
+	}
+
+	public void setActivateMsg(String activateMsg) {
+		this.activateMsg = activateMsg;
+	}
+
+	public boolean isActivateSuccess() {
+		return activateSuccess;
+	}
+
+	public void setActivateSuccess(boolean activateSuccess) {
+		this.activateSuccess = activateSuccess;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	}
 
 	public String getTestID() {
@@ -109,4 +154,53 @@ public class DataManager {
 	public void setReport(Report report) {
 		this.report = report;
 	}
+	
+	public ArrayList<Field> getFields() {
+		return fields;
+	}
+
+	public void setFields(ArrayList<Field> fields) {
+		this.fields = fields;
+	}
+	public ArrayList<Course> getCourses() {
+		return courses;
+	}
+
+	public void setCourses(ArrayList<Course> courses) {
+		this.courses = courses;
+	}
+	public ArrayList<Question> getQuestions() {
+		return questions;
+	}
+
+	public void setQuestions(ArrayList<Question> question) {
+		this.questions = question;
+	}
+
+	public TableView<QuestionForCreateTest> getCreateTest_tblQuestions() {
+		return CreateTest_tblQuestions;
+	}
+
+	public void setCreateTest_tblQuestions(TableView<QuestionForCreateTest> createTest_tblQuestions) {
+		CreateTest_tblQuestions = createTest_tblQuestions;
+	}
+	public String getAddTestMsg() {
+		return addTestMsg;
+	}
+
+	public void setAddTestMsg(String addTestMsg) {
+		this.addTestMsg = addTestMsg;
+	}
+
+	public ArrayList<TestToConfirm> getTestsToConfirm() {
+		return testsToConfirm;
+	}
+
+	public void setTestsToConfirm(ArrayList<TestToConfirm> testsToConfirm) {
+		this.testsToConfirm = testsToConfirm;
+	}
 }
+
+
+
+

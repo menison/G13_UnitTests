@@ -1,6 +1,7 @@
 package gui;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
@@ -71,6 +72,7 @@ public class FullTestTableController {
 	
 	@FXML
 	public void initialize() {
+		ClientUI.chat.accept(new Message(Operation.GetFullTestTable));
 		DataManager dm = DataManager.getDataManager();
 		ArrayList<TestForFullTable> t = new ArrayList<>(); 
 		t=dm.getFullTable();

@@ -16,6 +16,10 @@ public class Query {
 	public static ResultSet SelectTableWhere(String tableName, String column, String item) {
 		return resultqueryFrom("SELECT * FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
 	}
+	// Select from Table WHERE condition
+	public static ResultSet SelectTableWhereCondition(String tableName, String condition) {
+		return resultqueryFrom("SELECT * FROM `" + tableName + "` WHERE `" + condition +";");
+	}
 
 	// INSERT HERE MORE
 	// QUERIES-----------------------------------------------------------------------------
@@ -75,6 +79,19 @@ public class Query {
 		return toReturn;
 	}
 
+	public static ResultSet getAllExecutedTestsByCode(String testCode) {
+
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT * FROM executedtest WHERE TestCode= " + testCode + ";");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+	}
 	
 	public static void writeManualTestBlobToDB(Blob b1, ExecutedTest excTest) {
 		Connection con = SetConnectionDB.start();
@@ -124,7 +141,7 @@ public class Query {
 
 		try {
 			StatementOfResultSet = connection.createStatement();
-			StatementOfResultSet.executeQuery(query);
+			StatementOfResultSet.executeUpdate(query);
 			// Resultset.next();
 			// System.out.println(Resultset.getString(1));
 

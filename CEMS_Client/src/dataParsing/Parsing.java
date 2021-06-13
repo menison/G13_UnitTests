@@ -1,12 +1,22 @@
 package dataParsing;
 
 import entities.Message;
+import gui.ActivateTestController;
+import request.AddTeacherTestsToDM;
 import request.FullTestTable;
+<<<<<<< HEAD
 import request.GetCurrentExecEmail;
+=======
+import request.HandleActivateStatus;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
+<<<<<<< HEAD
 import request.SetDurationForExecTest;
+=======
+import request.SetTestsValues;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
@@ -48,11 +58,36 @@ public class Parsing {
 		case GetTestsForTeacherReport:
 			TeacherSetTableForSelfTests.setTableForSelfTests(receivedMessage);
 			break;
+<<<<<<< HEAD
 		case getInstructionsAndMail:
 			GetCurrentExecEmail.setEmail(receivedMessage);
 			break;
 		case GetTimeForTestInExecution:
 			SetDurationForExecTest.setDuration(receivedMessage);
+=======
+		case GetSubjectsAndCourses:
+			SetTestsValues.setSubjects(receivedMessage);
+			break;
+		case GetQuestions:
+			SetTestsValues.setQuestions(receivedMessage);
+			break;
+		case ActivateTestCodeFailed:
+		HandleActivateStatus.activateFailed(receivedMessage);
+			break;
+		case ActivateTestCodeSuccess:
+		HandleActivateStatus.activateSuccess(receivedMessage);
+			break;
+		case GetTestsActivatedByTeachger:
+			AddTeacherTestsToDM.add(receivedMessage);
+		case GetAmountOfTests:
+			SetTestsValues.setAmountOfTests(receivedMessage);
+			break;
+		case AddNewTest:
+			SetTestsValues.addNewTest(receivedMessage);
+			break;
+		case ChangeAmountOfTestsInCourseTable:
+			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 			break;
 		default:
 			break;

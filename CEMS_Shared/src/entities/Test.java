@@ -24,6 +24,9 @@ public class Test implements Serializable {
 	private String activatedBy;
 	private String dateOfStart;
 	private String timeOfStart;
+	private String questionString;
+	private String pointsString;
+	private String questionIDString;
 
 
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
@@ -39,9 +42,58 @@ public class Test implements Serializable {
 		this.pointDistribution = pointDistribution;
 		this.isActivated = isActivated;
 		this.teacherComposed = composedBy;
+		this.questionString ="";
+		for(Question s: questions) {
+			this.questionString += s.getText() + "," ;
+		}
+		this.pointsString = "";
+		for(String s: pointDistribution) {
+			this.pointsString+= s + "," ;
+		}
+		this.questionIDString ="";
+		for(Question s: questions) {
+			this.questionIDString += s.getQuestionID() + "," ;
+		}
 	}
 	
-	
+
+	public String getQuestionIDString() {
+		return questionIDString;
+	}
+
+
+	public void setQuestionIDString(String questionIDString) {
+		this.questionIDString = questionIDString;
+	}
+
+
+	public String getQuestionString() {
+		return questionString;
+	}
+
+
+	public void setQuestionString(String questionString) {
+		this.questionString = questionString;
+	}
+
+
+	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
+			String commentsForTeachers, String currExecutionCode, String[] pointDistribution, String teacherComposed,
+			String subject, String course, int isActivated) {
+		super();
+		this.questions = questions;
+		this.testID = testID;
+		this.allocatedDuration = allocatedDuration;
+		this.commentsForStudents = commentsForStudents;
+		this.commentsForTeachers = commentsForTeachers;
+		this.currExecutionCode = currExecutionCode;
+		this.pointDistribution = pointDistribution;
+		this.teacherComposed = teacherComposed;
+		this.subject = subject;
+		this.course = course;
+		this.isActivated = isActivated;
+	}
+
 
 	public String getComposedBy() {
 		return teacherComposed;
@@ -120,6 +172,16 @@ public class Test implements Serializable {
 
 	public void setActivatedBy(String activatedBy) {
 		this.activatedBy = activatedBy;
+	}
+
+
+	public String getPointsString() {
+		return pointsString;
+	}
+
+
+	public void setPointsString(String pointsString) {
+		this.pointsString = pointsString;
 	}
 	
 }

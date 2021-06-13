@@ -25,11 +25,11 @@
       </Label>
       <TableView fx:id="RequestExtension_tblTest" layoutX="8.0" layoutY="118.0" prefHeight="307.0" prefWidth="633.0">
         <columns>
-          <TableColumn fx:id="RequestExtension_TestIDCol" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="RequestExtension_subjectCol" prefWidth="75.0" text="Subject" />
-            <TableColumn fx:id="RequestExtension_courseCol" prefWidth="75.0" text="Course" />
-            <TableColumn fx:id="RequestExtension_durationCol" prefWidth="75.0" text="Duration" />
-            <TableColumn fx:id="RequestExtension_composerCol" prefWidth="103.0" text="Composer" />
+          <TableColumn fx:id="RequestExtension_CodeCol" prefWidth="75.0" text="Code" />
+          <TableColumn fx:id="RequestExtension_testIDCol" prefWidth="96.0" text="ID" />
+            <TableColumn fx:id="RequestExtension_DateCol" prefWidth="134.0" text="Date" />
+            <TableColumn fx:id="RequestExtension_timeCol" prefWidth="92.0" text="time" />
+            <TableColumn fx:id="RequestExtension_DurationCol" prefWidth="146.0" text="Duration" />
         </columns>
       </TableView>
    </children>

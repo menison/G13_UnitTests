@@ -1,18 +1,40 @@
 package entities;
 
-public class Course {
+import java.io.Serializable;
 
+public class Course implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String ID;
 	private String name;
 	private Field belongsTo;
+	private int numOfQuestions;
+	private int numOfTests;
 	
+	public int getNumOfQuestions() {
+		return numOfQuestions;
+	}
+
+	public int getNumOfTests() {
+		return numOfTests;
+	}
+
 	public Course(String iD, String name, Field belongsTo) {
 		super();
 		ID = iD;
 		this.name = name;
 		this.belongsTo = belongsTo;
 	}
-
+	
+	public Course(String iD, String name) {
+		super();
+		ID = iD;
+		this.name = name;
+	}
+	
 	public String getID() {
 		return ID;
 	}
@@ -35,6 +57,11 @@ public class Course {
 
 	public void setBelongsTo(Field belongsTo) {
 		this.belongsTo = belongsTo;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name;
 	}
 	
 

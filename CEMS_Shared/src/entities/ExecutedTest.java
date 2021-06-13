@@ -3,7 +3,6 @@ package entities;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Arrays;
-import java.util.Date;
 
 public class ExecutedTest implements Serializable  {
 	

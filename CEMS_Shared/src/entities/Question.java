@@ -12,6 +12,7 @@ public class Question implements Serializable{
 	private String questionID;
 	private String text, teacherComposed;
 	private String[] answers;
+	private String answersString;
 	private int correctAnswerIndex;
 	
 	public Question(String questionID, String text, String[] answers, int correctAnswerIndex, 
@@ -22,6 +23,10 @@ public class Question implements Serializable{
 		this.answers = answers;
 		this.correctAnswerIndex = correctAnswerIndex;
 		this.teacherComposed = teacherComposed;
+		this.answersString ="";
+		for(String s: answers) {
+			this.answersString += s + "," ;
+		}
 	}
 
 	public String getQuestionID() {
@@ -63,6 +68,13 @@ public class Question implements Serializable{
 	public String toString() {
 		return(questionID + "," + text + "," + teacherComposed + "," + Arrays.toString(answers) + "," + 
 				correctAnswerIndex);
+	}
+	public String getAnswersString() {
+		return answersString;
+	}
+
+	public void setAnswersString(String answersString) {
+		this.answersString = answersString;
 	}
 	
 }

@@ -4,7 +4,6 @@ import java.io.File;
 import java.nio.file.Files;
 import java.sql.Blob;
 import java.sql.Connection;
-import java.sql.SQLException;
 
 import database.Query;
 import database.SetConnectionDB;

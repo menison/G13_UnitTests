@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="433.0" prefWidth="778.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ConfirmGradesController">
+   <children>
+      <TableView fx:id="confirmGrades_tblViewConfirm" layoutX="9.0" layoutY="98.0" prefHeight="262.0" prefWidth="760.0">
+        <columns>
+            <TableColumn fx:id="tblViewCol_testID" prefWidth="140.0" text="testID" />
+            <TableColumn fx:id="tblViewCol_testCode" prefWidth="132.0" text="testCode" />
+          <TableColumn fx:id="tblViewCol_Date" minWidth="0.0" prefWidth="143.0" text="Date" />
+          <TableColumn fx:id="tblViewCol_executedBy" prefWidth="223.0" text="executedBy" />
+            <TableColumn fx:id="tblViewCol_Grade" minWidth="0.0" prefWidth="125.0" text="Grade" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="95.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo4.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="250.0" layoutY="21.0" prefHeight="53.0" prefWidth="279.0" text="Confirm Grades" textFill="#b2b2b2">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="confirmGrades_btnConfirm" layoutX="625.0" layoutY="380.0" onAction="#confirmGrade" text="Confirm Grade" />
+      <JFXButton fx:id="confirmGrades_btnBack" layoutX="32.0" layoutY="380.0" onAction="#back" text="Back" />
+   </children>
+</AnchorPane>
