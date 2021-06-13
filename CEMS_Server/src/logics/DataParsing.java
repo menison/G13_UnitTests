@@ -49,6 +49,10 @@ public class DataParsing {
 			return AddTestsOperations.getSubjectsAndCourses(receivedMessage);
 		case GetQuestions:
 			return AddTestsOperations.getQuestions(receivedMessage);
+		case GetAmountOfTests:
+			return AddTestsOperations.getAmountOfTests(receivedMessage);
+		case AddNewTest:
+			return AddTestsOperations.addTest(receivedMessage);
 		default:
 			break;
 		}

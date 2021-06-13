@@ -25,7 +25,7 @@ public class Question implements Serializable{
 		this.teacherComposed = teacherComposed;
 		this.answersString ="";
 		for(String s: answers) {
-			this.answersString += s + ";" ;
+			this.answersString += s + "," ;
 		}
 	}
 

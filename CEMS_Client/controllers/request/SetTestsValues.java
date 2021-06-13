@@ -22,4 +22,12 @@ public class SetTestsValues {
 		ArrayList<Question> questions = (ArrayList<Question>) receivedMessage.getObj();
 		DataManager.getDataManager().setQuestions(questions);
 	}
+	public static void setAmountOfTests(Message receivedMessage) {
+		String amountOfTests = (String) receivedMessage.getObj();
+		DataManager.getDataManager().setTestID(amountOfTests);
+	}
+	public static void addNewTest(Message receivedMessage) {
+		String msg = (String) receivedMessage.getObj();
+		DataManager.getDataManager().setAddTestMsg(msg);
+	}
 }
