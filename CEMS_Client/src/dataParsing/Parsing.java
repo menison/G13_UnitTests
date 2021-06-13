@@ -65,7 +65,10 @@ public class Parsing {
 			SetTestsValues.setAmountOfTests(receivedMessage);
 			break;
 		case AddNewTest:
-			SetTestsValues.setAmountOfTests(receivedMessage);
+			SetTestsValues.addNewTest(receivedMessage);
+			break;
+		case ChangeAmountOfTestsInCourseTable:
+			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
 			break;
 		default:
 			break;

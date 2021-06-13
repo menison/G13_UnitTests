@@ -53,6 +53,8 @@ public class DataParsing {
 			return AddTestsOperations.getAmountOfTests(receivedMessage);
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
+		case ChangeAmountOfTestsInCourseTable:
+			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		default:
 			break;
 		}
