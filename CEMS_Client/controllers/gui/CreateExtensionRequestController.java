@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 
 import cachedUserData.DataManager;
 import entities.ActivatedTest;
+import entities.Extension;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -49,8 +50,18 @@ public class CreateExtensionRequestController {
     private TableColumn<ActivatedTest, Integer> RequestExtension_DurationCol;
 
     @FXML
-    void Extend(ActionEvent event) {
+    void Extend(ActionEvent event) throws IOException {
+    	String selectedItems=(String)RequestExtension_tblTest.getSelectionModel().getSelectedItem().getTestCode();
+    	int duration=(int)RequestExtension_tblTest.getSelectionModel().getSelectedItem().getDuration();
+    	if(selectedItems!=null);
+    	{
 
+    	Stage stage = new Stage();
+    	ExtensionController extension= new ExtensionController();
+    	extension.start(stage);
+		DataManager dm = DataManager.getDataManager();
+		dm.setExtension(new Extension(duration,selectedItems,dm.getCurrentUser().getPersonalSID()));
+    	}	
     }
 
     @FXML
@@ -74,7 +85,6 @@ public class CreateExtensionRequestController {
 	}
 	@FXML
 	public void initialize() {
-
 
 		ObservableList<ActivatedTest> tests = FXCollections.observableArrayList( DataManager.getDataManager().getTeacherActivatedTests());
 		RequestExtension_CodeCol.setCellValueFactory(new PropertyValueFactory<>("testCode"));
