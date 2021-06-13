@@ -2,6 +2,7 @@ package cachedUserData;
 
 import java.util.ArrayList;
 
+import entities.ActivatedTest;
 import entities.Course;
 import entities.ExecutedTest;
 import entities.Field;
@@ -34,7 +35,16 @@ public class DataManager {
 	private String addTestMsg;
 
 	private boolean activateSuccess;
+	private ArrayList<ActivatedTest> teacherActivatedTests;
 	
+	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
+		return teacherActivatedTests;
+	}
+
+	public void setTeacherActivatedTests(ArrayList<ActivatedTest> teacherActivatedTests) {
+		this.teacherActivatedTests = teacherActivatedTests;
+	}
+
 	public String getActivateMsg() {
 		return activateMsg;
 	}
@@ -169,6 +179,7 @@ public class DataManager {
 		this.addTestMsg = addTestMsg;
 	}
 
+<<<<<<< HEAD
 	public ArrayList<TestToConfirm> getTestsToConfirm() {
 		return testsToConfirm;
 	}
@@ -177,6 +188,11 @@ public class DataManager {
 		this.testsToConfirm = testsToConfirm;
 	}
 
+
+}
+
+=======
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 
 }
 

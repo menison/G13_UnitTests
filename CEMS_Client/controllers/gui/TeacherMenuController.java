@@ -89,4 +89,12 @@ public class TeacherMenuController {
 		tsc.start(newStage);
 		currentStage.close();
 	}
+    @FXML
+    void testExtension(ActionEvent event) throws IOException {
+    	CreateExtensionRequestController cerc  = new CreateExtensionRequestController();
+		ClientUI.chat.accept(new Message(Operation.GetTestsActivatedByTeachger,DataManager.getDataManager().getCurrentUser().getPersonalSID()));
+		Stage primaryStage = new Stage();
+		cerc.start(primaryStage);
+		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+    }
 }

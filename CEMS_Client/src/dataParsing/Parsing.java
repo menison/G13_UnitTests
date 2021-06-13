@@ -2,6 +2,7 @@ package dataParsing;
 
 import entities.Message;
 import gui.ActivateTestController;
+import request.AddTeacherTestsToDM;
 import request.FullTestTable;
 import request.HandleActivateStatus;
 import request.Login;
@@ -61,6 +62,8 @@ public class Parsing {
 		case ActivateTestCodeSuccess:
 		HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
+		case GetTestsActivatedByTeachger:
+			AddTeacherTestsToDM.add(receivedMessage);
 		case GetAmountOfTests:
 			SetTestsValues.setAmountOfTests(receivedMessage);
 			break;
