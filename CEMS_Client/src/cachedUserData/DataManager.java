@@ -29,6 +29,7 @@ public class DataManager {
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
+	private ArrayList<TestToConfirm> testToConfirm;
 	private String testID;
 	private Report report;
 	private String activateMsg;
@@ -185,6 +186,14 @@ public class DataManager {
 
 	public void setTestsToConfirm(ArrayList<TestToConfirm> testsToConfirm) {
 		this.testsToConfirm = testsToConfirm;
+	}
+
+	public ArrayList<TestToConfirm> getTestToConfirm() {
+		return testToConfirm;
+	}
+
+	public void setTestToConfirm(ArrayList<TestToConfirm> testToConfirm) {
+		this.testToConfirm = testToConfirm;
 	}
 }
 

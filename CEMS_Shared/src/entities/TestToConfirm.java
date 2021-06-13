@@ -1,6 +1,6 @@
 package entities;
 
-public class TestToConfirm {
+public class TestToConfirm  {
 	private String testID;
 	private String testCode;
 	private String date;

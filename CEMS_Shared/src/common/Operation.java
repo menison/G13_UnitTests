@@ -20,6 +20,10 @@ public enum Operation {
 	GetReport,
 	GetTestsForTeacherReport,
 	ActivateTestCode,
+	GetTimeForTestInExecution,
+	GetTimeForActiveExam,
+	SetCompletedExam,
+	CheckIfTestIsLocked,
 	GetSubjectsAndCourses,
 	GetQuestions,
 	GetQuestionTable,
@@ -27,10 +31,12 @@ public enum Operation {
 	ActivateTestCodeSuccess,
 	GetQuestionInfo,
 	GetTestsActivatedByTeachger,
-	GetAmountOfTests,
 	AddNewTest,
+	RequestExtension,
+	GetAmountOfTests,
 	GetTestConfirmationTable,
 	GetCalculatedGradeForConfirmation,
 	ChangeAmountOfTestsInCourseTable,
-	
+	GetExtensionRequests
+
 }
