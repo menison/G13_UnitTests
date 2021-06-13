@@ -138,6 +138,11 @@ public class Test implements Serializable {
 	public int isActivated() {
 		return isActivated;
 	}
+	
+	public void setActivated(int isActivated) {
+		this.isActivated = isActivated;
+	}
+	
 	@Override
 	public String toString() {
 		String str = new String();

@@ -20,7 +20,7 @@ public class ExecutedTest implements Serializable  {
 	private String date;
 	private String composedBy;
 	private int grade;
-	
+	private String sTime;
 	
 
 	public ExecutedTest(Test test, String executionCodePK, int[] answers,
@@ -47,6 +47,18 @@ public class ExecutedTest implements Serializable  {
 		answers = new int[this.test.howManyQuestions()];
 		for(int i = 0; i < answers.length;i++)
 			setAnswers(i,-1);
+	}
+	
+	public void setStartTime(LocalTime startTime) {
+		this.startTime = startTime;
+	}
+	
+	public String getsTime() {
+		return sTime;
+	}
+
+	public void setsTime(String sTime) {
+		this.sTime = sTime;
 	}
 	
 	public int getGrade() {

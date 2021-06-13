@@ -17,8 +17,13 @@ public class SetConnectionDB {
 
 	public static String DBhost = "localhost";
 
+<<<<<<< HEAD
 //	public static String DBname = "query";
 //	public static String DBPassword = "davidNkin1";
+=======
+	public static String DBname = "query";
+	public static String DBPassword = "MattB123Pa55w0rd";
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 
 //	public static String DBname = "query";
 //	public static String DBPassword = "In511995";
