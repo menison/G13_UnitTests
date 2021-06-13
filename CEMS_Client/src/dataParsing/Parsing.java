@@ -1,24 +1,17 @@
 package dataParsing;
 
 import entities.Message;
-import gui.ActivateTestController;
 import request.AddTeacherTestsToDM;
+import request.AfterGradeAuth;
 import request.FullTestTable;
-
 import request.GetCurrentExecEmail;
-
 import request.HandleActivateStatus;
-
 import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
-
-import request.SetTestConfirmationTable;
-
 import request.SetDurationForExecTest;
-
+import request.SetTestConfirmationTable;
 import request.SetTestsValues;
-
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
@@ -92,6 +85,12 @@ public class Parsing {
 			break;
 		case GetTestConfirmationTable:
 			SetTestConfirmationTable.set(receivedMessage);
+			break;
+		case ConfirmTestWithChanges:
+			AfterGradeAuth.notifyUser(receivedMessage);
+		case ConfirmTestWithoutChanges:
+			AfterGradeAuth.notifyUser(receivedMessage);
+			break;
 		default:
 			break;
 		}

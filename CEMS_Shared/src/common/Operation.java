@@ -38,7 +38,9 @@ public enum Operation {
 	GetTestsActivatedByTeachger,
 	RequestExtension,
 	ChangeAmountOfTestsInCourseTable,
-	GetExtensionRequests
+	GetExtensionRequests,
+	ConfirmTestWithChanges,
+	ConfirmTestWithoutChanges
 
 
 }

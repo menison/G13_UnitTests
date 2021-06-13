@@ -30,9 +30,9 @@ public class DataManager {
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
-	private ArrayList<TestToConfirm> testToConfirm;
 	private String testID;
 	private Report report;
+	private TestToConfirm t;
 
 	private String currentExecEmail;
 
@@ -40,18 +40,10 @@ public class DataManager {
 	private String addTestMsg;
 	private Extension extension;
 	
-	
-	
-	
-	
-
-
 	private boolean activateSuccess;
 	
 	private ArrayList<ActivatedTest> teacherActivatedTests;
 
-	
-	
 	
 	public Extension getExtension() {
 		return extension;
@@ -221,12 +213,12 @@ public class DataManager {
 		this.testsToConfirm = testsToConfirm;
 	}
 
-	public ArrayList<TestToConfirm> getTestToConfirm() {
-		return testToConfirm;
+	public TestToConfirm getT() {
+		return t;
 	}
 
-	public void setTestToConfirm(ArrayList<TestToConfirm> testToConfirm) {
-		this.testToConfirm = testToConfirm;
+	public void setT(TestToConfirm t) {
+		this.t = t;
 	}
 }
 

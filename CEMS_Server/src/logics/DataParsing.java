@@ -2,16 +2,14 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
-
+import dataParsing.AddTestsOperations;
+import dataParsing.ConfirmTestChangeGrade;
+import dataParsing.ConfirmTestWithoutChanges;
 import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
-
-import dataParsing.AddTestsOperations;
-
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestTable;
-import dataParsing.HandleTestsActivatedByTeacher;
 import dataParsing.ManualTestDownloader;
 import dataParsing.ManualTestUploader;
 import dataParsing.PrincipalGetReport;
@@ -73,6 +71,10 @@ public class DataParsing {
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case GetTestConfirmationTable:
 			return GetTestConfirmationTable.get(receivedMessage);
+		case ConfirmTestWithChanges:
+			return ConfirmTestChangeGrade.executeUpdate(receivedMessage);
+		case ConfirmTestWithoutChanges:
+			return ConfirmTestWithoutChanges.executeUpdate(receivedMessage);
 		default:
 			break;
 		}

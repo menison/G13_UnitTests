@@ -24,6 +24,6 @@
       </Label>
       <JFXButton fx:id="teacherMenu_btnTestsStats" focusTraversable="false" layoutX="412.0" layoutY="239.0" onAction="#testsForReport" prefHeight="39.0" prefWidth="137.0" text="Tests Statistics" />
       <JFXButton fx:id="teacherMenu_btnLogout" focusTraversable="false" layoutX="263.0" layoutY="405.0" onAction="#logOut" styleClass="logout-btn" text="Logout" />
-      <JFXButton fx:id="teacherMenu_btnGConfirmation" layoutX="215.0" layoutY="307.0" onAction="#loadGradeConfirmationWindow" text="Grades Confirmation" />
+      <JFXButton fx:id="teacherMenu_btnGConfirmation" focusTraversable="false" layoutX="215.0" layoutY="307.0" onAction="#loadGradeConfirmationWindow" text="Grades Confirmation" />
    </children>
 </Pane>
