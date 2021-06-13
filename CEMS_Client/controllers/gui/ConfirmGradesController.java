@@ -24,7 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class ConfirmGradesController implements Initializable {
+public class ConfirmGradesController implements Initializable{
 
     @FXML
     private TableView<TestToConfirm> confirmGrades_tblViewConfirm;
@@ -49,6 +49,8 @@ public class ConfirmGradesController implements Initializable {
 
     @FXML
     private JFXButton confirmGrades_btnBack;
+    
+    public static boolean isNull;
 
     @FXML
     void back(ActionEvent event) {
@@ -62,6 +64,9 @@ public class ConfirmGradesController implements Initializable {
     @FXML
     void confirmGrade(ActionEvent event) {
     	Stage newStage = new Stage();
+    	TestToConfirm t = confirmGrades_tblViewConfirm.getSelectionModel().getSelectedItem();
+    	DataManager dm = DataManager.getDataManager();
+    	dm.setT(t);
     	GradesConfirmationController gcc = new GradesConfirmationController();
 		gcc.start(newStage);
     }
@@ -77,7 +82,7 @@ public class ConfirmGradesController implements Initializable {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 
@@ -86,14 +91,19 @@ public class ConfirmGradesController implements Initializable {
 		DataManager dm = DataManager.getDataManager();
 		String teacherID = dm.getCurrentUser().getPersonalSID();
 		ClientUI.chat.accept(new Message(Operation.GetTestConfirmationTable, teacherID));
-   
-    	ObservableList<TestToConfirm> tests = FXCollections.observableArrayList(dm.getTestsToConfirm());
-    	tblViewCol_testID.setCellValueFactory(new PropertyValueFactory<>("TestID"));
-    	tblViewCol_testCode.setCellValueFactory(new PropertyValueFactory<>("TestCode"));
-    	tblViewCol_Date.setCellValueFactory(new PropertyValueFactory<>("Date"));
-    	tblViewCol_executedBy.setCellValueFactory(new PropertyValueFactory<>("ExecutedBy"));
-    	tblViewCol_Grade.setCellValueFactory(new PropertyValueFactory<>("Grade"));
-    	confirmGrades_tblViewConfirm.setItems(tests);
+		if (dm.getTestsToConfirm() == null) {
+			System.out.println("Failed to set table - no available tests to confirm!");
+		}
+		else {
+		  	ObservableList<TestToConfirm> tests = FXCollections.observableArrayList(dm.getTestsToConfirm());
+	    	tblViewCol_testID.setCellValueFactory(new PropertyValueFactory<>("testID"));
+	    	tblViewCol_testCode.setCellValueFactory(new PropertyValueFactory<>("testCode"));
+	    	tblViewCol_Date.setCellValueFactory(new PropertyValueFactory<>("date"));
+	    	tblViewCol_executedBy.setCellValueFactory(new PropertyValueFactory<>("executedBy"));
+	    	tblViewCol_Grade.setCellValueFactory(new PropertyValueFactory<>("grade"));
+	    	confirmGrades_tblViewConfirm.setItems(tests);
+		}
+ 
 	}
 
 }

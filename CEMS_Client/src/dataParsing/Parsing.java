@@ -1,6 +1,7 @@
 package dataParsing;
 
 import entities.Message;
+
 import gui.ActivateTestController;
 import request.AddTeacherTestsToDM;
 import request.FullTestTable;
@@ -21,17 +22,23 @@ import request.GetCurrentExecEmail;
 
 import request.HandleActivateStatus;
 
+
+import request.AddTeacherTestsToDM;
+import request.AfterGradeAuth;
+import request.FullTestTable;
+import request.GetCurrentExecEmail;
+import request.HandleActivateStatus;
+import request.GenerateQuestionID;
+
 import request.Login;
 import request.ManualTestDownloader;
-import request.PrincipalExtentionRequests;
 import request.PrincipalSetReport;
-
+import request.PrincipalExtentionRequests;
 import request.SetTestConfirmationTable;
-
 import request.SetDurationForExecTest;
-
 import request.SetTestsValues;
-
+import request.SetIfCurrentExecutedTestIsActive;
+import request.SetTimeForExecExam;
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
@@ -79,7 +86,7 @@ public class Parsing {
 			break;
 		case GetTimeForTestInExecution:
 			SetDurationForExecTest.setDuration(receivedMessage);
-
+			break;
 		case GetSubjectsAndCourses:
 			SetTestsValues.setSubjects(receivedMessage);
 			break;
@@ -108,34 +115,52 @@ public class Parsing {
 			break;
 
 
+
+
 		case AddQuestionToDatabase:
 			GenerateQuestionID.setAddQuestionMsg(receivedMessage);
 			break;
 		case IncrementNumOfQuestionsInCourse:
 			GenerateQuestionID.setIncNumOfQuestionMsg(receivedMessage);
 			break;
-
-
-
 		case ChangeAmountOfTestsInCourseTable:
+			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
+			break;
+
+
+
+
+
+		case CheckIfTestIsLocked:
+			SetIfCurrentExecutedTestIsActive.setActive(receivedMessage);
+			break;
+		case getTimeForActiveExam:
+			SetTimeForExecExam.setTime(receivedMessage);
 			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
 			break;
 		case GetExtensionRequests:
 			PrincipalExtentionRequests.principalSetExtentionRequests(receivedMessage);
 			break;
-
-		case RequestExtensionFailed:{
+		case RequestExtensionFailed:
 			HandleActivateStatus.activateFailed(receivedMessage);
 			break;
-		}
-		case RequestExtensionSuccess:{
+		
+		case RequestExtensionSuccess:
 			HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
-		}
+		
 			
 		case GetTestConfirmationTable:
 
 			SetTestConfirmationTable.set(receivedMessage);
+			break;
+
+
+
+		case ConfirmTestWithChanges:
+			AfterGradeAuth.notifyUser(receivedMessage);
+		case ConfirmTestWithoutChanges:
+			AfterGradeAuth.notifyUser(receivedMessage);
 			break;
 
 		case ApproveExtensionRequests:
@@ -146,7 +171,10 @@ public class Parsing {
 			break;
 		case GetTestsActivatedByTeachger:
 			AddTeacherTestsToDM.add(receivedMessage);
+
 			break;
+
+
 
 		default:
 			break;

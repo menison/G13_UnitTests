@@ -21,7 +21,7 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <Label fx:id="middleQuestion_questionLbl" layoutX="233.0" layoutY="100.0" stylesheets="@../css/das.css" text="Question 3" textFill="#b2b2b2">
+      <Label fx:id="middleQuestion_questionLbl" alignment="CENTER" layoutX="1.0" layoutY="100.0" prefHeight="40.0" prefWidth="600.0" stylesheets="@../css/das.css" text="Question 3" textFill="#b2b2b2">
          <font>
             <Font size="28.0" />
          </font>

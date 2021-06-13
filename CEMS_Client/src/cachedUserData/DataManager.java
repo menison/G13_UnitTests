@@ -30,43 +30,25 @@ public class DataManager {
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
+
 	private ArrayList<Extension> extensionRequests;
 	private String testID;
 	private Report report;
+	private TestToConfirm t;
+
 	private String currentExecEmail;
+
 	private String activateMsg;
 
 	private String addTestMsg;
-
-
+	private boolean activateSuccess;
+	private ArrayList<ActivatedTest> teacherActivatedTests;
 	private String addQuestionMsg;
 	private String incQuestionNumMsg;
 	private String amountOfQuestions;
 	private int tempNumOfQuestionsForCourse;
-	private int flag1=0;
-	private int flag2=0;
-
-
 	private Extension extension;
-
-
-
-
-
-	private boolean activateSuccess;
 	
-	public void incFlag1() {
-		flag1++;
-	}
-	public void incFlag2() {
-		flag2++;
-	}
-	
-
-
-
-
-
 	public void setAddQuestionMsg(String msg) {
 		this.addQuestionMsg=msg;
 	}
@@ -79,14 +61,6 @@ public class DataManager {
 	public String getIncQuestionNumMsg() {
 		return incQuestionNumMsg;
 	}
-	
-
-
-
-
-	private ArrayList<ActivatedTest> teacherActivatedTests;
-
-	
 	
 	
 	public Extension getExtension() {
@@ -105,6 +79,7 @@ public class DataManager {
 
 	public void setCurrentExecEmail(String currentExecEmail) {
 		this.currentExecEmail = currentExecEmail;
+
 	}
 
 	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
@@ -114,8 +89,6 @@ public class DataManager {
 	public void setTeacherActivatedTests(ArrayList<ActivatedTest> teacherActivatedTests) {
 		this.teacherActivatedTests = teacherActivatedTests;
 	}
-
-
 
 
 	public String getActivateMsg() {
@@ -132,6 +105,7 @@ public class DataManager {
 
 	public void setActivateSuccess(boolean activateSuccess) {
 		this.activateSuccess = activateSuccess;
+
 	}
 	
 	public void setAmountOfQuestions(String amountOfQuestions) {
@@ -146,6 +120,7 @@ public class DataManager {
 	}
 	public int getTempAmountOfQuestionsForCourse() {
 		return tempNumOfQuestionsForCourse;
+
 	}
 
 	public String getTestID() {
@@ -275,8 +250,18 @@ public class DataManager {
 	}
 
 
+	public TestToConfirm getT() {
+		return t;
+
+	}
+	
 	public ArrayList<Extension> getExtensionRequests() {
 		return extensionRequests;
+
+	}
+
+	public void setT(TestToConfirm t) {
+		this.t = t;
 	}
 
 
@@ -285,8 +270,3 @@ public class DataManager {
 	}
 
 }
-
-
-
-
-
