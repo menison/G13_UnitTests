@@ -22,7 +22,10 @@ public enum Operation {
 	ActivateTestCode,
 	GetSubjectsAndCourses,
 	GetQuestions,
+	GetQuestionTable,
 	ActivateTestCodeFailed,
-	ActivateTestCodeSuccess
+	ActivateTestCodeSuccess,
+	GetAmountOfTests,
+	AddNewTest
 	
 }

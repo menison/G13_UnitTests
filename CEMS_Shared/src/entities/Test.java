@@ -24,6 +24,8 @@ public class Test implements Serializable {
 	private String activatedBy;
 	private String dateOfStart;
 	private String timeOfStart;
+	private String questionString;
+	private String pointsString;
 
 
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
@@ -39,8 +41,26 @@ public class Test implements Serializable {
 		this.pointDistribution = pointDistribution;
 		this.isActivated = isActivated;
 		this.teacherComposed = composedBy;
+		this.questionString ="";
+		for(Question s: questions) {
+			this.questionString += s.getText() + "," ;
+		}
+		this.pointsString = "";
+		for(String s: pointDistribution) {
+			this.pointsString+= s + "," ;
+		}
 	}
 	
+
+	public String getQuestionString() {
+		return questionString;
+	}
+
+
+	public void setQuestionString(String questionString) {
+		this.questionString = questionString;
+	}
+
 
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
 			String commentsForTeachers, String currExecutionCode, String[] pointDistribution, String teacherComposed,
@@ -133,6 +153,16 @@ public class Test implements Serializable {
 
 	public void setActivatedBy(String activatedBy) {
 		this.activatedBy = activatedBy;
+	}
+
+
+	public String getPointsString() {
+		return pointsString;
+	}
+
+
+	public void setPointsString(String pointsString) {
+		this.pointsString = pointsString;
 	}
 	
 }

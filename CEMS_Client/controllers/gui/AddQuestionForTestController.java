@@ -13,13 +13,16 @@ import entities.Course;
 import entities.Field;
 import entities.Message;
 import entities.Question;
+import entities.QuestionForCreateTest;
 import entities.TestForTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,51 +30,57 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class AddQuestionForTestController {
-	private ArrayList<Question> questions;
-    @FXML
-    private JFXButton ChooseQuestion_btnClose;
+	@FXML
+	private JFXButton ChooseQuestion_btnClose;
 
-    @FXML
-    private JFXButton ChooseQuestion_btnAdd;
+	@FXML
+	private JFXButton ChooseQuestion_btnAdd;
 
-    @FXML
-    private TableView<Question> ChooseQuestion_tblQuestion;
+	@FXML
+	private TableView<Question> ChooseQuestion_tblQuestion;
 
-    @FXML
-    private TableColumn<Question, String> ChooseQuestion_qustionIDcol;
+	@FXML
+	private TableColumn<Question, String> ChooseQuestion_qustionIDcol;
 
-    @FXML
-    private TableColumn<Question, String> ChooseQuestion_TextCol;
+	@FXML
+	private TableColumn<Question, String> ChooseQuestion_TextCol;
 
-    @FXML
-    private TableColumn<Question, String[]> ChooseQuestion_AnswersCol;
+	@FXML
+	private TableColumn<Question, String[]> ChooseQuestion_AnswersCol;
 
-    @FXML
-    private TableColumn<Question, Integer> ChooseQuestion_CorrectCol;
+	@FXML
+	private TableColumn<Question, Integer> ChooseQuestion_CorrectCol;
 
-    @FXML
-    private TableColumn<Question, String> ChooseQuestion_composedCol;
+	@FXML
+	private TableColumn<Question, String> ChooseQuestion_composedCol;
 
-    @FXML
-    private JFXTextField ChooseQuestion_pointsField;
+	@FXML
+	private JFXTextField ChooseQuestion_pointsField;
 
-    @FXML
-    void AddQuestion(ActionEvent event) {
-    	Question question = ChooseQuestion_tblQuestion.getSelectionModel().getSelectedItem();
-    	this.questions.add(question);
-    }
+	@FXML
+	void AddQuestion(ActionEvent event) throws IOException {
+		Question q = ChooseQuestion_tblQuestion.getSelectionModel().getSelectedItem();
+		String points = ChooseQuestion_pointsField.getText();
+		if (q == null || points.isEmpty()) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setContentText("You have to choose a question and set points for it");
+			alert.showAndWait();
+		} else {
+			QuestionForCreateTest questionForCreateTest = new QuestionForCreateTest(q, points);
+			DataManager.getDataManager().getCreateTest_tblQuestions().getItems().add(questionForCreateTest);
+		}
+	}
 
-    @FXML
-    void close(ActionEvent event) throws Exception {
-    	Stage newStage = new Stage();
-    	Stage stage = (Stage) ChooseQuestion_btnClose.getScene().getWindow();
-    	stage.close();
-    }
+	@FXML
+	void close(ActionEvent event) throws Exception {
+		Stage stage = (Stage) ChooseQuestion_btnClose.getScene().getWindow();
+		stage.close();
+	}
 
-	public void start(Stage newStage,ArrayList<Question> questions) throws IOException {
-		this.questions = questions;
-    	Pane root;
-    	FXMLLoader loader = new FXMLLoader();
+	public void start(Stage newStage) throws IOException {
+		Pane root;
+		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/fxml/AddQuestionForTest.fxml"));
 		root = loader.load();
 		Scene scene = new Scene(root);
@@ -79,19 +88,20 @@ public class AddQuestionForTestController {
 		newStage.setScene(scene);
 		newStage.show();
 	}
-	
+
 	@FXML
 	public void initialize() {
 		ClientUI.chat.accept(new Message(Operation.GetQuestions));
-    	ObservableList<Question> questions = FXCollections.observableArrayList(DataManager.getDataManager().getQuestions());
-    	ChooseQuestion_qustionIDcol.setCellValueFactory(new PropertyValueFactory<>("questionID"));
-    	ChooseQuestion_TextCol.setCellValueFactory(new PropertyValueFactory<>("text"));
-    	ChooseQuestion_AnswersCol.setCellValueFactory(new PropertyValueFactory<>("answersString"));
-    	ChooseQuestion_CorrectCol.setCellValueFactory(new PropertyValueFactory<>("correctAnswerIndex"));
-    	ChooseQuestion_composedCol.setCellValueFactory(new PropertyValueFactory<>("teacherComposed"));
-    	ChooseQuestion_tblQuestion.setItems(questions);
+		ObservableList<Question> questions = FXCollections
+				.observableArrayList(DataManager.getDataManager().getQuestions());
+		ChooseQuestion_qustionIDcol.setCellValueFactory(new PropertyValueFactory<>("questionID"));
+		ChooseQuestion_TextCol.setCellValueFactory(new PropertyValueFactory<>("text"));
+		ChooseQuestion_AnswersCol.setCellValueFactory(new PropertyValueFactory<>("answersString"));
+		ChooseQuestion_CorrectCol.setCellValueFactory(new PropertyValueFactory<>("correctAnswerIndex"));
+		ChooseQuestion_composedCol.setCellValueFactory(new PropertyValueFactory<>("teacherComposed"));
+		ChooseQuestion_tblQuestion.setItems(questions);
 
 	}
+
+
 }
-
-

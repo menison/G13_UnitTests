@@ -9,6 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="600.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ActivateTestController">
    <children>
       <ImageView fitHeight="282.0" fitWidth="346.0" layoutX="185.0" opacity="0.04" pickOnBounds="true" preserveRatio="true">
@@ -21,15 +22,15 @@
             <Font name="System Bold" size="26.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="ActivateTest_pinCodeField" labelFloat="true" layoutX="211.0" layoutY="141.0" promptText="Test PIN Code*" />
-      <JFXButton fx:id="ActivateTest_btnActivate" focusTraversable="false" layoutX="260.0" layoutY="198.0" onAction="#Activate" text="Activate" />
+      <JFXTextField fx:id="ActivateTest_pinCodeField" labelFloat="true" layoutX="213.0" layoutY="123.0" promptText="Test PIN Code*" />
+      <JFXButton fx:id="ActivateTest_btnActivate" focusTraversable="false" layoutX="260.0" layoutY="243.0" onAction="#Activate" text="Activate" />
       <JFXButton fx:id="ActivateTest_btnClose" layoutX="494.0" layoutY="243.0" onAction="#close" prefHeight="39.0" prefWidth="81.0" text="Close" />
       <Label fx:id="errorTxt" layoutX="260.0" layoutY="97.0" text="Error" textFill="RED" visible="false">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-       <JFXDatePicker fx:id="ActivateTest_dateSelect" layoutX="21.0" layoutY="187.0" promptText="date" />
+       <JFXDatePicker fx:id="ActivateTest_dateSelect" editable="false" layoutX="21.0" layoutY="187.0" promptText="date" />
       <JFXTimePicker fx:id="ActivateTest_timeSelect" layoutX="359.0" layoutY="187.0" promptText="time" />
    </children>
 </Pane>

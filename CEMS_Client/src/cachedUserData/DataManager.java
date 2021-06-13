@@ -6,10 +6,12 @@ import entities.Course;
 import entities.ExecutedTest;
 import entities.Field;
 import entities.Question;
+import entities.QuestionForCreateTest;
 import entities.Report;
 import entities.TestForFullTable;
 import entities.TestForTable;
 import entities.User;
+import javafx.scene.control.TableView;
 
 public class DataManager {
 	private static DataManager instance = null;
@@ -23,9 +25,12 @@ public class DataManager {
 	private ArrayList<Field> fields;
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
+	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
 	private String testID;
 	private Report report;
 	private String activateMsg;
+	private String addTestMsg;
+
 	private boolean activateSuccess;
 	
 	public String getActivateMsg() {
@@ -146,4 +151,24 @@ public class DataManager {
 	public void setQuestions(ArrayList<Question> question) {
 		this.questions = question;
 	}
+
+	public TableView<QuestionForCreateTest> getCreateTest_tblQuestions() {
+		return CreateTest_tblQuestions;
+	}
+
+	public void setCreateTest_tblQuestions(TableView<QuestionForCreateTest> createTest_tblQuestions) {
+		CreateTest_tblQuestions = createTest_tblQuestions;
+	}
+	public String getAddTestMsg() {
+		return addTestMsg;
+	}
+
+	public void setAddTestMsg(String addTestMsg) {
+		this.addTestMsg = addTestMsg;
+	}
+
+
 }
+
+
+

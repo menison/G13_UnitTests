@@ -2,9 +2,6 @@ package gui;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -18,13 +15,19 @@ import entities.Course;
 import entities.Field;
 import entities.Message;
 import entities.Question;
+import entities.QuestionForCreateTest;
+import entities.Test;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -43,7 +46,7 @@ public class AddTestController {
 	private JFXButton CreateTest_btnSubmit;
 
 	@FXML
-	private TableView<Question> CreateTest_tblQuestions;
+	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
 
 	@FXML
 	private TableColumn<Question, String> CreateTest_QuestionIDCol;
@@ -66,6 +69,8 @@ public class AddTestController {
 	@FXML
 	private JFXTextArea CreateTest_StudentCommentsField;
 
+	public ArrayList<QuestionForCreateTest> questionForCreateTest;
+
 	public void start(Stage newStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -79,6 +84,7 @@ public class AddTestController {
 
 	@FXML
 	public void initialize() {
+		this.questionForCreateTest = new ArrayList<QuestionForCreateTest>();
 		ClientUI.chat.accept(new Message(Operation.GetSubjectsAndCourses));
 		for (Field f : DataManager.getDataManager().getFields()) {
 			CreateTest_chooseSubjectBox.getItems().add(f);
@@ -87,20 +93,23 @@ public class AddTestController {
 		CreateTest_chooseSubjectBox.setOnAction(e -> {
 			CreateTest_chooseCourseBox.getItems().clear();
 			CreateTest_chooseCourseBox.setDisable(false);
-			for(Course c :CreateTest_chooseSubjectBox.getSelectionModel().getSelectedItem().getCourseList()){
+			for (Course c : CreateTest_chooseSubjectBox.getSelectionModel().getSelectedItem().getCourseList()) {
 				CreateTest_chooseCourseBox.getItems().add(c);
 			}
 		});
-		
+		ObservableList<QuestionForCreateTest> questions = FXCollections.observableArrayList(this.questionForCreateTest);
+		CreateTest_QuestionIDCol.setCellValueFactory(new PropertyValueFactory<>("question"));
+		CreateTest_PointsCol.setCellValueFactory(new PropertyValueFactory<>("points"));
+		CreateTest_tblQuestions.setItems(questions);
 	}
 
 	@FXML
 	void addQuestion(ActionEvent event) throws IOException {
-		ArrayList<Question> questions = new ArrayList<Question>();
+		DataManager.getDataManager().setCreateTest_tblQuestions(CreateTest_tblQuestions);
 		AddQuestionForTestController aqftc = new AddQuestionForTestController();
 		ClientUI.chat.accept(new Message(Operation.GetFullTestTable));
 		Stage primaryStage = new Stage();
-		aqftc.start(primaryStage,questions);
+		aqftc.start(primaryStage);
 	}
 
 	@FXML
@@ -114,11 +123,71 @@ public class AddTestController {
 
 	@FXML
 	void deleteQuestion(ActionEvent event) {
-
+		CreateTest_tblQuestions.getItems().remove(CreateTest_tblQuestions.getSelectionModel().getSelectedItem());
 	}
 
 	@FXML
-	void submitQuestion(ActionEvent event) {
+	void submitTest(ActionEvent event) {
+		boolean notFilledFlag = false;
+		String notFilled = "The following fields were not filled:\n ";
+		if (CreateTest_tblQuestions.getItems().isEmpty()) {
+			notFilled += "-Questions table\n";
+			notFilledFlag = true;
+		}
+		if (CreateTest_chooseSubjectBox.getSelectionModel().getSelectedItem() == null) {
+			notFilled += "-Subject\n";
+			notFilledFlag = true;
+		}
+		if (CreateTest_chooseCourseBox.getSelectionModel().getSelectedItem() == null) {
+			notFilled += "-Course\n";
+			notFilledFlag = true;
+		}
+		if (CreateTest_DurationField.getText().isEmpty()) {
+			notFilled += "-Test Duration\n";
+			notFilledFlag = true;
+		}
+		if (notFilledFlag) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setContentText(notFilled);
+			alert.showAndWait();
+		} else {
+			ArrayList<Question> questions = new ArrayList<Question>();
+			ArrayList<String> points = new ArrayList<String>();
+			for (QuestionForCreateTest qfct : CreateTest_tblQuestions.getItems()) {
+				questions.add(qfct.getQuestion());
+				points.add(qfct.getPoints());
+			}
+			String[] pointsArray = new String[points.size()];
+			for (int i = 0; i < points.size(); i++) {
+				pointsArray[i] = points.get(i);
+			}
+			ClientUI.chat.accept(new Message(Operation.GetAmountOfTests));
+			Integer NumberOfTest = (Integer.parseInt(DataManager.getDataManager().getTestID())+1);
+			String testID = CreateTest_chooseSubjectBox.getSelectionModel().getSelectedItem().getID()
+					+ CreateTest_chooseCourseBox.getSelectionModel().getSelectedItem().getID()
+					+ (NumberOfTest.toString());
+			Test newTest = new Test(questions, testID, Integer.parseInt(CreateTest_DurationField.getText()),
+					CreateTest_StudentCommentsField.getText(), CreateTest_TeacherCommentsField.getText(), "-1",
+					pointsArray, 0, DataManager.getDataManager().getCurrentUser().getPersonalSID());
+			ClientUI.chat.accept(new Message(Operation.AddNewTest,newTest));
+			if(DataManager.getDataManager().getAddTestMsg()=="Added new test successfully") {
+				Alert alert = new Alert(Alert.AlertType.INFORMATION);
+				alert.setTitle("Success");
+				alert.setContentText("Added new test successfully");
+				alert.showAndWait();
+			}
+			else {
+				Alert alert = new Alert(Alert.AlertType.ERROR);
+				alert.setTitle("Error");
+				alert.setContentText("There was a problem adding the test, Please try again");
+				alert.showAndWait();
+			}
+		}
+	}
+
+	public void addQustionToTable(QuestionForCreateTest question) {
+		CreateTest_tblQuestions.getItems().add(question);
 
 	}
 
