@@ -30,24 +30,37 @@ public class DataManager {
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
+
 	private ArrayList<Extension> extensionRequests;
 	private String testID;
 	private Report report;
+	private TestToConfirm t;
+
 	private String currentExecEmail;
+
 	private String activateMsg;
+
 	private String addTestMsg;
+
+
+	private boolean activateSuccess;
+	private ArrayList<ActivatedTest> teacherActivatedTests;
 
 	private String addQuestionMsg;
 	private String incQuestionNumMsg;
 	private String amountOfQuestions;
 	private int tempNumOfQuestionsForCourse;
 
-
 	private Extension extension;
+<<<<<<< HEAD
 	private Question question;
 	private boolean activateSuccess;
 	
 
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public void setAddQuestionMsg(String msg) {
 		this.addQuestionMsg=msg;
 	}
@@ -60,11 +73,6 @@ public class DataManager {
 	public String getIncQuestionNumMsg() {
 		return incQuestionNumMsg;
 	}
-	
-
-	private ArrayList<ActivatedTest> teacherActivatedTests;
-
-	
 	
 	
 	public Extension getExtension() {
@@ -83,6 +91,7 @@ public class DataManager {
 
 	public void setCurrentExecEmail(String currentExecEmail) {
 		this.currentExecEmail = currentExecEmail;
+
 	}
 
 	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
@@ -108,6 +117,7 @@ public class DataManager {
 
 	public void setActivateSuccess(boolean activateSuccess) {
 		this.activateSuccess = activateSuccess;
+
 	}
 	
 	public void setAmountOfQuestions(String amountOfQuestions) {
@@ -122,6 +132,7 @@ public class DataManager {
 	}
 	public int getTempAmountOfQuestionsForCourse() {
 		return tempNumOfQuestionsForCourse;
+
 	}
 
 	public String getTestID() {
@@ -251,8 +262,18 @@ public class DataManager {
 	}
 
 
+	public TestToConfirm getT() {
+		return t;
+
+	}
+	
 	public ArrayList<Extension> getExtensionRequests() {
 		return extensionRequests;
+
+	}
+
+	public void setT(TestToConfirm t) {
+		this.t = t;
 	}
 
 
@@ -267,8 +288,3 @@ public class DataManager {
 	}
 
 }
-
-
-
-
-

@@ -1,29 +1,28 @@
 package dataParsing;
 
 import entities.Message;
-import gui.ActivateTestController;
 import request.AddTeacherTestsToDM;
+import request.AfterGradeAuth;
 import request.FullTestTable;
-
-import request.GenerateQuestionID;
-
-
 import request.GetCurrentExecEmail;
-
-
 import request.HandleActivateStatus;
-
+import request.GenerateQuestionID;
 import request.Login;
 import request.ManualTestDownloader;
+import request.PrincipalSetReport;
 import request.PrincipalExtentionRequests;
+<<<<<<< HEAD
 import request.PrincipalSetReport;
 import request.QuestionInfoHandler;
 import request.SetTestConfirmationTable;
 
+=======
+import request.SetTestConfirmationTable;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import request.SetDurationForExecTest;
-
 import request.SetTestsValues;
-
+import request.SetIfCurrentExecutedTestIsActive;
+import request.SetTimeForExecExam;
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
@@ -71,7 +70,7 @@ public class Parsing {
 			break;
 		case GetTimeForTestInExecution:
 			SetDurationForExecTest.setDuration(receivedMessage);
-
+			break;
 		case GetSubjectsAndCourses:
 			SetTestsValues.setSubjects(receivedMessage);
 			break;
@@ -98,27 +97,35 @@ public class Parsing {
 		case AddNewTest:
 			SetTestsValues.addNewTest(receivedMessage);
 			break;
-
 		case AddQuestionToDatabase:
 			GenerateQuestionID.setAddQuestionMsg(receivedMessage);
 			break;
 		case IncrementNumOfQuestionsInCourse:
 			GenerateQuestionID.setIncNumOfQuestionMsg(receivedMessage);
 			break;
-
 		case ChangeAmountOfTestsInCourseTable:
+			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
+			break;
+		case CheckIfTestIsLocked:
+			SetIfCurrentExecutedTestIsActive.setActive(receivedMessage);
+			break;
+		case getTimeForActiveExam:
+			SetTimeForExecExam.setTime(receivedMessage);
 			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
 		case GetExtensionRequests:
 			PrincipalExtentionRequests.principalSetExtentionRequests(receivedMessage);
 			break;
-
-		case RequestExtensionFailed:{
+		case RequestExtensionFailed:
 			HandleActivateStatus.activateFailed(receivedMessage);
 			break;
-		}
-		case RequestExtensionSuccess:{
+		
+		case RequestExtensionSuccess:
 			HandleActivateStatus.activateSuccess(receivedMessage);
+			break;	
+		case GetTestConfirmationTable:
+			SetTestConfirmationTable.set(receivedMessage);
 			break;
+<<<<<<< HEAD
 		}
 		case GetQuestionInfo:
 			QuestionInfoHandler.addToDB(receivedMessage);
@@ -128,12 +135,22 @@ public class Parsing {
 			
 		case GetTestConfirmationTable:
 			SetTestConfirmationTable.set(receivedMessage);
+=======
+		case ConfirmTestWithChanges:
+			AfterGradeAuth.notifyUser(receivedMessage);
+		case ConfirmTestWithoutChanges:
+			AfterGradeAuth.notifyUser(receivedMessage);
+			break;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		case ApproveExtensionRequests:
 			PrincipalExtentionRequests.principalApproveExtentionRequests(receivedMessage);
+			break;
 		case DeclineExtensionRequests:
 			PrincipalExtentionRequests.principalDeclineExtentionRequests(receivedMessage);
+			break;
 		case GetTestsActivatedByTeachger:
 			AddTeacherTestsToDM.add(receivedMessage);
+			break;
 		default:
 			break;
 		}

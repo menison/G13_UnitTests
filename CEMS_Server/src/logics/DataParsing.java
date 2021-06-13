@@ -2,20 +2,23 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
-
-import dataParsing.AddQuestionOperations;
-
-
-import dataParsing.GetCurrentExecutionExamEmail;
-import dataParsing.GetDurationForExecTest;
-
-
 import dataParsing.AddTestsOperations;
+<<<<<<< HEAD
 import dataParsing.EditQuest;
 import dataParsing.ExtensionRequest;
+=======
+import dataParsing.ConfirmTestChangeGrade;
+import dataParsing.ConfirmTestWithoutChanges;
+import dataParsing.AddQuestionOperations;
+import dataParsing.GetCurrentExecutionExamEmail;
+import dataParsing.GetDurationForExecTest;
+import dataParsing.CheckIfTestIsLocked;
+import dataParsing.ExtensionRequest;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestTable;
+import dataParsing.GetTimeForExecExam;
 import dataParsing.HandleTestsActivatedByTeacher;
 import dataParsing.ManualTestDownloader;
 import dataParsing.ManualTestUploader;
@@ -79,20 +82,26 @@ public class DataParsing {
 			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
-
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
 		case IncrementNumOfQuestionsInCourse:
 			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
+		case CheckIfTestIsLocked:
+			return CheckIfTestIsLocked.checkForLockedTest(receivedMessage);
+		case getTimeForActiveExam:
+			return GetTimeForExecExam.getTime(receivedMessage);
 		case GetTestsActivatedByTeachger:
 			return HandleTestsActivatedByTeacher.returnTestsByTeacher(receivedMessage);
 		case GetExtensionRequests:
 			return PrincipalGetExtentionRequests.getExtensions(receivedMessage);
 		case GetTestConfirmationTable:
 			return GetTestConfirmationTable.get(receivedMessage);
-
+		case ConfirmTestWithChanges:
+			return ConfirmTestChangeGrade.executeUpdate(receivedMessage);
+		case ConfirmTestWithoutChanges:
+			return ConfirmTestWithoutChanges.executeUpdate(receivedMessage);
 		case ApproveExtensionRequests:
 			return PrincipalGetExtentionRequests.principalApproveRequests(receivedMessage);
 		case DeclineExtensionRequests:
@@ -100,6 +109,7 @@ public class DataParsing {
 
 		case RequestExtension:
 			return ExtensionRequest.handleExtension(receivedMessage);
+<<<<<<< HEAD
 		
 		case GetQuestionInfo:
 			return EditQuest.getInfo(receivedMessage);
@@ -107,6 +117,9 @@ public class DataParsing {
 			return EditQuest.updateQuest(receivedMessage);
 			
 
+=======
+			
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		default:
 			break;
 		}

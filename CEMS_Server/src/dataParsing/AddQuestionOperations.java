@@ -49,8 +49,10 @@ public class AddQuestionOperations {
 	}
 	public static Message addQuestionToDB(Message msg) {
 		Question qst=(Question) msg.getObj();
+		String courseID=qst.getQuestionID().substring(0,2);
 		Message messageToReturn;
 		Query.InsertQuestionToDataBase(qst);
+		Query.IncreaseNumOfQuestionInCourse(courseID);
 		ServerController.sc.addToTextArea("Added a question to the database with ID: "+qst.getQuestionID());
 		messageToReturn=new Message(Operation.AddQuestionToDatabase,"Question has been added");
 		return messageToReturn;

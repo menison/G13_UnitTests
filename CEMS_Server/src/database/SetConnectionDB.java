@@ -17,12 +17,19 @@ public class SetConnectionDB {
 
 	public static String DBhost = "localhost";
 
-	public static String DBname = "query";
-	public static String DBPassword = "davidNkin1";
+
+//	public static String DBname = "query";
+//	public static String DBPassword = "davidNkin1";
+
+//	public static String DBname = "query";
+//	public static String DBPassword = "MattB123Pa55w0rd";
 
 //	public static String DBname = "query";
 //	public static String DBPassword = "In511995";
 
+	public static String DBname = "test";
+	public static String DBPassword = "2694";
+	
 	public static String DBuser = "root";
 
 	private SetConnectionDB() {

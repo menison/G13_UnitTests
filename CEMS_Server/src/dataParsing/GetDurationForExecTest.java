@@ -11,10 +11,10 @@ public class GetDurationForExecTest {
 	public static Message getDuration(Message object) {
 		String execCode = (String)object.getObj();
 		int durationToReturn = 0;
-		ResultSet rs = Query.getTestByExecutionCode(execCode);
+		ResultSet rs = Query.getActivatedTestByExecutionCode(execCode);
 		try {
 			rs.next();
-			durationToReturn = rs.getInt(3);
+			durationToReturn = rs.getInt(9);
 		} catch (SQLException e) {}
 		return new Message(Operation.GetTimeForTestInExecution,durationToReturn);
 	}

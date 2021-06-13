@@ -31,6 +31,7 @@ public enum Operation {
 	ActivateTestCodeSuccess,
 	RequestExtensionFailed,
 	RequestExtensionSuccess,
+
 	GetAmountOfQuestions,
 	GetCourseAmountOfQuestions,
 	AddQuestionToDatabase,
@@ -44,8 +45,16 @@ public enum Operation {
 	GetTestsActivatedByTeachger,
 	RequestExtension,
 	ChangeAmountOfTestsInCourseTable,
-	GetExtensionRequests, 
+	ConfirmTestWithChanges,
+	ConfirmTestWithoutChanges,
+	getTimeForActiveExam,
+	GetExtensionRequests,
 	ApproveExtensionRequests,
+<<<<<<< HEAD
 	DeclineExtensionRequests,
 	SubmitQuestionInfo
+=======
+	DeclineExtensionRequests
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 }
