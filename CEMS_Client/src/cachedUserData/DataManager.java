@@ -32,9 +32,9 @@ public class DataManager {
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
 	private String testID;
 	private Report report;
-<<<<<<< HEAD
+
 	private String currentExecEmail;
-=======
+
 	private String activateMsg;
 	private String addTestMsg;
 	private Extension extension;
@@ -48,9 +48,7 @@ public class DataManager {
 	private boolean activateSuccess;
 	
 	private ArrayList<ActivatedTest> teacherActivatedTests;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
-	
-<<<<<<< HEAD
+
 	
 	
 	
@@ -58,23 +56,20 @@ public class DataManager {
 		return extension;
 	}
 
-	public void addToInfoExtension(int duration,String reason,int isRelevant,int isAuthorized) {
-		extension.completeSetExtension(duration, reason, isRelevant, isAuthorized);
-	}
+
 	public void setExtension(Extension extension) {
 		this.extension = extension;
 	}
 
-=======
-<<<<<<< HEAD
+
 	public String getCurrentExecEmail() {
 		return currentExecEmail;
 	}
 
 	public void setCurrentExecEmail(String currentExecEmail) {
 		this.currentExecEmail = currentExecEmail;
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+	}
+
 	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
 		return teacherActivatedTests;
 	}
@@ -97,7 +92,6 @@ public class DataManager {
 
 	public void setActivateSuccess(boolean activateSuccess) {
 		this.activateSuccess = activateSuccess;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	}
 
 	public String getTestID() {
