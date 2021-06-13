@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import entities.ActivatedTest;
 import entities.Course;
 import entities.ExecutedTest;
+import entities.Extension;
 import entities.Field;
 import entities.Question;
 import entities.QuestionForCreateTest;
@@ -31,10 +32,32 @@ public class DataManager {
 	private Report report;
 	private String activateMsg;
 	private String addTestMsg;
+	private Extension extension;
+	
+	
+	
+	
+	
+
 
 	private boolean activateSuccess;
+	
 	private ArrayList<ActivatedTest> teacherActivatedTests;
 	
+	
+	
+	
+	public Extension getExtension() {
+		return extension;
+	}
+
+	public void addToInfoExtension(int duration,String reason,int isRelevant,int isAuthorized) {
+		extension.completeSetExtension(duration, reason, isRelevant, isAuthorized);
+	}
+	public void setExtension(Extension extension) {
+		this.extension = extension;
+	}
+
 	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
 		return teacherActivatedTests;
 	}

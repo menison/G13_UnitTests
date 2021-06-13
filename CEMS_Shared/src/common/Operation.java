@@ -28,7 +28,8 @@ public enum Operation {
 	GetQuestionInfo,
 	GetTestsActivatedByTeachger,
 	GetAmountOfTests,
-	AddNewTest
+	AddNewTest,
+	RequestExtension
 
 	
 }
