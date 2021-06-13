@@ -13,7 +13,7 @@ public class ExtensionRequest {
 	public static Message handleExtension(Message msg){
 		Extension exten= (Extension)msg.getObj();
 		ResultSet extensionRec;
-		extensionRec = Query.getReport("SELECT * FROM extensionrequest WHERE TestCode = '"+exten.getTestCode()+"' AND isAuthorized = -1 AND isRelevant = 1");
+		extensionRec = Query.getReport("SELECT * FROM extensionrequest WHERE TestCode = '"+exten.getTestCode()+"'");
 		try {
 			if(extensionRec.next()) {
 
