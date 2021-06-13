@@ -71,7 +71,16 @@ public class ActivateTestController {
     	else if(ActivateTest_timeSelect.getValue()==null){ // checks if user chose a time
 			warningPopUp("please choose time.");
     	}
+    	else if(ActivateTest_dateSelect.getValue().compareTo(LocalDate.now())<0){ 
     		
+    		warningPopUp("please provide a future date");
+    	}
+    	else if(ActivateTest_dateSelect.getValue().compareTo(LocalDate.now())==0 && ActivateTest_timeSelect.getValue().compareTo(LocalTime.now())<0){ 
+    		
+    		warningPopUp("please provide a future time");
+    	}
+			
+    		//date2.compareTo(date1)
 
     	else {
     		// formats date

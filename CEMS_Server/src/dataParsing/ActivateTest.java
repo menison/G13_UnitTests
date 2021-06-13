@@ -12,7 +12,6 @@ import gui.ServerController;
 public class ActivateTest {
 
 	public static Message validateAndActivate(Message msg){
-		ResultSet test;
 		ResultSet codes;
 		String pinCode;
 		String testID;
@@ -29,8 +28,8 @@ public class ActivateTest {
 		
 				codes=Query.SelectTableWhere("activatedtest", "code", pinCode);
 				try {
+					ServerController.sc.addToTextArea("checking code");
 					if(codes.next()) {
-						System.out.println("failed");
 						return new Message(Operation.ActivateTestCodeFailed,"code is already in use, please choose another");
 					
 					}else {
@@ -42,7 +41,7 @@ public class ActivateTest {
 //						System.out.println(userID);
 						Query.update("INSERT INTO `query`.`activatedtest` (`code`, `testID`, `activatedBy`, `startDate`, `startTime`, `isActive`) "
 								+ "VALUES ('"+pinCode+"', '"+testID+"', '"+userID+"', '"+date+"', '"+time+"', '1');");
-
+						ServerController.sc.addToTextArea("test ID:"+testID+" was activated with code:"+pinCode);
 						}
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
@@ -50,7 +49,6 @@ public class ActivateTest {
 					return new Message(Operation.ActivateTestCodeFailed,"Activate failed");
 				}
 				
-				System.out.println("hi");
 		return new Message(Operation.ActivateTestCodeSuccess,"Activated Successfully");
 		
 		
