@@ -25,6 +25,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import request.GenerateQuestionID;
 
 public class CreateQuestionController {
 
@@ -126,7 +127,7 @@ public class CreateQuestionController {
     		warningPopUp("You need to choose a subject");
     	else if(CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem() == null)
     		warningPopUp("You need to choose a course");
-    	int correctAnswer;
+    	int correctAnswer=0;
     	
     	//Map the selected correct answer
     	
@@ -143,12 +144,24 @@ public class CreateQuestionController {
     	answers[1]=CreateQuestion_answer2Field.getText();
     	answers[2]=CreateQuestion_answer3Field.getText();
     	answers[3]=CreateQuestion_answer4Field.getText();
-    	Question qst=new Question()
+    	ClientUI.chat.accept(new Message(Operation.GetCourseAmountOfQuestions,CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID()));
+    	String generatedID=GenerateQuestionID.Generate(CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID(), DataManager.getDataManager().getTempAmountOfQuestionsForCourse());
+    	Question qst=new Question(generatedID,CreateQuestion_questionField.getText(),answers,correctAnswer,DataManager.getDataManager().getCurrentUser().getPersonalSID());
+    	//ClientUI.chat.accept(new Message(Operation.AddQuestionToDatabase,qst));
+    	ClientUI.chat.accept(new Message(Operation.IncrementNumOfQuestionsInCourse,CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID()));
+    	
+    	confirmPopUp(DataManager.getDataManager().getAddTestMsg());
 
     }
     public void warningPopUp(String warning) {   //warnings func
-		Alert alert = new Alert(AlertType.WARNING);
+		Alert alert = new Alert(AlertType.ERROR);
 		alert.setContentText(warning);
+
+		alert.showAndWait();
+    }
+    public void confirmPopUp(String confirm) {   //warnings func
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setContentText(confirm);
 
 		alert.showAndWait();
     }

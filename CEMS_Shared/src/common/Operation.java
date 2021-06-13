@@ -26,6 +26,10 @@ public enum Operation {
 	ActivateTestCodeFailed,
 	ActivateTestCodeSuccess,
 	GetAmountOfTests,
+	GetAmountOfQuestions,
+	GetCourseAmountOfQuestions,
+	AddQuestionToDatabase,
+	IncrementNumOfQuestionsInCourse,
 	AddNewTest
 	
 }

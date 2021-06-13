@@ -3,6 +3,7 @@ package dataParsing;
 import entities.Message;
 import gui.ActivateTestController;
 import request.FullTestTable;
+import request.GenerateQuestionID;
 import request.HandleActivateStatus;
 import request.Login;
 import request.ManualTestDownloader;
@@ -64,8 +65,20 @@ public class Parsing {
 		case GetAmountOfTests:
 			SetTestsValues.setAmountOfTests(receivedMessage);
 			break;
+		case GetAmountOfQuestions:
+			GenerateQuestionID.setQuestionAmount(receivedMessage);
+			break;
+		case GetCourseAmountOfQuestions:
+			GenerateQuestionID.setTempQuestionAmount(receivedMessage);
+			break;
 		case AddNewTest:
 			SetTestsValues.setAmountOfTests(receivedMessage);
+			break;
+		case AddQuestionToDatabase:
+			GenerateQuestionID.setAddQuestionMsg(receivedMessage);
+			break;
+		case IncrementNumOfQuestionsInCourse:
+			GenerateQuestionID.setIncNumOfQuestionMsg(receivedMessage);
 			break;
 		default:
 			break;

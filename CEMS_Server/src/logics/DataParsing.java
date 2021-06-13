@@ -2,6 +2,7 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
+import dataParsing.AddQuestionOperations;
 import dataParsing.AddTestsOperations;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
@@ -51,8 +52,16 @@ public class DataParsing {
 			return AddTestsOperations.getQuestions(receivedMessage);
 		case GetAmountOfTests:
 			return AddTestsOperations.getAmountOfTests(receivedMessage);
+		case GetAmountOfQuestions:
+			return AddQuestionOperations.getAmountOfQuestions(receivedMessage);
+		case GetCourseAmountOfQuestions:
+			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
+		case AddQuestionToDatabase:
+			return AddQuestionOperations.addQuestionToDB(receivedMessage);
+		case IncrementNumOfQuestionsInCourse:
+			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
 		default:
 			break;
 		}
