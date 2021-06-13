@@ -36,6 +36,8 @@ public enum Operation {
 	GetAmountOfTests,
 	GetTestConfirmationTable,
 	GetCalculatedGradeForConfirmation,
-	ChangeAmountOfTestsInCourseTable
+	ChangeAmountOfTestsInCourseTable,
+	RequestExtensionFailed,
+	RequestExtensionSuccess
 
 }

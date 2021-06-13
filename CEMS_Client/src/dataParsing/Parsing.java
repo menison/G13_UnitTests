@@ -88,6 +88,13 @@ public class Parsing {
 		case ChangeAmountOfTestsInCourseTable:
 			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
 			break;
+		case RequestExtensionFailed:{
+			HandleActivateStatus.activateFailed(receivedMessage);
+		}
+		case RequestExtensionSuccess:{
+			HandleActivateStatus.activateSuccess(receivedMessage);
+		}
+			
 		default:
 			break;
 		}

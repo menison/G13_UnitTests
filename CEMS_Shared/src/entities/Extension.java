@@ -1,6 +1,12 @@
 package entities;
 
-public class Extension {
+import java.io.Serializable;
+
+public class Extension implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2250533346362565971L;
 	private String testCode;
 	private String requestedBy;
 	private int newDuration;

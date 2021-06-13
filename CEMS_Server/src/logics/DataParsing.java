@@ -7,7 +7,7 @@ import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
 
 import dataParsing.AddTestsOperations;
-
+import dataParsing.ExtensionRequest;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.HandleTestsActivatedByTeacher;
@@ -17,6 +17,7 @@ import dataParsing.PrincipalGetReport;
 import dataParsing.SetCompletedStudentExam;
 import dataParsing.TeacherGetAllSelfExecutedTests;
 import dataParsing.TestCodeValidation;
+import dataParsing.HandleTestsActivatedByTeacher;
 import database.GetLogin;
 import entities.Message;
 import server.EchoServer;
@@ -59,7 +60,6 @@ public class DataParsing {
 			return GetDurationForExecTest.getDuration(receivedMessage);
 		case SetCompletedExam:
 			return SetCompletedStudentExam.setExam(receivedMessage);
-
 		case GetSubjectsAndCourses:
 			return AddTestsOperations.getSubjectsAndCourses(receivedMessage);
 		case GetQuestions:
@@ -70,6 +70,10 @@ public class DataParsing {
 			return AddTestsOperations.addTest(receivedMessage);
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
+		case RequestExtension:
+			return ExtensionRequest.handleExtension(receivedMessage);
+		case GetTestsActivatedByTeachger:
+			return HandleTestsActivatedByTeacher.returnTestsByTeacher(receivedMessage);
 		default:
 			break;
 		}
