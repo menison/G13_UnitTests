@@ -2,6 +2,7 @@ package cachedUserData;
 
 import java.util.ArrayList;
 
+import entities.ActivatedTest;
 import entities.Course;
 import entities.ExecutedTest;
 import entities.Field;
@@ -30,7 +31,16 @@ public class DataManager {
 	private Report report;
 	private String activateMsg;
 	private boolean activateSuccess;
+	private ArrayList<ActivatedTest> teacherActivatedTests;
 	
+	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
+		return teacherActivatedTests;
+	}
+
+	public void setTeacherActivatedTests(ArrayList<ActivatedTest> teacherActivatedTests) {
+		this.teacherActivatedTests = teacherActivatedTests;
+	}
+
 	public String getActivateMsg() {
 		return activateMsg;
 	}
