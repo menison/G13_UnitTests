@@ -27,7 +27,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="testSentSuccess_txtTimeSpent" editable="false" layoutX="231.0" layoutY="165.0" prefHeight="37.0" prefWidth="51.0" text="#min" />
+      <JFXTextField fx:id="testSentSuccess_txtTimeSpent" alignment="CENTER" editable="false" focusTraversable="false" layoutX="231.0" layoutY="165.0" prefHeight="37.0" prefWidth="51.0" text="#min" />
       <Label layoutX="85.0" layoutY="98.0" prefHeight="63.0" prefWidth="211.0" text="You will be notified about your grade via email and SMS once the test has been graded" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
          <font>
             <Font size="14.0" />

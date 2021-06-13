@@ -12,6 +12,7 @@ import entities.QuestionForCreateTest;
 import entities.Report;
 import entities.TestForFullTable;
 import entities.TestForTable;
+import entities.TestToConfirm;
 import entities.User;
 import javafx.scene.control.TableView;
 
@@ -23,6 +24,7 @@ public class DataManager {
 	private boolean PreOrder;
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
+	private ArrayList<TestToConfirm> testsToConfirm;
 	private ArrayList<TestForFullTable> fullTestList;
 	private ArrayList<Field> fields;
 	private ArrayList<Course> courses;
@@ -30,6 +32,9 @@ public class DataManager {
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
 	private String testID;
 	private Report report;
+<<<<<<< HEAD
+	private String currentExecEmail;
+=======
 	private String activateMsg;
 	private String addTestMsg;
 	private Extension extension;
@@ -43,7 +48,9 @@ public class DataManager {
 	private boolean activateSuccess;
 	
 	private ArrayList<ActivatedTest> teacherActivatedTests;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	
+<<<<<<< HEAD
 	
 	
 	
@@ -58,6 +65,16 @@ public class DataManager {
 		this.extension = extension;
 	}
 
+=======
+<<<<<<< HEAD
+	public String getCurrentExecEmail() {
+		return currentExecEmail;
+	}
+
+	public void setCurrentExecEmail(String currentExecEmail) {
+		this.currentExecEmail = currentExecEmail;
+=======
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
 		return teacherActivatedTests;
 	}
@@ -80,6 +97,7 @@ public class DataManager {
 
 	public void setActivateSuccess(boolean activateSuccess) {
 		this.activateSuccess = activateSuccess;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	}
 
 	public String getTestID() {
@@ -200,8 +218,15 @@ public class DataManager {
 		this.addTestMsg = addTestMsg;
 	}
 
+	public ArrayList<TestToConfirm> getTestsToConfirm() {
+		return testsToConfirm;
+	}
 
+	public void setTestsToConfirm(ArrayList<TestToConfirm> testsToConfirm) {
+		this.testsToConfirm = testsToConfirm;
+	}
 }
+
 
 
 

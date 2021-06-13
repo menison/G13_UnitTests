@@ -1,17 +1,22 @@
 package gui;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXTextField;
+
+import cachedUserData.DataManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class TestFinalController {
+public class TestFinalController implements Initializable{
 
     @FXML
     private Button txtSentSuccess_btnClose;
@@ -43,4 +48,16 @@ public class TestFinalController {
     	primaryStage = new Stage();
     	smc.start(primaryStage);
     }
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		DataManager dm = DataManager.getDataManager();
+		int s,h,m;
+		int totalSeconds = (dm.getTestInExecution().getActualDuration()*60);
+		s = totalSeconds % 60;
+    	h = totalSeconds / 60;
+    	m = h % 60;
+    	h/=60;
+		testSentSuccess_txtTimeSpent.setText(h + ":" + m);
+	}
 }

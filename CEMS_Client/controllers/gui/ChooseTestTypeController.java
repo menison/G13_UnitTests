@@ -1,5 +1,10 @@
 package gui;
 
+import application.ClientUI;
+import cachedUserData.DataManager;
+import common.Operation;
+import entities.ExecutedTest;
+import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

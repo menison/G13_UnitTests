@@ -73,9 +73,10 @@ public class AddTestsOperations {
 	}
 
 	public static Message getAmountOfTests(Message msg) {
+		String courseID = (String) msg.getObj();
 		Integer amountOfTests;
 		String query = null;
-		query = "SELECT COUNT(*) FROM test;";
+		query = "SELECT numOfTests FROM course WHERE ID = " + courseID + ";";
 		ResultSet rs;
 		Message messageToReturn;
 		try {
@@ -92,15 +93,24 @@ public class AddTestsOperations {
 		}
 		return null;
 	}
+
 	public static Message addTest(Message msg) {
 		Test test = (Test) msg.getObj();
 		Query.update(
 				"INSERT INTO test (`testID`, `questions`, `allocatedDuration`, `commentsForStudents`, `commentsForTeachers`, `currExecCode`, `pointDistribution`, `isActivated`, `ComposedBy`) "
-						+ "VALUES ('" + test.getTestID() + "', '" + test.getQuestionString() + "', "
+						+ "VALUES ('" + test.getTestID() + "', '" + test.getQuestionIDString() + "', "
 						+ test.getAllocatedDuration() + ", '" + test.getCommentsForStudents() + "', '"
 						+ test.getCommentsForTeachers() + "', '" + test.getCurrExecutionCode() + "', '"
 						+ test.getPointsString() + "', " + test.isActivated() + ", '" + test.getComposedBy() + "');");
 		ServerController.sc.addToTextArea("test ID:" + test.getTestID() + " was added");
 		return new Message(Operation.AddNewTest, "Added new test successfully");
+	}
+
+	public static Message changeAmountOfTestsInCourseTable(Message msg) {
+		String courseID = ((String) msg.getObj()).split("_")[0];
+		String amount = ((String) msg.getObj()).split("_")[1];
+		Query.update("UPDATE `query`.`course` SET `numOfTests` = '" + amount + "' WHERE (`ID` = '" + courseID + "');");
+		ServerController.sc.addToTextArea("Number of test for course" + courseID + "is updated to " + amount);
+		return new Message(Operation.ChangeAmountOfTestsInCourseTable, "Number of test for course changed");
 	}
 }
