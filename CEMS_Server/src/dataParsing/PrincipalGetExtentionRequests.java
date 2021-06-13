@@ -22,7 +22,7 @@ public class PrincipalGetExtentionRequests {
 			ServerController.sc.addToTextArea("Fetching Extensions");
 			while (rs.next()) {
 				Extension extension = new Extension(rs.getString(1), rs.getString(2), rs.getInt(3),
-						rs.getString(4), rs.getInt(5),rs.getInt(6));
+						rs.getString(4), rs.getInt(6),rs.getInt(5));
 				extensions.add(extension);
 			}
 			rs.close();
@@ -33,6 +33,20 @@ public class PrincipalGetExtentionRequests {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	public static Message principalApproveRequests(Message msg) {
+		String testCode = ((String) msg.getObj()).split("_")[0];
+		String newDuration = ((String) msg.getObj()).split("_")[1];
+		Query.update("UPDATE `query`.`extensionrequest` SET `isAuthorized` = 1 WHERE (`TestCode` = '" + testCode + "');");
+		Query.update("UPDATE `query`.`activatedtest` SET `duration` = "+ newDuration +" WHERE (`code` = '"+testCode+"');");
+		ServerController.sc.addToTextArea("Update duration for exam" + testCode + " to " + newDuration);
+		return new Message(Operation.ApproveExtensionRequests, "done");
+	}
+	public static Message principalDeclineRequests(Message msg) {
+		String testCode = (String) msg.getObj();
+		Query.update("UPDATE `query`.`extensionrequest` SET `isAuthorized` = 0 WHERE (`TestCode` = '" + testCode + "');");
+		ServerController.sc.addToTextArea("Ignore extention for " + testCode );
+		return new Message(Operation.DeclineExtensionRequests, "done");
 	}
 
 }

@@ -95,6 +95,10 @@ public class Parsing {
 			break;
 		case GetTestConfirmationTable:
 			SetTestConfirmationTable.set(receivedMessage);
+		case ApproveExtensionRequests:
+			PrincipalExtentionRequests.principalApproveExtentionRequests(receivedMessage);
+		case DeclineExtensionRequests:
+			PrincipalExtentionRequests.principalDeclineExtentionRequests(receivedMessage);
 		default:
 			break;
 		}
