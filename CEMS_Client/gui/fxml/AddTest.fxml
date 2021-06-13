@@ -30,7 +30,7 @@
       </Label>
       <TableView fx:id="CreateTest_tblQuestions" layoutX="21.0" layoutY="135.0" prefHeight="432.0" prefWidth="282.0">
         <columns>
-          <TableColumn fx:id="CreateTest_QuestionIDCol" prefWidth="123.0" text="Question ID" />
+          <TableColumn fx:id="CreateTest_QuestionIDCol" prefWidth="123.0" text="Question" />
           <TableColumn fx:id="CreateTest_PointsCol" prefWidth="149.0" text="Points" />
         </columns>
       </TableView>
