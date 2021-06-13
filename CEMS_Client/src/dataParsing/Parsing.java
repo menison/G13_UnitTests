@@ -5,13 +5,20 @@ import gui.ActivateTestController;
 import request.AddTeacherTestsToDM;
 import request.FullTestTable;
 
+import request.GenerateQuestionID;
+
+
 import request.GetCurrentExecEmail;
+
 
 import request.HandleActivateStatus;
 
 import request.Login;
 import request.ManualTestDownloader;
+import request.PrincipalExtentionRequests;
 import request.PrincipalSetReport;
+
+import request.SetTestConfirmationTable;
 
 import request.SetDurationForExecTest;
 
@@ -72,29 +79,51 @@ public class Parsing {
 			SetTestsValues.setQuestions(receivedMessage);
 			break;
 		case ActivateTestCodeFailed:
-		HandleActivateStatus.activateFailed(receivedMessage);
+			HandleActivateStatus.activateFailed(receivedMessage);
 			break;
 		case ActivateTestCodeSuccess:
-		HandleActivateStatus.activateSuccess(receivedMessage);
+			HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
-		case GetTestsActivatedByTeachger:
+		case GetTestsActivatedByTeacher:
 			AddTeacherTestsToDM.add(receivedMessage);
 		case GetAmountOfTests:
 			SetTestsValues.setAmountOfTests(receivedMessage);
 			break;
+		case GetAmountOfQuestions:
+			GenerateQuestionID.setQuestionAmount(receivedMessage);
+			break;
+		case GetCourseAmountOfQuestions:
+			GenerateQuestionID.setTempQuestionAmount(receivedMessage);
+			break;
 		case AddNewTest:
 			SetTestsValues.addNewTest(receivedMessage);
 			break;
+
+		case AddQuestionToDatabase:
+			GenerateQuestionID.setAddQuestionMsg(receivedMessage);
+			break;
+		case IncrementNumOfQuestionsInCourse:
+			GenerateQuestionID.setIncNumOfQuestionMsg(receivedMessage);
+			break;
+
 		case ChangeAmountOfTestsInCourseTable:
 			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
+		case GetExtensionRequests:
+			PrincipalExtentionRequests.principalSetExtentionRequests(receivedMessage);
 			break;
+
 		case RequestExtensionFailed:{
 			HandleActivateStatus.activateFailed(receivedMessage);
+			break;
 		}
 		case RequestExtensionSuccess:{
 			HandleActivateStatus.activateSuccess(receivedMessage);
+			break;
 		}
 			
+		case GetTestConfirmationTable:
+			SetTestConfirmationTable.set(receivedMessage);
+
 		default:
 			break;
 		}

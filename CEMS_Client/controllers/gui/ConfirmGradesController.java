@@ -83,9 +83,9 @@ public class ConfirmGradesController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		ClientUI.chat.accept(new Message(Operation.GetTestConfirmationTable), );
-		
 		DataManager dm = DataManager.getDataManager();
+		String teacherID = dm.getCurrentUser().getPersonalSID();
+		ClientUI.chat.accept(new Message(Operation.GetTestConfirmationTable, teacherID));
    
     	ObservableList<TestToConfirm> tests = FXCollections.observableArrayList(dm.getTestsToConfirm());
     	tblViewCol_testID.setCellValueFactory(new PropertyValueFactory<>("TestID"));

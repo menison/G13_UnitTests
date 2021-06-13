@@ -2,17 +2,23 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
+<<<<<<< HEAD
+import dataParsing.AddQuestionOperations;
+=======
 
 import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
 
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import dataParsing.AddTestsOperations;
 import dataParsing.ExtensionRequest;
 import dataParsing.GetFullTestTable;
+import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestTable;
 import dataParsing.HandleTestsActivatedByTeacher;
 import dataParsing.ManualTestDownloader;
 import dataParsing.ManualTestUploader;
+import dataParsing.PrincipalGetExtentionRequests;
 import dataParsing.PrincipalGetReport;
 import dataParsing.SetCompletedStudentExam;
 import dataParsing.TeacherGetAllSelfExecutedTests;
@@ -66,14 +72,33 @@ public class DataParsing {
 			return AddTestsOperations.getQuestions(receivedMessage);
 		case GetAmountOfTests:
 			return AddTestsOperations.getAmountOfTests(receivedMessage);
+		case GetAmountOfQuestions:
+			return AddQuestionOperations.getAmountOfQuestions(receivedMessage);
+		case GetCourseAmountOfQuestions:
+			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
+<<<<<<< HEAD
+		case AddQuestionToDatabase:
+			return AddQuestionOperations.addQuestionToDB(receivedMessage);
+		case IncrementNumOfQuestionsInCourse:
+			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
+=======
 		case ChangeAmountOfTestsInCourseTable:
+<<<<<<< HEAD
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case RequestExtension:
 			return ExtensionRequest.handleExtension(receivedMessage);
 		case GetTestsActivatedByTeachger:
 			return HandleTestsActivatedByTeacher.returnTestsByTeacher(receivedMessage);
+=======
+			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
+		case GetExtensionRequests:
+			return PrincipalGetExtentionRequests.getExtensions(receivedMessage);
+		case GetTestConfirmationTable:
+			return GetTestConfirmationTable.get(receivedMessage);
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		default:
 			break;
 		}

@@ -36,14 +36,10 @@ public class GetTestTable {
 				testList.add(t);
 			}
 			if(testList.size() == 0)
-				return new Message(Operation.GetTestTable,returnStr);
+				return new Message(Operation.GetTestTable,"no content");
 			System.out.println("Success setting table");
 			rs.close();
-			for(int i = 0; i < testList.size();i++) {
-				returnStr += testList.get(i);
-				returnStr += "/";
-			}
-			messageToReturn = new Message(Operation.GetTestTable,returnStr);
+			messageToReturn = new Message(Operation.GetTestTable,testList);
 			return messageToReturn;
 		} catch	(SQLException e) {
 			System.out.println("Error setting table");
