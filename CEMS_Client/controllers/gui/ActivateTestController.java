@@ -58,31 +58,27 @@ public class ActivateTestController {
     void Activate(ActionEvent event) {
 		DataManager dm = DataManager.getDataManager();
     	String[] toSend = new String[5];
-    	String pinCode = ActivateTest_pinCodeField.getText();
+    	String pinCode = ActivateTest_pinCodeField.getText();//check if code is 4 characters
     	if(pinCode.length()!=4) {
-    		Alert alert = new Alert(AlertType.WARNING);
-			alert.setContentText("Code must be 4 characters.");
-			alert.showAndWait();
+			warningPopUp("Code must be 4 characters.");
 
     	}
-    	else if(ActivateTest_dateSelect.getValue()==null){
-    		Alert alert = new Alert(AlertType.WARNING);
-			alert.setContentText("please choose a date.");
-			alert.showAndWait();
+    	else if(ActivateTest_dateSelect.getValue()==null){ // checks if user chose a date
+
+			warningPopUp("please choose a date.");
 
     	}
-    	else if(ActivateTest_timeSelect.getValue()==null){
-    		Alert alert = new Alert(AlertType.WARNING);
-			alert.setContentText("please choose time.");
-			alert.showAndWait();
+    	else if(ActivateTest_timeSelect.getValue()==null){ // checks if user chose a time
+			warningPopUp("please choose time.");
     	}
     		
 
     	else {
-    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyy");
+    		// formats date
+    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyy"); 
         	LocalDate date =ActivateTest_dateSelect.getValue();
         	String dateString = date.format(formatter);
-;
+			// formats time
         	LocalTime time =ActivateTest_timeSelect.getValue();
         	DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmm");
         	String timeString = time.format(timeFormatter);
@@ -95,24 +91,19 @@ public class ActivateTestController {
     	toSend[4]=dm.getCurrentUser().getPersonalSID();
 		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,toSend));
 		
-		if(!dm.isActivateSuccess()) {
-	    	
-    		Alert alert = new Alert(AlertType.WARNING);
-			alert.setContentText(dm.getActivateMsg());
-			System.out.println(dm.isActivateSuccess());
-			alert.showAndWait();
-		}
-		else {
+		if(dm.isActivateSuccess()) {
     		Alert alert = new Alert(AlertType.CONFIRMATION);
 			alert.setContentText(dm.getActivateMsg());
 			alert.showAndWait();
-			System.out.println(dm.isActivateSuccess());
 	    	Stage stage = (Stage) ActivateTest_btnActivate.getScene().getWindow();
 	    	stage.close();
+
 		}
+		else {
+			warningPopUp(dm.getActivateMsg());
+			}
 		
     	}
-    	
     	
     }
 
@@ -121,7 +112,12 @@ public class ActivateTestController {
     	Stage stage = (Stage) ActivateTest_btnClose.getScene().getWindow();
     	stage.close();
     }
-    
+    public void warningPopUp(String warning) {   //warnings func
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setContentText(warning);
+
+		alert.showAndWait();
+    }
 
 }
 
