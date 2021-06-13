@@ -56,6 +56,13 @@ public class TeacherMenuController {
 		ftt.start(primaryStage);
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
 	}
+	@FXML
+	void questionTable(ActionEvent event) throws IOException {
+		QuestionTableController qtc  = new QuestionTableController();	
+		Stage primaryStage = new Stage();
+		qtc.start(primaryStage);
+		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
+	}
 
 	@FXML
 	void logOut(ActionEvent event) throws IOException {

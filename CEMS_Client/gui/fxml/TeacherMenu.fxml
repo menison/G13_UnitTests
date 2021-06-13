@@ -14,7 +14,7 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="teacherMenu_btnQuestionTable" focusTraversable="false" layoutX="234.0" layoutY="318.0" prefHeight="39.0" prefWidth="137.0" text="Question Table" />
+      <JFXButton fx:id="teacherMenu_btnQuestionTable" focusTraversable="false" layoutX="234.0" layoutY="318.0" onAction="#questionTable" prefHeight="39.0" prefWidth="137.0" text="Question Table" />
       <JFXButton fx:id="teacherMenu_btnTestTable" focusTraversable="false" layoutX="232.0" layoutY="260.0" onAction="#testTable" prefHeight="39.0" prefWidth="137.0" text="Test Table" />
       <JFXButton fx:id="teacherMenu_btnTestExt" focusTraversable="false" layoutX="232.0" layoutY="145.0" prefHeight="39.0" prefWidth="137.0" text="Test Extensions" />
       <Label layoutX="189.0" layoutY="44.0" prefHeight="64.0" prefWidth="222.0" styleClass="login-header" text="Teacher Menu" textFill="#b2b2b2">
