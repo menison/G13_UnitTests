@@ -16,6 +16,10 @@ public class Query {
 	public static ResultSet SelectTableWhere(String tableName, String column, String item) {
 		return resultqueryFrom("SELECT * FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
 	}
+	// Select from Table WHERE condition
+	public static ResultSet SelectTableWhereCondition(String tableName, String condition) {
+		return resultqueryFrom("SELECT * FROM `" + tableName + "` WHERE `" + condition +";");
+	}
 
 	// INSERT HERE MORE
 	// QUERIES-----------------------------------------------------------------------------
