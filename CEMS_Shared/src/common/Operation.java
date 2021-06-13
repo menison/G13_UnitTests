@@ -25,7 +25,12 @@ public enum Operation {
 	GetQuestionTable,
 	ActivateTestCodeFailed,
 	ActivateTestCodeSuccess,
+<<<<<<< HEAD
 	GetQuestionInfo,
 	GetTestsActivatedByTeachger
+=======
+	GetAmountOfTests,
+	AddNewTest
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	
 }
