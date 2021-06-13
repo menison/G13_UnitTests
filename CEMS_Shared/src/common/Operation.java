@@ -19,6 +19,9 @@ public enum Operation {
 	GetFullTestTable,
 	GetReport,
 	GetTestsForTeacherReport,
-	ActivateTestCode
-
+	ActivateTestCode,
+	GetTimeForTestInExecution,
+	GetTimeForActiveExam,
+	SetCompletedExam,
+	CheckIfTestIsLocked
 }

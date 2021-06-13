@@ -2,9 +2,11 @@ package dataParsing;
 
 import entities.Message;
 import request.FullTestTable;
+import request.GetCurrentExecEmail;
 import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
+import request.SetDurationForExecTest;
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
@@ -45,6 +47,12 @@ public class Parsing {
 			break;
 		case GetTestsForTeacherReport:
 			TeacherSetTableForSelfTests.setTableForSelfTests(receivedMessage);
+			break;
+		case getInstructionsAndMail:
+			GetCurrentExecEmail.setEmail(receivedMessage);
+			break;
+		case GetTimeForTestInExecution:
+			SetDurationForExecTest.setDuration(receivedMessage);
 			break;
 		default:
 			break;
