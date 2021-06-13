@@ -4,13 +4,13 @@ import entities.Message;
 import gui.ActivateTestController;
 import request.AddTeacherTestsToDM;
 import request.FullTestTable;
-<<<<<<< HEAD
+
 import request.GenerateQuestionID;
-=======
+
 
 import request.GetCurrentExecEmail;
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 import request.HandleActivateStatus;
 
 import request.Login;
@@ -98,14 +98,14 @@ public class Parsing {
 		case AddNewTest:
 			SetTestsValues.addNewTest(receivedMessage);
 			break;
-<<<<<<< HEAD
+
 		case AddQuestionToDatabase:
 			GenerateQuestionID.setAddQuestionMsg(receivedMessage);
 			break;
 		case IncrementNumOfQuestionsInCourse:
 			GenerateQuestionID.setIncNumOfQuestionMsg(receivedMessage);
 			break;
-=======
+
 		case ChangeAmountOfTestsInCourseTable:
 			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
 		case GetExtensionRequests:
@@ -113,7 +113,6 @@ public class Parsing {
 			break;
 		case GetTestConfirmationTable:
 			SetTestConfirmationTable.set(receivedMessage);
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		default:
 			break;
 		}

@@ -19,6 +19,7 @@ import entities.Question;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ToggleGroup;
@@ -115,7 +116,7 @@ public class CreateQuestionController {
     }
 
     @FXML
-    void submitQuestion(ActionEvent event) {
+    void submitQuestion(ActionEvent event) throws IOException {
     	//Check if empty fields
     	if(CreateQuestion_questionField.getText().isEmpty())
     		warningPopUp("Question text filed is empty");
@@ -147,10 +148,13 @@ public class CreateQuestionController {
     	ClientUI.chat.accept(new Message(Operation.GetCourseAmountOfQuestions,CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID()));
     	String generatedID=GenerateQuestionID.Generate(CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID(), DataManager.getDataManager().getTempAmountOfQuestionsForCourse());
     	Question qst=new Question(generatedID,CreateQuestion_questionField.getText(),answers,correctAnswer,DataManager.getDataManager().getCurrentUser().getPersonalSID());
-    	//ClientUI.chat.accept(new Message(Operation.AddQuestionToDatabase,qst));
-    	ClientUI.chat.accept(new Message(Operation.IncrementNumOfQuestionsInCourse,CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID()));
+    	ClientUI.chat.accept(new Message(Operation.AddQuestionToDatabase,qst));
+    	confirmPopUp(DataManager.getDataManager().getQuestionMsg());
+		QuestionTableController qtc = new QuestionTableController();
+		Stage primaryStage = new Stage();
+		qtc.start(primaryStage);
+		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     	
-    	confirmPopUp(DataManager.getDataManager().getAddTestMsg());
 
     }
     public void warningPopUp(String warning) {   //warnings func

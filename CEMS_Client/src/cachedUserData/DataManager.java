@@ -36,18 +36,17 @@ public class DataManager {
 	private String currentExecEmail;
 	private String activateMsg;
 	private String addTestMsg;
-<<<<<<< HEAD
 	private String addQuestionMsg;
 	private String incQuestionNumMsg;
 	private String amountOfQuestions;
 	private int tempNumOfQuestionsForCourse;
 
-=======
+
 	private Extension extension;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 	private boolean activateSuccess;
 	
-<<<<<<< HEAD
+
 	public void setAddQuestionMsg(String msg) {
 		this.addQuestionMsg=msg;
 	}
@@ -61,7 +60,7 @@ public class DataManager {
 		return incQuestionNumMsg;
 	}
 	
-=======
+
 	private ArrayList<ActivatedTest> teacherActivatedTests;
 
 	
@@ -93,7 +92,6 @@ public class DataManager {
 		this.teacherActivatedTests = teacherActivatedTests;
 	}
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public String getActivateMsg() {
 		return activateMsg;
 	}

@@ -2,14 +2,14 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
-<<<<<<< HEAD
+
 import dataParsing.AddQuestionOperations;
-=======
+
 
 import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 import dataParsing.AddTestsOperations;
 
 import dataParsing.GetFullTestTable;
@@ -78,19 +78,18 @@ public class DataParsing {
 			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
-<<<<<<< HEAD
+
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
 		case IncrementNumOfQuestionsInCourse:
 			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
-=======
+
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case GetExtensionRequests:
 			return PrincipalGetExtentionRequests.getExtensions(receivedMessage);
 		case GetTestConfirmationTable:
 			return GetTestConfirmationTable.get(receivedMessage);
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		default:
 			break;
 		}
