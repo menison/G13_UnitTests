@@ -92,17 +92,15 @@ public class AddTestsOperations {
 		}
 		return null;
 	}
-
 	public static Message addTest(Message msg) {
 		Test test = (Test) msg.getObj();
 		Query.update(
 				"INSERT INTO test (`testID`, `questions`, `allocatedDuration`, `commentsForStudents`, `commentsForTeachers`, `currExecCode`, `pointDistribution`, `isActivated`, `ComposedBy`) "
-						+ "VALUES ('" + test.getTestID() + "', '" + test.getQuestionString() + "', '"
-						+ test.getAllocatedDuration() + "', '" + test.getCommentsForStudents() + "', '"
+						+ "VALUES ('" + test.getTestID() + "', '" + test.getQuestionString() + "', "
+						+ test.getAllocatedDuration() + ", '" + test.getCommentsForStudents() + "', '"
 						+ test.getCommentsForTeachers() + "', '" + test.getCurrExecutionCode() + "', '"
-						+ test.getPointsString() + "', '" + test.isActivated() + "', '" + test.getComposedBy() + ");");
+						+ test.getPointsString() + "', " + test.isActivated() + ", '" + test.getComposedBy() + "');");
 		ServerController.sc.addToTextArea("test ID:" + test.getTestID() + " was added");
 		return new Message(Operation.AddNewTest, "Added new test successfully");
-
 	}
 }

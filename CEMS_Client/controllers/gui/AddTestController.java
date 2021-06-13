@@ -163,13 +163,14 @@ public class AddTestController {
 				pointsArray[i] = points.get(i);
 			}
 			ClientUI.chat.accept(new Message(Operation.GetAmountOfTests));
+			Integer NumberOfTest = (Integer.parseInt(DataManager.getDataManager().getTestID())+1);
 			String testID = CreateTest_chooseSubjectBox.getSelectionModel().getSelectedItem().getID()
 					+ CreateTest_chooseCourseBox.getSelectionModel().getSelectedItem().getID()
-					+ DataManager.getDataManager().getTestID();
+					+ (NumberOfTest.toString());
 			Test newTest = new Test(questions, testID, Integer.parseInt(CreateTest_DurationField.getText()),
 					CreateTest_StudentCommentsField.getText(), CreateTest_TeacherCommentsField.getText(), "-1",
 					pointsArray, 0, DataManager.getDataManager().getCurrentUser().getPersonalSID());
-			ClientUI.chat.accept(new Message(Operation.AddNewTest));
+			ClientUI.chat.accept(new Message(Operation.AddNewTest,newTest));
 			if(DataManager.getDataManager().getAddTestMsg()=="Added new test successfully") {
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Success");
@@ -182,7 +183,6 @@ public class AddTestController {
 				alert.setContentText("There was a problem adding the test, Please try again");
 				alert.showAndWait();
 			}
-			
 		}
 	}
 
