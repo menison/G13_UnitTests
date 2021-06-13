@@ -62,16 +62,13 @@ public class Parsing {
 		case ActivateTestCodeSuccess:
 		HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
-<<<<<<< HEAD
 		case GetTestsActivatedByTeachger:
 			AddTeacherTestsToDM.add(receivedMessage);
-=======
 		case GetAmountOfTests:
 			SetTestsValues.setAmountOfTests(receivedMessage);
 			break;
 		case AddNewTest:
 			SetTestsValues.setAmountOfTests(receivedMessage);
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 			break;
 		default:
 			break;

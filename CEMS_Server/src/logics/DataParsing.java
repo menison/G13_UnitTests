@@ -50,15 +50,14 @@ public class DataParsing {
 			return AddTestsOperations.getSubjectsAndCourses(receivedMessage);
 		case GetQuestions:
 			return AddTestsOperations.getQuestions(receivedMessage);
-<<<<<<< HEAD
+
 		case GetTestsActivatedByTeachger:
 			return HandleTestsActivatedByTeacher.returnTestsByTeacher(receivedMessage);
-=======
 		case GetAmountOfTests:
 			return AddTestsOperations.getAmountOfTests(receivedMessage);
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 		default:
 			break;
 		}
