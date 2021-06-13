@@ -1,7 +1,9 @@
 package dataParsing;
 
 import entities.Message;
+import gui.ActivateTestController;
 import request.FullTestTable;
+import request.HandleActivateStatus;
 import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
@@ -52,6 +54,12 @@ public class Parsing {
 			break;
 		case GetQuestions:
 			SetTestsValues.setQuestions(receivedMessage);
+			break;
+		case ActivateTestCodeFailed:
+		HandleActivateStatus.activateFailed(receivedMessage);
+			break;
+		case ActivateTestCodeSuccess:
+		HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
 		default:
 			break;
