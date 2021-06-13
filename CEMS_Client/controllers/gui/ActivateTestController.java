@@ -63,21 +63,25 @@ public class ActivateTestController {
 			warningPopUp("Code must be 4 characters.");
 
     	}
+    	else if(pinCode.matches("[a-zA-Z0-9]*")){ // check if code is letters and numbers only
+			warningPopUp("Letters and numbers only please.");
+    	}
     	else if(ActivateTest_dateSelect.getValue()==null){ // checks if user chose a date
 
-			warningPopUp("please choose a date.");
+			warningPopUp("Please choose a date.");
 
     	}
     	else if(ActivateTest_timeSelect.getValue()==null){ // checks if user chose a time
-			warningPopUp("please choose time.");
+			warningPopUp("Please choose time.");
     	}
+
     	else if(ActivateTest_dateSelect.getValue().compareTo(LocalDate.now())<0){ 
     		
-    		warningPopUp("please provide a future date");
+    		warningPopUp("Please provide a future date");
     	}
     	else if(ActivateTest_dateSelect.getValue().compareTo(LocalDate.now())==0 && ActivateTest_timeSelect.getValue().compareTo(LocalTime.now())<0){ 
     		
-    		warningPopUp("please provide a future time");
+    		warningPopUp("Please provide a future time.");
     	}
 			
     		//date2.compareTo(date1)
