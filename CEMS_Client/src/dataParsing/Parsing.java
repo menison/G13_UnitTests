@@ -12,13 +12,11 @@ import request.HandleActivateStatus;
 import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
-<<<<<<< HEAD
+
 import request.SetTestConfirmationTable;
-=======
 
 import request.SetDurationForExecTest;
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import request.SetTestsValues;
 
 import request.StudentTestTable;

@@ -220,7 +220,6 @@ public class DataManager {
 	public void setTestsToConfirm(ArrayList<TestToConfirm> testsToConfirm) {
 		this.testsToConfirm = testsToConfirm;
 	}
-<<<<<<< HEAD
 
 	public ArrayList<TestToConfirm> getTestToConfirm() {
 		return testToConfirm;
@@ -231,10 +230,7 @@ public class DataManager {
 	}
 }
 
-=======
-}
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 
 
 

@@ -1,16 +1,14 @@
 package entities;
 
-<<<<<<< HEAD
+
 import java.io.Serializable;
 
 public class TestToConfirm implements Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 473453805476116538L;
-=======
-public class TestToConfirm  {
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	private String testID;
 	private String testCode;
 	private String date;
@@ -18,7 +16,8 @@ public class TestToConfirm  {
 	private int grade;
 	private int isSuspect;
 	
-	public TestToConfirm(String testID, String testCode, String date, String executedBy, int grade, int isSuspect) {
+	public TestToConfirm(String testID, String testCode, String date, String executedBy, 
+			int grade, int isSuspect) {
 		super();
 		this.testID = testID;
 		this.testCode = testCode;
@@ -75,8 +74,5 @@ public class TestToConfirm  {
 	public void setIsSuspect(int isSuspect) {
 		this.isSuspect = isSuspect;
 	}
-
-
-	
 	
 }
