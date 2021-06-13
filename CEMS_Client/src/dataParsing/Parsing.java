@@ -5,7 +5,11 @@ import gui.ActivateTestController;
 import request.AddTeacherTestsToDM;
 import request.FullTestTable;
 
+import request.GenerateQuestionID;
+
+
 import request.GetCurrentExecEmail;
+
 
 import request.HandleActivateStatus;
 
@@ -85,20 +89,46 @@ public class Parsing {
 		case GetAmountOfTests:
 			SetTestsValues.setAmountOfTests(receivedMessage);
 			break;
+		case GetAmountOfQuestions:
+			GenerateQuestionID.setQuestionAmount(receivedMessage);
+			break;
+		case GetCourseAmountOfQuestions:
+			GenerateQuestionID.setTempQuestionAmount(receivedMessage);
+			break;
 		case AddNewTest:
 			SetTestsValues.addNewTest(receivedMessage);
 			break;
+
+		case AddQuestionToDatabase:
+			GenerateQuestionID.setAddQuestionMsg(receivedMessage);
+			break;
+		case IncrementNumOfQuestionsInCourse:
+			GenerateQuestionID.setIncNumOfQuestionMsg(receivedMessage);
+			break;
+
 		case ChangeAmountOfTestsInCourseTable:
 			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
 		case GetExtensionRequests:
 			PrincipalExtentionRequests.principalSetExtentionRequests(receivedMessage);
 			break;
+
+		case RequestExtensionFailed:{
+			HandleActivateStatus.activateFailed(receivedMessage);
+			break;
+		}
+		case RequestExtensionSuccess:{
+			HandleActivateStatus.activateSuccess(receivedMessage);
+			break;
+		}
+			
 		case GetTestConfirmationTable:
 			SetTestConfirmationTable.set(receivedMessage);
 		case ApproveExtensionRequests:
 			PrincipalExtentionRequests.principalApproveExtentionRequests(receivedMessage);
 		case DeclineExtensionRequests:
 			PrincipalExtentionRequests.principalDeclineExtentionRequests(receivedMessage);
+		case GetTestsActivatedByTeachger:
+			AddTeacherTestsToDM.add(receivedMessage);
 		default:
 			break;
 		}

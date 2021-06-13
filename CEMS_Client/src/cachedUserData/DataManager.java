@@ -36,9 +36,32 @@ public class DataManager {
 	private String currentExecEmail;
 	private String activateMsg;
 	private String addTestMsg;
+
+	private String addQuestionMsg;
+	private String incQuestionNumMsg;
+	private String amountOfQuestions;
+	private int tempNumOfQuestionsForCourse;
+
+
 	private Extension extension;
+
 	private boolean activateSuccess;
 	
+
+	public void setAddQuestionMsg(String msg) {
+		this.addQuestionMsg=msg;
+	}
+	public String getQuestionMsg() {
+		return addQuestionMsg;
+	}
+	public void setIncQuestionNumMsg(String msg) {
+		this.incQuestionNumMsg=msg;
+	}
+	public String getIncQuestionNumMsg() {
+		return incQuestionNumMsg;
+	}
+	
+
 	private ArrayList<ActivatedTest> teacherActivatedTests;
 
 	
@@ -70,6 +93,7 @@ public class DataManager {
 		this.teacherActivatedTests = teacherActivatedTests;
 	}
 
+
 	public String getActivateMsg() {
 		return activateMsg;
 	}
@@ -84,6 +108,20 @@ public class DataManager {
 
 	public void setActivateSuccess(boolean activateSuccess) {
 		this.activateSuccess = activateSuccess;
+	}
+	
+	public void setAmountOfQuestions(String amountOfQuestions) {
+		this.amountOfQuestions=amountOfQuestions;
+	}
+	
+	public String getAmountOfQuestions() {
+		return amountOfQuestions;
+	}
+	public void setCourseAmountQuestions(int amount) {
+		this.tempNumOfQuestionsForCourse=amount;
+	}
+	public int getTempAmountOfQuestionsForCourse() {
+		return tempNumOfQuestionsForCourse;
 	}
 
 	public String getTestID() {

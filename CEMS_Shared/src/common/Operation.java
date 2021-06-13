@@ -29,10 +29,17 @@ public enum Operation {
 	GetQuestionTable,
 	ActivateTestCodeFailed,
 	ActivateTestCodeSuccess,
+
+	RequestExtensionFailed,
+	RequestExtensionSuccess,
+	GetAmountOfQuestions,
+	GetCourseAmountOfQuestions,
+	AddQuestionToDatabase,
+	IncrementNumOfQuestionsInCourse,
+	AddNewTest,
 	GetQuestionInfo,
 	GetTestsActivatedByTeacher,
 	GetAmountOfTests,
-	AddNewTest,
 	GetTestConfirmationTable,
 	GetCalculatedGradeForConfirmation,
 	GetTestsActivatedByTeachger,
@@ -41,6 +48,4 @@ public enum Operation {
 	GetExtensionRequests, 
 	ApproveExtensionRequests,
 	DeclineExtensionRequests
-
-
 }

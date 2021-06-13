@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import entities.ExecutedTest;
+import entities.Question;
 import server.EchoServer;
 
 public class Query {
@@ -33,8 +34,21 @@ public class Query {
 				"SELECT * FROM test WHERE isActivated = true AND" + " currExecCode= \"" + testExecCode + "\";");
 	}
 	
+
+	public static void InsertQuestionToDataBase(Question qst) {
+			updateQuery("INSERT INTO `query`.`question` (`questionID`, `text`, `answers`, `correctAnswerIndex`, `composedBy`) "
+				+ "VALUES ('"+qst.getQuestionID()+"', '"+qst.getText()+"', '"+qst.getAnswersString()+"', '"+qst.getCorrectAnswerIndex()+"', '"+qst.getTeacherComposed()+"');");
+	}
+	public static void IncreaseNumOfQuestionInCourse(String courseID) {
+		updateQuery("UPDATE course SET numOfQuestions=numOfQuestions+1 WHERE ID= "+courseID+";");
+	}
+	
+	public static ResultSet SelectColumnTableWhere(String selColumn,String tableName,String column,String item) {
+		return resultqueryFrom("SELECT "+selColumn+  " FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
+	}
 	public static ResultSet getEmailByComposerId(String composerId) {
 		return resultqueryFrom("SELECT * FROM user WHERE personalSID = " + composerId + ";");
+
 	}
 
 	public static String getFullNameByID(String personalID) throws SQLException {
@@ -45,6 +59,10 @@ public class Query {
 		return rs.getString(1) + " " + rs.getString(2);
 	}
 
+	public static ResultSet countTableEntries(String tableName) {
+		return resultqueryFrom("SELECT COUNT(*) FROM "+ tableName+";");
+	}
+	
 	public static ResultSet SelectFullTable(String tableName) {
 		return resultqueryFrom("SELECT * FROM " + tableName);
 	}
