@@ -31,24 +31,21 @@ public class DataManager {
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
 	private String testID;
 	private Report report;
-<<<<<<< HEAD
+
 	private String currentExecEmail;
-=======
+
 	private String activateMsg;
 	private String addTestMsg;
 
 	private boolean activateSuccess;
 	private ArrayList<ActivatedTest> teacherActivatedTests;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
-	
-<<<<<<< HEAD
 	public String getCurrentExecEmail() {
 		return currentExecEmail;
 	}
 
 	public void setCurrentExecEmail(String currentExecEmail) {
 		this.currentExecEmail = currentExecEmail;
-=======
+	}
 	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
 		return teacherActivatedTests;
 	}
@@ -71,7 +68,7 @@ public class DataManager {
 
 	public void setActivateSuccess(boolean activateSuccess) {
 		this.activateSuccess = activateSuccess;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 	}
 
 	public String getTestID() {

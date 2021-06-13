@@ -19,6 +19,7 @@ import entities.ExecutedTest;
 import entities.Message;
 import entities.QaForTable;
 import entities.TestForTable;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -93,6 +94,7 @@ public class TestQuestionMiddleController implements Initializable{
     private static DataManager dm = DataManager.getDataManager();
     private ExecutedTest execTest = dm.getTestInExecution();
     private Boolean submited;
+    private Boolean  late = false;
   
     public void start(Stage primaryStage) {
 		Pane root;
@@ -170,14 +172,21 @@ public class TestQuestionMiddleController implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		CurrentQuestionIndex = 0;
-		//accept getTimeForActiveExam
-		SimpleDateFormat formatter = new SimpleDateFormat("ddMM");  
-	    Date date = new Date();  
+		ClientUI.chat.accept(new Message(Operation.getTimeForActiveExam,execTest.getExecutionCodePK()));
+		SimpleDateFormat formatter = new SimpleDateFormat("ddMM"); 
+		SimpleDateFormat formatterTime = new SimpleDateFormat("HHmm"); 
+	    Date date = new Date();
+	    Date timeNow = new Date();
+	    String strTimeNow = formatterTime.format(timeNow);
+	    int intTimeNow = Integer.parseInt(strTimeNow);
+	    int intTestTimeNow = Integer.parseInt(execTest.getsTime());
+	    if(((intTimeNow-intTestTimeNow) < 0) || ((intTimeNow-intTestTimeNow) > 10)) {
+	    	late = true;
+	    }
 		setQuestions();
 		execTest.initAnswers();
-		System.out.println(formatter.format(date));
+		execTest.getTest().setActivated(1);
 		String dateOfExec = formatter.format(date);
-		System.out.println("This is date: " + dateOfExec);
 		execTest.setDate(dateOfExec);
 		Timer timer = new Timer();
 		submited = false;
@@ -275,6 +284,14 @@ public class TestQuestionMiddleController implements Initializable{
     	middleQuestion_qaTable.setItems(questions);
     	middleQuestion_qaTable.setVisible(true);
     }
+    public void foceClose() {
+    	CurrentQuestionIndex = (totalNumOfQuestions -1);
+    	setFinalAnswerTable();
+    	if(late)
+    		middleQuestion_questionLbl.setText("Final Review - Entered Late");
+    	middleQuestion_progressBar.setProgress((double)(CurrentQuestionIndex+1) / totalNumOfQuestions);
+    	middleQuestion_back.setVisible(false);
+    }
     
     class App extends TimerTask {
     	int allocatedDuration = execTest.getTest().getAllocatedDuration();
@@ -282,8 +299,7 @@ public class TestQuestionMiddleController implements Initializable{
         int countUp = 0;
         int totalSeconds = allocatedDuration*60;
         long h,m,s;
-        public void run() {
-        	ClientUI.chat.accept(new Message(Operation.CheckIfTestIsLocked,execTest.getExecutionCodePK())); 
+        public void run() { 
         	s = totalSeconds % 60;
         	h = totalSeconds / 60;
         	m = h % 60;
@@ -291,12 +307,13 @@ public class TestQuestionMiddleController implements Initializable{
             middleQuestion_pieProgressIndic.setProgress((double)countUp/(allocatedDuration*60));
             middleQuestion_pieProgressIndic12.setText(h+":"+m+":"+s);
             countUp++;
-            if(totalSeconds == 0) {
-            	CurrentQuestionIndex = (totalNumOfQuestions -1);
-            	setFinalAnswerTable();
-            	System.out.println(CurrentQuestionIndex);
-            	middleQuestion_progressBar.setProgress((double)(CurrentQuestionIndex+1) / totalNumOfQuestions);
-            	middleQuestion_back.setVisible(false);
+            if((totalSeconds == 0) || (execTest.getTest().isActivated() == 0) || late) {
+            	Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                    	foceClose();
+                    }
+                });
             	this.cancel();
             }
             if(submited) {
@@ -316,6 +333,7 @@ public class TestQuestionMiddleController implements Initializable{
         	}
             //--------------------------------------------------------------------
         	totalSeconds--;
+        	ClientUI.chat.accept(new Message(Operation.CheckIfTestIsLocked,execTest.getExecutionCodePK()));
         }
     }
 

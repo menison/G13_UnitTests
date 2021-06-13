@@ -33,8 +33,17 @@ public class Query {
 				"SELECT * FROM test WHERE isActivated = true AND" + " currExecCode= \"" + testExecCode + "\";");
 	}
 	
+	public static ResultSet getActivatedTestByExecutionCode(String testExecCode) {
+		return resultqueryFrom(
+				"SELECT * FROM activatedtest WHERE code= \"" + testExecCode + "\";");
+	}
+	
 	public static ResultSet getEmailByComposerId(String composerId) {
 		return resultqueryFrom("SELECT * FROM user WHERE personalSID = " + composerId + ";");
+	}
+	
+	public static ResultSet getActivatedTestsByCode(String testCode) {
+		return resultqueryFrom("SELECT * FROM activatedtest WHERE code = \"" + testCode + "\";");
 	}
 
 	public static String getFullNameByID(String personalID) throws SQLException {

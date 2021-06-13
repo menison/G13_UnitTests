@@ -53,8 +53,6 @@ public class TestCodeValidation {
 				questionTuple.next(); 
 				questionText = questionTuple.getString(2);
 				answers = questionTuple.getString(3).split(",");
-				System.out.println("Question: " + questionText);
-				System.out.println("Answers: " + answers[0]+","+ answers[1]+","+ answers[2]+","+ answers[3]);
 				correctAnswerIndex = questionTuple.getInt(4);
 				String teacherComposedQuestion = questionTuple.getString(5);
 				Question qToAdd = new Question(arr[i], questionText, answers, correctAnswerIndex,
