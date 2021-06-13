@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
@@ -14,6 +14,7 @@ import com.jfoenix.controls.JFXTimePicker;
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
+import entities.ActivatedTest;
 import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -57,7 +58,6 @@ public class ActivateTestController {
     @FXML
     void Activate(ActionEvent event) {
 		DataManager dm = DataManager.getDataManager();
-    	String[] toSend = new String[5];
     	String pinCode = ActivateTest_pinCodeField.getText();//check if code is 4 characters
     	if(pinCode.length()!=4) {
 			warningPopUp("Code must be 4 characters.");
@@ -92,13 +92,10 @@ public class ActivateTestController {
         	DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmm");
         	String timeString = time.format(timeFormatter);
         	
-    	errorTxt.setVisible(false);
-    	toSend[0]=pinCode;
-    	toSend[1]=dm.getTestID();
-    	toSend[2]=dateString;
-    	toSend[3]=timeString;
-    	toSend[4]=dm.getCurrentUser().getPersonalSID();
-		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,toSend));
+
+    	//	public ActivatedTest(String testCode, String testID, String activatedBy, String startDate, String startTime,isActive
+    	ActivatedTest activeTest =new ActivatedTest(pinCode,dm.getTestID(),dm.getCurrentUser().getPersonalSID(),dateString,timeString,1);
+		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,activeTest));
 		
 		if(dm.isActivateSuccess()) {
     		Alert alert = new Alert(AlertType.CONFIRMATION);
