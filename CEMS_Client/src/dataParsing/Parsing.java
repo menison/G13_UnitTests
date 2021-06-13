@@ -123,7 +123,8 @@ public class Parsing {
 			
 		case GetTestConfirmationTable:
 			SetTestConfirmationTable.set(receivedMessage);
-
+		case GetTestsActivatedByTeachger:
+			AddTeacherTestsToDM.add(receivedMessage);
 		default:
 			break;
 		}

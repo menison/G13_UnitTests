@@ -2,14 +2,14 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
-<<<<<<< HEAD
+
 import dataParsing.AddQuestionOperations;
-=======
+
 
 import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 import dataParsing.AddTestsOperations;
 import dataParsing.ExtensionRequest;
 import dataParsing.GetFullTestTable;
@@ -23,7 +23,8 @@ import dataParsing.PrincipalGetReport;
 import dataParsing.SetCompletedStudentExam;
 import dataParsing.TeacherGetAllSelfExecutedTests;
 import dataParsing.TestCodeValidation;
-import dataParsing.HandleTestsActivatedByTeacher;
+
+
 import database.GetLogin;
 import entities.Message;
 import server.EchoServer;
@@ -78,27 +79,22 @@ public class DataParsing {
 			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
-<<<<<<< HEAD
+
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
 		case IncrementNumOfQuestionsInCourse:
 			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
-=======
 		case ChangeAmountOfTestsInCourseTable:
-<<<<<<< HEAD
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
-		case RequestExtension:
-			return ExtensionRequest.handleExtension(receivedMessage);
 		case GetTestsActivatedByTeachger:
 			return HandleTestsActivatedByTeacher.returnTestsByTeacher(receivedMessage);
-=======
-			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case GetExtensionRequests:
 			return PrincipalGetExtentionRequests.getExtensions(receivedMessage);
 		case GetTestConfirmationTable:
 			return GetTestConfirmationTable.get(receivedMessage);
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+		case RequestExtension:
+			return ExtensionRequest.handleExtension(receivedMessage);
+			
 		default:
 			break;
 		}

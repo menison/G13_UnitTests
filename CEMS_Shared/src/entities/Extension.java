@@ -2,19 +2,14 @@ package entities;
 
 import java.io.Serializable;
 
-<<<<<<< HEAD
-public class Extension implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -2250533346362565971L;
-=======
+
+
 public class Extension implements Serializable{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 	private String testCode;
 	private String requestedBy;
 	private int newDuration;

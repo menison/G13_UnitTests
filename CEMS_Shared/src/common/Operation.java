@@ -29,26 +29,17 @@ public enum Operation {
 	GetQuestionTable,
 	ActivateTestCodeFailed,
 	ActivateTestCodeSuccess,
-<<<<<<< HEAD
-	GetAmountOfTests,
-<<<<<<< HEAD
-	GetTestConfirmationTable,
-	GetCalculatedGradeForConfirmation,
-	ChangeAmountOfTestsInCourseTable,
+
 	RequestExtensionFailed,
-	RequestExtensionSuccess
-=======
+	RequestExtensionSuccess,
 	GetAmountOfQuestions,
 	GetCourseAmountOfQuestions,
 	AddQuestionToDatabase,
 	IncrementNumOfQuestionsInCourse,
-	AddNewTest
-	
-=======
+	AddNewTest,
 	GetQuestionInfo,
 	GetTestsActivatedByTeacher,
 	GetAmountOfTests,
-	AddNewTest,
 	GetTestConfirmationTable,
 	GetCalculatedGradeForConfirmation,
 	GetTestsActivatedByTeachger,
@@ -56,7 +47,4 @@ public enum Operation {
 	ChangeAmountOfTestsInCourseTable,
 	GetExtensionRequests
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 }
