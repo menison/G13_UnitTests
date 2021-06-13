@@ -44,7 +44,7 @@ public class DataManager {
 
 
 	private Extension extension;
-
+	private Question question;
 	private boolean activateSuccess;
 	
 
@@ -258,6 +258,12 @@ public class DataManager {
 
 	public void setExtensionRequests(ArrayList<Extension> extensionRequests) {
 		this.extensionRequests = extensionRequests;
+	}
+	public Question getQuestion() {
+		return question;
+	}
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
 
 }

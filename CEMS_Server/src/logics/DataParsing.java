@@ -11,6 +11,7 @@ import dataParsing.GetDurationForExecTest;
 
 
 import dataParsing.AddTestsOperations;
+import dataParsing.EditQuest;
 import dataParsing.ExtensionRequest;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
@@ -99,6 +100,11 @@ public class DataParsing {
 
 		case RequestExtension:
 			return ExtensionRequest.handleExtension(receivedMessage);
+		
+		case GetQuestionInfo:
+			return EditQuest.getInfo(receivedMessage);
+		case SubmitQuestionInfo:
+			return EditQuest.updateQuest(receivedMessage);
 			
 
 		default:

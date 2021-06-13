@@ -29,7 +29,6 @@ public enum Operation {
 	GetQuestionTable,
 	ActivateTestCodeFailed,
 	ActivateTestCodeSuccess,
-
 	RequestExtensionFailed,
 	RequestExtensionSuccess,
 	GetAmountOfQuestions,
@@ -47,5 +46,6 @@ public enum Operation {
 	ChangeAmountOfTestsInCourseTable,
 	GetExtensionRequests, 
 	ApproveExtensionRequests,
-	DeclineExtensionRequests
+	DeclineExtensionRequests,
+	SubmitQuestionInfo
 }

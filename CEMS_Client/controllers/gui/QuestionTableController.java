@@ -21,8 +21,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -87,6 +89,23 @@ public class QuestionTableController{
     	questionComposerColumn.setCellValueFactory(new PropertyValueFactory<>("teacherComposed"));
     	questionsTable.setItems(questions);
 
-	}
+	}    @FXML
+    void editQuestion(ActionEvent event) throws IOException {
+    	if(questionsTable.getSelectionModel().getSelectedItem()!=null){
+            Object selectedItems=questionsTable.getSelectionModel().getSelectedItem().getQuestionID();
+        	Stage stage = new Stage();
+        	EditQuestionController eqc= new EditQuestionController();
+    		DataManager dm = DataManager.getDataManager();
+    		dm.setTestID(selectedItems.toString());
+        	eqc.start(stage);
+
+    		
+        	}else {
+        		Alert alert = new Alert(AlertType.WARNING);
+        		alert.setContentText("Please choose a question first first.");
+
+        		alert.showAndWait();
+        	}
+    }
 
 }

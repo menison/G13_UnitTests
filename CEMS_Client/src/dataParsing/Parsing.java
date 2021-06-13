@@ -17,7 +17,7 @@ import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalExtentionRequests;
 import request.PrincipalSetReport;
-
+import request.QuestionInfoHandler;
 import request.SetTestConfirmationTable;
 
 import request.SetDurationForExecTest;
@@ -120,6 +120,11 @@ public class Parsing {
 			HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
 		}
+		case GetQuestionInfo:
+			QuestionInfoHandler.addToDB(receivedMessage);
+			break;
+		case SubmitQuestionInfo:
+			QuestionInfoHandler.getMsg(receivedMessage);
 			
 		case GetTestConfirmationTable:
 			SetTestConfirmationTable.set(receivedMessage);
