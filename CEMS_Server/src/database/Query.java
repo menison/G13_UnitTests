@@ -17,6 +17,10 @@ public class Query {
 	public static ResultSet SelectTableWhere(String tableName, String column, String item) {
 		return resultqueryFrom("SELECT * FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
 	}
+	// Select from Table WHERE condition
+	public static ResultSet SelectTableWhereCondition(String tableName, String condition) {
+		return resultqueryFrom("SELECT * FROM `" + tableName + "` WHERE `" + condition +";");
+	}
 
 	// INSERT HERE MORE
 	// QUERIES-----------------------------------------------------------------------------
@@ -30,6 +34,7 @@ public class Query {
 				"SELECT * FROM test WHERE isActivated = true AND" + " currExecCode= \"" + testExecCode + "\";");
 	}
 	
+<<<<<<< HEAD
 	public static void InsertQuestionToDataBase(Question qst) {
 			updateQuery("INSERT INTO `query`.`question` (`questionID`, `text`, `answers`, `correctAnswerIndex`, `composedBy`) "
 				+ "VALUES ('"+qst.getQuestionID()+"', '"+qst.getText()+"', '"+qst.getAnswersString()+"', '"+qst.getCorrectAnswerIndex()+"', '"+qst.getTeacherComposed()+"');");
@@ -40,6 +45,10 @@ public class Query {
 	
 	public static ResultSet SelectColumnTableWhere(String selColumn,String tableName,String column,String item) {
 		return resultqueryFrom("SELECT "+selColumn+  " FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
+=======
+	public static ResultSet getEmailByComposerId(String composerId) {
+		return resultqueryFrom("SELECT * FROM user WHERE personalSID = " + composerId + ";");
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	}
 
 	public static String getFullNameByID(String personalID) throws SQLException {
@@ -119,6 +128,36 @@ public class Query {
 			e.printStackTrace();
 		}
 	}
+	
+	public static ResultSet getAllTestsActivatedByTeacherID(String teacherID) {
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT code FROM activatedtest WHERE ActivatedBy= " + teacherID + 
+					" AND isActive = 0" + ";");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+		
+	}
+	
+	public static ResultSet getAllExecutedTestsToConfirmByCode(String testCode) {
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT * FROM executedtest WHERE TestCode= " + testCode +
+					" AND isGradeAuthorized = 0" + ";");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+	}
+	
 	//------------------------------------------------------------------------------------------------------
 	
 
@@ -159,5 +198,7 @@ public class Query {
 			e.printStackTrace();
 		}
 	}
+	
+	
 
 }

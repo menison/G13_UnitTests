@@ -30,4 +30,8 @@ public class SetTestsValues {
 		String msg = (String) receivedMessage.getObj();
 		DataManager.getDataManager().setAddTestMsg(msg);
 	}
+	public static void changeAmountOfTestsInCourseTable(Message receivedMessage) {
+		String msg = (String) receivedMessage.getObj();
+		DataManager.getDataManager().setAddTestMsg(msg);
+	}
 }

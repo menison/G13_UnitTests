@@ -4,19 +4,48 @@ import java.io.IOException;
 
 import com.jfoenix.controls.JFXButton;
 
+import application.ClientUI;
+import cachedUserData.DataManager;
+import common.Operation;
+import entities.Extension;
+import entities.Message;
+import entities.Question;
+import entities.TestToConfirm;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class PrincipalTestExtentionRequestsController {
 
     @FXML
-    private TableView<?> PrincipalTestExtentionRequests_tblViewRequests;
+    private TableView<Extension> PrincipalTestExtentionRequests_tblViewRequests;
+
+    @FXML
+    private TableColumn<Extension, String> PrincipalTestExtentionRequests_testCodeCol;
+
+    @FXML
+    private TableColumn<Extension, String> PrincipalTestExtentionRequests_requestedByCol;
+
+    @FXML
+    private TableColumn<Extension, Integer> PrincipalTestExtentionRequests_newDurationCol;
+
+    @FXML
+    private TableColumn<Extension, String> PrincipalTestExtentionRequests_reasonCol;
+
+    @FXML
+    private TableColumn<Extension, Integer> PrincipalTestExtentionRequests_isAuthorizedCol;
+
+    @FXML
+    private TableColumn<Extension, Integer> PrincipalTestExtentionRequests_isRelevantCol;
 
     @FXML
     private JFXButton PrincipalTestExtentionRequests_btnDone;
@@ -45,6 +74,18 @@ public class PrincipalTestExtentionRequestsController {
     	pmc.start(newStage);
     	currentStage.close();
     }
-	
-
+    
+	@FXML
+	public void initialize() {
+		ClientUI.chat.accept(new Message(Operation.GetExtensionRequests));
+		ObservableList<Extension> tests = FXCollections
+				.observableArrayList(DataManager.getDataManager().getExtensionRequests());
+		PrincipalTestExtentionRequests_testCodeCol.setCellValueFactory(new PropertyValueFactory<>("testCode"));
+		PrincipalTestExtentionRequests_requestedByCol.setCellValueFactory(new PropertyValueFactory<>("requestedBy"));
+		PrincipalTestExtentionRequests_newDurationCol.setCellValueFactory(new PropertyValueFactory<>("newDuration"));
+		PrincipalTestExtentionRequests_reasonCol.setCellValueFactory(new PropertyValueFactory<>("reason"));
+		PrincipalTestExtentionRequests_isAuthorizedCol.setCellValueFactory(new PropertyValueFactory<>("isRelevant"));
+		PrincipalTestExtentionRequests_isRelevantCol.setCellValueFactory(new PropertyValueFactory<>("isAuthorized"));
+		PrincipalTestExtentionRequests_tblViewRequests.setItems(tests);
+	}
 }

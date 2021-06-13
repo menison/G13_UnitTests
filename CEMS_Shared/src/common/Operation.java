@@ -20,11 +20,16 @@ public enum Operation {
 	GetReport,
 	GetTestsForTeacherReport,
 	ActivateTestCode,
+	GetTimeForTestInExecution,
+	GetTimeForActiveExam,
+	SetCompletedExam,
+	CheckIfTestIsLocked,
 	GetSubjectsAndCourses,
 	GetQuestions,
 	GetQuestionTable,
 	ActivateTestCodeFailed,
 	ActivateTestCodeSuccess,
+<<<<<<< HEAD
 	GetAmountOfTests,
 	GetAmountOfQuestions,
 	GetCourseAmountOfQuestions,
@@ -32,4 +37,18 @@ public enum Operation {
 	IncrementNumOfQuestionsInCourse,
 	AddNewTest
 	
+=======
+	GetQuestionInfo,
+	GetTestsActivatedByTeacher,
+	GetAmountOfTests,
+	AddNewTest,
+	GetTestConfirmationTable,
+	GetCalculatedGradeForConfirmation,
+	GetTestsActivatedByTeachger,
+	RequestExtension,
+	ChangeAmountOfTestsInCourseTable,
+	GetExtensionRequests
+
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 }

@@ -78,10 +78,7 @@ public class TestTableController{
     
 	public void setTable() {
     	DataManager dm = DataManager.getDataManager();
-    	//ArrayList<TestForTable> testForTable;
-    	//testForTable = dm.getExecutedExams();
-    	//for(int i = 0; i < testForTable.size(); i++)
-    	//System.out.println("Test #" + (i + 1) + " " + testForTable.get(i));
+
     	
     	ObservableList<TestForTable> tests = FXCollections.observableArrayList(dm.getExecutedExams());
     	myTests_colTestID.setCellValueFactory(new PropertyValueFactory<>("testID"));

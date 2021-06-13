@@ -2,14 +2,17 @@ package cachedUserData;
 
 import java.util.ArrayList;
 
+import entities.ActivatedTest;
 import entities.Course;
 import entities.ExecutedTest;
+import entities.Extension;
 import entities.Field;
 import entities.Question;
 import entities.QuestionForCreateTest;
 import entities.Report;
 import entities.TestForFullTable;
 import entities.TestForTable;
+import entities.TestToConfirm;
 import entities.User;
 import javafx.scene.control.TableView;
 
@@ -21,22 +24,30 @@ public class DataManager {
 	private boolean PreOrder;
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
+	private ArrayList<TestToConfirm> testsToConfirm;
 	private ArrayList<TestForFullTable> fullTestList;
 	private ArrayList<Field> fields;
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
+	private ArrayList<Extension> extensionRequests;
 	private String testID;
 	private Report report;
+	private String currentExecEmail;
 	private String activateMsg;
 	private String addTestMsg;
+<<<<<<< HEAD
 	private String addQuestionMsg;
 	private String incQuestionNumMsg;
 	private String amountOfQuestions;
 	private int tempNumOfQuestionsForCourse;
 
+=======
+	private Extension extension;
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	private boolean activateSuccess;
 	
+<<<<<<< HEAD
 	public void setAddQuestionMsg(String msg) {
 		this.addQuestionMsg=msg;
 	}
@@ -50,6 +61,39 @@ public class DataManager {
 		return incQuestionNumMsg;
 	}
 	
+=======
+	private ArrayList<ActivatedTest> teacherActivatedTests;
+
+	
+	
+	
+	public Extension getExtension() {
+		return extension;
+	}
+
+
+	public void setExtension(Extension extension) {
+		this.extension = extension;
+	}
+
+
+	public String getCurrentExecEmail() {
+		return currentExecEmail;
+	}
+
+	public void setCurrentExecEmail(String currentExecEmail) {
+		this.currentExecEmail = currentExecEmail;
+	}
+
+	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
+		return teacherActivatedTests;
+	}
+
+	public void setTeacherActivatedTests(ArrayList<ActivatedTest> teacherActivatedTests) {
+		this.teacherActivatedTests = teacherActivatedTests;
+	}
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public String getActivateMsg() {
 		return activateMsg;
 	}
@@ -198,8 +242,27 @@ public class DataManager {
 		this.addTestMsg = addTestMsg;
 	}
 
+	public ArrayList<TestToConfirm> getTestsToConfirm() {
+		return testsToConfirm;
+	}
+
+	public void setTestsToConfirm(ArrayList<TestToConfirm> testsToConfirm) {
+		this.testsToConfirm = testsToConfirm;
+	}
+
+
+	public ArrayList<Extension> getExtensionRequests() {
+		return extensionRequests;
+	}
+
+
+	public void setExtensionRequests(ArrayList<Extension> extensionRequests) {
+		this.extensionRequests = extensionRequests;
+	}
 
 }
+
+
 
 
 

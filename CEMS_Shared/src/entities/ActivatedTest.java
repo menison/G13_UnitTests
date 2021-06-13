@@ -1,6 +1,9 @@
 package entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class ActivatedTest implements  Serializable {
 	/**
@@ -10,11 +13,12 @@ public class ActivatedTest implements  Serializable {
 	private String testCode;
 	private String testID;
 	private String activatedBy;
-	private String startDate;
-	private String startTime;
+	private LocalDate startDate;
+	private LocalTime startTime;
 	private int isActivated;
+	private int duration;
 	
-	public ActivatedTest(String testCode, String testID, String activatedBy, String startDate, String startTime,
+	public ActivatedTest(String testCode, String testID, String activatedBy, LocalDate startDate, LocalTime startTime,
 			int isActivated) {
 		this.testCode = testCode;
 		this.testID = testID;
@@ -22,8 +26,35 @@ public class ActivatedTest implements  Serializable {
 		this.startDate = startDate;
 		this.startTime = startTime;
 		this.isActivated = isActivated;
+		
 	}
+	public ActivatedTest(String testCode, String testID, String activatedBy, String startDate, String startTime,
+			int isActivated,int duration) {
+		this.testCode = testCode;
+		this.testID = testID;
+		this.activatedBy = activatedBy;
+		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyy");
 
+		  //convert String to LocalDate
+		this.startDate = LocalDate.parse(startDate, formatter);
+		 
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmm");
+
+		  //convert String to LocalTime
+		this.startTime = LocalTime.parse(startTime, timeFormatter);
+		 
+		this.isActivated = isActivated;
+		this.duration=duration;
+		
+	}
+	
+
+	public int getDuration() {
+		return duration;
+	}
+	public void setDuration(int duration) {
+		this.duration = duration;
+	}
 	public String getTestCode() {
 		return testCode;
 	}
@@ -48,19 +79,21 @@ public class ActivatedTest implements  Serializable {
 		this.activatedBy = activatedBy;
 	}
 
-	public String getStartDate() {
-		return startDate;
+	public String getStartDateToString() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyy"); 
+		return startDate.format(formatter);
 	}
 
-	public void setStartDate(String startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 
-	public String getStartTime() {
-		return startTime;
+	public String getStartTimeToString() {
+		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmm");
+		return startTime.format(timeFormatter);
 	}
 
-	public void setStartTime(String startTime) {
+	public void setStartTime(LocalTime startTime) {
 		this.startTime = startTime;
 	}
 
@@ -75,7 +108,13 @@ public class ActivatedTest implements  Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+	public LocalTime getStartTime() {
+		return startTime;
+	}
+
 	
 
 }

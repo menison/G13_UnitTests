@@ -2,13 +2,28 @@ package dataParsing;
 
 import entities.Message;
 import gui.ActivateTestController;
+import request.AddTeacherTestsToDM;
 import request.FullTestTable;
+<<<<<<< HEAD
 import request.GenerateQuestionID;
+=======
+
+import request.GetCurrentExecEmail;
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import request.HandleActivateStatus;
+
 import request.Login;
 import request.ManualTestDownloader;
+import request.PrincipalExtentionRequests;
 import request.PrincipalSetReport;
+
+import request.SetTestConfirmationTable;
+
+import request.SetDurationForExecTest;
+
 import request.SetTestsValues;
+
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
@@ -50,6 +65,13 @@ public class Parsing {
 		case GetTestsForTeacherReport:
 			TeacherSetTableForSelfTests.setTableForSelfTests(receivedMessage);
 			break;
+
+		case getInstructionsAndMail:
+			GetCurrentExecEmail.setEmail(receivedMessage);
+			break;
+		case GetTimeForTestInExecution:
+			SetDurationForExecTest.setDuration(receivedMessage);
+
 		case GetSubjectsAndCourses:
 			SetTestsValues.setSubjects(receivedMessage);
 			break;
@@ -57,11 +79,13 @@ public class Parsing {
 			SetTestsValues.setQuestions(receivedMessage);
 			break;
 		case ActivateTestCodeFailed:
-		HandleActivateStatus.activateFailed(receivedMessage);
+			HandleActivateStatus.activateFailed(receivedMessage);
 			break;
 		case ActivateTestCodeSuccess:
-		HandleActivateStatus.activateSuccess(receivedMessage);
+			HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
+		case GetTestsActivatedByTeacher:
+			AddTeacherTestsToDM.add(receivedMessage);
 		case GetAmountOfTests:
 			SetTestsValues.setAmountOfTests(receivedMessage);
 			break;
@@ -72,14 +96,24 @@ public class Parsing {
 			GenerateQuestionID.setTempQuestionAmount(receivedMessage);
 			break;
 		case AddNewTest:
-			SetTestsValues.setAmountOfTests(receivedMessage);
+			SetTestsValues.addNewTest(receivedMessage);
 			break;
+<<<<<<< HEAD
 		case AddQuestionToDatabase:
 			GenerateQuestionID.setAddQuestionMsg(receivedMessage);
 			break;
 		case IncrementNumOfQuestionsInCourse:
 			GenerateQuestionID.setIncNumOfQuestionMsg(receivedMessage);
 			break;
+=======
+		case ChangeAmountOfTestsInCourseTable:
+			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
+		case GetExtensionRequests:
+			PrincipalExtentionRequests.principalSetExtentionRequests(receivedMessage);
+			break;
+		case GetTestConfirmationTable:
+			SetTestConfirmationTable.set(receivedMessage);
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		default:
 			break;
 		}
