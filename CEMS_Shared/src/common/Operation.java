@@ -27,9 +27,19 @@ public enum Operation {
 	ActivateTestCodeSuccess,
 	GetQuestionInfo,
 	GetTestsActivatedByTeachger,
+<<<<<<< HEAD
 	GetAmountOfTests,
 	AddNewTest,
+=======
+	GetAmountOfTests,
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	GetTestConfirmationTable,
+<<<<<<< HEAD
 	GetCalculatedGradeForConfirmation
 
+=======
+	GetCalculatedGradeForConfirmation,
+	ChangeAmountOfTestsInCourseTable,
+	AddNewTest
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 }

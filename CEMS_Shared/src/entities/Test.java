@@ -26,6 +26,7 @@ public class Test implements Serializable {
 	private String timeOfStart;
 	private String questionString;
 	private String pointsString;
+	private String questionIDString;
 
 
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
@@ -49,8 +50,22 @@ public class Test implements Serializable {
 		for(String s: pointDistribution) {
 			this.pointsString+= s + "," ;
 		}
+		this.questionIDString ="";
+		for(Question s: questions) {
+			this.questionIDString += s.getQuestionID() + "," ;
+		}
 	}
 	
+
+	public String getQuestionIDString() {
+		return questionIDString;
+	}
+
+
+	public void setQuestionIDString(String questionIDString) {
+		this.questionIDString = questionIDString;
+	}
+
 
 	public String getQuestionString() {
 		return questionString;

@@ -50,14 +50,12 @@ public class DataParsing {
 			return AddTestsOperations.getSubjectsAndCourses(receivedMessage);
 		case GetQuestions:
 			return AddTestsOperations.getQuestions(receivedMessage);
-
-		case GetTestsActivatedByTeachger:
-			return HandleTestsActivatedByTeacher.returnTestsByTeacher(receivedMessage);
 		case GetAmountOfTests:
 			return AddTestsOperations.getAmountOfTests(receivedMessage);
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
-
+		case ChangeAmountOfTestsInCourseTable:
+			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		default:
 			break;
 		}
