@@ -34,8 +34,9 @@ public class GetTestConfirmationTable {
 					int grade = rs.getInt(7);
 					int isSuspect = rs.getInt(12);
 					t = new TestToConfirm(testID, testCode, date, executedBy, grade, isSuspect);
+					testList.add(t);
 				}
-				testList.add(t);
+				
 			}
 			if(testList.size() == 0)
 				return new Message(Operation.GetTestTable,null);

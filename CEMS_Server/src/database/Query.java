@@ -34,18 +34,11 @@ public class Query {
 				"SELECT * FROM test WHERE isActivated = true AND" + " currExecCode= \"" + testExecCode + "\";");
 	}
 	
-<<<<<<< HEAD
 	public static ResultSet getActivatedTestByExecutionCode(String testExecCode) {
 		return resultqueryFrom(
 				"SELECT * FROM activatedtest WHERE code= \"" + testExecCode + "\";");
 	}
 	
-=======
-<<<<<<< HEAD
-
-=======
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public static void InsertQuestionToDataBase(Question qst) {
 			updateQuery("INSERT INTO `query`.`question` (`questionID`, `text`, `answers`, `correctAnswerIndex`, `composedBy`) "
 				+ "VALUES ('"+qst.getQuestionID()+"', '"+qst.getText()+"', '"+qst.getAnswersString()+"', '"+qst.getCorrectAnswerIndex()+"', '"+qst.getTeacherComposed()+"');");
@@ -57,18 +50,10 @@ public class Query {
 	public static ResultSet SelectColumnTableWhere(String selColumn,String tableName,String column,String item) {
 		return resultqueryFrom("SELECT "+selColumn+  " FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public static ResultSet getEmailByComposerId(String composerId) {
 		return resultqueryFrom("SELECT * FROM user WHERE personalSID = " + composerId + ";");
-<<<<<<< HEAD
 
-=======
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	}
 	
 	public static ResultSet getActivatedTestsByCode(String testCode) {
@@ -159,8 +144,8 @@ public class Query {
 		ResultSet toReturn = null;
 		try {
 			stmt = con.createStatement();
-			toReturn = stmt.executeQuery("SELECT code FROM activatedtest WHERE ActivatedBy= " + teacherID + 
-					" AND isActive = 0" + ";");
+			toReturn = stmt.executeQuery("SELECT * FROM activatedtest WHERE activatedBy= \"" + teacherID + 
+					"\"AND isActive = 0;");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -175,7 +160,44 @@ public class Query {
 		try {
 			stmt = con.createStatement();
 			toReturn = stmt.executeQuery("SELECT * FROM executedtest WHERE TestCode= " + testCode +
-					" AND isGradeAuthorized = 0" + ";");
+					" AND isGradeAuthorized = 0 "
+					+ "AND TestCode IN (SELECT TestCode FROM executedtest "
+					+ "GROUP BY TestCode HAVING count(*)>1);");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+	}
+	
+	public static int confirmAndChangeGrade(int newGrade, String executedBy, String testCode) {
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		int toReturn = 0;
+		try {
+			System.out.println(newGrade);
+			stmt = con.createStatement();
+			
+			toReturn = stmt.executeUpdate("UPDATE executedtest SET Grade = " 
+			+ newGrade + " WHERE testCode= \"" + testCode + "\" AND executedBy = \"" + executedBy + "\";");
+			
+			toReturn = stmt.executeUpdate("UPDATE executedtest SET isGradeAuthorized = 1"+ " WHERE testCode= \""
+			+ testCode + "\" AND executedBy = \"" + executedBy + "\";");
+			
+			return toReturn;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+	}
+	
+	public static int updateIsAuthorized() {
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		int toReturn = 0;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeUpdate("UPDATE executedtest SET isGradeAuthorized= 1;");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -223,6 +245,7 @@ public class Query {
 		}
 	}
 	
+
 	
 
 }

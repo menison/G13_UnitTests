@@ -16,12 +16,14 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -87,16 +89,20 @@ public class FullTestTableController {
 
     @FXML
     void ActivateTest(ActionEvent event) throws IOException {
-    	Object selectedItems=fullTestTbl.getSelectionModel().getSelectedItem().getTestID();
-    	if(selectedItems!=null);
-    	{
 
+    	if(fullTestTbl.getSelectionModel().getSelectedItem()!=null){
+        Object selectedItems=fullTestTbl.getSelectionModel().getSelectedItem().getTestID();
     	Stage stage = new Stage();
     	ActivateTestController activateTest= new ActivateTestController();
     	activateTest.start(stage);
 		DataManager dm = DataManager.getDataManager();
 		dm.setTestID(selectedItems.toString());
-    	}	
+    	}else {
+    		Alert alert = new Alert(AlertType.WARNING);
+    		alert.setContentText("Please choose a test first.");
+
+    		alert.showAndWait();
+    	}
     }
 
     @FXML

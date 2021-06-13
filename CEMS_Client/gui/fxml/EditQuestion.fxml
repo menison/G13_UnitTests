@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -32,7 +31,7 @@
       <JFXTextField fx:id="EditQuestion_answer2Field" labelFloat="true" layoutX="383.0" layoutY="348.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 2*" />
       <JFXTextField fx:id="EditQuestion_answer3Field" labelFloat="true" layoutX="21.0" layoutY="416.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 3*" />
       <JFXTextField fx:id="EditQuestion_answer4Field" labelFloat="true" layoutX="383.0" layoutY="416.0" prefHeight="37.0" prefWidth="249.0" promptText="Answer 4*" />
-      <JFXRadioButton fx:id="EditQuestion_checkAnswer1" layoutX="123.0" layoutY="525.0" selected="true" text="Answer 1" textFill="#ffff8d">
+      <JFXRadioButton fx:id="EditQuestion_checkAnswer1" layoutX="123.0" layoutY="525.0" text="Answer 1" textFill="#ffff8d">
          <toggleGroup>
             <ToggleGroup fx:id="ToggleGroup1" />
          </toggleGroup>
@@ -46,8 +45,6 @@
       <JFXRadioButton fx:id="EditQuestion_checkAnswer3" layoutX="345.0" layoutY="525.0" text="Answer 3" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
       <JFXRadioButton fx:id="EditQuestion_checkAnswer4" layoutX="454.0" layoutY="525.0" text="Answer 4" textFill="#ffff8d" toggleGroup="$ToggleGroup1" />
       <JFXButton fx:id="EditQuestion_btnClear" layoutX="116.0" layoutY="563.0" onAction="#clear" text="Clear" />
-      <JFXComboBox fx:id="EditQuestion_chooseSubjectBox" layoutX="166.0" layoutY="140.0" promptText="Subject*" />
-      <JFXComboBox fx:id="EditQuestion_chooseCourseBox" layoutX="401.0" layoutY="140.0" promptText="Course*" />
    </children>
    <stylesheets>
       <URL value="@../../../Downloads/das.css" />

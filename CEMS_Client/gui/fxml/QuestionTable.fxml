@@ -12,7 +12,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.QuestionTableController">
    <children>
       <JFXButton fx:id="questionTbl_btnAddQuestion" focusTraversable="false" layoutX="36.0" layoutY="439.0" onAction="#addQuestion" text="Add Question" />
-      <JFXButton fx:id="questionTbl_btnEditQuestion" focusTraversable="false" layoutX="181.0" layoutY="439.0" prefHeight="39.0" prefWidth="122.0" text="Edit Question" />
+      <JFXButton fx:id="questionTbl_btnEditQuestion" focusTraversable="false" layoutX="181.0" layoutY="439.0" onAction="#editQuestion" prefHeight="39.0" prefWidth="122.0" text="Edit Question" />
       <JFXButton fx:id="questionTbl_btnClose" focusTraversable="false" layoutX="688.0" layoutY="439.0" prefHeight="39.0" prefWidth="87.0" text="Close" />
       <ImageView fitHeight="113.0" fitWidth="75.0" layoutX="26.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
          <image>

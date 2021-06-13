@@ -9,15 +9,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="343.0" prefWidth="677.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="343.0" prefWidth="677.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GradesConfirmationController">
    <children>
-      <JFXTextField fx:id="calculatedGrade_txtField" layoutX="289.0" layoutY="128.0" />
-      <JFXTextField fx:id="newGrade_txtField" layoutX="289.0" layoutY="183.0" />
+      <JFXTextField fx:id="newGrade_txtField" layoutX="291.0" layoutY="172.0" />
       <JFXToggleButton fx:id="confimation_slideBar" layoutX="161.0" layoutY="56.0" onAction="#changeGrade" text="Change the automatically calculated grade" textFill="#b2b2b2" />
-      <Label layoutX="61.0" layoutY="136.0" text="Automatically calculated grade:" textFill="#b2b2b2" />
-      <Label layoutX="190.0" layoutY="191.0" text="New Grade:" textFill="#b2b2b2" />
-      <Label layoutX="105.0" layoutY="247.0" text="Reason for grade change:" textFill="#b2b2b2" />
-      <JFXTextField fx:id="reasonForChange_txtField" layoutX="289.0" layoutY="239.0" />
+      <Label fx:id="labelToHide1" layoutX="190.0" layoutY="180.0" text="New Grade:" textFill="#b2b2b2" />
+      <Label fx:id="labelToHide2" layoutX="106.0" layoutY="229.0" text="Reason for grade change:" textFill="#b2b2b2" />
+      <JFXTextField fx:id="reasonForChange_txtField" layoutX="289.0" layoutY="221.0" />
       <Label layoutX="229.0" layoutY="14.0" text="CONFIRMATION" textFill="#b2b2b2">
          <font>
             <Font name="System Bold" size="24.0" />
@@ -30,5 +28,7 @@
       </ImageView>
       <JFXButton fx:id="confirmation_btnClose" layoutX="30.0" layoutY="290.0" onAction="#close" text="Close" />
       <JFXButton fx:id="confirmation_BtnSave" layoutX="577.0" layoutY="290.0" onAction="#Save" text="Save" />
+      <JFXTextField fx:id="calculatedGrade_txtField" layoutX="291.0" layoutY="134.0" prefHeight="39.0" prefWidth="78.0" />
+      <Label layoutX="115.0" layoutY="143.0" text="Auto-calculated grade:" textFill="#b2b2b2" />
    </children>
 </AnchorPane>
