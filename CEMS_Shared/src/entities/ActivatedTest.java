@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter;
 public class ActivatedTest implements  Serializable {
 	/**
 	 * 
+	 * 
 	 */
 	private static final long serialVersionUID = -7278799683179472714L;
 	private String testCode;

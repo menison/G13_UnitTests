@@ -15,6 +15,7 @@ import dataParsing.ExtensionRequest;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestTable;
+import dataParsing.HandleTestsActivatedByTeacher;
 import dataParsing.ManualTestDownloader;
 import dataParsing.ManualTestUploader;
 import dataParsing.PrincipalGetExtentionRequests;
@@ -90,16 +91,16 @@ public class DataParsing {
 			return PrincipalGetExtentionRequests.getExtensions(receivedMessage);
 		case GetTestConfirmationTable:
 			return GetTestConfirmationTable.get(receivedMessage);
-<<<<<<< HEAD
+
 		case ApproveExtensionRequests:
 			return PrincipalGetExtentionRequests.principalApproveRequests(receivedMessage);
 		case DeclineExtensionRequests:
 			return PrincipalGetExtentionRequests.principalDeclineRequests(receivedMessage);
-=======
+
 		case RequestExtension:
 			return ExtensionRequest.handleExtension(receivedMessage);
 			
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 		default:
 			break;
 		}
