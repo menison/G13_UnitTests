@@ -52,15 +52,12 @@ public class DataManager {
 	private int tempNumOfQuestionsForCourse;
 
 	private Extension extension;
-<<<<<<< HEAD
+
 	private Question question;
-	private boolean activateSuccess;
-	
-
-=======
 
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
+
 	public void setAddQuestionMsg(String msg) {
 		this.addQuestionMsg=msg;
 	}

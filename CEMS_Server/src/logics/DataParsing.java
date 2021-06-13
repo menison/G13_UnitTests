@@ -3,10 +3,10 @@ package logics;
 import common.Permission;
 import dataParsing.ActivateTest;
 import dataParsing.AddTestsOperations;
-<<<<<<< HEAD
+
 import dataParsing.EditQuest;
 import dataParsing.ExtensionRequest;
-=======
+
 import dataParsing.ConfirmTestChangeGrade;
 import dataParsing.ConfirmTestWithoutChanges;
 import dataParsing.AddQuestionOperations;
@@ -14,7 +14,7 @@ import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
 import dataParsing.CheckIfTestIsLocked;
 import dataParsing.ExtensionRequest;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestTable;
@@ -109,17 +109,12 @@ public class DataParsing {
 
 		case RequestExtension:
 			return ExtensionRequest.handleExtension(receivedMessage);
-<<<<<<< HEAD
-		
+
 		case GetQuestionInfo:
 			return EditQuest.getInfo(receivedMessage);
 		case SubmitQuestionInfo:
 			return EditQuest.updateQuest(receivedMessage);
 			
-
-=======
-			
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		default:
 			break;
 		}

@@ -50,11 +50,9 @@ public enum Operation {
 	getTimeForActiveExam,
 	GetExtensionRequests,
 	ApproveExtensionRequests,
-<<<<<<< HEAD
+
 	DeclineExtensionRequests,
 	SubmitQuestionInfo
-=======
-	DeclineExtensionRequests
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 }

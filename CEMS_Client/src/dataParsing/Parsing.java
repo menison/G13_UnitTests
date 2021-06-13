@@ -11,14 +11,14 @@ import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
 import request.PrincipalExtentionRequests;
-<<<<<<< HEAD
+
 import request.PrincipalSetReport;
 import request.QuestionInfoHandler;
 import request.SetTestConfirmationTable;
 
-=======
+
 import request.SetTestConfirmationTable;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 import request.SetDurationForExecTest;
 import request.SetTestsValues;
 import request.SetIfCurrentExecutedTestIsActive;
@@ -125,23 +125,21 @@ public class Parsing {
 		case GetTestConfirmationTable:
 			SetTestConfirmationTable.set(receivedMessage);
 			break;
-<<<<<<< HEAD
-		}
+
 		case GetQuestionInfo:
 			QuestionInfoHandler.addToDB(receivedMessage);
 			break;
 		case SubmitQuestionInfo:
 			QuestionInfoHandler.getMsg(receivedMessage);
 			
-		case GetTestConfirmationTable:
-			SetTestConfirmationTable.set(receivedMessage);
-=======
+
 		case ConfirmTestWithChanges:
 			AfterGradeAuth.notifyUser(receivedMessage);
+			break;
 		case ConfirmTestWithoutChanges:
 			AfterGradeAuth.notifyUser(receivedMessage);
 			break;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 		case ApproveExtensionRequests:
 			PrincipalExtentionRequests.principalApproveExtentionRequests(receivedMessage);
 			break;
