@@ -30,64 +30,30 @@ public class DataManager {
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
-<<<<<<< HEAD
-=======
+
 	private ArrayList<Extension> extensionRequests;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	private String testID;
 	private Report report;
-<<<<<<< HEAD
 	private TestToConfirm t;
 
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	private String currentExecEmail;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	private String activateMsg;
-<<<<<<< HEAD
-	private String addTestMsg;
-=======
+
 	private String addTestMsg;
 
-<<<<<<< HEAD
+
 	private boolean activateSuccess;
 	private ArrayList<ActivatedTest> teacherActivatedTests;
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 	private String addQuestionMsg;
 	private String incQuestionNumMsg;
 	private String amountOfQuestions;
 	private int tempNumOfQuestionsForCourse;
 
-<<<<<<< HEAD
-
-=======
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	private Extension extension;
-<<<<<<< HEAD
-	
-=======
-<<<<<<< HEAD
 
-=======
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
-	private boolean activateSuccess;
-	
-<<<<<<< HEAD
-
-=======
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public void setAddQuestionMsg(String msg) {
 		this.addQuestionMsg=msg;
 	}
@@ -101,13 +67,6 @@ public class DataManager {
 		return incQuestionNumMsg;
 	}
 	
-<<<<<<< HEAD
-
-=======
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
-	private ArrayList<ActivatedTest> teacherActivatedTests;
-
 	
 	public Extension getExtension() {
 		return extension;
@@ -119,19 +78,15 @@ public class DataManager {
 	}
 
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public String getCurrentExecEmail() {
 		return currentExecEmail;
 	}
 
 	public void setCurrentExecEmail(String currentExecEmail) {
 		this.currentExecEmail = currentExecEmail;
-<<<<<<< HEAD
-	}
-=======
+
 	}
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
 		return teacherActivatedTests;
 	}
@@ -139,12 +94,8 @@ public class DataManager {
 	public void setTeacherActivatedTests(ArrayList<ActivatedTest> teacherActivatedTests) {
 		this.teacherActivatedTests = teacherActivatedTests;
 	}
-<<<<<<< HEAD
-
-=======
 
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public String getActivateMsg() {
 		return activateMsg;
 	}
@@ -159,9 +110,7 @@ public class DataManager {
 
 	public void setActivateSuccess(boolean activateSuccess) {
 		this.activateSuccess = activateSuccess;
-<<<<<<< HEAD
 
-=======
 	}
 	
 	public void setAmountOfQuestions(String amountOfQuestions) {
@@ -176,7 +125,7 @@ public class DataManager {
 	}
 	public int getTempAmountOfQuestionsForCourse() {
 		return tempNumOfQuestionsForCourse;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 	}
 
 	public String getTestID() {
@@ -305,31 +254,24 @@ public class DataManager {
 		this.testsToConfirm = testsToConfirm;
 	}
 
-<<<<<<< HEAD
+
 	public TestToConfirm getT() {
 		return t;
-=======
 
+	}
+	
 	public ArrayList<Extension> getExtensionRequests() {
 		return extensionRequests;
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 	}
 
-<<<<<<< HEAD
 	public void setT(TestToConfirm t) {
 		this.t = t;
 	}
-}
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
+
 
 	public void setExtensionRequests(ArrayList<Extension> extensionRequests) {
 		this.extensionRequests = extensionRequests;
 	}
 
 }
-
-
-
-
-
