@@ -114,6 +114,10 @@ public class Test implements Serializable {
 	public int getAllocatedDuration() {
 		return allocatedDuration;
 	}
+	
+	public void setAllocatedDuration(int duration) {
+		this.allocatedDuration = duration;
+	}
 
 	public String getCommentsForStudents() {
 		return commentsForStudents;

@@ -2,13 +2,19 @@ package logics;
 
 import common.Permission;
 import dataParsing.ActivateTest;
+
+import dataParsing.GetCurrentExecutionExamEmail;
+import dataParsing.GetDurationForExecTest;
+
 import dataParsing.AddTestsOperations;
+
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
 import dataParsing.HandleTestsActivatedByTeacher;
 import dataParsing.ManualTestDownloader;
 import dataParsing.ManualTestUploader;
 import dataParsing.PrincipalGetReport;
+import dataParsing.SetCompletedStudentExam;
 import dataParsing.TeacherGetAllSelfExecutedTests;
 import dataParsing.TestCodeValidation;
 import database.GetLogin;
@@ -46,6 +52,14 @@ public class DataParsing {
 			return PrincipalGetReport.getReport(receivedMessage);
 		case GetTestsForTeacherReport:
 			return TeacherGetAllSelfExecutedTests.getAllSelfExecutedTests(receivedMessage);
+
+		case getInstructionsAndMail:
+			return GetCurrentExecutionExamEmail.getComposerEmail(receivedMessage);
+		case GetTimeForTestInExecution:
+			return GetDurationForExecTest.getDuration(receivedMessage);
+		case SetCompletedExam:
+			return SetCompletedStudentExam.setExam(receivedMessage);
+
 		case GetSubjectsAndCourses:
 			return AddTestsOperations.getSubjectsAndCourses(receivedMessage);
 		case GetQuestions:

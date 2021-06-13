@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import entities.ActivatedTest;
 import entities.Course;
 import entities.ExecutedTest;
+import entities.Extension;
 import entities.Field;
 import entities.Question;
 import entities.QuestionForCreateTest;
@@ -32,12 +33,44 @@ public class DataManager {
 	private ArrayList<TestToConfirm> testToConfirm;
 	private String testID;
 	private Report report;
+
+	private String currentExecEmail;
+
 	private String activateMsg;
 	private String addTestMsg;
+	private Extension extension;
+	
+	
+	
+	
+	
+
 
 	private boolean activateSuccess;
-	private ArrayList<ActivatedTest> teacherActivatedTests;
 	
+	private ArrayList<ActivatedTest> teacherActivatedTests;
+
+	
+	
+	
+	public Extension getExtension() {
+		return extension;
+	}
+
+
+	public void setExtension(Extension extension) {
+		this.extension = extension;
+	}
+
+
+	public String getCurrentExecEmail() {
+		return currentExecEmail;
+	}
+
+	public void setCurrentExecEmail(String currentExecEmail) {
+		this.currentExecEmail = currentExecEmail;
+	}
+
 	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
 		return teacherActivatedTests;
 	}
@@ -187,6 +220,7 @@ public class DataManager {
 	public void setTestsToConfirm(ArrayList<TestToConfirm> testsToConfirm) {
 		this.testsToConfirm = testsToConfirm;
 	}
+<<<<<<< HEAD
 
 	public ArrayList<TestToConfirm> getTestToConfirm() {
 		return testToConfirm;
@@ -197,6 +231,10 @@ public class DataManager {
 	}
 }
 
+=======
+}
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 
 
 

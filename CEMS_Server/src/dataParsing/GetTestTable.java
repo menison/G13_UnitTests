@@ -27,11 +27,12 @@ public class GetTestTable {
 		Message messageToReturn;
 		try {
 			stmt = con.createStatement();
-			rs = stmt.executeQuery("SELECT * FROM executedtest WHERE ExecutedBy = "+ studentID + ";");
+			rs = stmt.executeQuery("SELECT * FROM executedtest WHERE ExecutedBy = "+ studentID + 
+					" AND isGradeAuthorized = 1;");
 			ServerController.sc.addToTextArea("Fetching executed tests");
 			while (rs.next()) {
-				t = new TestForTable(rs.getString(1),rs.getString(2),rs.getString(3),
-						rs.getInt(4),rs.getInt(5),rs.getInt(6));
+				t = new TestForTable(rs.getString(1),rs.getString(2),rs.getString(4),
+						rs.getInt(5),rs.getInt(6),rs.getInt(7));
 				testList.add(t);
 			}
 			if(testList.size() == 0)
