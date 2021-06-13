@@ -28,13 +28,8 @@ public enum Operation {
 	GetQuestionInfo,
 	GetTestsActivatedByTeachger,
 	GetAmountOfTests,
-<<<<<<< HEAD
 	AddNewTest,
 	GetTestConfirmationTable,
 	GetCalculatedGradeForConfirmation
-=======
-	AddNewTest
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
-	
 }

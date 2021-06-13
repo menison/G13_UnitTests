@@ -179,7 +179,6 @@ public class DataManager {
 		this.addTestMsg = addTestMsg;
 	}
 
-<<<<<<< HEAD
 	public ArrayList<TestToConfirm> getTestsToConfirm() {
 		return testsToConfirm;
 	}
@@ -191,10 +190,7 @@ public class DataManager {
 
 }
 
-=======
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 
-}
 
 
 

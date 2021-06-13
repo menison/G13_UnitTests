@@ -1,5 +1,6 @@
 package gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -9,7 +10,6 @@ import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
 import entities.Message;
-import entities.TestForTable;
 import entities.TestToConfirm;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -62,25 +62,28 @@ public class ConfirmGradesController implements Initializable {
     @FXML
     void confirmGrade(ActionEvent event) {
     	Stage newStage = new Stage();
-    	
-    	//TestRequestedController trc = new TestRequestedController();
-		//trc.start(newStage);
+    	GradesConfirmationController gcc = new GradesConfirmationController();
+		gcc.start(newStage);
     }
     
-    public void start(Stage primaryStage) throws Exception {	
+    public void start(Stage primaryStage) {	
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/fxml/ConfirmGrades.fxml"));
-		root = loader.load();
-		Scene scene = new Scene(root);
-		primaryStage.setTitle("Confirm Grades");
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		try {
+			root = loader.load();
+			Scene scene = new Scene(root);
+			primaryStage.setTitle("Confirm Grades");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		ClientUI.chat.accept(new Message(Operation.GetTestConfirmationTable));
+		ClientUI.chat.accept(new Message(Operation.GetTestConfirmationTable), );
 		
 		DataManager dm = DataManager.getDataManager();
    

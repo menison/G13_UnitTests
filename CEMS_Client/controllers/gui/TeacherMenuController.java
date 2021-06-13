@@ -32,6 +32,9 @@ public class TeacherMenuController {
 
 	@FXML
 	private JFXButton teacherMenu_btnLogout;
+	
+    @FXML
+    private JFXButton teacherMenu_btnGConfirmation;
 
 	public void start(Stage primaryStage){
 		// Parent root = FXMLLoader.load(getClass().getResource("TestRequested.fxml"));
@@ -96,5 +99,14 @@ public class TeacherMenuController {
 		Stage primaryStage = new Stage();
 		cerc.start(primaryStage);
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
+    }
+    
+    @FXML
+    void loadGradeConfirmationWindow(ActionEvent event) {
+    	ConfirmGradesController cgc = new ConfirmGradesController();
+    	Stage primaryStage = new Stage();
+    	Stage stage = (Stage) teacherMenu_btnGConfirmation.getScene().getWindow();
+    	stage.close();
+    	cgc.start(primaryStage);
     }
 }

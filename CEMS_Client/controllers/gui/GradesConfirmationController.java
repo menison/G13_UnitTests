@@ -1,6 +1,7 @@
 package gui;
 
-    import java.net.URL;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -36,29 +37,56 @@ import javafx.stage.Stage;
         private JFXButton confirmation_btnClose;
 
         @FXML
+        private JFXButton confirmation_BtnSave;
+        
+        @FXML
         void changeGrade(ActionEvent event) {
         	newGrade_txtField.setVisible(true);
     		reasonForChange_txtField.setVisible(true);
-    		int newGrade = Integer.parseInt(newGrade_txtField.getText());
-    		String reason = reasonForChange_txtField.getText();
+    		confirmation_BtnSave.setText("Save");
     		
         }
 
+
+        @FXML
+        void Save(ActionEvent event) {
+        	int newGrade = Integer.parseInt(newGrade_txtField.getText());
+    		String reason = reasonForChange_txtField.getText();
+    		
+    		String op = confirmation_BtnSave.getText();
+    		switch (op) {
+    		case "Save":
+    			
+    			break;
+    		case "Authorize":
+    			
+    			break;
+    		}
+    		
+   
+    		
+    		
+        }
+        
         @FXML
         void close(ActionEvent event) {
         	Stage stage = (Stage) confirmation_btnClose.getScene().getWindow();
         	stage.close();
         }
         
-        public void start(Stage primaryStage) throws Exception {	
+        public void start(Stage primaryStage) {	
         	Pane root;
         	FXMLLoader loader = new FXMLLoader();
-    		loader.setLocation(getClass().getResource("/fxml/ConfirmGrades.fxml"));
-    		root = loader.load();
-    		Scene scene = new Scene(root);
-    		primaryStage.setTitle("Confirm Grades");
-    		primaryStage.setScene(scene);
-    		primaryStage.show();
+    		loader.setLocation(getClass().getResource("/fxml/GradesConfirmation.fxml"));
+    		try {
+				root = loader.load();
+				Scene scene = new Scene(root);
+	    		primaryStage.setTitle("Confirm Grades");
+	    		primaryStage.setScene(scene);
+	    		primaryStage.show();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
     	}
 
 		@Override
@@ -67,10 +95,11 @@ import javafx.stage.Stage;
 			calculatedGrade_txtField.setText(null);
 			newGrade_txtField.setVisible(false);
     		reasonForChange_txtField.setVisible(false);
+    		confirmation_BtnSave.setText("Authorize");
 			
 		}
         
 
     }
 
-}
+
