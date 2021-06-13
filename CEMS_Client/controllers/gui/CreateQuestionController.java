@@ -114,14 +114,14 @@ public class CreateQuestionController {
     void close(ActionEvent event) {
     	Stage newStage = new Stage();
     	Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    	//QuestionTableController qtc = new QuestionTableController();
-    	//try {
-		//	qtc.start(newStage);
-		//} catch (IOException e) {
-		//	// TODO Auto-generated catch block
-		//	e.printStackTrace();
-		//}
-    	//currentStage.close();
+    	QuestionTableController qtc = new QuestionTableController();
+    	try {
+			qtc.start(newStage);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	currentStage.close();
 
     }
 
@@ -161,8 +161,8 @@ public class CreateQuestionController {
     	ClientUI.chat.accept(new Message(Operation.AddQuestionToDatabase,qst));
     	confirmPopUp(DataManager.getDataManager().getQuestionMsg());
 		QuestionTableController qtc = new QuestionTableController();
-		//Stage primaryStage = new Stage();
-		//qtc.start(primaryStage);
+		Stage primaryStage = new Stage();
+		qtc.start(primaryStage);
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     	
 
