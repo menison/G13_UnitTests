@@ -4,12 +4,23 @@ import entities.Message;
 import gui.ActivateTestController;
 import request.AddTeacherTestsToDM;
 import request.FullTestTable;
+
+import request.GetCurrentExecEmail;
+
 import request.HandleActivateStatus;
+
 import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
+<<<<<<< HEAD
 import request.SetTestConfirmationTable;
+=======
+
+import request.SetDurationForExecTest;
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import request.SetTestsValues;
+
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
@@ -51,6 +62,13 @@ public class Parsing {
 		case GetTestsForTeacherReport:
 			TeacherSetTableForSelfTests.setTableForSelfTests(receivedMessage);
 			break;
+
+		case getInstructionsAndMail:
+			GetCurrentExecEmail.setEmail(receivedMessage);
+			break;
+		case GetTimeForTestInExecution:
+			SetDurationForExecTest.setDuration(receivedMessage);
+
 		case GetSubjectsAndCourses:
 			SetTestsValues.setSubjects(receivedMessage);
 			break;

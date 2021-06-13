@@ -1,5 +1,6 @@
 package entities;
 
+<<<<<<< HEAD
 import java.io.Serializable;
 
 public class TestToConfirm implements Serializable {
@@ -7,6 +8,9 @@ public class TestToConfirm implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 473453805476116538L;
+=======
+public class TestToConfirm  {
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	private String testID;
 	private String testCode;
 	private String date;
