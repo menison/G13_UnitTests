@@ -32,7 +32,7 @@
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="PrincipalTestExtentionRequests_btnDecline" buttonType="RAISED" layoutX="703.0" layoutY="427.0" prefHeight="39.0" prefWidth="87.0" style="-fx-border-color: red;" text="decline " />
-      <JFXButton fx:id="PrincipalTestExtentionRequests_btnApprove" buttonType="RAISED" layoutX="609.0" layoutY="427.0" style="-fx-border-color: green;" text="approve " />
+      <JFXButton fx:id="PrincipalTestExtentionRequests_btnDecline" buttonType="RAISED" layoutX="703.0" layoutY="427.0" onAction="#decline" prefHeight="39.0" prefWidth="87.0" style="-fx-border-color: red;" text="decline " />
+      <JFXButton fx:id="PrincipalTestExtentionRequests_btnApprove" buttonType="RAISED" layoutX="609.0" layoutY="427.0" onAction="#approve" style="-fx-border-color: green;" text="approve " />
    </children>
 </AnchorPane>

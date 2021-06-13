@@ -28,19 +28,41 @@ public enum Operation {
 	GetQuestions,
 	GetQuestionTable,
 	ActivateTestCodeFailed,
+<<<<<<< HEAD
 	ActivateTestCodeSuccess,
 	GetAmountOfTests,
+=======
+	ActivateTestCodeSuccess,
+
+	RequestExtensionFailed,
+	RequestExtensionSuccess,
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	GetAmountOfQuestions,
 	GetCourseAmountOfQuestions,
 	AddQuestionToDatabase,
 	IncrementNumOfQuestionsInCourse,
+<<<<<<< HEAD
 	AddNewTest,
 	GetQuestionInfo,
 	GetTestsActivatedByTeacher,
 	GetTestConfirmationTable,
 	GetCalculatedGradeForConfirmation,
+=======
+	AddNewTest,
+	GetQuestionInfo,
+	GetTestsActivatedByTeacher,
+	GetAmountOfTests,
+	GetTestConfirmationTable,
+	GetCalculatedGradeForConfirmation,
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	GetTestsActivatedByTeachger,
 	RequestExtension,
 	ChangeAmountOfTestsInCourseTable,
+<<<<<<< HEAD
 	GetExtensionRequests
+=======
+	GetExtensionRequests, 
+	ApproveExtensionRequests,
+	DeclineExtensionRequests
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 }

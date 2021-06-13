@@ -10,8 +10,9 @@ import entities.Message;
 import entities.TestForFullTable;
 import gui.ServerController;
 
-public class ActivateTest {
 
+public class ActivateTest {
+	
 	public static Message validateAndActivate(Message msg){
 		ResultSet codes;
 		ResultSet testForDuration;

@@ -12,5 +12,13 @@ public class PrincipalExtentionRequests {
 		ArrayList<Extension> extensions = (ArrayList<Extension>) receivedMessage.getObj();
 		DataManager.getDataManager().setExtensionRequests(extensions);
 	}
+	public static void principalApproveExtentionRequests(Message receivedMessage) {
+		String msg = (String) receivedMessage.getObj();
+		DataManager.getDataManager().setActivateMsg(msg);
+	}
+	public static void principalDeclineExtentionRequests(Message receivedMessage) {
+		String msg = (String) receivedMessage.getObj();
+		DataManager.getDataManager().setActivateMsg(msg);
+	}
 
 }

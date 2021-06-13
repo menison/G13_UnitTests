@@ -51,7 +51,8 @@ public class CreateExtensionRequestController {
 
     @FXML
     void Extend(ActionEvent event) throws IOException {
-    	Object selectedItems=RequestExtension_tblTest.getSelectionModel().getSelectedItem().getTestCode();
+    	String selectedItems=(String)RequestExtension_tblTest.getSelectionModel().getSelectedItem().getTestCode();
+    	int duration=(int)RequestExtension_tblTest.getSelectionModel().getSelectedItem().getDuration();
     	if(selectedItems!=null);
     	{
 
@@ -59,7 +60,7 @@ public class CreateExtensionRequestController {
     	ExtensionController extension= new ExtensionController();
     	extension.start(stage);
 		DataManager dm = DataManager.getDataManager();
-		dm.setExtension(new Extension(selectedItems.toString(),dm.getCurrentUser().getPersonalSID()));
+		dm.setExtension(new Extension(duration,selectedItems,dm.getCurrentUser().getPersonalSID()));
     	}	
     }
 
@@ -84,7 +85,6 @@ public class CreateExtensionRequestController {
 	}
 	@FXML
 	public void initialize() {
-
 
 		ObservableList<ActivatedTest> tests = FXCollections.observableArrayList( DataManager.getDataManager().getTeacherActivatedTests());
 		RequestExtension_CodeCol.setCellValueFactory(new PropertyValueFactory<>("testCode"));

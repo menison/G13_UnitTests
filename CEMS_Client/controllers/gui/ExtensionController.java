@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXTextField;
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
+import entities.Extension;
 import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -46,14 +47,29 @@ public class ExtensionController {
     		time = Integer.parseInt(extension_txtTimeExtension.getText());
     		
     	} catch (NumberFormatException e) {
-    		Alert alert = new Alert(AlertType.WARNING);
-    		alert.setContentText("Please use numbers only");
-    		alert.showAndWait();
+    		warningPopUp("Please use numbers only");
+
     		return;
     	}
+    	
     	String reason = extension_TextReason.getText();
-    	DataManager.getDataManager().addToInfoExtension(time, reason, 1, -1);
-		ClientUI.chat.accept(new Message(Operation.RequestExtension,DataManager.getDataManager().getExtension()));
+    	Extension ex = DataManager.getDataManager().getExtension();
+    	//	public Extension(String testCode, String requestedBy, int newDuration, String reason, int isRelevant,int isAuthorized) {
+    	Extension exet = new Extension(ex.getTestCode(),ex.getRequestedBy(),ex.getNewDuration()+time,reason,1,-1);
+
+		ClientUI.chat.accept(new Message(Operation.RequestExtension, exet));
+		
+		if(DataManager.getDataManager().isActivateSuccess()) {
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setContentText(DataManager.getDataManager().getActivateMsg());
+			alert.showAndWait();
+	    	Stage stage = (Stage) extension_btnRqstExtension.getScene().getWindow();
+	    	stage.close();
+
+		}
+		else {
+			warningPopUp(DataManager.getDataManager().getActivateMsg());
+			}
     	
     }
 	public void start(Stage newStage) throws IOException {
@@ -66,5 +82,12 @@ public class ExtensionController {
 		newStage.setScene(scene);
 		newStage.show();
 	}
+	
+    public void warningPopUp(String warning) {   //warnings func
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setContentText(warning);
+
+		alert.showAndWait();
+    }
 	
 }
