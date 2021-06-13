@@ -30,12 +30,13 @@ public enum Operation {
 	ActivateTestCodeFailed,
 	ActivateTestCodeSuccess,
 	GetQuestionInfo,
-	GetTestsActivatedByTeachger,
-	AddNewTest,
-	RequestExtension,
+	GetTestsActivatedByTeacher,
 	GetAmountOfTests,
+	AddNewTest,
 	GetTestConfirmationTable,
 	GetCalculatedGradeForConfirmation,
+	GetTestsActivatedByTeachger,
+	RequestExtension,
 	ChangeAmountOfTestsInCourseTable,
 	GetExtensionRequests
 

@@ -14,6 +14,8 @@ import request.ManualTestDownloader;
 import request.PrincipalExtentionRequests;
 import request.PrincipalSetReport;
 
+import request.SetTestConfirmationTable;
+
 import request.SetDurationForExecTest;
 
 import request.SetTestsValues;
@@ -78,7 +80,7 @@ public class Parsing {
 		case ActivateTestCodeSuccess:
 			HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
-		case GetTestsActivatedByTeachger:
+		case GetTestsActivatedByTeacher:
 			AddTeacherTestsToDM.add(receivedMessage);
 		case GetAmountOfTests:
 			SetTestsValues.setAmountOfTests(receivedMessage);
@@ -91,6 +93,8 @@ public class Parsing {
 		case GetExtensionRequests:
 			PrincipalExtentionRequests.principalSetExtentionRequests(receivedMessage);
 			break;
+		case GetTestConfirmationTable:
+			SetTestConfirmationTable.set(receivedMessage);
 		default:
 			break;
 		}

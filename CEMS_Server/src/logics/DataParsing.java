@@ -9,6 +9,7 @@ import dataParsing.GetDurationForExecTest;
 import dataParsing.AddTestsOperations;
 
 import dataParsing.GetFullTestTable;
+import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestTable;
 import dataParsing.HandleTestsActivatedByTeacher;
 import dataParsing.ManualTestDownloader;
@@ -73,6 +74,8 @@ public class DataParsing {
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case GetExtensionRequests:
 			return PrincipalGetExtentionRequests.getExtensions(receivedMessage);
+		case GetTestConfirmationTable:
+			return GetTestConfirmationTable.get(receivedMessage);
 		default:
 			break;
 		}
