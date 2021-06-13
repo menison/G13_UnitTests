@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
@@ -14,6 +14,7 @@ import com.jfoenix.controls.JFXTimePicker;
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
+import entities.ActivatedTest;
 import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,7 +22,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 
 public class ActivateTestController {
 	
@@ -55,42 +58,62 @@ public class ActivateTestController {
     @FXML
     void Activate(ActionEvent event) {
 		DataManager dm = DataManager.getDataManager();
-    	String[] toSend = new String[5];
-    	String pinCode = ActivateTest_pinCodeField.getText();
+    	String pinCode = ActivateTest_pinCodeField.getText();//check if code is 4 characters
     	if(pinCode.length()!=4) {
-    		errorTxt.setText("Code must be 4 characters");
-    		errorTxt.setVisible(true);
+			warningPopUp("Code must be 4 characters.");
+
     	}
-    	else if(ActivateTest_dateSelect.getValue()==null){
-    		errorTxt.setText("please choose a date");
-    		errorTxt.setVisible(true);
-    		
+    	else if(pinCode.matches("[a-zA-Z0-9]*")){ // check if code is letters and numbers only
+			warningPopUp("Letters and numbers only please.");
     	}
-    	else if(ActivateTest_timeSelect.getValue()==null){
-    		errorTxt.setText("please choose time");
-    		errorTxt.setVisible(true);
-    		
+    	else if(ActivateTest_dateSelect.getValue()==null){ // checks if user chose a date
+
+			warningPopUp("Please choose a date.");
+
     	}
+    	else if(ActivateTest_timeSelect.getValue()==null){ // checks if user chose a time
+			warningPopUp("Please choose time.");
+    	}
+
+    	else if(ActivateTest_dateSelect.getValue().compareTo(LocalDate.now())<0){ 
     		
+    		warningPopUp("Please provide a future date");
+    	}
+    	else if(ActivateTest_dateSelect.getValue().compareTo(LocalDate.now())==0 && ActivateTest_timeSelect.getValue().compareTo(LocalTime.now())<0){ 
+    		
+    		warningPopUp("Please provide a future time.");
+    	}
+			
+    		//date2.compareTo(date1)
 
     	else {
-    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+    		// formats date
+    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyy"); 
         	LocalDate date =ActivateTest_dateSelect.getValue();
         	String dateString = date.format(formatter);
-;
+			// formats time
         	LocalTime time =ActivateTest_timeSelect.getValue();
-        	DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmmss");
+        	DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmm");
         	String timeString = time.format(timeFormatter);
         	
-    	errorTxt.setVisible(false);
-    	toSend[0]=pinCode;
-    	toSend[1]=dm.getTestID();
-    	toSend[2]=dateString;
-    	toSend[3]=timeString;
-    	toSend[4]=dm.getCurrentUser().getPersonalSID();
-		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,toSend));
+
+    	//	public ActivatedTest(String testCode, String testID, String activatedBy, String startDate, String startTime,isActive
+    	ActivatedTest activeTest =new ActivatedTest(pinCode,dm.getTestID(),dm.getCurrentUser().getPersonalSID(),dateString,timeString,1);
+		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,activeTest));
+		
+		if(dm.isActivateSuccess()) {
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setContentText(dm.getActivateMsg());
+			alert.showAndWait();
+	    	Stage stage = (Stage) ActivateTest_btnActivate.getScene().getWindow();
+	    	stage.close();
+
+		}
+		else {
+			warningPopUp(dm.getActivateMsg());
+			}
+		
     	}
-    	
     	
     }
 
@@ -99,7 +122,16 @@ public class ActivateTestController {
     	Stage stage = (Stage) ActivateTest_btnClose.getScene().getWindow();
     	stage.close();
     }
-    
+    public void warningPopUp(String warning) {   //warnings func
+		Alert alert = new Alert(AlertType.WARNING);
+		alert.setContentText(warning);
+
+		alert.showAndWait();
+    }
+	@FXML
+	public void initialize() {
+		ActivateTest_timeSelect.getEditor().setDisable(true);
+		ActivateTest_dateSelect.getEditor().setDisable(true);
+	}
 
 }
-
