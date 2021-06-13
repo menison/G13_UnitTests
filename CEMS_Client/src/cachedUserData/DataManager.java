@@ -2,6 +2,7 @@ package cachedUserData;
 
 import java.util.ArrayList;
 
+import entities.ActivatedTest;
 import entities.Course;
 import entities.ExecutedTest;
 import entities.Field;
@@ -10,6 +11,7 @@ import entities.QuestionForCreateTest;
 import entities.Report;
 import entities.TestForFullTable;
 import entities.TestForTable;
+import entities.TestToConfirm;
 import entities.User;
 import javafx.scene.control.TableView;
 
@@ -21,6 +23,7 @@ public class DataManager {
 	private boolean PreOrder;
 	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
+	private ArrayList<TestToConfirm> testsToConfirm;
 	private ArrayList<TestForFullTable> fullTestList;
 	private ArrayList<Field> fields;
 	private ArrayList<Course> courses;
@@ -32,7 +35,16 @@ public class DataManager {
 	private String addTestMsg;
 
 	private boolean activateSuccess;
+	private ArrayList<ActivatedTest> teacherActivatedTests;
 	
+	public ArrayList<ActivatedTest> getTeacherActivatedTests() {
+		return teacherActivatedTests;
+	}
+
+	public void setTeacherActivatedTests(ArrayList<ActivatedTest> teacherActivatedTests) {
+		this.teacherActivatedTests = teacherActivatedTests;
+	}
+
 	public String getActivateMsg() {
 		return activateMsg;
 	}
@@ -168,6 +180,13 @@ public class DataManager {
 	}
 
 
+	public ArrayList<TestToConfirm> getTestsToConfirm() {
+		return testsToConfirm;
+	}
+
+	public void setTestsToConfirm(ArrayList<TestToConfirm> testsToConfirm) {
+		this.testsToConfirm = testsToConfirm;
+	}
 }
 
 

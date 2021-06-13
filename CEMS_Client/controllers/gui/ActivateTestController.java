@@ -63,7 +63,7 @@ public class ActivateTestController {
 			warningPopUp("Code must be 4 characters.");
 
     	}
-    	else if(pinCode.matches("[a-zA-Z0-9]*")){ // check if code is letters and numbers only
+    	else if(!pinCode.matches("[a-zA-Z0-9]*")){ // check if code is letters and numbers only
 			warningPopUp("Letters and numbers only please.");
     	}
     	else if(ActivateTest_dateSelect.getValue()==null){ // checks if user chose a date
@@ -87,18 +87,10 @@ public class ActivateTestController {
     		//date2.compareTo(date1)
 
     	else {
-    		// formats date
-    		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyy"); 
-        	LocalDate date =ActivateTest_dateSelect.getValue();
-        	String dateString = date.format(formatter);
-			// formats time
-        	LocalTime time =ActivateTest_timeSelect.getValue();
-        	DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmm");
-        	String timeString = time.format(timeFormatter);
-        	
 
+        	
     	//	public ActivatedTest(String testCode, String testID, String activatedBy, String startDate, String startTime,isActive
-    	ActivatedTest activeTest =new ActivatedTest(pinCode,dm.getTestID(),dm.getCurrentUser().getPersonalSID(),dateString,timeString,1);
+    	ActivatedTest activeTest =new ActivatedTest(pinCode,dm.getTestID(),dm.getCurrentUser().getPersonalSID(),ActivateTest_dateSelect.getValue(),ActivateTest_timeSelect.getValue(),1);
 		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,activeTest));
 		
 		if(dm.isActivateSuccess()) {

@@ -25,8 +25,11 @@ public enum Operation {
 	GetQuestionTable,
 	ActivateTestCodeFailed,
 	ActivateTestCodeSuccess,
+	GetQuestionInfo,
+	GetTestsActivatedByTeachger,
 	GetAmountOfTests,
-	AddNewTest,
-	ChangeAmountOfTestsInCourseTable
-	
+	GetTestConfirmationTable,
+	GetCalculatedGradeForConfirmation,
+	ChangeAmountOfTestsInCourseTable,
+	AddNewTest
 }

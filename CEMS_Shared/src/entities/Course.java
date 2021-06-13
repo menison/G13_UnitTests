@@ -11,7 +11,17 @@ public class Course implements Serializable{
 	private String ID;
 	private String name;
 	private Field belongsTo;
+	private int numOfQuestions;
+	private int numOfTests;
 	
+	public int getNumOfQuestions() {
+		return numOfQuestions;
+	}
+
+	public int getNumOfTests() {
+		return numOfTests;
+	}
+
 	public Course(String iD, String name, Field belongsTo) {
 		super();
 		ID = iD;

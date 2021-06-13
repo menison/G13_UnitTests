@@ -5,6 +5,7 @@ import dataParsing.ActivateTest;
 import dataParsing.AddTestsOperations;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestTable;
+import dataParsing.HandleTestsActivatedByTeacher;
 import dataParsing.ManualTestDownloader;
 import dataParsing.ManualTestUploader;
 import dataParsing.PrincipalGetReport;
