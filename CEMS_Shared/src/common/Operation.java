@@ -24,6 +24,8 @@ public enum Operation {
 	GetQuestions,
 	GetQuestionTable,
 	ActivateTestCodeFailed,
-	ActivateTestCodeSuccess
+	ActivateTestCodeSuccess,
+	GetAmountOfTests,
+	AddNewTest
 	
 }

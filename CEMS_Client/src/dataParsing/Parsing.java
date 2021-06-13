@@ -61,6 +61,12 @@ public class Parsing {
 		case ActivateTestCodeSuccess:
 		HandleActivateStatus.activateSuccess(receivedMessage);
 			break;
+		case GetAmountOfTests:
+			SetTestsValues.setAmountOfTests(receivedMessage);
+			break;
+		case AddNewTest:
+			SetTestsValues.setAmountOfTests(receivedMessage);
+			break;
 		default:
 			break;
 		}

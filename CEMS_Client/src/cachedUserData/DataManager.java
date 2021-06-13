@@ -29,6 +29,8 @@ public class DataManager {
 	private String testID;
 	private Report report;
 	private String activateMsg;
+	private String addTestMsg;
+
 	private boolean activateSuccess;
 	
 	public String getActivateMsg() {
@@ -156,6 +158,13 @@ public class DataManager {
 
 	public void setCreateTest_tblQuestions(TableView<QuestionForCreateTest> createTest_tblQuestions) {
 		CreateTest_tblQuestions = createTest_tblQuestions;
+	}
+	public String getAddTestMsg() {
+		return addTestMsg;
+	}
+
+	public void setAddTestMsg(String addTestMsg) {
+		this.addTestMsg = addTestMsg;
 	}
 
 
