@@ -10,14 +10,29 @@ import entities.Message;
 import entities.TestForFullTable;
 import gui.ServerController;
 
+/**
+ * @author David
+ * handles FullTestTable operation
+ */
 public class GetFullTestTable {
 	
+	/**
+	 * @param object		
+	 * @param testList		list of tests
+	 * @param rs			ResultSet holds table with information for FullTestTable window
+	 * @param composer		name tester composer
+	 * @param courseName	holds course of test
+	 * @param fieldName		this holds field of test
+	 * @param t				this is a TestForFullTable obbject to hold tests from SQL
+	 * @return 				returns TestForFullTable in a string
+	 * 
+	 * 
+	 * this method returns all available tests for teacher to choose from
+	 */
 	public static Message getTestTable(Message object) {
 		//ArrayList<Object> arrayToSend = new ArrayList<>();
 		ArrayList<TestForFullTable> testList;
-		Statement stmt;
 		ResultSet rs;
-		ResultSet rs2;
 		String composer;
 		String courseName;
 		String fieldName;
