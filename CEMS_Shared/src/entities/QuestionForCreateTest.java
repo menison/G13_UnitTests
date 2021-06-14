@@ -3,6 +3,12 @@ package entities;
 import java.io.Serializable;
 
 public class QuestionForCreateTest implements Serializable{
+	public String getQuestionStr() {
+		return questionStr;
+	}
+	public void setQuestionStr(String questionStr) {
+		this.questionStr = questionStr;
+	}
 	/**
 	 * 
 	 */

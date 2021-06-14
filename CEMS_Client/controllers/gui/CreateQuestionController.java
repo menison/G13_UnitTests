@@ -107,7 +107,16 @@ public class CreateQuestionController {
 
     @FXML
     void clear(ActionEvent event) {
-
+    	CreateQuestion_questionField.setText("");
+    	CreateQuestion_answer1Field.setText("");
+    	CreateQuestion_answer2Field.setText("");
+    	CreateQuestion_answer3Field.setText("");
+    	CreateQuestion_answer4Field.setText("");
+    	CreateQuestion_checkAnswer1.setSelected(true);
+    	CreateQuestion_checkAnswer2.setSelected(false);
+    	CreateQuestion_checkAnswer3.setSelected(false);
+    	CreateQuestion_checkAnswer4.setSelected(false);
+		
     }
 
     @FXML

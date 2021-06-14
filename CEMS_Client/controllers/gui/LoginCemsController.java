@@ -48,28 +48,6 @@ public class LoginCemsController extends AbstractController implements Initializ
     @FXML
     private Label TxtError;
     
-//    @FXML
-//    void login(ActionEvent event) throws Exception {
-//    	Stage newStage = new Stage();
-//    	if(login_txtUsername.getText().equals("student")) {
-//        	Stage stage = (Stage) login_btnLogin.getScene().getWindow();
-//        	StudentMenuController smc = new StudentMenuController();
-//        	smc.start(newStage);
-//        	stage.close();
-//    	}
-//    	else if(login_txtUsername.getText().equals("teacher")) {
-//        	Stage stage = (Stage) login_btnLogin.getScene().getWindow();
-//        	TeacherMenuController tmc = new TeacherMenuController();
-//        	tmc.start(newStage);
-//        	stage.close();
-//    	}
-//    	else if(login_txtUsername.getText().equals("principal")) {
-//        	Stage stage = (Stage) login_btnLogin.getScene().getWindow();
-//        	PrincipalMenuController pmc = new PrincipalMenuController();
-//        	pmc.start(newStage);
-//        	stage.close();
-//    	}
-//    }
     @FXML
     void login(ActionEvent event) {
     	Login.requestLogin(login_txtUsername.getText(), login_txtPassword.getText(), event);
