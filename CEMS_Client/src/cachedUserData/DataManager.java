@@ -31,29 +31,20 @@ public class DataManager {
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
-
-
 	private ArrayList<Extension> extensionRequests;
 	private String testID;
 	private Report report;
 	private TestToConfirm t;
-
 	private String currentExecEmail;
-
 	private String activateMsg;
-
 	private String addTestMsg;
-
 	private boolean activateSuccess;
-
 	private ArrayList<ActivatedTest> teacherActivatedTests;
 	private String addQuestionMsg;
 	private String incQuestionNumMsg;
 	private String amountOfQuestions;
-
 	private int tempNumOfQuestionsForCourse;
 	private Extension extension;
-
 	private Test test;
 	private Question question;
 
@@ -189,7 +180,6 @@ public class DataManager {
 	
 	public void clearAll() {
 		this.currentUser = null;
-		this.PreOrder = false;
 	}
 	
 	public ExecutedTest getTestInExecution() {
