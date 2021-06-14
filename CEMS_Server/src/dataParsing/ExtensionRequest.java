@@ -9,7 +9,15 @@ import entities.Extension;
 import entities.Message;
 import gui.ServerController;
 
+/**Class for handling test extension requests by the teacher.
+ * @author Aviv
+ *
+ */
 public class ExtensionRequest {
+	/**Method for handling test extension requests from the teacher.
+	 * @param msg Message containing the operation name and an extension entity.
+	 * @return returns a message that contains the operation name and a confirmation string.
+	 */
 	public static Message handleExtension(Message msg){
 		Extension exten= (Extension)msg.getObj();
 		ResultSet extensionRec;

@@ -12,8 +12,17 @@ import entities.Message;
 import entities.TestForTable;
 import gui.ServerController;
 
+/**
+ * This class is responsible for retrieving a list of tests to display in test table.
+ *
+ */
 public class GetTestTable {
 	
+	/**
+	 * This method retrieves the list of tests to display in tests table from the DB.
+	 * @param object
+	 * @return a message containing the list of tests to display in the test table.
+	 */
 	public static Message getTestTable(Message object) {
 		ArrayList<TestForTable> testList;
 		String studentID = (String)object.getObj();
@@ -22,7 +31,6 @@ public class GetTestTable {
 		Connection con = SetConnectionDB.start();
 		TestForTable t;
 		testList = new ArrayList<TestForTable>();
-		String returnStr = "";
 		Message messageToReturn;
 		try {
 			stmt = con.createStatement();

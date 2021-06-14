@@ -55,20 +55,11 @@ public class Query {
 				"SELECT * FROM test WHERE isActivated = true AND" + " currExecCode= \"" + testExecCode + "\";");
 	}
 
-
-	
-
-
-
-
-
-
 	public static ResultSet getExecutedTestByCodeAndID(String testExecCode,String userID) {
 		return resultqueryFrom(
 				"SELECT * FROM executedtest WHERE TestCode= \"" + testExecCode + "\" AND "
 						+ "ExecutedBy = \"" + userID +"\";");
 	}
-
 
 	/**SELECT * FROM activatedtest where code=test execution code.
 	 * @param testExecCode test execution code.
@@ -318,7 +309,6 @@ public class Query {
 		return toReturn;
 	}
 	
-	
 	/**Update a test to be suspect for copying.
 	 * @param testCode test execution code.
 	 * @param executedBy id of the user who executed the test.
@@ -339,7 +329,6 @@ public class Query {
 		
 	}
 
-	
 /**Update a test to be inactive.
  * @param testCode test execution code.
  * @return
@@ -376,8 +365,6 @@ public static int updateIsActivated(String testCode) {
 		return toReturn;
 	}
 
-
-
 	/**Method for running resultSet queries (SELECT) while connecting to the database using the setConnectionDB method.
 	 * @param query the query which is needed for running.
 	 * @return
@@ -392,7 +379,7 @@ public static int updateIsActivated(String testCode) {
 			Resultset = StatementOfResultSet.executeQuery(query);
 			return Resultset;
 		} catch (SQLException e) {
-			EchoServer.SC.addToTextArea("ERROR--> geting data from server");
+			EchoServer.SC.addToTextArea("ERROR--> getting data from server");
 			e.printStackTrace();
 		}
 		return null;

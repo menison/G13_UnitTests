@@ -13,7 +13,15 @@ import entities.Question;
 import entities.Test;
 import gui.ServerController;
 
+/**Class for adding test into the database after getting it from the client side.
+ * @author Aviv
+ *
+ */
 public class AddTestsOperations {
+	/**Method for getting the field and courses from the database for sending them to the client and store them in the data cache.
+	 * @param msg Message with the operation name.
+	 * @return returns a message with the operation name and the field array.
+	 */
 	public static Message getSubjectsAndCourses(Message msg) {
 		ArrayList<Field> fields = new ArrayList<Field>();
 		String query = null;
@@ -47,6 +55,10 @@ public class AddTestsOperations {
 		return null;
 	}
 
+	/**Method for getting all the questions in the database in order to store them in the data chache on the client side.
+	 * @param msg a message containing the operation name 'GetQuestions'
+	 * @return returns a message with the operation name and the questions array list.
+	 */
 	public static Message getQuestions(Message msg) {
 		ArrayList<Question> questions = new ArrayList<Question>();
 		String query = null;
@@ -71,6 +83,10 @@ public class AddTestsOperations {
 		return null;
 	}
 
+	/**Method for getting amount of tests related to a specific course id.
+	 * @param courseID course ID.
+	 * @return returns the amount of related questions.
+	 */
 	public static int getAmountOfTests(String courseID) {
 		Integer amountOfTests;
 		String query = null;
@@ -90,6 +106,10 @@ public class AddTestsOperations {
 		return 0;
 	}
 
+	/**Method for adding a test to the database.
+	 * @param msg message from the client containing the operation name and the test entity.
+	 * @return returns a message with the operaion name and a confirmation message.
+	 */
 	public static Message addTest(Message msg) {
 		Test test = (Test) msg.getObj();
 		int amountOfTests = getAmountOfTests(test.getTestID());
@@ -125,6 +145,10 @@ public class AddTestsOperations {
 		return new Message(Operation.AddNewTest, "Added new test successfully");
 	}
 
+	/**Method for increasing the amount of test related to the specific field by 1.
+	 * @param msg Message containing the operation name, the current amount and the course ID.
+	 * @return returns message with the operation name and a confirmation message.
+	 */
 	public static Message changeAmountOfTestsInCourseTable(Message msg) {
 		String courseID = ((String) msg.getObj()).split("_")[0];
 		String amount = ((String) msg.getObj()).split("_")[1];
