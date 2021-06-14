@@ -27,7 +27,7 @@ public class ExtensionRequest {
 
 				return new Message(Operation.RequestExtensionFailed,"there is already an extension request for this exam");
 			}else {
-				Query.update("INSERT INTO `extensionrequest` (`TestCode`, `RequestedBy`, `newDuration`, `Reason`, `isAuthorized`, isRelevant) "
+				Query.update("INSERT INTO extensionrequest (`TestCode`, `RequestedBy`, `newDuration`, `Reason`, `isAuthorized`, isRelevant) "
 						+ "VALUES ('"+exten.getTestCode()+"', '"+exten.getRequestedBy()+"', '"+exten.getNewDuration()+"', '"+exten.getReason()+"', '"+exten.getIsAuthorized()+"',"+exten.getIsRelevant()+");");
 				ServerController.sc.addToTextArea("extension request for exam with code:"+exten.getTestCode()+" was sent by teacher:"+exten.getRequestedBy());
 			}

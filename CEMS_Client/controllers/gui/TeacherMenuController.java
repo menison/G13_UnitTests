@@ -16,6 +16,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
+/**
+ * @author David
+ * TeacherMenuController controller for TeacherMenu FXML
+ */
 public class TeacherMenuController {
 
 	@FXML
@@ -40,6 +44,10 @@ public class TeacherMenuController {
     private JFXButton teacherMenu_btnLock;
     
 
+	/**
+	 * starts window
+	 * @param primaryStage
+	 */
 	public void start(Stage primaryStage){
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -55,6 +63,11 @@ public class TeacherMenuController {
 		}
 	}
 
+	/**
+	 * opens test table when clicked on testTable
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void testTable(ActionEvent event) throws IOException {
 		FullTestTableController ftt  = new FullTestTableController();
@@ -63,6 +76,11 @@ public class TeacherMenuController {
 		ftt.start(primaryStage);
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
 	}
+	/**
+	 * opens question table when clicked on questions
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void questionTable(ActionEvent event) throws IOException {
 		QuestionTableController qtc  = new QuestionTableController();	
@@ -71,6 +89,11 @@ public class TeacherMenuController {
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
 	}
 
+	/**
+	 * logs out from server when clicked on log out
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void logOut(ActionEvent event) throws IOException {
 		Stage newStage = new Stage();
@@ -83,6 +106,11 @@ public class TeacherMenuController {
 		((Node) event.getSource()).getScene().getWindow().hide();
 	}
 
+	/**
+	 * opens tests For Report window
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void testsForReport(ActionEvent event) throws IOException {
 		ClientUI.chat.accept(new Message(Operation.GetTestsForTeacherReport,
@@ -93,6 +121,11 @@ public class TeacherMenuController {
 		tsc.start(newStage);
 		currentStage.close();
 	}
+    /**
+     * opens test Extension window
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void testExtension(ActionEvent event) throws IOException {
     	CreateExtensionRequestController cerc  = new CreateExtensionRequestController();
@@ -102,6 +135,10 @@ public class TeacherMenuController {
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
     }
     
+    /**
+     * opens load Grade Confirmation Window
+     * @param event
+     */
     @FXML
     void loadGradeConfirmationWindow(ActionEvent event) {
     	ConfirmGradesController cgc = new ConfirmGradesController();
@@ -111,6 +148,10 @@ public class TeacherMenuController {
     	cgc.start(primaryStage);
     }
     
+    /**
+     * opens lock test window
+     * @param event
+     */
     @FXML
     void lockTest(ActionEvent event) {
     	LocktestController ltc = new LocktestController();

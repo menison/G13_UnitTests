@@ -49,7 +49,7 @@ public class ActivateTest {
 					}else {
 						
 						
-						Query.update("INSERT INTO `activatedtest` (`code`, `testID`, `activatedBy`, `startDate`, `startTime`, `isActive`, duration) "
+						Query.update("INSERT INTO activatedtest (`code`, `testID`, `activatedBy`, `startDate`, `startTime`, `isActive`, duration) "
 								+ "VALUES ('"+test.getTestCode()+"', '"+test.getTestID()+"', '"+test.getActivatedBy()+"', '"+test.getStartDateToString()+"', '"+test.getStartTimeToString()+"', 1,"+duration+");");
 						ServerController.sc.addToTextArea("test ID:"+test.getTestID()+" was activated with code:"+test.getTestCode());
 						}

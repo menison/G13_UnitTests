@@ -21,6 +21,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * @author David
+ * RequestedTestController controller for RequestedTest FXML
+ */
 public class RequestedTestController implements Initializable{
 
     @FXML
@@ -53,6 +57,12 @@ public class RequestedTestController implements Initializable{
     @FXML
     private Button testReview_closeBtn;
     
+    
+    /**
+     * starts window
+     * @param primaryStage
+     * @throws Exception
+     */
     public void start(Stage primaryStage) throws Exception {	
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
@@ -64,12 +74,20 @@ public class RequestedTestController implements Initializable{
 		primaryStage.show();
 	}
     
+    /**
+     * closes window
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void close(ActionEvent event) throws Exception {
     	Stage stage = (Stage) testReview_closeBtn.getScene().getWindow();
     	stage.close();
     }
     
+	/**
+	 * initializes window
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		DataManager dm = DataManager.getDataManager();
