@@ -16,15 +16,13 @@ public class SetConnectionDB {
 	 * setConnectionDB singleton instance.
 	 */
 	private static SetConnectionDB instance = null;
-	/**The Connection
-	 * 
+	/**
+	 * The Connection
 	 */
 	private Connection conn = null;
-<<<<<<< HEAD
 	public static String DBhost = "localhost";
 	public static String DBname = "test";
 	public static String DBPassword = "2694";
-=======
 
 
 
@@ -38,18 +36,16 @@ public class SetConnectionDB {
 	/**
 	 * Database host name.
 	 */
-	public static String DBhost = "localhost";
-	public static String DBname = "query";
-	public static String DBPassword = "sa1993sha";
+//	public static String DBhost = "localhost";
+//	public static String DBname = "query";
+//	public static String DBPassword = "sa1993sha";
 
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	public static String DBuser = "root";
 
 	private SetConnectionDB() {
 		this.conn = setConnection();
 	}
 
-<<<<<<< HEAD
 	/**
 	 * This method sets the connection to the DB by the relevant data defined earlier.
 	 * @return a connection to the DB.
@@ -80,7 +76,6 @@ public class SetConnectionDB {
 		return null;
 	}
 
-<<<<<<< HEAD
 	/**
 	 * This method is the implementation of Singleton's getInstance method.
 	 * @return the single instance of the DBConnection.
