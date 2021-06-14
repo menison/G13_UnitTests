@@ -9,7 +9,6 @@ import cachedUserData.DataManager;
 import common.Operation;
 import entities.Message;
 import entities.TestForTable;
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import com.jfoenix.controls.JFXTextField;
 import application.ClientUI;
 import cachedUserData.DataManager;
@@ -14,7 +13,6 @@ import common.Operation;
 import entities.ExecutedTest;
 import entities.Message;
 import entities.Test;
-import gui.TestQuestionMiddleController.App;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
