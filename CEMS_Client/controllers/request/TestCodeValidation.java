@@ -3,8 +3,6 @@ package request;
 import cachedUserData.DataManager;
 import entities.ExecutedTest;
 import entities.Message;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 
 public class TestCodeValidation {
 

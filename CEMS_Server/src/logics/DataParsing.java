@@ -109,6 +109,8 @@ public class DataParsing {
 			return EditQuest.getInfo(receivedMessage);
 		case SubmitQuestionInfo:
 			return EditQuest.updateQuest(receivedMessage);
+		case CheckFraud:
+			FraudChecker.checkFraud(receivedMessage);
 		default:
 			break;
 		}

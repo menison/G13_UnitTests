@@ -65,6 +65,7 @@ public class ConfirmGradesController implements Initializable{
     void confirmGrade(ActionEvent event) {
     	Stage newStage = new Stage();
     	TestToConfirm t = confirmGrades_tblViewConfirm.getSelectionModel().getSelectedItem();
+    	ClientUI.chat.accept(new Message(Operation.CheckFraud, t));
     	DataManager dm = DataManager.getDataManager();
     	dm.setT(t);
     	GradesConfirmationController gcc = new GradesConfirmationController();

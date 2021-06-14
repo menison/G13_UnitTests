@@ -1,14 +1,11 @@
 package dataParsing;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-
 import common.Operation;
 import database.Query;
-import database.SetConnectionDB;
 import entities.Message;
 import entities.TestForFullTable;
 import gui.ServerController;

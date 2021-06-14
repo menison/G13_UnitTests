@@ -6,7 +6,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import com.jfoenix.controls.JFXTextField;
 import application.ClientUI;
 import cachedUserData.DataManager;
@@ -14,7 +13,6 @@ import common.Operation;
 import entities.ExecutedTest;
 import entities.Message;
 import entities.Test;
-import gui.TestQuestionMiddleController.App;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -89,10 +87,13 @@ public class ManualTestController implements Initializable{
 		Object[] arr = new Object[2];
 		arr[0] = SolutionFile;
 		arr[1] = execTest;
+		System.out.println("before upload accept");
 		ClientUI.chat.accept(new Message(Operation.UploadManualTest, arr));
 		System.out.println("Test sent succesfully. Good luck!\n");
 		TestFinalController tfc = new TestFinalController();
 		Stage primaryStage = new Stage();
+		Stage stage = (Stage)manualTest_btnSend.getScene().getWindow();
+		stage.close();
 		tfc.start(primaryStage);
 	}
 

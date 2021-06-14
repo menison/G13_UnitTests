@@ -2,8 +2,6 @@ package request;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-
 import cachedUserData.DataManager;
 import entities.Message;
 import entities.Report;

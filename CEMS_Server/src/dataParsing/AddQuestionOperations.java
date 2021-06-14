@@ -77,7 +77,6 @@ public class AddQuestionOperations {
 	public static int  getAmountOfCourseQuestionsbyString(String msg) {
 		Integer amountOfQuestions;
 		ResultSet rs;
-		int messageToReturn;
 		try {
 			rs=Query.SelectColumnTableWhere("numOfQuestions", "course", "ID", msg);
 			ServerController.sc.addToTextArea("Counting Questions For Course ID: "+msg);

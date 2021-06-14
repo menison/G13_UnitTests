@@ -1,60 +1,24 @@
 package dataParsing;
 
 import entities.Message;
-
-
-import gui.ActivateTestController;
-import request.AddTeacherTestsToDM;
-import request.FullTestTable;
-
-
-
-
-
-import request.GenerateQuestionID;
-
-
-
-
-import request.GetCurrentExecEmail;
-
-
-
-
-import request.HandleActivateStatus;
-
-
 import request.AddTeacherTestsToDM;
 import request.AfterGradeAuth;
 import request.EditTesterHandler;
 import request.FullTestTable;
+import request.GenerateQuestionID;
 import request.GetCurrentExecEmail;
 import request.HandleActivateStatus;
-import request.GenerateQuestionID;
-
-
-import request.AddTeacherTestsToDM;
-import request.AfterGradeAuth;
-import request.FullTestTable;
-import request.GetCurrentExecEmail;
-import request.HandleActivateStatus;
-import request.GenerateQuestionID;
-
+import request.HandleCheaters;
 import request.Login;
 import request.ManualTestDownloader;
-import request.PrincipalSetReport;
+import request.ManualTestUploader;
 import request.PrincipalExtentionRequests;
-
 import request.PrincipalSetReport;
 import request.QuestionInfoHandler;
-import request.SetTestConfirmationTable;
-
-
-import request.SetTestConfirmationTable;
-
 import request.SetDurationForExecTest;
-import request.SetTestsValues;
 import request.SetIfCurrentExecutedTestIsActive;
+import request.SetTestConfirmationTable;
+import request.SetTestsValues;
 import request.SetTimeForExecExam;
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
@@ -90,6 +54,7 @@ public class Parsing {
 			ManualTestDownloader.simulateManualTestExecution(receivedMessage);
 			break;
 		case UploadManualTest:
+			ManualTestUploader.checkUploadStatus(receivedMessage);
 			break;
 		case GetReport:
 			PrincipalSetReport.generateReport(receivedMessage);
@@ -183,6 +148,8 @@ public class Parsing {
 			break;
 		case UpdateTest:
 			EditTesterHandler.getMsg(receivedMessage);
+		case CheckFraud:
+			HandleCheaters.handle(receivedMessage);
 		break;
 		default:
 			break;

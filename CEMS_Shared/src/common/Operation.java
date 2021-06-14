@@ -6,7 +6,6 @@ package common;
  */
 public enum Operation {
 	
-	Operation1,
 	Login,
 	Logout,
 	Operation3,
@@ -52,7 +51,8 @@ public enum Operation {
 	DeclineExtensionRequests,
 	SubmitQuestionInfo,
 	GetTestByID,
-	UpdateTest
+	UpdateTest,
+	CheckFraud
 
 
 }

@@ -2,6 +2,7 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.HashSet;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXButton;
@@ -130,6 +131,12 @@ import javafx.stage.Stage;
     		labelToHide2.setVisible(false);
     		confirmation_BtnSave.setText("Authorize");
     		calculatedGrade_txtField.setEditable(false);
+    		HashSet<String> suspects = dm.getSuspectsForFraud();
+    		if (suspects.contains(t.getExecutedBy())){
+    			Alert alert = new Alert(AlertType.WARNING)
+    			alert.setContentText("WARNING - "
+    					+ "This student is involved in a fraud! worth a review");
+    			alert.showAndWait();
 			
 		}
         

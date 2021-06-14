@@ -4,7 +4,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.sql.Blob;
 import java.sql.Connection;
-
+import common.Operation;
 import database.Query;
 import database.SetConnectionDB;
 import entities.ExecutedTest;
@@ -13,9 +13,8 @@ import server.EchoServer;
 
 public class ManualTestUploader {
 	public static Message uploadManualTest(Object obj) {
-		Object[] arr = new Object[2];
-		arr =  (Object[]) obj;
-		System.out.println(arr.toString());
+		Message msg = (Message)obj;
+		Object[] arr = (Object[]) msg.getObj();
 		File f = (File) arr[0];
 		ExecutedTest t = (ExecutedTest) arr[1];
 		
@@ -27,9 +26,10 @@ public class ManualTestUploader {
 			Query.writeManualTestBlobToDB(b, t);
 		} catch (Exception e) {
 			e.printStackTrace();
+			return new Message(Operation.UploadManualTest, "fail");
 		}
 		EchoServer.SC.addToTextArea("Test downloaded successfully. You can find it in:" 
 				+ f.getAbsolutePath() + "\n");
-		return null;
+		return new Message(Operation.UploadManualTest, "success");
 	}
 }
