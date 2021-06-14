@@ -59,6 +59,10 @@ public class PrincipalTestExtentionRequestsController {
     @FXML
     private JFXButton PrincipalTestExtentionRequests_btnApprove;
     
+    @FXML
+    private JFXButton btnBack;
+
+    
     /**
      * Standard controller starting mechanism.
      * @param primaryStage - a stage to start on.
@@ -74,7 +78,24 @@ public class PrincipalTestExtentionRequestsController {
 		newStage.show();
 	}
 	
-	
+    /**
+     * This method returns to the previous windoiw
+     * @param event
+     */
+    @FXML
+    void back(ActionEvent event) {
+    	Stage stage = (Stage)btnBack.getScene().getWindow();
+    	Stage primaryStage = new Stage();
+    	PrincipalMenuController pmc = new PrincipalMenuController();
+    	stage.close();
+    	try {
+			pmc.start(primaryStage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	
+    }
+    
     /**
      * This method finishes the extension request, closes the current window
      * and re-opens principal main menu.
