@@ -6,8 +6,16 @@ import cachedUserData.DataManager;
 import entities.Message;
 import entities.TestForFullTable;
 
+/** Class FullTestTable
+ * @author David
+ *	this class helps in created table view is all tests available
+ */
 public class FullTestTable {
 	
+	/**
+	 * @param msg			holds a string which is parsed into ArrayList of TestForFullTable
+	 * ArrayList loaded into data manager
+	 */
 	public static void setTable(Message msg) {
 		String str = msg.getObj().toString();
 		ArrayList<TestForFullTable> testList = new ArrayList<>();
