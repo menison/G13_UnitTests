@@ -11,8 +11,16 @@ import entities.Question;
 import gui.ServerController;
 
 
+/**Class for adding a question operation to the database.
+ * @author Aviv
+ *
+ */
 public class AddQuestionOperations {
 
+	/**Method for returning the full amount of question in the database.
+	 * @param msg Message containing the operation name.
+	 * @return return a message containing a string of the amount of question.
+	 */
 	public static Message getAmountOfQuestions(Message msg) {
 		Integer amountOfQuestions;
 		ResultSet rs;
@@ -31,6 +39,10 @@ public class AddQuestionOperations {
 		}
 		return null;
 	}
+	/**Method for getting the amount of questions related to course.
+	 * @param msg Message that contains the operation name.
+	 * @return Return the message containing the operation name and the number of questions to the client.
+	 */
 	public static Message getAmountOfCourseQuestions(Message msg) {
 		Integer amountOfQuestions;
 		ResultSet rs;
@@ -49,6 +61,10 @@ public class AddQuestionOperations {
 		}
 		return null;
 	}
+	/**Method for adding a question to the database after calculating the question id
+	 * @param msg Message the operation name and a question entity.
+	 * @return returns the message containing the operation and the successfull string message.
+	 */
 	public static Message addQuestionToDB(Message msg) {
 		Question qst=(Question) msg.getObj();
 		String fieldID=qst.getQuestionID();
@@ -66,14 +82,11 @@ public class AddQuestionOperations {
 		return messageToReturn;
 	}
 	
-//	public static Message increaseNumOfQuestionsInCourse(Message msg) {
-//		String courseID=(String) msg.getObj();
-//		Message messageToReturn;
-//		Query.IncreaseNumOfQuestionInCourse(courseID);
-//		ServerController.sc.addToTextArea("Increased number of questions in course ID: "+courseID);
-//		messageToReturn=new Message(Operation.IncrementNumOfQuestionsInCourse,"Number of question has been increased");
-//		return messageToReturn;
-//	}
+
+	/**Get amount of questions in a specific field.
+	 * @param msg containing the id of the field.
+	 * @return returns amount of question in a field.
+	 */
 	public static int  getAmountOfFieldQuestionsbyString(String msg) {
 		Integer amountOfQuestions;
 		ResultSet rs;
@@ -91,6 +104,11 @@ public class AddQuestionOperations {
 		return 0;
 
 }
+	/**Method for generating question id number using the field id and the number of existing questions.
+	 * @param fieldID field ID
+	 * @param numOfExistingQuestions number of existing question in that field.
+	 * @return returns a generated ID in string format.
+	 */
 	public static String Generate(String fieldID,int numOfExistingQuestions) {
 		numOfExistingQuestions++;
 		int qNum=numOfExistingQuestions;
