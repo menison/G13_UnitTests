@@ -1,13 +1,11 @@
 package gui;
 
 import java.io.IOException;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
@@ -25,7 +23,6 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import request.GenerateQuestionID;
 
 public class CreateQuestionController {
 

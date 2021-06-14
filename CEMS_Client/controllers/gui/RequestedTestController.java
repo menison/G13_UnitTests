@@ -4,11 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.jfoenix.controls.JFXTextField;
-
-import application.ClientUI;
 import cachedUserData.DataManager;
-import common.Operation;
-import entities.Message;
 import entities.QaForTable;
 import entities.TestForRequestedTest;
 import javafx.collections.FXCollections;
