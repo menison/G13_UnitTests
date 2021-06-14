@@ -9,7 +9,17 @@ import entities.Message;
 import entities.Test;
 import server.EchoServer;
 
+/**
+ * This class is responsible for downloading manual tests - *.txt files.
+ * File's name will be composed by the testID and the unique testCode.
+ */
 public class ManualTestDownloader {
+	/**
+	 * This method is responsible for retrieving a path to download to from the user
+	 * and saving it in the requested directory.
+	 * @param obj
+	 * @return
+	 */
 	public static Message downloadManualTest(Object obj) {
 		Message msg = (Message)obj;
 		Object[] arr = new Object[2];

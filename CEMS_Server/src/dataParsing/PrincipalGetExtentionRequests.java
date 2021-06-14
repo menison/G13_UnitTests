@@ -10,7 +10,16 @@ import entities.Extension;
 import entities.Message;
 import gui.ServerController;
 
+/**
+ * This class is responsible for getting extension requests for the principal's side table.
+ *
+ */
 public class PrincipalGetExtentionRequests {
+	/**
+	 * This method is responsible for retrieving extension requests from the DB.
+	 * @param msg - a message from client containing data.
+	 * @return Message containing the extension requests.
+	 */
 	public static Message getExtensions(Message msg) {
 		ArrayList<Extension> extensions = new ArrayList<Extension>();
 		String query = null;
@@ -34,6 +43,11 @@ public class PrincipalGetExtentionRequests {
 		}
 		return null;
 	}
+	/**
+	 * This method is responsible for updating DB in a case that principal approved a request.
+	 * @param msg - containing message from client
+	 * @return
+	 */
 	public static Message principalApproveRequests(Message msg) {
 		String testCode = ((String) msg.getObj()).split("_")[0];
 		String newDuration = ((String) msg.getObj()).split("_")[1];
@@ -42,6 +56,11 @@ public class PrincipalGetExtentionRequests {
 		ServerController.sc.addToTextArea("Update duration for exam" + testCode + " to " + newDuration);
 		return new Message(Operation.ApproveExtensionRequests, "done");
 	}
+	/**
+	 * This method is responsible for updating DB in a case that principal declined a request.
+	 * @param msg - containing message from client
+	 * @return
+	 */
 	public static Message principalDeclineRequests(Message msg) {
 		String testCode = (String) msg.getObj();
 		Query.update("UPDATE `query`.`extensionrequest` SET `isAuthorized` = 0 WHERE (`TestCode` = '" + testCode + "');");

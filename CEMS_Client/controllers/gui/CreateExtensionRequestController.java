@@ -22,6 +22,20 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**Class CreateExtensionRequestController for CreateExtensionRequest FXML
+ * @author David
+ *@param RequestExtension_btnExtend			Button  to request extension
+ *@param RequestExtension_btnClose			Button to close window
+ *@param RequestExtension_tblTest			Tableview for activated tests
+ *@param RequestExtension_CodeCol			Code column in table view
+ *@param RequestExtension_testIDCol			TestID column in table view
+ *@param RequestExtension_DateCol			Date column in table view
+ *@param RequestExtension_timeCol			Time column in table view
+ *@param RequestExtension_DurationCol		Duration column in table view
+ *
+ *This class is for CreateExtensionRequest FXML which handles extensions for activated tests by user
+ *
+ */
 public class CreateExtensionRequestController {
 
     @FXML
@@ -49,6 +63,12 @@ public class CreateExtensionRequestController {
     @FXML
     private TableColumn<ActivatedTest, Integer> RequestExtension_DurationCol;
 
+    /**
+     * @param event
+     * @throws IOException
+     * Function activated once RequestExtension_btnExtend button is activated
+     * opens new window of Extension forthe user to fill details
+     */
     @FXML
     void Extend(ActionEvent event) throws IOException {
     	String selectedItems=(String)RequestExtension_tblTest.getSelectionModel().getSelectedItem().getTestCode();

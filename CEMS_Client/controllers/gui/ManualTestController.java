@@ -51,6 +51,12 @@ public class ManualTestController implements Initializable{
 	
 	private boolean submited;
 	private ExecutedTest execTest;
+	
+	/**
+	 * This method allows the user to specify a path to download to the manual test created for him,
+	 * using a FileChooser dialogue menu. it saves the file within the desired path.
+	 * @param event - download was clicked.
+	 */
 	@FXML
     void downloadTest(ActionEvent event) {
 		Stage stage = (Stage) manualTest_btnDownload.getScene().getWindow();
@@ -70,6 +76,11 @@ public class ManualTestController implements Initializable{
 				+ file.getAbsolutePath() + "\n");
     }
 
+	/**
+	 * This method allows the user to choose a file using FileChooser to upload and initializing
+	 * a new file with the desired path.
+	 * @param event - upload was clicked.
+	 */
 	@FXML
 	void uploadTest(ActionEvent event) {
 		Stage stage = (Stage) manualTest_btnUpload.getScene().getWindow();
@@ -82,6 +93,12 @@ public class ManualTestController implements Initializable{
 		SolutionFile = fc.showOpenDialog(stage);
 	}
 
+	/**
+	 * This method sends the uploaded manual test to the server - resulting in progressing
+	 * to the test final window, and the manual test uploaded will be saved within a blob
+	 * in the DB.
+	 * @param event
+	 */
 	@FXML
 	void sendManualTest(ActionEvent event) {
 		DataManager dm = DataManager.getDataManager();
@@ -99,6 +116,10 @@ public class ManualTestController implements Initializable{
 		tfc.start(primaryStage);
 	}
 
+	/**
+	 * A standard controller starting mechanism.
+	 * @param primaryStage
+	 */
 	public void start(Stage primaryStage) {
 		Pane root;
     	FXMLLoader loader = new FXMLLoader();
@@ -115,6 +136,10 @@ public class ManualTestController implements Initializable{
 		}
 	}
 	
+	/**
+	 * A timer implementation that checks repeatedly to see whether the time for the test
+	 * is up!
+	 */
 	class App extends TimerTask {
     	int allocatedDuration = execTest.getTest().getAllocatedDuration();
         int countdown = allocatedDuration;
@@ -141,6 +166,9 @@ public class ManualTestController implements Initializable{
         }
     }
 
+	/**
+	 *This method initializes both the executed test item in our DataManager and the timer.
+	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	DataManager dm = DataManager.getDataManager();

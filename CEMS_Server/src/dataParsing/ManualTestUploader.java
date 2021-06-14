@@ -11,7 +11,16 @@ import entities.ExecutedTest;
 import entities.Message;
 import server.EchoServer;
 
+/**
+ * This class is responsible for writing a file as a blob to the relevant tuple in the DB.
+ *
+ */
 public class ManualTestUploader {
+	/**
+	 * This method writes the given file to a blob and writes it to the relevant tuple in the DB.
+	 * @param obj - message containing data from client.
+	 * @return Message containing operation status - success or failure
+	 */
 	public static Message uploadManualTest(Object obj) {
 		Message msg = (Message)obj;
 		Object[] arr = (Object[]) msg.getObj();

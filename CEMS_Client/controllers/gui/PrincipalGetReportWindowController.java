@@ -34,6 +34,11 @@ public class PrincipalGetReportWindowController {
 	@FXML
 	private Button PrincipalGetReportWindow_btnBack;
 
+	/**
+	 * Standard controller starting mechanism.
+	 * @param newStage
+	 * @throws IOException
+	 */
 	public void start(Stage newStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -45,6 +50,11 @@ public class PrincipalGetReportWindowController {
 		newStage.show();
 	}
 
+	/**
+	 * This method routes the user to the previous window - principal menu window.
+	 * @param event - back was clicked.
+	 * @throws Exception
+	 */
 	@FXML
 	void PrincipalGetReportWindow_btnBackClicked(ActionEvent event) throws Exception {
 		Stage newStage = new Stage();
@@ -54,11 +64,20 @@ public class PrincipalGetReportWindowController {
 		currentStage.close();
 	}
 	
+	/**
+	 * This methods initializes the relevant combobox with data.
+	 */
 	@FXML
 	public void initialize() {
 		PrincipalGetReportWindow_generateByCombo.getItems().addAll("Teacher", "Course", "Student");
 	}
 	
+	/**
+	 * This method submits the report request to the server, and if there is an available data
+	 * it routes the user to the next page - generated report window.
+	 * @param event- submit was clicked.
+	 * @throws Exception 
+	 */
 	@FXML
 	void PrincipalGetReportWindow_btnSubmitClicked(ActionEvent event) throws Exception {
 		String values = "";

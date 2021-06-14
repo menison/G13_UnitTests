@@ -3,16 +3,13 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
 import entities.ExecutedTest;
 import entities.Message;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,9 +19,11 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 
+/**
+ * A controller class handling the interaction with teacher in lock test window.
+ */
 public class EnterStudentIdController implements Initializable{
 
     @FXML
@@ -39,6 +38,10 @@ public class EnterStudentIdController implements Initializable{
     @FXML
     private JFXTextArea testInfo_txtArea_testInstruc;
     
+	/**
+	 * A standard controller starting mechanism.
+	 * @param primaryStage
+	 */
 	public void start(Stage primaryStage) {
 		Pane root;
     	FXMLLoader loader = new FXMLLoader();
@@ -57,6 +60,11 @@ public class EnterStudentIdController implements Initializable{
 		
 	}
 
+    /**
+     * This method will demand the user to enter his ID, it will check if it fits the current 
+     * user's ID and it will route the user to the questions window.
+     * @param event
+     */
     @FXML
     void StartTest(ActionEvent event) {
     	String studentId = testInfo_txtEnterUserID.getText();
@@ -83,6 +91,10 @@ public class EnterStudentIdController implements Initializable{
 	public void setTestInfo_txtContactMail(String str) {
 		this.testInfo_txtContactMail.setText(str);
 	}
+	/**
+	 *This method initializes all of the text fields and areas that should be initialized
+	 *with data from DataManager (which he got from server);
+	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		DataManager dm = DataManager.getDataManager();

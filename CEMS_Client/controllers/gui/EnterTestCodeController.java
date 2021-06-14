@@ -75,7 +75,7 @@ public class EnterTestCodeController {
     }
     
     /**
-     * This method
+     * This method routes the user to the previous window - student main menu window.
      * @param event - back button was pressed.
      * @throws Exception
      */
@@ -87,6 +87,11 @@ public class EnterTestCodeController {
     	stage.close();
     	smc.start(newStage);
     }
+    /**
+     * Standard controller starting mechanism.
+     * @param primaryStage - a stage to start on.
+     * @throws Exception
+     */
     public void start(Stage primaryStage) throws Exception {	
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();

@@ -11,6 +11,10 @@ import entities.TestToConfirm;
 
 public class GetTestConfirmationTable {
 
+	/**
+	 * @param receivedMessage
+	 * @return
+	 */
 	public static Message get(Message receivedMessage) {
 		Message messageToReturn;
 		ArrayList<TestToConfirm> testList;
