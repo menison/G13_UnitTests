@@ -70,9 +70,11 @@ public class AddQuestionForTestController {
 	void AddQuestion(ActionEvent event) throws IOException {
 		Question q = ChooseQuestion_tblQuestion.getSelectionModel().getSelectedItem();
 		String points = ChooseQuestion_pointsField.getText();
+		int p=0;
 	  	try {
 	      	@SuppressWarnings("unused")
 	    	int x = Integer.parseInt(ChooseQuestion_pointsField.getText());
+	      	p=x;
 		} catch (NumberFormatException e) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("Error");
@@ -80,7 +82,16 @@ public class AddQuestionForTestController {
 			alert.showAndWait(); //String is not an Integer
 			return;
 		}
-		if (q == null || points.isEmpty()) {
+	  	if(p<=0) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setContentText("Please use positive integers for points");
+			alert.showAndWait(); //String is not an Integer
+			
+	  		
+	  	}
+	  	
+	  	else if (q == null || points.isEmpty()) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setContentText("You have to choose a question and set points for it");

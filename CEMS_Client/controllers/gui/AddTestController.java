@@ -182,12 +182,23 @@ public class AddTestController {
 			alert.setContentText(notFilled);
 			alert.showAndWait();
 		} else {
+			int totalScore =0;
 			ArrayList<Question> questions = new ArrayList<Question>();
 			ArrayList<String> points = new ArrayList<String>();
 			for (QuestionForCreateTest qfct : CreateTest_tblQuestions.getItems()) {
 				questions.add(qfct.getQuestion());
 				points.add(qfct.getPoints());
+				totalScore+=Integer.parseInt(qfct.getPoints());
 			}
+		
+		if(totalScore!=100) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setContentText("Please make sure that the sum of all points is 100");
+			alert.showAndWait();
+		}else {
+			
+			
 			String[] pointsArray = new String[points.size()];
 			for (int i = 0; i < points.size(); i++) {
 				pointsArray[i] = points.get(i);
@@ -216,6 +227,7 @@ public class AddTestController {
 				alert.setContentText("There was a problem adding the test, Please try again");
 				alert.showAndWait();
 			}
+		}
 		}
 	}
 	/**

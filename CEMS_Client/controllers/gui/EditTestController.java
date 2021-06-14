@@ -131,12 +131,21 @@ public class EditTestController {
 			
     	String QuestionID="";
     	String points="";
-    	
+    	int totalScore=0;
 
 		for (QuestionForCreateTest qfct : EditTest_tblQuestions.getItems()) {
+			
 			QuestionID+=(qfct.getQuestion().toString())+",";
 			points+=(qfct.getPoints())+",";
+			totalScore+= Integer.parseInt(qfct.getPoints());
+			
 		}
+		if(totalScore!=100) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setContentText("Please make sure that the sum of all points is 100");
+			alert.showAndWait();
+		}else {
 		points = points.substring(0, points.length() - 1);
 		QuestionID = QuestionID.substring(0, QuestionID.length() - 1);
 
@@ -151,7 +160,7 @@ public class EditTestController {
     	Test test = new Test(testID,QuestionID,duration,studentComment, teacherComment, currExecCode, points,isActivated,comopser);
     	ClientUI.chat.accept(new Message(Operation.UpdateTest,test));
     	confirmPopUp(DataManager.getDataManager().getActivateMsg());
-    	
+		}
     }
 	/**
 	 * starts window
