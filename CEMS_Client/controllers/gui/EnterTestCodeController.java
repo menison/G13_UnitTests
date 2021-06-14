@@ -14,10 +14,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * A controller class handling the interaction with student in Enter test code window.
+ */
 public class EnterTestCodeController {
 
     @FXML
@@ -33,6 +35,12 @@ public class EnterTestCodeController {
     	return EnterTestCode_txtCode.getText();
     }
     
+    /**
+     * This method sends the test code to the server, making sure it exists and
+     * retrieving its' date by the testcode from the server.
+     * @param event - a click on send has occured.
+     * @throws Exception
+     */
     @FXML
     void SendTestCode(ActionEvent event) throws Exception {
     	DataManager dm = DataManager.getDataManager();
@@ -66,6 +74,11 @@ public class EnterTestCodeController {
     	}
     }
     
+    /**
+     * This method routes the user to the previous window - student main menu window.
+     * @param event - back button was pressed.
+     * @throws Exception
+     */
     @FXML
     void Back(ActionEvent event) throws Exception {
     	Stage newStage = new Stage();
@@ -74,6 +87,11 @@ public class EnterTestCodeController {
     	stage.close();
     	smc.start(newStage);
     }
+    /**
+     * Standard controller starting mechanism.
+     * @param primaryStage - a stage to start on.
+     * @throws Exception
+     */
     public void start(Stage primaryStage) throws Exception {	
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();

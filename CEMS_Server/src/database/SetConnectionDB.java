@@ -6,15 +6,22 @@ import java.sql.SQLException;
 
 import server.EchoServer;
 
-/**
- * Initialize the information to the specific database in addition to the
- * specific server including the server's password.
+
+/**Singleton for setting a connection to the database using the schema's name and the password.
+ * @author Aviv
  *
  */
 public class SetConnectionDB {
+	/**
+	 * setConnectionDB singleton instance.
+	 */
 	private static SetConnectionDB instance = null;
+	/**The Connection
+	 * 
+	 */
 	private Connection conn = null;
 
+<<<<<<< HEAD
 	public static String DBhost = "localhost";
 
 //	public static String DBname = "query";
@@ -23,25 +30,24 @@ public class SetConnectionDB {
 
 //	public static String DBname = "test";
 //	public static String DBPassword = "2694";
+=======
+	/**
+	 * Database host name.
+	 */
+	public static String DBhost = "localhost";
+	public static String DBname = "query";
+	public static String DBPassword = "sa1993sha";
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 
-//	public static String DBname = "query";
-//	public static String DBPassword = "davidNkin1";
-
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "MattB123Pa55w0rd";
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "In511995";
-
-
-	
 	public static String DBuser = "root";
 
 	private SetConnectionDB() {
 		this.conn = setConnection();
 	}
 
+	/**Method for setting the connection to the database.
+	 * @return returns the connection to the database.
+	 */
 	private Connection setConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -64,6 +70,9 @@ public class SetConnectionDB {
 		return null;
 	}
 
+	/**Start the connection.
+	 * @return
+	 */
 	public static Connection start() {
 		if (instance == null) {
 			instance = new SetConnectionDB();

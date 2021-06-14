@@ -24,7 +24,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+/**
+ * A controller class handling the interaction with principal in Grades Confirmation table window.
+ */
 public class GradesConfirmationController implements Initializable {
 
 	@FXML
@@ -51,6 +53,11 @@ public class GradesConfirmationController implements Initializable {
 	@FXML
 	private JFXButton confirmation_BtnSave;
 
+	/**
+	 * This method controls txt fields and buttons that are displayed only if the toggleButton
+	 * is set.
+	 * @param event - changeGrade was clicked
+	 */
 	@FXML
 	void changeGrade(ActionEvent event) {
 
@@ -70,11 +77,15 @@ public class GradesConfirmationController implements Initializable {
 
 	}
 
+	/**
+	 * This method either saves a grade change and authorize it or just authorize the grade
+	 * and write it to isAuthorized flag in the relevant tuples in the DB.
+	 * @param event - save was clicked.
+	 */
 	@FXML
 	void Save(ActionEvent event) {
 		int newGrade = Integer.parseInt(newGrade_txtField.getText());
-		// String reason = reasonForChange_txtField.getText();
-
+		String reason = reasonForChange_txtField.getText();
 		String op = confirmation_BtnSave.getText();
 		System.out.println(op);
 		DataManager dm = DataManager.getDataManager();
@@ -93,12 +104,20 @@ public class GradesConfirmationController implements Initializable {
 		alert.showAndWait();
 	}
 
+	/**
+	 * This method closes the current window.
+	 * @param event - close was clicked.
+	 */
 	@FXML
 	void close(ActionEvent event) {
 		Stage stage = (Stage) confirmation_btnClose.getScene().getWindow();
 		stage.close();
 	}
 
+	/**
+	 * Standard starting mechanism
+	 * @param primaryStage - a stage to start on.
+	 */
 	public void start(Stage primaryStage) {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -114,6 +133,10 @@ public class GradesConfirmationController implements Initializable {
 		}
 	}
 
+	/**
+	 * This method initializes the tableView's coloumns with data from the DataManager
+	 * (which gets it from the server and saves it like a cache, temporarily).
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ClientUI.chat.accept(new Message(Operation.GetCalculatedGradeForConfirmation, null));

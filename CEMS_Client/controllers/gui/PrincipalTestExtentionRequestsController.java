@@ -9,8 +9,6 @@ import cachedUserData.DataManager;
 import common.Operation;
 import entities.Extension;
 import entities.Message;
-import entities.Question;
-import entities.TestToConfirm;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -24,6 +22,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+
+/**
+ * A controller class handling interaction with principal in test extension requests window.
+ */
 
 public class PrincipalTestExtentionRequestsController {
 
@@ -56,7 +58,11 @@ public class PrincipalTestExtentionRequestsController {
 
     @FXML
     private JFXButton PrincipalTestExtentionRequests_btnApprove;
-
+    
+    /**
+     * Standard controller starting mechanism.
+     * @param primaryStage - a stage to start on.
+     */
 	public void start(Stage newStage) throws IOException {
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
@@ -67,6 +73,14 @@ public class PrincipalTestExtentionRequestsController {
 		newStage.setScene(scene);
 		newStage.show();
 	}
+	
+	
+    /**
+     * This method finishes the extension request, closes the current window
+     * and re-opens principal main menu.
+     * @param event- a click on done has occured.
+     * @throws Exception
+     */
     @FXML
     void PrincipalTestExtentionRequests_btnDoneClicked(ActionEvent event) throws Exception {
     	Stage newStage = new Stage();
@@ -76,6 +90,10 @@ public class PrincipalTestExtentionRequestsController {
     	currentStage.close();
     }
     
+	/**
+	 * This method, as soon as an instance of this controller is created,
+	 * initializes the extension requests table with data from server.
+	 */
 	@FXML
 	public void initialize() {
 		ClientUI.chat.accept(new Message(Operation.GetExtensionRequests));
@@ -90,6 +108,14 @@ public class PrincipalTestExtentionRequestsController {
 		PrincipalTestExtentionRequests_tblViewRequests.setItems(tests);
 	}
 	
+	
+	/**
+	 * This method approves the extension request and making sure that DB is updated with
+	 * the new test's duration and with a saved record of the extension request - new time and
+	 * reason will be saved within DB.
+	 * @param event - a click on approve has occured
+	 * @throws Exception
+	 */
 	@FXML
 	void approve(ActionEvent event) throws Exception {
 		Extension extension = PrincipalTestExtentionRequests_tblViewRequests.getSelectionModel().getSelectedItem();
@@ -124,6 +150,14 @@ public class PrincipalTestExtentionRequestsController {
 			}
 		}
 	}
+	
+	/**
+	 * This method declines the extension request and making sure that DB is updated 
+	 * with a saved record of the extension request - new time and
+	 * reason will be saved within DB.
+	 * @param event - a click on approve has occured
+	 * @throws Exception
+	 */
 	@FXML
 	void decline(ActionEvent event) throws Exception {
 		Extension extension = PrincipalTestExtentionRequests_tblViewRequests.getSelectionModel().getSelectedItem();

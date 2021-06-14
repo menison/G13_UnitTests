@@ -35,9 +35,12 @@ public class TeacherMenuController {
 	
     @FXML
     private JFXButton teacherMenu_btnGConfirmation;
+    
+    @FXML
+    private JFXButton teacherMenu_btnLock;
+    
 
 	public void start(Stage primaryStage){
-		// Parent root = FXMLLoader.load(getClass().getResource("TestRequested.fxml"));
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass().getResource("/fxml/TeacherMenu.fxml"));
@@ -75,11 +78,9 @@ public class TeacherMenuController {
 		try {
 			lcc.start(newStage);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		((Node) event.getSource()).getScene().getWindow().hide();
-
 	}
 
 	@FXML
@@ -108,5 +109,14 @@ public class TeacherMenuController {
     	Stage stage = (Stage) teacherMenu_btnGConfirmation.getScene().getWindow();
     	stage.close();
     	cgc.start(primaryStage);
+    }
+    
+    @FXML
+    void lockTest(ActionEvent event) {
+    	LocktestController ltc = new LocktestController();
+    	Stage primaryStage = new Stage();
+    	Stage stage = (Stage) teacherMenu_btnLock.getScene().getWindow();
+    	stage.close();
+    	ltc.start(primaryStage);
     }
 }

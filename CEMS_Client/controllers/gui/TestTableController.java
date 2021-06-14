@@ -11,13 +11,19 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * A controller class handling interaction with user in test table window.
+ */
 public class TestTableController{
 
     @FXML
@@ -49,9 +55,22 @@ public class TestTableController{
     
     @FXML
     void requestTestCopy(ActionEvent event) throws Exception {
+    	DataManager dm = DataManager.getDataManager();
+    	Object selectedItems;
+    	String second_Column = null;
+    	try {
+    	selectedItems = myTestsTable_tblTests.getSelectionModel().getSelectedItems().get(0);
+    	second_Column = selectedItems.toString().split(",")[1].substring(0);
+    	ClientUI.chat.accept(new Message(Operation.GetTestForReview,
+    			second_Column+","+dm.getCurrentUser().getPersonalSID()));
     	Stage newStage = new Stage();
-    	TestRequestedController trc = new TestRequestedController();
-		trc.start(newStage);
+    	RequestedTestController rtc = new RequestedTestController();
+    	rtc.start(newStage);
+    	} catch(Exception e) {
+    		Alert alert = new Alert(AlertType.WARNING);
+			alert.setContentText("Please select a row");
+			alert.showAndWait();
+    	}
     }
     
     @FXML
@@ -63,6 +82,10 @@ public class TestTableController{
     	stage.close();
     }
     
+    /**
+     * Standard controller starting mechanism.
+     * @param primaryStage - a stage to start on.
+     */
     public void start(Stage primaryStage) throws Exception {	
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
