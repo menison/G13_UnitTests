@@ -20,7 +20,7 @@ public class SetConnectionDB {
 
 
 	public static String DBname = "query";
-	public static String DBPassword = "sa1993sha";
+	public static String DBPassword = "davidNkin1";
 
 
 

@@ -14,7 +14,7 @@ public class EditTest {
 	public static Message getTest(Message msg){
 		ResultSet rs;
 		String ID= (String)msg.getObj();
-		System.out.println(ID);
+
 		rs=Query.getReport("SELECT * FROM test WHERE testID = "+ID);
 		
 		try {
@@ -32,7 +32,7 @@ public class EditTest {
 				
 				//	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,String commentsForTeachers, String currExecutionCode, String[] pointDistribution, String teacherComposed,String subject, String course, int isActivated) {
 				//	public Test (String testID,String questionString,int allocatedDuration,String commentsForStudents,String commentsForTeachers,String currExecutionCode,String pointsString,int isActivated,String teacherComposed)
-				System.out.println(rs.getString(1));
+
 				
 				Test test = new Test(testID, questions, allocatedDuration, commentsForStudents,commentsForTeachers ,currExecCode,pointDistribution,isActivated, ComposedBy);
 				return new Message(Operation.GetTestByID,test);
@@ -44,5 +44,13 @@ public class EditTest {
 		
 		return new Message(Operation.GetTestByID,null);
 
+	}
+	
+	public static Message updateTest(Message msg){
+		Test test =(Test)msg.getObj();
+		Query.update("UPDATE test SET questions  = '"+test.getQuestionString()+"', allocatedDuration = '"+test.getAllocatedDuration()+"'"
+				+ ", commentsForStudents  = '"+test.getCommentsForStudents()+"', commentsForTeachers = '"+test.getCommentsForTeachers()+"', pointDistribution  = '"+test.getPointsString()+"', ComposedBy = '"+test.getComposedBy()+"' WHERE testID = '"+test.getTestID()+"';");
+		return new Message(Operation.UpdateTest,"Test updated susccessfully");
+		
 	}
 }

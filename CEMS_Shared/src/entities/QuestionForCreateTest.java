@@ -15,17 +15,13 @@ public class QuestionForCreateTest implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private Question question;
 	private String points;
-	private String questionStr;
+
 	public QuestionForCreateTest(Question question, String points) {
 		super();
 		this.question = question;
 		this.points = points;
 	}
-	public QuestionForCreateTest(String question, String points) {
-		super();
-		this.questionStr = question;
-		this.points = points;
-	}
+
 	
 	public Question getQuestion() {
 		return question;
@@ -39,4 +35,5 @@ public class QuestionForCreateTest implements Serializable{
 	public void setPoints(String points) {
 		this.points = points;
 	}
+	
 }

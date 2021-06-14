@@ -29,6 +29,11 @@ public class Question implements Serializable{
 		}
 	}
 
+	public Question(String questionID) {
+		this.questionID=questionID;
+		
+	}
+
 	public String getQuestionID() {
 		return questionID;
 	}
@@ -66,8 +71,7 @@ public class Question implements Serializable{
 	}
 	@Override
 	public String toString() {
-		return(questionID + "," + text + "," + teacherComposed + "," + Arrays.toString(answers) + "," + 
-				correctAnswerIndex);
+		return(questionID);
 	}
 	public String getAnswersString() {
 		return answersString;
