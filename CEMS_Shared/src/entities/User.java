@@ -2,8 +2,11 @@ package entities;
 
 import java.io.Serializable;
 
+
 /**
- *  
+ * @author David
+ *	 this  user is used to get data from SQL Server of user,
+ *	 parent class for principal , student , taecher
  */
 public abstract class User implements Serializable {
 	
@@ -17,6 +20,15 @@ public abstract class User implements Serializable {
 	private String email;
 	private String role;
 
+	/**
+	 * @param username			UserName of user
+	 * @param password			password of user
+	 * @param firstName			first name of user
+	 * @param lastName			last time of user
+	 * @param personalSID		user personal ID
+	 * @param email				user email
+	 * @param role				user role
+	 */
 	public User(String username, String password, String firstName, String lastName, String personalSID, String email,
 			String role) {
 		super();

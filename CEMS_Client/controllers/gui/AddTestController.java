@@ -31,6 +31,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * @author David
+ * AddTestController controller for AddTest FXML 
+ */
 public class AddTestController {
 
 	@FXML
@@ -71,6 +75,11 @@ public class AddTestController {
 
 	public ArrayList<QuestionForCreateTest> questionForCreateTest;
 
+	/**
+	 * starts window AddTest
+	 * @param newStage
+	 * @throws IOException
+	 */
 	public void start(Stage newStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -82,6 +91,9 @@ public class AddTestController {
 		newStage.show();
 	}
 
+	/**
+	 * sets up table view and gets subject and fields from SQL
+	 */
 	@FXML
 	public void initialize() {
 		this.questionForCreateTest = new ArrayList<QuestionForCreateTest>();
@@ -103,6 +115,11 @@ public class AddTestController {
 		CreateTest_tblQuestions.setItems(questions);
 	}
 
+	/**
+	 * adds question to the table view
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void addQuestion(ActionEvent event) throws IOException {
 		DataManager.getDataManager().setCreateTest_tblQuestions(CreateTest_tblQuestions);
@@ -112,6 +129,11 @@ public class AddTestController {
 		aqftc.start(primaryStage);
 	}
 
+	/**
+	 * closes window
+	 * @param event
+	 * @throws Exception
+	 */
 	@FXML
 	void close(ActionEvent event) throws Exception {
 		FullTestTableController ftt = new FullTestTableController();
@@ -125,6 +147,11 @@ public class AddTestController {
 		CreateTest_tblQuestions.getItems().remove(CreateTest_tblQuestions.getSelectionModel().getSelectedItem());
 	}
 
+	/**
+	 * submit test if all fields are filled to the server
+	 * @param event
+	 * @throws Exception
+	 */
 	@FXML
 	void submitTest(ActionEvent event) throws Exception {
 		boolean notFilledFlag = false;
@@ -191,6 +218,9 @@ public class AddTestController {
 			}
 		}
 	}
+	/**
+	 * @param question			adds question ID  to table view
+	 */
 	public void addQustionToTable(QuestionForCreateTest question) {
 		CreateTest_tblQuestions.getItems().add(question);
 	}

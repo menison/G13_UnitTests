@@ -16,8 +16,6 @@ public class EditQuest {
 	/**
 	 * This method gets info bout a question from the SQL server given a question ID
 	 * @param msg			message contains String with questionID
-	 * @param questID		holds questionID from message msg
-	 * @param rs			ResultSet holds question with given ID
 	 * @return				returns message with question if succeeded			
 
 	 */
@@ -46,7 +44,7 @@ public class EditQuest {
 	}
 	
 	/**
-	 * Method to update a certaion question in database
+	 * method to update a certaion question in database
 	 * @param msg			msg contains Question object from client	
 	 * @return				returns feedback message of success
 

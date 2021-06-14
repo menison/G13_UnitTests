@@ -4,6 +4,11 @@ import java.io.Serializable;
 
 
 
+/**
+ * Class extension for data from Extension table in SQL DATABASE
+ * @author David
+ *
+ */
 public class Extension implements Serializable{
 	/**
 	 * 
@@ -17,6 +22,15 @@ public class Extension implements Serializable{
 	private int isRelevant;
 	private int isAuthorized;
 	
+	/**
+	 * Constructor
+	 * @param testCode			Test execution code
+	 * @param requestedBy		ID of extension requester
+	 * @param newDuration		new duration of requester
+	 * @param reason			reason for time extension
+	 * @param isRelevant		is extension still relevant
+	 * @param isAuthorized		did principal authorized extension
+	 */
 	public Extension(String testCode, String requestedBy, int newDuration, String reason, int isRelevant,int isAuthorized) {
 
 		this.testCode = testCode;
@@ -26,6 +40,12 @@ public class Extension implements Serializable{
 		this.isRelevant = isRelevant;
 		this.isAuthorized=isAuthorized;
 	}
+	/**
+	 * Constructor for three fields
+	 * @param newDuration			duration for extension
+	 * @param testCode				execution code
+	 * @param requestedBy			ID of extension requester
+	 */
 	public Extension(int newDuration,String testCode, String requestedBy) {
 
 		this.testCode = testCode;

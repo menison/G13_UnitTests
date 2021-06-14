@@ -29,6 +29,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * @author David
+ * AddQuestionForTestController controller for AddQuestionForTest FXML
+ */
 public class AddQuestionForTestController {
 	@FXML
 	private JFXButton ChooseQuestion_btnClose;
@@ -57,6 +61,11 @@ public class AddQuestionForTestController {
 	@FXML
 	private JFXTextField ChooseQuestion_pointsField;
 
+	/**
+	 * adds question to database if all fields are correct 
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void AddQuestion(ActionEvent event) throws IOException {
 		Question q = ChooseQuestion_tblQuestion.getSelectionModel().getSelectedItem();
@@ -89,12 +98,22 @@ public class AddQuestionForTestController {
 		}
 	}
 
+	/**
+	 * closes window
+	 * @param event
+	 * @throws Exception
+	 */
 	@FXML
 	void close(ActionEvent event) throws Exception {
 		Stage stage = (Stage) ChooseQuestion_btnClose.getScene().getWindow();
 		stage.close();
 	}
 
+	/**
+	 * starts window
+	 * @param newStage
+	 * @throws IOException
+	 */
 	public void start(Stage newStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -106,6 +125,9 @@ public class AddQuestionForTestController {
 		newStage.show();
 	}
 
+	/**
+	 * initializes table of questions
+	 */
 	@FXML
 	public void initialize() {
 		ClientUI.chat.accept(new Message(Operation.GetQuestions));

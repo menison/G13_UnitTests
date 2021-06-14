@@ -35,16 +35,6 @@ import javafx.stage.Stage;
  * 
  * This Class handles edit test
  * 
- *@param EditTest_btnAddQuestion		Button add question.
- *@param EditTest_btnDeleteQuestion		Button delete question.
- *@param EditTest_btnClose				Button close.
- *@param EditTest_btnSubmit				Button submit.
- *@param EditTest_tblQuestions			Question Table.
- *@param EditTest_QuestionIDCol			Question ID column
- *@param EditTest_pointsCol				Question points column
- *@param EditTest_DurationField			field for test duration
- *@param EditTest_teacherCommentsField	Teacher comments for teacher field.
- *@param EditTest_studentComentsField   Teacher comments for students field.
  */
 public class EditTestController {
 
@@ -118,16 +108,6 @@ public class EditTestController {
      * test is sent to after checking if fileds are correct.
      * test is sent to the database for editing
      * @param event
-     * @param testID			test id
-     * @param teacherComment	teacher comment
-     * @param studentComment	student comment
-     * @param currExecCode		current execution code
-     * @param isActivated		is test active
-     * @param comopser			test composer (current user)
-     * @param duration			duration of test
-     * @param test				test
-     * @param QuestionID		string of all question IDS
-     * @param points			string of all points
      */
     @FXML
     void submit(ActionEvent event) {

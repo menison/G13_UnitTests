@@ -3,11 +3,13 @@ package entities;
 
 import java.io.Serializable;
 
+/**
+ * @author David
+ *	TestToConfirm CLASS
+ */
 public class TestToConfirm implements Serializable {
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 473453805476116538L;
 	private String testID;
 	private String testCode;
@@ -16,6 +18,14 @@ public class TestToConfirm implements Serializable {
 	private int grade;
 	private int isSuspect;
 	
+	/**
+	 * @param testID		test id
+	 * @param testCode		test code
+	 * @param date			test date
+	 * @param executedBy	id of executer
+	 * @param grade			grade
+	 * @param isSuspect		is student suspect of cheating
+	 */
 	public TestToConfirm(String testID, String testCode, String date, String executedBy, 
 			int grade, int isSuspect) {
 		super();

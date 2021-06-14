@@ -29,12 +29,6 @@ import javafx.scene.control.Alert.AlertType;
 /**Class ActivateTestController for ActivateTest FXML
  * @author David
  * This Class is a controller for the test activation
- * @param ActivateTest_pinCodeField			FXML: pin code Field
- * @param ActivateTest_btnActivate			FXML: button that checks if 
- * 											FXML: entered code is valid and if yes it actiavates the test
- *
- * @param ActivateTest_dateSelect			FXML: date selector
- * @param ActivateTest_timeSelect			FXML: time selector
  *
  */
 public class ActivateTestController {

@@ -5,10 +5,12 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+/**Class ActivatedTest
+ * this class holds elements to match those in SQL table ActivatedTest
+ * @author David
+ */
 public class ActivatedTest implements  Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -7278799683179472714L;
 	private String testCode;
 	private String testID;
@@ -18,6 +20,15 @@ public class ActivatedTest implements  Serializable {
 	private int isActivated;
 	private int duration;
 	
+	/**
+	 * Constructor for parameters
+	 * @param testCode 			Test execution code.
+	 * @param testID			Test ID.
+	 * @param activatedBy		ID teacher who activated the test.
+	 * @param startDate			Start date of test.
+	 * @param startTime			Start Time of test.
+	 * @param isActivated		Is test activated.
+	 */
 	public ActivatedTest(String testCode, String testID, String activatedBy, LocalDate startDate, LocalTime startTime,
 			int isActivated) {
 		this.testCode = testCode;
@@ -28,6 +39,16 @@ public class ActivatedTest implements  Serializable {
 		this.isActivated = isActivated;
 		
 	}
+	/**
+	 * Constructor for parameters
+	 * @param testCode			Test execution code.
+	 * @param testID			Test ID.
+	 * @param activatedBy		ID teacher who activated the test.
+	 * @param startDate			Start date of test.
+	 * @param startTime			Start Time of test.
+	 * @param isActivated		Is test activated.
+	 * @param duration			Duration of test.
+	 */
 	public ActivatedTest(String testCode, String testID, String activatedBy, String startDate, String startTime,
 			int isActivated,int duration) {
 		this.testCode = testCode;
@@ -35,12 +56,11 @@ public class ActivatedTest implements  Serializable {
 		this.activatedBy = activatedBy;
 		  DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyy");
 
-		  //convert String to LocalDate
 		this.startDate = LocalDate.parse(startDate, formatter);
 		 
 		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HHmm");
 
-		  //convert String to LocalTime
+
 		this.startTime = LocalTime.parse(startTime, timeFormatter);
 		 
 		this.isActivated = isActivated;

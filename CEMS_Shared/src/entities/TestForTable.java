@@ -2,10 +2,12 @@ package entities;
 
 import java.io.Serializable;
 
+/**
+ * @author David
+ * this is class is for table view of tests
+ */
 public class TestForTable implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -4071914729383965702L;
 	private String testID;
 	private String testCode;
@@ -14,6 +16,14 @@ public class TestForTable implements Serializable {
 	private int ActualDuration;
 	private int grade;
 	
+	/**
+	 * @param testID				test id
+	 * @param testCode				test code
+	 * @param Date					date of test
+	 * @param allocatedDuration		allocated duration
+	 * @param ActualDuration		actual duration
+	 * @param grade					grade
+	 */
 	public TestForTable(String testID,String testCode,String Date,int allocatedDuration,
 			int ActualDuration,int grade) {
 		this.testID = testID;

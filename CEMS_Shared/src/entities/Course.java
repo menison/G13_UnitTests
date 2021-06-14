@@ -2,11 +2,14 @@ package entities;
 
 import java.io.Serializable;
 
+/**
+ * Class for course, this class holds all info in course from SQL Database 
+ * @author David
+ *
+ */
 public class Course implements Serializable{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private String ID;
 	private String name;
@@ -22,6 +25,12 @@ public class Course implements Serializable{
 		return numOfTests;
 	}
 
+	/**
+	 * Constructor
+	 * @param iD			course ID
+	 * @param name			Course name
+	 * @param belongsTo		field ID
+	 */
 	public Course(String iD, String name, Field belongsTo) {
 		super();
 		ID = iD;
@@ -29,6 +38,11 @@ public class Course implements Serializable{
 		this.belongsTo = belongsTo;
 	}
 	
+	/**
+	 * Constructor for id and name
+	 * @param iD			course ID
+	 * @param name			Course name
+	 */
 	public Course(String iD, String name) {
 		super();
 		ID = iD;

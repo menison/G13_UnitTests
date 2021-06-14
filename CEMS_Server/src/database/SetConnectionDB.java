@@ -33,33 +33,6 @@ public class SetConnectionDB {
 //	public static String DBname = "test";
 //	public static String DBPassword = "2694";
 
-	/**
-	 * Database host name.
-	 */
-<<<<<<< HEAD
-	public static String DBhost = "localhost";
-	public static String DBname = "query";
-	public static String DBPassword = "davidNkin1";
-=======
-//	public static String DBhost = "localhost";
-//	public static String DBname = "query";
-//	public static String DBPassword = "sa1993sha";
-
-
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "sa1993sha";
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "davidNkin1";
-
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "MattB123Pa55w0rd";
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "In511995";
 
 
 	
@@ -73,10 +46,6 @@ public class SetConnectionDB {
 	/**
 	 * This method sets the connection to the DB by the relevant data defined earlier.
 	 * @return a connection to the DB.
-=======
-	/**Method for setting the connection to the database.
-	 * @return returns the connection to the database.
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	 */
 	private Connection setConnection() {
 		try {
@@ -103,10 +72,6 @@ public class SetConnectionDB {
 	/**
 	 * This method is the implementation of Singleton's getInstance method.
 	 * @return the single instance of the DBConnection.
-=======
-	/**Start the connection.
-	 * @return
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 	 */
 	public static Connection start() {
 		if (instance == null) {

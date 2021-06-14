@@ -3,10 +3,12 @@ package entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * @author David
+ *TestForRequestedTest this is used for requested tests from SQL DATABASE
+ */
 public class TestForRequestedTest implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -6722688811115229185L;
 	private String testID;
 	private String testCode;
@@ -16,6 +18,15 @@ public class TestForRequestedTest implements Serializable {
 	private int grade;
 	private ArrayList<QaForTable> qa;
 
+	/**	
+	 * @param testID				test id
+	 * @param testCode				test code
+	 * @param date					date of test
+	 * @param allocatedDuration		duration of test
+	 * @param actualDuration		actual duration of test
+	 * @param grade					grade
+	 * @param qa					
+	 */
 	public TestForRequestedTest(String testID, String testCode, String date, int allocatedDuration, int actualDuration,
 			int grade,ArrayList<QaForTable> qa) {
 		this.testID = testID;

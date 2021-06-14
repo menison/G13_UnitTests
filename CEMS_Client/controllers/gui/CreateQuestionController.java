@@ -24,6 +24,10 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * @author David
+ * CreateQuestionController controller for CreateQuestion FXML
+ */
 public class CreateQuestionController {
 
     @FXML
@@ -71,6 +75,11 @@ public class CreateQuestionController {
     @FXML
     private JFXComboBox<Course> CreateQuestion_chooseCourseBox;
     
+	/**
+	 * starts window with given stage
+	 * @param primaryStage
+	 * @throws IOException
+	 */
 	public void start(Stage primaryStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -83,6 +92,9 @@ public class CreateQuestionController {
 		
 	}
 	
+	/**
+	 * initialize and gets subject and courses for choose boxes
+	 */
 	@FXML
 	public void initialize() {
 		ClientUI.chat.accept(new Message(Operation.GetSubjectsAndCourses));
@@ -101,6 +113,10 @@ public class CreateQuestionController {
 		
 	}
 
+    /**
+     * clears fields
+     * @param event
+     */
     @FXML
     void clear(ActionEvent event) {
     	CreateQuestion_questionField.setText("");
@@ -115,6 +131,10 @@ public class CreateQuestionController {
 		
     }
 
+    /**
+     * closes window
+     * @param event
+     */
     @FXML
     void close(ActionEvent event) {
     	Stage newStage = new Stage();
@@ -130,6 +150,11 @@ public class CreateQuestionController {
 
     }
 
+    /**
+     * submit question if all fields are filled correctly
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void submitQuestion(ActionEvent event) throws IOException {
     	//Check if empty fields
@@ -174,13 +199,21 @@ public class CreateQuestionController {
     	
 
     }
-    public void warningPopUp(String warning) {   //warnings func
+    /**
+     * error alert
+     * @param warning		warning text for alert
+     */
+    public void warningPopUp(String warning) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setContentText(warning);
 
 		alert.showAndWait();
     }
-    public void confirmPopUp(String confirm) {   //warnings func
+    /**
+     * confirm alert
+     * @param confirm			confirm text for alert
+     */
+    public void confirmPopUp(String confirm) {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setContentText(confirm);
 

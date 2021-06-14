@@ -18,7 +18,6 @@ public class EditTest {
 	/**
 	 *  this method receives test ID as a parameter finds a test with that id and returns it to client
 	 * @param msg			contains message of String with test ID
-	 * @param rs			ResultSet that holds a test from SQL
 	 * @return 				return Test object
 	 *
 	 */

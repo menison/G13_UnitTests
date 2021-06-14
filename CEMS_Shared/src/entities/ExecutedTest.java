@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Arrays;
 
+/**
+ * class for to hold data from ExecutedTest SQL table from database
+ * @author David
+ *	
+ */
 public class ExecutedTest implements Serializable  {
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 7952896035972742953L;
 	private String studentExecuting;
 	private Test test;
@@ -23,6 +26,15 @@ public class ExecutedTest implements Serializable  {
 	private String sTime;
 	
 
+	/**
+	 * @param test				
+	 * @param executionCodePK		test execution code
+	 * @param answers				test answers
+	 * @param studentExecuting		student ID
+	 * @param actualDuration		duration of test
+	 * @param startTime				start of execution 
+	 * @param endTime				end of execution 
+	 */
 	public ExecutedTest(Test test, String executionCodePK, int[] answers,
 			String studentExecuting, int actualDuration, LocalTime startTime, LocalTime endTime) {
 		super();
