@@ -115,7 +115,6 @@ public class Parsing {
 			break;
 		case getTimeForActiveExam:
 			SetTimeForExecExam.setTime(receivedMessage);
-			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
 			break;
 		case GetExtensionRequests:
 			PrincipalExtentionRequests.principalSetExtentionRequests(receivedMessage);

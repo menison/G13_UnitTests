@@ -4,8 +4,11 @@ import entities.Message;
 
 public class ManualTestUploader {
 
+	/**
+	 * This method updates if the manual test has been uploaded successfully
+	 * @param receivedMessage
+	 */
 	public static void checkUploadStatus(Message receivedMessage) {
-		System.out.println("Hey");
 		String status = (String) receivedMessage.getObj();
 		switch (status) {
 		case "fail":

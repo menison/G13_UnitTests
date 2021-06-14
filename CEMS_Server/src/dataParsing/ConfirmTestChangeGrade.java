@@ -5,8 +5,17 @@ import database.Query;
 import entities.Message;
 import entities.TestToConfirm;
 
+
+/**Class for test grade confirmation by the teacher.
+ * @author Aviv
+ *
+ */
 public class ConfirmTestChangeGrade {
 
+	/**Method that responsible for test grade confirmation by the teacher.
+	 * @param receivedMessage Message containing the operation name and the test entity.
+	 * @return returns a message with the operation name and a sucess/fail srting.
+	 */
 	public static Message executeUpdate(Message receivedMessage) {
 		
 		TestToConfirm ttc = (TestToConfirm) receivedMessage.getObj();
