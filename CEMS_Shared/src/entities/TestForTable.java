@@ -1,6 +1,12 @@
 package entities;
 
-public class TestForTable {
+import java.io.Serializable;
+
+public class TestForTable implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4071914729383965702L;
 	private String testID;
 	private String testCode;
 	private String Date;
