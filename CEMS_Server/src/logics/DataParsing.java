@@ -1,64 +1,13 @@
 package logics;
-<<<<<<< HEAD
 
-=======
-
-
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import common.Permission;
-<<<<<<< HEAD
 import dataParsing.ActivateTest;
 import dataParsing.AddQuestionOperations;
 import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
-=======
-import dataParsing.ActivateTest;
-
-
-
-
-
-import dataParsing.AddQuestionOperations;
-
-
-
-
-
-
-import dataParsing.GetCurrentExecutionExamEmail;
-import dataParsing.GetDurationForExecTest;
-
-
-
-
-import common.Permission;
-import dataParsing.ActivateTest;
-
-
-import common.Permission;
-import dataParsing.ActivateTest;
-
-import dataParsing.AddTestsOperations;
-
-
-
-
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import dataParsing.AddTestsOperations;
 import dataParsing.ExtensionRequest;
-<<<<<<< HEAD
 import dataParsing.EditQuest;
-=======
-
-
-
-import dataParsing.EditQuest;
-import dataParsing.ExtensionRequest;
-
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import dataParsing.ConfirmTestChangeGrade;
 import dataParsing.ConfirmTestWithoutChanges;
 import dataParsing.CheckIfTestIsLocked;
@@ -75,7 +24,6 @@ import dataParsing.SetCompletedStudentExam;
 import dataParsing.TeacherGetAllSelfExecutedTests;
 import dataParsing.TestCodeValidation;
 import dataParsing.EditTest;
-
 import database.GetLogin;
 import entities.Message;
 import server.EchoServer;
@@ -125,17 +73,8 @@ public class DataParsing {
 			return AddQuestionOperations.getAmountOfQuestions(receivedMessage);
 		case GetCourseAmountOfQuestions:
 			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
-<<<<<<< HEAD
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
-=======
-		case AddNewTest:
-
-
-			return AddTestsOperations.addTest(receivedMessage);
-
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
 		case IncrementNumOfQuestionsInCourse:
@@ -156,38 +95,26 @@ public class DataParsing {
 			return ConfirmTestChangeGrade.executeUpdate(receivedMessage);
 		case ConfirmTestWithoutChanges:
 			return ConfirmTestWithoutChanges.executeUpdate(receivedMessage);
-
 		case ApproveExtensionRequests:
 			return PrincipalGetExtentionRequests.principalApproveRequests(receivedMessage);
 		case DeclineExtensionRequests:
 			return PrincipalGetExtentionRequests.principalDeclineRequests(receivedMessage);
-
 		case RequestExtension:
 			return ExtensionRequest.handleExtension(receivedMessage);
 		case GetTestByID:
 			return EditTest.getTest(receivedMessage);
 		case UpdateTest:
 			return EditTest.updateTest(receivedMessage);
-
-
-			
-
-
-
-
-
 		case GetQuestionInfo:
 			return EditQuest.getInfo(receivedMessage);
 		case SubmitQuestionInfo:
 			return EditQuest.updateQuest(receivedMessage);
-			
-
 		default:
 			break;
 		}
 		return null;
 	}
-	
+
 	public static Permission getPermission(String password1, String password2) {
 		return password1.equals(password2) ? Permission.yes : Permission.no;
 	}
