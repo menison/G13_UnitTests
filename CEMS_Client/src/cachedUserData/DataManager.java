@@ -31,6 +31,7 @@ public class DataManager {
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
 
+
 	private ArrayList<Extension> extensionRequests;
 	private String testID;
 	private Report report;
@@ -41,14 +42,24 @@ public class DataManager {
 	private String activateMsg;
 
 	private String addTestMsg;
+
 	private boolean activateSuccess;
+
 	private ArrayList<ActivatedTest> teacherActivatedTests;
 	private String addQuestionMsg;
 	private String incQuestionNumMsg;
 	private String amountOfQuestions;
+
 	private int tempNumOfQuestionsForCourse;
 	private Extension extension;
-	
+
+
+	private Question question;
+
+
+
+
+
 	public void setAddQuestionMsg(String msg) {
 		this.addQuestionMsg=msg;
 	}
@@ -89,7 +100,6 @@ public class DataManager {
 	public void setTeacherActivatedTests(ArrayList<ActivatedTest> teacherActivatedTests) {
 		this.teacherActivatedTests = teacherActivatedTests;
 	}
-
 
 	public String getActivateMsg() {
 		return activateMsg;
@@ -267,6 +277,12 @@ public class DataManager {
 
 	public void setExtensionRequests(ArrayList<Extension> extensionRequests) {
 		this.extensionRequests = extensionRequests;
+	}
+	public Question getQuestion() {
+		return question;
+	}
+	public void setQuestion(Question question) {
+		this.question = question;
 	}
 
 }

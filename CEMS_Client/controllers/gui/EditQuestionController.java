@@ -9,13 +9,17 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
 import application.ClientUI;
+import cachedUserData.DataManager;
 import common.Operation;
 import entities.Message;
+import entities.Question;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -60,15 +64,20 @@ public class EditQuestionController {
     @FXML
     private JFXButton EditQuestion_btnClear;
 
-    @FXML
-    private JFXComboBox<?> EditQuestion_chooseSubjectBox;
 
-    @FXML
-    private JFXComboBox<?> EditQuestion_chooseCourseBox;
 
     @FXML
     void clear(ActionEvent event) {
-
+		EditQuestion_questionField.setText("");
+		EditQuestion_asnwer1Field.setText("");
+		EditQuestion_answer2Field.setText("");
+		EditQuestion_answer3Field.setText("");
+		EditQuestion_answer4Field.setText("");
+		EditQuestion_checkAnswer1.setSelected(false);
+		EditQuestion_checkAnswer2.setSelected(false);
+		EditQuestion_checkAnswer3.setSelected(false);
+		EditQuestion_checkAnswer4.setSelected(false);
+		
     }
 
     @FXML
@@ -79,12 +88,48 @@ public class EditQuestionController {
 
     @FXML
     void submitQuestion(ActionEvent event) {
+    	if(EditQuestion_questionField.getText().isEmpty())
+    		warningPopUp("Question text filed is empty");
+    	else if(EditQuestion_asnwer1Field.getText().isEmpty()||EditQuestion_answer2Field.getText().isEmpty()||
+    			EditQuestion_answer3Field.getText().isEmpty()||EditQuestion_answer4Field.getText().isEmpty()) {
+    		warningPopUp("All 4 answer are needed");
+    	}
 
+    	
+    	String[] answers = new String[4];
+    	String questionText =EditQuestion_questionField.getText();
+    	String id= DataManager.getDataManager().getQuestion().getQuestionID();
+    	String composer=DataManager.getDataManager().getCurrentUser().getPersonalSID();
+    	int selected=0;
+    	if(EditQuestion_checkAnswer1.isSelected()) {
+    		selected=0;
+    	}
+    	if(EditQuestion_checkAnswer2.isSelected()) {
+    		selected=1;
+    	}
+    	if(EditQuestion_checkAnswer3.isSelected()) {
+    		selected=2;
+    	}
+    	if(EditQuestion_checkAnswer4.isSelected()) {
+    		selected=3;
+    	}
+
+    	answers[0]=EditQuestion_asnwer1Field.getText();
+    	answers[1]=EditQuestion_answer2Field.getText();	
+    	answers[2]=EditQuestion_answer3Field.getText();
+    	answers[3]=EditQuestion_answer4Field.getText();
+    	String answer=answers[0]+","+answers[1]+","+answers[2]+","+answers[3];
+    	
+    	Question question = new Question(id, questionText,answers,selected,composer);
+    	question.setAnswersString(answer);
+    	ClientUI.chat.accept(new Message(Operation.SubmitQuestionInfo,question));
+    	confirmPopUp(DataManager.getDataManager().getActivateMsg());
+    	
     }
 	public void start(Stage newStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(getClass().getResource("/fxml/EditQuestionForTest.fxml"));
+		loader.setLocation(getClass().getResource("/fxml/EditQuestion.fxml"));
 		root = loader.load();
 		Scene scene = new Scene(root);
 		newStage.setTitle("Edit Question For Test");
@@ -93,7 +138,40 @@ public class EditQuestionController {
 	}
 	@FXML
 	public void initialize() {
-		ClientUI.chat.accept(new Message(Operation.GetQuestionInfo));
+		String questionID=DataManager.getDataManager().getTestID();
+		ClientUI.chat.accept(new Message(Operation.GetQuestionInfo,questionID));
 		
+		Question question = DataManager.getDataManager().getQuestion();
+		EditQuestion_questionField.setText(question.getText());
+		EditQuestion_asnwer1Field.setText(question.getAnswers()[0]);
+		EditQuestion_answer2Field.setText(question.getAnswers()[1]);
+		EditQuestion_answer3Field.setText(question.getAnswers()[2]);
+		EditQuestion_answer4Field.setText(question.getAnswers()[3]);
+		EditQuestion_checkAnswer1.setSelected(false);
+		EditQuestion_checkAnswer2.setSelected(false);
+		EditQuestion_checkAnswer3.setSelected(false);
+		EditQuestion_checkAnswer4.setSelected(false);
+		if(question.getCorrectAnswerIndex()==0)
+			EditQuestion_checkAnswer1.setSelected(true);
+		if(question.getCorrectAnswerIndex()==1)
+			EditQuestion_checkAnswer2.setSelected(true);
+		if(question.getCorrectAnswerIndex()==2)
+			EditQuestion_checkAnswer3.setSelected(true);
+		if(question.getCorrectAnswerIndex()==3)
+			EditQuestion_checkAnswer4.setSelected(true);
 	}
+	
+    public void warningPopUp(String warning) {   //warnings func
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setContentText(warning);
+
+		alert.showAndWait();
+    }
+    public void confirmPopUp(String confirm) {   //warnings func
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setContentText(confirm);
+
+		alert.showAndWait();
+    }
+	
 }

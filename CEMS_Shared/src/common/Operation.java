@@ -44,14 +44,13 @@ public enum Operation {
 	GetTestsActivatedByTeachger,
 	RequestExtension,
 	ChangeAmountOfTestsInCourseTable,
-
-
 	ConfirmTestWithChanges,
 	ConfirmTestWithoutChanges,
 	getTimeForActiveExam,
-
 	GetExtensionRequests,
 	ApproveExtensionRequests,
-	DeclineExtensionRequests
+	DeclineExtensionRequests,
+	SubmitQuestionInfo
+
 
 }

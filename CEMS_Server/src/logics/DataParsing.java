@@ -1,6 +1,7 @@
 package logics;
 
 
+
 import common.Permission;
 import dataParsing.ActivateTest;
 
@@ -24,13 +25,24 @@ import dataParsing.GetDurationForExecTest;
 import common.Permission;
 import dataParsing.ActivateTest;
 
+
+import common.Permission;
+import dataParsing.ActivateTest;
+
 import dataParsing.AddTestsOperations;
+
 
 
 
 
 import dataParsing.AddTestsOperations;
 import dataParsing.ExtensionRequest;
+
+
+
+import dataParsing.EditQuest;
+import dataParsing.ExtensionRequest;
+
 
 import dataParsing.ConfirmTestChangeGrade;
 import dataParsing.ConfirmTestWithoutChanges;
@@ -39,6 +51,7 @@ import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
 import dataParsing.CheckIfTestIsLocked;
 import dataParsing.ExtensionRequest;
+
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestTable;
@@ -106,25 +119,14 @@ public class DataParsing {
 			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
 		case AddNewTest:
 
+
 			return AddTestsOperations.addTest(receivedMessage);
-
-
-
-
-
 
 
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
 		case IncrementNumOfQuestionsInCourse:
-
 			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
-
-
-
-
-
-
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case CheckIfTestIsLocked:
@@ -135,15 +137,8 @@ public class DataParsing {
 			return HandleTestsActivatedByTeacher.returnTestsByTeacher(receivedMessage);
 		case GetExtensionRequests:
 			return PrincipalGetExtentionRequests.getExtensions(receivedMessage);
-
 		case GetTestConfirmationTable:
-
-
-
 			return GetTestConfirmationTable.get(receivedMessage);
-
-
-
 		case ConfirmTestWithChanges:
 			return ConfirmTestChangeGrade.executeUpdate(receivedMessage);
 		case ConfirmTestWithoutChanges:
@@ -157,9 +152,18 @@ public class DataParsing {
 		case RequestExtension:
 			return ExtensionRequest.handleExtension(receivedMessage);
 
+
 			
 
 
+
+
+
+		case GetQuestionInfo:
+			return EditQuest.getInfo(receivedMessage);
+		case SubmitQuestionInfo:
+			return EditQuest.updateQuest(receivedMessage);
+			
 
 		default:
 			break;

@@ -2,6 +2,7 @@ package dataParsing;
 
 import entities.Message;
 
+
 import gui.ActivateTestController;
 import request.AddTeacherTestsToDM;
 import request.FullTestTable;
@@ -30,11 +31,26 @@ import request.GetCurrentExecEmail;
 import request.HandleActivateStatus;
 import request.GenerateQuestionID;
 
+
+import request.AddTeacherTestsToDM;
+import request.AfterGradeAuth;
+import request.FullTestTable;
+import request.GetCurrentExecEmail;
+import request.HandleActivateStatus;
+import request.GenerateQuestionID;
+
 import request.Login;
 import request.ManualTestDownloader;
 import request.PrincipalSetReport;
 import request.PrincipalExtentionRequests;
+
+import request.PrincipalSetReport;
+import request.QuestionInfoHandler;
 import request.SetTestConfirmationTable;
+
+
+import request.SetTestConfirmationTable;
+
 import request.SetDurationForExecTest;
 import request.SetTestsValues;
 import request.SetIfCurrentExecutedTestIsActive;
@@ -80,7 +96,6 @@ public class Parsing {
 		case GetTestsForTeacherReport:
 			TeacherSetTableForSelfTests.setTableForSelfTests(receivedMessage);
 			break;
-
 		case getInstructionsAndMail:
 			GetCurrentExecEmail.setEmail(receivedMessage);
 			break;
@@ -113,10 +128,6 @@ public class Parsing {
 		case AddNewTest:
 			SetTestsValues.addNewTest(receivedMessage);
 			break;
-
-
-
-
 		case AddQuestionToDatabase:
 			GenerateQuestionID.setAddQuestionMsg(receivedMessage);
 			break;
@@ -126,11 +137,6 @@ public class Parsing {
 		case ChangeAmountOfTestsInCourseTable:
 			SetTestsValues.changeAmountOfTestsInCourseTable(receivedMessage);
 			break;
-
-
-
-
-
 		case CheckIfTestIsLocked:
 			SetIfCurrentExecutedTestIsActive.setActive(receivedMessage);
 			break;
@@ -143,26 +149,25 @@ public class Parsing {
 			break;
 		case RequestExtensionFailed:
 			HandleActivateStatus.activateFailed(receivedMessage);
-			break;
-		
+			break;	
 		case RequestExtensionSuccess:
 			HandleActivateStatus.activateSuccess(receivedMessage);
-			break;
-		
-			
+			break;	
 		case GetTestConfirmationTable:
-
 			SetTestConfirmationTable.set(receivedMessage);
 			break;
-
-
-
+		case GetQuestionInfo:
+			QuestionInfoHandler.addToDB(receivedMessage);
+			break;
+		case SubmitQuestionInfo:
+			QuestionInfoHandler.getMsg(receivedMessage);
+			break;
 		case ConfirmTestWithChanges:
 			AfterGradeAuth.notifyUser(receivedMessage);
+			break;
 		case ConfirmTestWithoutChanges:
 			AfterGradeAuth.notifyUser(receivedMessage);
 			break;
-
 		case ApproveExtensionRequests:
 			PrincipalExtentionRequests.principalApproveExtentionRequests(receivedMessage);
 			break;
@@ -171,11 +176,7 @@ public class Parsing {
 			break;
 		case GetTestsActivatedByTeachger:
 			AddTeacherTestsToDM.add(receivedMessage);
-
 			break;
-
-
-
 		default:
 			break;
 		}

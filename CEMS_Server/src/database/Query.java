@@ -34,18 +34,19 @@ public class Query {
 				"SELECT * FROM test WHERE isActivated = true AND" + " currExecCode= \"" + testExecCode + "\";");
 	}
 
-	
-
-
-
-
 
 	
+
+
+
+
+
+	
+
 	public static ResultSet getActivatedTestByExecutionCode(String testExecCode) {
 		return resultqueryFrom(
 				"SELECT * FROM activatedtest WHERE code= \"" + testExecCode + "\";");
 	}
-	
 
 	public static void InsertQuestionToDataBase(Question qst) {
 			updateQuery("INSERT INTO `query`.`question` (`questionID`, `text`, `answers`, `correctAnswerIndex`, `composedBy`) "
@@ -59,10 +60,8 @@ public class Query {
 		return resultqueryFrom("SELECT "+selColumn+  " FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
 	}
 
-
 	public static ResultSet getEmailByComposerId(String composerId) {
 		return resultqueryFrom("SELECT * FROM user WHERE personalSID = " + composerId + ";");
-
 
 	}
 	
