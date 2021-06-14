@@ -6,9 +6,17 @@ import cachedUserData.DataManager;
 import entities.Message;
 import entities.Report;
 
+/**
+ * @author David
+ *PrincipalSetReport handler
+ */
 @SuppressWarnings("unchecked")
 
 public class PrincipalSetReport {
+	/**
+	 * @param msg
+	 * generates report for principal
+	 */
 	public static void generateReport(Message msg) {
 		HashMap<Integer, Integer> gradesAndAppearance = new HashMap<Integer, Integer>();
 		int grade;

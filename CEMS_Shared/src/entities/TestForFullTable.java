@@ -1,5 +1,9 @@
 package entities;
 
+/**
+ * @author David
+ *this class is to create a list of tests for a table view
+ */
 public class TestForFullTable {
 	private String testID;
 	private String subject;
@@ -7,6 +11,13 @@ public class TestForFullTable {
 	private int duration;
 	private String composer;
 	
+	/**
+	 * @param testID		test id
+	 * @param subject		subject name
+	 * @param course		course name
+	 * @param duration		duration
+	 * @param composer		composer of test
+	 */
 	public TestForFullTable(String testID,String subject,String course,int duration,String composer) {
 		this.testID = testID;
 		this.subject=subject;

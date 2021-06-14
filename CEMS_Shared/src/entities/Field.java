@@ -3,16 +3,24 @@ package entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * @author David
+ * Field class for field table in SQL DATABASE
+ */
 public class Field implements Serializable{
 
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	private String ID;
 	private String name;
 	private ArrayList<Course> courseList;
 	
+	/**
+	 * Constructor
+	 * @param iD			Field ID.
+	 * @param name			Field name.
+	 * @param courseList	Course ArrayList.
+	 */
 	public Field(String iD, String name, ArrayList<Course> courseList) {
 		super();
 		ID = iD;

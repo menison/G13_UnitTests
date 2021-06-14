@@ -29,10 +29,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * Class EditTestController for EditTest FXML
+ * @author David
+ * 
+ * This Class handles edit test
+ * 
+ */
 public class EditTestController {
-
-    @FXML
-    private ImageView studentCommentsField;
 
     @FXML
     private JFXButton EditTest_btnAddQuestion;
@@ -65,6 +69,11 @@ public class EditTestController {
     @FXML
     private JFXTextArea EditTest_studentComentsField;
 
+    /**
+     * This method adds question to the table view by opening a new window of "Select question" when add question button is clicked
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void addQuestion(ActionEvent event) throws IOException {
 		DataManager.getDataManager().setCreateTest_tblQuestions(EditTest_tblQuestions);
@@ -74,17 +83,32 @@ public class EditTestController {
 		aqftc.start(primaryStage);
     }
 
+    /**
+     * This method closes window when close button is activated
+     * @param event
+     */
     @FXML
     void close(ActionEvent event) {
     	Stage stage = (Stage) EditTest_btnClose.getScene().getWindow();
     	stage.close();
     }
 
+    /**
+     * When delete question is clicked deletes selected question from table view of question 
+     * @param event
+     */
     @FXML
     void deleteQuestion(ActionEvent event) {
     	EditTest_tblQuestions.getItems().remove(EditTest_tblQuestions.getSelectionModel().getSelectedItem());
     }
 
+    /**
+     * Submits test for data base,
+     * this method is activated when submit is clicked.
+     * test is sent to after checking if fileds are correct.
+     * test is sent to the database for editing
+     * @param event
+     */
     @FXML
     void submit(ActionEvent event) {
 		boolean notFilledFlag = false;
@@ -129,6 +153,11 @@ public class EditTestController {
     	confirmPopUp(DataManager.getDataManager().getActivateMsg());
     	
     }
+	/**
+	 * starts window
+	 * @param newStage
+	 * @throws IOException
+	 */
 	public void start(Stage newStage) throws IOException {
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
@@ -139,6 +168,9 @@ public class EditTestController {
 		newStage.setScene(scene);
 		newStage.show();
 	}
+	/**
+	 * initialize window by filling fields according to selected test
+	 */
 	@FXML
 	public void initialize() {
 		String testID= DataManager.getDataManager().getTestID();
@@ -161,7 +193,10 @@ public class EditTestController {
 		EditTest_studentComentsField.setText(test.getCommentsForStudents());
 		
 	}
-    public void confirmPopUp(String confirm) {   //warnings func
+    /**alert pop up
+     * @param confirm			message for alert
+     */
+    public void confirmPopUp(String confirm) { 
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setContentText(confirm);
 

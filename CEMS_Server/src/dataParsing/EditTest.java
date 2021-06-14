@@ -16,10 +16,10 @@ import entities.Test;
  */
 public class EditTest {
 	/**
+	 *  this method receives test ID as a parameter finds a test with that id and returns it to client
 	 * @param msg			contains message of String with test ID
-	 * @param rs			ResultSet that holds a test from SQL
 	 * @return 				return Test object
-	 * this method receives test ID as a parameter finds a test with that id and returns it to client
+	 *
 	 */
 	public static Message getTest(Message msg){
 		ResultSet rs;
@@ -53,9 +53,10 @@ public class EditTest {
 	}
 	
 	/**
+	 * this method updates a certain test according to the test that was passed through msg parameter
 	 * @param msg			message holds Test object for update
 	 * @return				returns success message
-	 * this method updates a certain test according to the test that was passed through msg parameter
+	 * 
 	 */
 	public static Message updateTest(Message msg){
 		Test test =(Test)msg.getObj();

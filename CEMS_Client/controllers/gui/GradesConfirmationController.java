@@ -85,7 +85,6 @@ public class GradesConfirmationController implements Initializable {
 	@FXML
 	void Save(ActionEvent event) {
 		int newGrade = Integer.parseInt(newGrade_txtField.getText());
-		String reason = reasonForChange_txtField.getText();
 		String op = confirmation_BtnSave.getText();
 		System.out.println(op);
 		DataManager dm = DataManager.getDataManager();

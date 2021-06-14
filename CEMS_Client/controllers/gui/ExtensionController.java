@@ -20,6 +20,16 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * Class ExtensionController for Extension FXML
+ * this class asks for information to send extension request for selected test
+ * @author David
+ * @param extension_txtTimeExtension			FXML: Time field the user wants to extend.
+ * @param extension_TextReason					FXML: Text field for reason.
+ * @param extension_btnRqstExtension			FXML: button request extension
+ * @param extension_btnClose					FXML: Close button
+ *
+ */
 public class ExtensionController {
 
     @FXML
@@ -40,6 +50,12 @@ public class ExtensionController {
     	stage.close();
     }
 
+    /**
+     * extension request method for button
+     * sends a request to the server and checks if all fields are filled
+     * @param event
+     * 
+     */
     @FXML
     void requestExtension(ActionEvent event) {
     	int time = 0;
@@ -54,7 +70,7 @@ public class ExtensionController {
     	
     	String reason = extension_TextReason.getText();
     	Extension ex = DataManager.getDataManager().getExtension();
-    	//	public Extension(String testCode, String requestedBy, int newDuration, String reason, int isRelevant,int isAuthorized) {
+
     	Extension exet = new Extension(ex.getTestCode(),ex.getRequestedBy(),ex.getNewDuration()+time,reason,1,-1);
 
 		ClientUI.chat.accept(new Message(Operation.RequestExtension, exet));
@@ -72,6 +88,12 @@ public class ExtensionController {
 			}
     	
     }
+	/**
+	 * starts window
+	 * @param newStage
+	 * @throws IOException
+	 * 
+	 */
 	public void start(Stage newStage) throws IOException {
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
@@ -83,7 +105,12 @@ public class ExtensionController {
 		newStage.show();
 	}
 	
-    public void warningPopUp(String warning) {   //warnings func
+    /**
+     * alert warning
+     * @param warning			message for alert
+     * 
+     */
+    public void warningPopUp(String warning) { 
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setContentText(warning);
 

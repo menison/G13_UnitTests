@@ -14,11 +14,10 @@ import entities.Question;
  */
 public class EditQuest {
 	/**
+	 * This method gets info bout a question from the SQL server given a question ID
 	 * @param msg			message contains String with questionID
-	 * @param questID		holds questionID from message msg
-	 * @param rs			ResultSet holds question with given ID
 	 * @return				returns message with question if succeeded			
-	 * this method gets info bout a question from the SQL server given a question ID
+
 	 */
 	public static Message getInfo(Message msg){
 		String questID = (String)msg.getObj();
@@ -45,9 +44,10 @@ public class EditQuest {
 	}
 	
 	/**
+	 * method to update a certaion question in database
 	 * @param msg			msg contains Question object from client	
 	 * @return				returns feedback message of success
-	 * method to update a certaion question in database
+
 	 */
 	public static Message updateQuest(Message msg){
 		Question quest = (Question)msg.getObj();

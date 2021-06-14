@@ -3,11 +3,14 @@ package entities;
 import java.io.Serializable;
 import java.util.Arrays;
 
+/**
+ * Question class for table Question in SQL DATABASE
+ * @author David
+ * 
+ *
+ */
 public class Question implements Serializable{
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = -2659289080390862340L;
 	private String questionID;
 	private String text, teacherComposed;
@@ -15,6 +18,13 @@ public class Question implements Serializable{
 	private String answersString;
 	private int correctAnswerIndex;
 	
+	/**
+	 * @param questionID			question ID.
+	 * @param text					text of question (actual question)
+	 * @param answers				answers
+	 * @param correctAnswerIndex	correct answer number (0,1,2,3)
+	 * @param teacherComposed		ID of teacher who composed the question
+	 */
 	public Question(String questionID, String text, String[] answers, int correctAnswerIndex, 
 			String teacherComposed) {
 		super();

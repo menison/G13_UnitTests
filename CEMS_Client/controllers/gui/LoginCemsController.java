@@ -1,14 +1,10 @@
 package gui;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-
 import cachedUserData.DataManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -23,12 +19,14 @@ import javafx.stage.Stage;
 import request.AbstractController;
 import javafx.scene.control.Label;
 import request.Login;
-import entities.Message;
 import entities.Principal;
 import entities.Student;
 import entities.Teacher;
-import common.Operation;
 
+/**
+ * @author David
+ *	LoginCemsController for Login FXML
+ */
 public class LoginCemsController extends AbstractController implements Initializable{
 	
 	public static LoginCemsController loginCemsController;
@@ -48,16 +46,29 @@ public class LoginCemsController extends AbstractController implements Initializ
     @FXML
     private Label TxtError;
     
+    /**
+     *login when login button clicked
+     * @param event
+     */
     @FXML
     void login(ActionEvent event) {
     	Login.requestLogin(login_txtUsername.getText(), login_txtPassword.getText(), event);
     }
+    /**
+     * when exit button clicked it exits the window
+     * @param event
+     */
     @FXML
     void Exit(ActionEvent event) {
     	((Node) event.getSource()).getScene().getWindow().hide();
     	System.exit(0);
     }
     
+    /**
+     * starts LoginCems window
+     * @param primaryStage
+     * @throws Exception
+     */
     public void start(Stage primaryStage) throws Exception {	
 		//Parent root = FXMLLoader.load(getClass().getResource("TestRequested.fxml"));
     	Pane root;
@@ -70,6 +81,11 @@ public class LoginCemsController extends AbstractController implements Initializ
 		primaryStage.show();	
 	}
     
+	/**
+	 * teacher login if user id was teacher
+	 * @param teacher
+	 * @param event
+	 */
 	public static void setTeacherLogin(Teacher teacher,ActionEvent event) {
 		Platform.runLater(new Runnable() {
 
@@ -88,6 +104,11 @@ public class LoginCemsController extends AbstractController implements Initializ
 		});
 
 	}
+	/**
+	 *  student login if user id was student
+	 * @param student
+	 * @param event
+	 */
 	public static void setStudentLogin(Student student,ActionEvent event) {
 		Platform.runLater(new Runnable() {
 
@@ -106,6 +127,10 @@ public class LoginCemsController extends AbstractController implements Initializ
 		});
 
 	}
+	/**student principal if user id was principal
+	 * @param principal
+	 * @param event
+	 */
 	public static void setPrincipalLogin(Principal principal,ActionEvent event) {
 		Platform.runLater(new Runnable() {
 
@@ -124,6 +149,9 @@ public class LoginCemsController extends AbstractController implements Initializ
 		});
 
 	}
+	/**
+	 *	initialize window
+	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		if(DataManager.getDataManager().getCurrentUser()!=null)

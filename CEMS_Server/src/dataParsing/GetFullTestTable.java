@@ -17,17 +17,12 @@ import gui.ServerController;
 public class GetFullTestTable {
 	
 	/**
+	 * This method returns all available tests for teacher to choose from.
 	 * @param object		
-	 * @param testList		list of tests
-	 * @param rs			ResultSet holds table with information for FullTestTable window
-	 * @param composer		name tester composer
-	 * @param courseName	holds course of test
-	 * @param fieldName		this holds field of test
-	 * @param t				this is a TestForFullTable obbject to hold tests from SQL
 	 * @return 				returns TestForFullTable in a string
 	 * 
 	 * 
-	 * this method returns all available tests for teacher to choose from
+	 * 
 	 */
 	public static Message getTestTable(Message object) {
 		//ArrayList<Object> arrayToSend = new ArrayList<>();

@@ -29,8 +29,6 @@ public class DataManager {
 
 	private ExecutedTest testInExecution;
 	private User currentUser;
-	private boolean PreOrder;
-	private double GlobalPrice;
 	private ArrayList<TestForTable> executedExams;
 	private ArrayList<TestToConfirm> testsToConfirm;
 	private ArrayList<TestForFullTable> fullTestList;
@@ -152,8 +150,6 @@ public class DataManager {
 
 	private DataManager() {
 		this.currentUser = null;
-		this.PreOrder = false;
-		this.setGlobalPrice(10);
 	}
 	
 	/**
@@ -179,23 +175,6 @@ public class DataManager {
 		this.currentUser = currentUser;
 	}
 
-	
-	public boolean isPreOrder() {
-		return PreOrder;
-	}
-
-	public void setPreOrder(boolean preOrder) {
-		this.PreOrder = preOrder;
-	}
-
-	public double getGlobalPrice() {
-		return GlobalPrice;
-	}
-
-	public void setGlobalPrice(double globalPrice) {
-		GlobalPrice = globalPrice;
-	}
-	
 	public void clearAll() {
 		this.currentUser = null;
 	}

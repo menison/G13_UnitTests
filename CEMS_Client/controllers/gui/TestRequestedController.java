@@ -8,17 +8,30 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * @author David
+ *TestRequestedController controller for testRequested FXML
+ */
 public class TestRequestedController {
 
     @FXML
     private Button TestCopySuccess_btnClose;
 
+    /**
+     * closes window
+     * @param event
+     */
     @FXML
     void Close(ActionEvent event) {
     	Stage stage = (Stage) TestCopySuccess_btnClose.getScene().getWindow();
     	stage.close();
     }
     
+    /**
+     * starts window
+     * @param primaryStage
+     * @throws Exception
+     */
     public void start(Stage primaryStage) throws Exception {	
 		//Parent root = FXMLLoader.load(getClass().getResource("TestRequested.fxml"));
     	Pane root;

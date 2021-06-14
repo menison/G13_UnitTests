@@ -7,6 +7,13 @@ import database.Query;
 import entities.Message;
 import gui.ServerController;
 
+/**
+ * @author David
+ * This class gets all self executed tests for teacher
+ * @param query			holds query
+ * @param teacherID		holds teacher id
+ * @param executedExams String of executed exams.
+ */
 public class TeacherGetAllSelfExecutedTests {
 	public static Message getAllSelfExecutedTests(Message msg) {
 		String executedExams = "";

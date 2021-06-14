@@ -1,9 +1,7 @@
 package gui;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.ResourceBundle;
+
 
 import com.jfoenix.controls.JFXButton;
 
@@ -12,13 +10,11 @@ import cachedUserData.DataManager;
 import common.Operation;
 import entities.Message;
 import entities.Question;
-import entities.TestForFullTable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -29,6 +25,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author David
+ * QuestionTableController for QuestionTable FXML
+ */
 public class QuestionTableController{
 
     @FXML
@@ -58,6 +59,11 @@ public class QuestionTableController{
     @FXML
     private TableColumn<Question, String> questionComposerColumn;
     
+	/**
+	 * starts window
+	 * @param primaryStage
+	 * @throws IOException
+	 */
 	public void start(Stage primaryStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -70,6 +76,11 @@ public class QuestionTableController{
 		
 	}
 	
+	/**
+	 * opens adds question window 
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void addQuestion(ActionEvent event) throws IOException {
 		CreateQuestionController cqc  = new CreateQuestionController();	
@@ -78,6 +89,11 @@ public class QuestionTableController{
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
 	}
 	
+	/**
+	 * closes the window
+	 * @param event
+	 * @throws IOException
+	 */
 	@FXML
 	void close(ActionEvent event) throws IOException {
 		TeacherMenuController tmc  = new TeacherMenuController();	
@@ -86,6 +102,9 @@ public class QuestionTableController{
 		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
 	}
 
+	/**
+	 * initializes table view
+	 */
 	@FXML
 	public void initialize() {
 		ClientUI.chat.accept(new Message(Operation.GetQuestions));
@@ -97,7 +116,13 @@ public class QuestionTableController{
     	questionComposerColumn.setCellValueFactory(new PropertyValueFactory<>("teacherComposed"));
     	questionsTable.setItems(questions);
 
-	}    @FXML
+	}    
+	/**
+	 * opens window editQuestion
+	 * @param event
+	 * @throws IOException
+	 */
+	@FXML
     void editQuestion(ActionEvent event) throws IOException {
     	if(questionsTable.getSelectionModel().getSelectedItem()!=null){
             Object selectedItems=questionsTable.getSelectionModel().getSelectedItem().getQuestionID();

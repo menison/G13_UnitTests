@@ -4,11 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * @author David
+ * class for test, used to create tests such as one in table SQL DATABASE
+ */
 public class Test implements Serializable {
 	
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 945059225263917860L;
 	public ArrayList<Question> questions = new ArrayList<>();
 	public String testID;
@@ -28,6 +30,17 @@ public class Test implements Serializable {
 	private String pointsString;
 	private String questionIDString;
 
+	/**
+	 * @param testID				test ID
+	 * @param questionString		question in string
+	 * @param allocatedDuration		test duration
+	 * @param commentsForStudents	comments for students by teacher
+	 * @param commentsForTeachers	comments for teacher by teacher
+	 * @param currExecutionCode		current code
+	 * @param pointsString			points in string
+	 * @param isActivated			is test active
+	 * @param teacherComposed		ID of teacher who composed
+	 */
 	public Test (String testID,String questionString,int allocatedDuration,String commentsForStudents,String commentsForTeachers,String currExecutionCode,String pointsString,int isActivated,String teacherComposed) {
 	
 		this.testID=testID;
@@ -42,6 +55,17 @@ public class Test implements Serializable {
 		
 		
 	}
+	/**
+	 * @param questions				list of questions
+	 * @param testID				test id
+	 * @param allocatedDuration		duration of test
+	 * @param commentsForStudents	comments for students by teacher
+	 * @param commentsForTeachers	comments for teacher by teacher
+	 * @param currExecutionCode		current code
+	 * @param pointDistribution		points
+	 * @param isActivated			is test active
+	 * @param composedBy			ID of teacher who composed
+	 */
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
 			String commentsForTeachers, String currExecutionCode, 
 			String[] pointDistribution, int isActivated, String composedBy) {
@@ -90,6 +114,19 @@ public class Test implements Serializable {
 	}
 
 
+	/**
+	 * @param questions					questions arraylist
+	 * @param testID					test id
+	 * @param allocatedDuration			duration
+	 * @param commentsForStudents		comments for students
+	 * @param commentsForTeachers		comments for teacher
+	 * @param currExecutionCode			code of current execution
+	 * @param pointDistribution			points 
+	 * @param teacherComposed			ID of teacher composed the test
+	 * @param subject					field id
+	 * @param course					course id
+	 * @param isActivated				Is test active
+	 */
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
 			String commentsForTeachers, String currExecutionCode, String[] pointDistribution, String teacherComposed,
 			String subject, String course, int isActivated) {

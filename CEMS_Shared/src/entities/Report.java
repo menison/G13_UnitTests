@@ -2,6 +2,10 @@ package entities;
 
 import java.util.HashMap;
 
+/**
+ * @author David
+ * used to create report from data base
+ */
 public class Report {
 	private String gegeneratedBy;
 	private String value;
@@ -9,6 +13,10 @@ public class Report {
 	private int median;
 	private float averageScore;
 
+	/**
+	 * @param gegeneratedBy			name of user who generated the report
+	 * @param value					value
+	 */
 	public Report(String gegeneratedBy, String value) {
 		super();
 		this.gegeneratedBy = gegeneratedBy;

@@ -18,13 +18,11 @@ import gui.ServerController;
 public class ActivateTest {
 	
 	/**validateAndActivate method to validate code and activate test
-	 * @param msg				this msg contains a Test object	
-	 * @param codes				ResultSet holds holds table of activatedtest with given code, this is used to
-	 * 							check if code is in use
-	 * @param testForDuration	ResultSet to get test duration from test
-	 * @return					returns success or fail message to Client
-	 * 
 	 * this method first validates the activition code and after that if the code is valid it activates the test.
+	 * @param msg				this msg contains a Test object	
+
+	 * 
+
 	 */
 	public static Message validateAndActivate(Message msg){
 		ResultSet codes;
@@ -51,7 +49,7 @@ public class ActivateTest {
 					}else {
 						
 						
-						Query.update("INSERT INTO `activatedtest` (`code`, `testID`, `activatedBy`, `startDate`, `startTime`, `isActive`, duration) "
+						Query.update("INSERT INTO activatedtest (`code`, `testID`, `activatedBy`, `startDate`, `startTime`, `isActive`, duration) "
 								+ "VALUES ('"+test.getTestCode()+"', '"+test.getTestID()+"', '"+test.getActivatedBy()+"', '"+test.getStartDateToString()+"', '"+test.getStartTimeToString()+"', 1,"+duration+");");
 						ServerController.sc.addToTextArea("test ID:"+test.getTestID()+" was activated with code:"+test.getTestCode());
 						}

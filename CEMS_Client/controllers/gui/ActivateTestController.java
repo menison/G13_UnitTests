@@ -26,15 +26,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 
-/**Class ActivateTestController for ActivateTest.fxml
+/**Class ActivateTestController for ActivateTest FXML
  * @author David
  * This Class is a controller for the test activation
- * @param ActivateTest_pinCodeField			pin code Field
- * @param ActivateTest_btnActivate			button that checks if 
- * 											entered code is valid and if yes it actiavates the test
- *
- * @param ActivateTest_dateSelect			date selector
- * @param ActivateTest_timeSelect			time selector
  *
  */
 public class ActivateTestController {
@@ -125,9 +119,9 @@ public class ActivateTestController {
     }
 
     /**
+     * closes the window
      * @param event
      * @throws Exception
-     * closes the window
      */
     @FXML
     void close(ActionEvent event) throws Exception {
@@ -135,8 +129,8 @@ public class ActivateTestController {
     	stage.close();
     }
     /**
-     * @param warning			warning message
      * This method generates warning alarm with warning message
+     * @param warning			warning message
      */
     public void warningPopUp(String warning) {  
 		Alert alert = new Alert(AlertType.WARNING);

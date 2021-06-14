@@ -15,6 +15,7 @@ import entities.Message;
  */
 public class HandleTestsActivatedByTeacher {
 	/**
+	 * This method returns list of activated tests by current user
 	 * @param msg				Holds String with teacher ID
 	 * @param testsByTeacher	ArrayList to hold all activated tests by current user (teacher)
 	 * @param rs				ResultSet to gets all activated test by current user
@@ -28,7 +29,7 @@ public class HandleTestsActivatedByTeacher {
 	 * @param duration			duration of exam
 	 * @return				returns an Array list of Activated tests in a message to the client 
 	 * 
-	 * This method returns list of activated tests by current user;\
+	 * 
 	 */
 	public static Message returnTestsByTeacher(Message msg){
 		String TeacherID = (String)msg.getObj();
