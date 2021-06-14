@@ -1,11 +1,8 @@
 package gui;
 
 import java.io.IOException;
-
 import java.util.ArrayList;
-
 import com.jfoenix.controls.JFXButton;
-
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
@@ -18,13 +15,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 public class FullTestTableController {

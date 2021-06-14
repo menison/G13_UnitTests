@@ -66,7 +66,6 @@ public class RequestedTestController implements Initializable{
     
     @FXML
     void close(ActionEvent event) throws Exception {
-    	Stage newStage = new Stage();
     	Stage stage = (Stage) testReview_closeBtn.getScene().getWindow();
     	stage.close();
     }

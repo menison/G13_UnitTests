@@ -1,14 +1,10 @@
 package gui;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-
 import cachedUserData.DataManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -23,11 +19,9 @@ import javafx.stage.Stage;
 import request.AbstractController;
 import javafx.scene.control.Label;
 import request.Login;
-import entities.Message;
 import entities.Principal;
 import entities.Student;
 import entities.Teacher;
-import common.Operation;
 
 public class LoginCemsController extends AbstractController implements Initializable{
 	
