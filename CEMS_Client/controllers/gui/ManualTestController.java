@@ -132,6 +132,7 @@ public class ManualTestController implements Initializable{
             });
             countUp++;
             if(submited) 
+            	execTest.setActualDuration(countUp/60);
             	this.cancel();
         	totalSeconds--;
         }
