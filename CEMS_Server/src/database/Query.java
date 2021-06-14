@@ -11,24 +11,45 @@ import entities.ExecutedTest;
 import entities.Question;
 import server.EchoServer;
 
+/**Class that unifies all the queries that are used during the run of the system.
+ * @author Aviv
+ *
+ */
 public class Query {
 
-	// Select from Table WHERE column=item
+	/**SELECT * FROM table WHERE column = item.
+	 * @param tableName the table name in the database.
+	 * @param column name of the column.
+	 * @param item object for comparison.
+	 * @return returns full row from the database .
+	 */
 	public static ResultSet SelectTableWhere(String tableName, String column, String item) {
 		return resultqueryFrom("SELECT * FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
 	}
-	// Select from Table WHERE condition
+	
+	/**SELECT * FROM table WHERE condition has been met.
+	 * @param tableName name of the table.
+	 * @param condition the condition in which we invoke the query.
+	 * @return returns full row from the database.
+	 */
 	public static ResultSet SelectTableWhereCondition(String tableName, String condition) {
 		return resultqueryFrom("SELECT * FROM `" + tableName + "` WHERE `" + condition +";");
 	}
 
-	// INSERT HERE MORE
-	// QUERIES-----------------------------------------------------------------------------
 
+
+	/**SELECT * FROM question WHERE questionID=ID.
+	 * @param questionID the question id.
+	 * @return returns row from question table with the specific id.
+	 */
 	public static ResultSet getQuestionByID(String questionID) {
 		return resultqueryFrom("SELECT * FROM question WHERE questionID= " + questionID + ";");
 	}
 
+	/**SELECT * FROM test WHERE isActivated=true AND currEcecCode=test execution code.
+	 * @param testExecCode test execution code.
+	 * @return returns row of test from the database in which the test is currently active and with the specific test execution code.
+	 */
 	public static ResultSet getTestByExecutionCode(String testExecCode) {
 		return resultqueryFrom(
 				"SELECT * FROM test WHERE isActivated = true AND" + " currExecCode= \"" + testExecCode + "\";");
@@ -41,38 +62,75 @@ public class Query {
 
 
 
-	
+
+	public static ResultSet getExecutedTestByCodeAndID(String testExecCode,String userID) {
+		return resultqueryFrom(
+				"SELECT * FROM executedtest WHERE TestCode= \"" + testExecCode + "\" AND "
+						+ "ExecutedBy = \"" + userID +"\";");
+	}
+
+
+	/**SELECT * FROM activatedtest where code=test execution code.
+	 * @param testExecCode test execution code.
+	 * @return row of activated test with the specific test execution code.
+	 */
 
 	public static ResultSet getActivatedTestByExecutionCode(String testExecCode) {
 		return resultqueryFrom(
 				"SELECT * FROM activatedtest WHERE code= \"" + testExecCode + "\";");
 	}
 
+	/**Inserts a question into the database.
+	 * @param qst the question which is need to be inserted.
+	 */
 	public static void InsertQuestionToDataBase(Question qst) {
 			updateQuery("INSERT INTO `query`.`question` (`questionID`, `text`, `answers`, `correctAnswerIndex`, `composedBy`) "
 				+ "VALUES ('"+qst.getQuestionID()+"', '"+qst.getText()+"', '"+qst.getAnswersString()+"', '"+qst.getCorrectAnswerIndex()+"', '"+qst.getTeacherComposed()+"');");
 	}
-	public static void IncreaseNumOfQuestionInCourse(String courseID) {
-		updateQuery("UPDATE course SET numOfQuestions=numOfQuestions+1 WHERE ID= "+courseID+";");
+	/**Increase the amount of questions for the specific field in the database.
+	 * @param fieldID the field ID.
+	 */
+	public static void IncreaseNumOfQuestionInField(String fieldID) {
+		updateQuery("UPDATE field SET numOfQuestions=numOfQuestions+1 WHERE ID= "+fieldID+";");
 	}
 	
 	public static void IncreaseNumOfTestInCourse(String courseID) {
 		updateQuery("UPDATE course SET numOfTests=numOfTests+1 WHERE ID= "+courseID+";");
 	}
 	
+	/**SELECT selected column FROM table name WHERE column=item.
+	 * @param selColumn column for selection.
+	 * @param tableName table name.
+	 * @param column column for comparison.
+	 * @param item object for comparison with.
+	 * @return
+	 */
 	public static ResultSet SelectColumnTableWhere(String selColumn,String tableName,String column,String item) {
 		return resultqueryFrom("SELECT "+selColumn+  " FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
 	}
 
+	/**get email by the composer id from the database
+	 * @param composerId composer's id
+	 * @return row of user from the database.
+	 */
 	public static ResultSet getEmailByComposerId(String composerId) {
 		return resultqueryFrom("SELECT * FROM user WHERE personalSID = " + composerId + ";");
 
 	}
 	
+	/**get an activated test from the database.
+	 * @param testCode test execution code.
+	 * @return returns a row of activated test from the database.
+	 */
 	public static ResultSet getActivatedTestsByCode(String testCode) {
 		return resultqueryFrom("SELECT * FROM activatedtest WHERE code = \"" + testCode + "\";");
 	}
 
+	/**get user name by his id from the database.
+	 * @param personalID the user's id.
+	 * @return  returns users full name (first name and last name).
+	 * @throws SQLException Exception in case didnt managed to connect to the database.
+	 */
 	public static String getFullNameByID(String personalID) throws SQLException {
 		ResultSet rs = resultqueryFrom(
 				"SELECT firstName, LastName FROM user WHERE personalSID = '" + personalID + "';");
@@ -81,14 +139,25 @@ public class Query {
 		return rs.getString(1) + " " + rs.getString(2);
 	}
 
+	/**count the table entries of a specific table.
+	 * @param tableName the table name.
+	 * @return returns how many entries there are in the table.
+	 */
 	public static ResultSet countTableEntries(String tableName) {
 		return resultqueryFrom("SELECT COUNT(*) FROM "+ tableName+";");
 	}
 	
+	/**get full table from the database.
+	 * @param tableName table name.
+	 * @return returns the full table from the database.
+	 */
 	public static ResultSet SelectFullTable(String tableName) {
 		return resultqueryFrom("SELECT * FROM " + tableName);
 	}
 
+	/**get the list of test that are composed by the current user.
+	 * @return all the test that are composed by the current user.
+	 */
 	public static ResultSet getTestListForTeacherFullTable() {
 		return resultqueryFrom(
 				"select test.testID, field.name as field, course.name as course , test.allocatedDuration, User.firstName, User.lastname\r\n"
@@ -105,6 +174,9 @@ public class Query {
 		updateQuery(query);
 	}
 
+	/**get the execution code history table.
+	 * @return full execodehistory table.
+	 */
 	public static ResultSet getExecutionCodesHistory() {
 
 		Connection con = SetConnectionDB.start();
@@ -119,6 +191,10 @@ public class Query {
 		return toReturn;
 	}
 
+	/**get an executed test with the specific test code.
+	 * @param testCode test execution code.
+	 * @return row from the executed test table.
+	 */
 	public static ResultSet getAllExecutedTestsByCode(String testCode) {
 
 		Connection con = SetConnectionDB.start();
@@ -133,6 +209,10 @@ public class Query {
 		return toReturn;
 	}
 	
+	/**
+	 * @param b1
+	 * @param excTest
+	 */
 	public static void writeManualTestBlobToDB(Blob b1, ExecutedTest excTest) {
 		Connection con = SetConnectionDB.start();
 		
@@ -234,6 +314,7 @@ public class Query {
 		return toReturn;
 		
 	}
+
 	
 public static int updateIsActivated(String testCode) {
 	Connection con = SetConnectionDB.start();
@@ -269,6 +350,7 @@ public static int updateIsActivated(String testCode) {
 	// ------------------------------------------------------------------------------------------------------
 
 
+
 	private static ResultSet resultqueryFrom(String query) {
 		Connection connection = SetConnectionDB.start();
 		Statement StatementOfResultSet;
@@ -277,8 +359,6 @@ public static int updateIsActivated(String testCode) {
 		try {
 			StatementOfResultSet = connection.createStatement();
 			Resultset = StatementOfResultSet.executeQuery(query);
-			// Resultset.next();
-			// System.out.println(Resultset.getString(1));
 			return Resultset;
 		} catch (SQLException e) {
 			EchoServer.SC.addToTextArea("ERROR--> geting data from server");
@@ -294,8 +374,7 @@ public static int updateIsActivated(String testCode) {
 		try {
 			StatementOfResultSet = connection.createStatement();
 			StatementOfResultSet.executeUpdate(query);
-			// Resultset.next();
-			// System.out.println(Resultset.getString(1));
+
 
 		} catch (SQLException e) {
 			EchoServer.SC.addToTextArea("ERROR--> geting data from server");
