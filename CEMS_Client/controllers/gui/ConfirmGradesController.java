@@ -23,7 +23,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+/**
+ * A controller class handling the interaction with teacher in lock test window.
+ */
 public class ConfirmGradesController implements Initializable{
 
     @FXML
@@ -52,6 +54,10 @@ public class ConfirmGradesController implements Initializable{
     
     public static boolean isNull;
 
+    /**
+     * This function routes the user back to the previous page - teacher main menu window.
+     * @param event - back was clicked.
+     */
     @FXML
     void back(ActionEvent event) {
     	Stage newStage = new Stage();
@@ -61,6 +67,10 @@ public class ConfirmGradesController implements Initializable{
     	stage.close();
     }
 
+    /**
+     * This method will route the user to the Grades Confirmation Table Window.
+     * @param event - confirmGrade was clicked.
+     */
     @FXML
     void confirmGrade(ActionEvent event) {
     	Stage newStage = new Stage();
@@ -72,6 +82,10 @@ public class ConfirmGradesController implements Initializable{
 		gcc.start(newStage);
     }
     
+    /**
+     * Standard controller starting mechanism.
+     * @param primaryStage
+     */
     public void start(Stage primaryStage) {	
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
@@ -87,6 +101,10 @@ public class ConfirmGradesController implements Initializable{
 		}
 	}
 
+	/**
+	 *This method initializes the tableCells of Confirm Grades Table with data from the 
+	 *data manager (which he got from the server).
+	 */
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		DataManager dm = DataManager.getDataManager();

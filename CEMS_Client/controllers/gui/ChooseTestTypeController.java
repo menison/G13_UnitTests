@@ -1,10 +1,5 @@
 package gui;
 
-import application.ClientUI;
-import cachedUserData.DataManager;
-import common.Operation;
-import entities.ExecutedTest;
-import entities.Message;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+/**
+ * A controller class handling the interaction with student in choose test type window.
+ */
 public class ChooseTestTypeController {
 
 	@FXML
@@ -21,6 +18,10 @@ public class ChooseTestTypeController {
 	@FXML
 	private Button chooseTestType_btnComput;
 
+	/**
+	 * This method will route the user to the take computerized test window.
+	 * @param event - Computerized was clicked.
+	 */
 	@FXML
 	void openCompTest(ActionEvent event) {
 		EnterStudentIdController esic = new EnterStudentIdController();
@@ -31,6 +32,10 @@ public class ChooseTestTypeController {
 		
 	}
 
+	/**
+	 * This method will route the user to the take manual test window.
+	 * @param event - Manual was clicked.
+	 */
 	@FXML
 	void openManualTest(ActionEvent event) {
 		ManualTestController mtc = new ManualTestController();
@@ -41,6 +46,11 @@ public class ChooseTestTypeController {
 		
 	}
 
+	/**
+	 * Standard controller starting mechanism.
+	 * @param primaryStage
+	 * @throws Exception
+	 */
 	public void start(Stage primaryStage) throws Exception {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();

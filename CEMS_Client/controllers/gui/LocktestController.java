@@ -28,6 +28,10 @@ public class LocktestController {
     @FXML
     private JFXTextField testCodeToLock_txtField;
 
+	/**
+	 * Standard controller starting mechanism.
+	 * @param primaryStage
+	 */
 	public void start(Stage primaryStage){
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -43,12 +47,20 @@ public class LocktestController {
 		}
 	}
 	
+    /**
+     * @param This method will result in writing isActivated=0 for the desired activatedTest
+     * tuple - which will result in a test lock.
+     */
     @FXML
     void Lock(ActionEvent event) {
     	String testCodeToLock = testCodeToLock_txtField.getText();
     	ClientUI.chat.accept(new Message(Operation.LockTest, testCodeToLock));
     }
 
+    /**
+     * This method will close the current window and route the user back to teacher main menu window.
+     * @param event
+     */
     @FXML
     void close(ActionEvent event) {
     	Stage stage = (Stage)btnLockClose.getScene().getWindow();
