@@ -139,7 +139,7 @@ public class Query {
 		String studentID = excTest.getExecutedBy();
 		String execCode = excTest.getExecutionCodePK();
 		System.out.println(studentID + "" + execCode);
-		String query = "UPDATE executedtest SET " + "SET uploadedmtest = ? " + "WHERE TestCode = ? " + "AND " + "ExecutedBy = ?" + ";";
+		String query = "UPDATE executedtest SET " + "uploadedmtest = ? " + "WHERE TestCode = ? " + "AND " + "ExecutedBy = ?" + ";";
 		try {
 			PreparedStatement toReturn = con.prepareStatement(query);
 			toReturn.setBlob(1, b1);

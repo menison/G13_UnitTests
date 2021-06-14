@@ -79,10 +79,13 @@ public class ManualTestController {
 		Object[] arr = new Object[2];
 		arr[0] = SolutionFile;
 		arr[1] = execTest;
+		System.out.println("before upload accept");
 		ClientUI.chat.accept(new Message(Operation.UploadManualTest, arr));
 		System.out.println("Test sent succesfully. Good luck!\n");
 		TestFinalController tfc = new TestFinalController();
 		Stage primaryStage = new Stage();
+		Stage stage = (Stage)manualTest_btnSend.getScene().getWindow();
+		stage.close();
 		tfc.start(primaryStage);
 	}
 
