@@ -67,7 +67,7 @@ public class CreateExtensionRequestController {
      * @param event
      * @throws IOException
      * Function activated once RequestExtension_btnExtend button is activated
-     * opens new window of Extension forthe user to fill details
+     * opens new window of Extension for the user to fill details
      */
     @FXML
     void Extend(ActionEvent event) throws IOException {
@@ -84,6 +84,11 @@ public class CreateExtensionRequestController {
     	}	
     }
 
+    /**
+     * @param event
+     * @throws Exception
+     * close window function activated once close button is clicked
+     */
     @FXML
     void close(ActionEvent event) throws Exception {
     	Stage newStage = new Stage();
@@ -92,6 +97,12 @@ public class CreateExtensionRequestController {
     	tmc.start(newStage);
     	stage.close();
     }
+	/**
+	 * @param primaryStage
+	 * @throws IOException
+	 * 
+	 * starts window
+	 */
 	public void start(Stage primaryStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -103,6 +114,9 @@ public class CreateExtensionRequestController {
 		primaryStage.show();
 		
 	}
+	/**
+	 * initialize table of tests
+	 */
 	@FXML
 	public void initialize() {
 

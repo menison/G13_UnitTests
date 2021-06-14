@@ -27,6 +27,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+/**
+ * ClassFullTestTableController for FullTestTable FXML.
+ * @author David
+ *	This class handles FullTestTable for buttons and table view.
+ * @param fullTestTable_btnAddTest			FXML: Add test button.
+ * @param fullTestTable_btnActivateTest		FXML: Activate test button.
+ * @param fullTestTable_btnEditTest			FXML: Edit test button.
+ * @param fullTestTable_btnClose			FXML: Close window button.
+ * @param fullTestTbl						FXML: Table view.
+ * 
+ */
 public class FullTestTableController {
 
     @FXML
@@ -60,6 +71,11 @@ public class FullTestTableController {
     private TableColumn<TestForFullTable, String> fullTestTable_composerColumn;
 
 
+	/**
+	 * starts FullTestTable window
+	 * @param primaryStage
+	 * @throws IOException
+	 */
 	public void start(Stage primaryStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -72,6 +88,9 @@ public class FullTestTableController {
 		
 	}
 	
+	/**
+	 * initializes the table view with received TestForFullTable ArrayList from server
+	 */
 	@FXML
 	public void initialize() {
 		ClientUI.chat.accept(new Message(Operation.GetFullTestTable));
@@ -87,6 +106,11 @@ public class FullTestTableController {
 		fullTestTbl.setItems(tests);
 	}
 
+    /**
+     * Opens ActivateTest window and sends test id to data manager
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void ActivateTest(ActionEvent event) throws IOException {
 
@@ -105,6 +129,11 @@ public class FullTestTableController {
     	}
     }
 
+    /**
+     * closes window
+     * @param event
+     * @throws Exception
+     */
     @FXML
     void Close(ActionEvent event) throws Exception {
     	Stage newStage = new Stage();
@@ -114,6 +143,11 @@ public class FullTestTableController {
     	stage.close();
     }
 
+    /**
+     * Opens EditTest window and sends test id to data manager
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void EditTest(ActionEvent event) throws IOException {
     	if(fullTestTbl.getSelectionModel().getSelectedItem()!=null){
@@ -131,6 +165,11 @@ public class FullTestTableController {
         	}
     }
 
+    /**
+     * Opens addTest window and sends test id to data manager
+     * @param event
+     * @throws IOException
+     */
     @FXML
     void addTest(ActionEvent event) throws IOException {
 		Stage newStage = new Stage();

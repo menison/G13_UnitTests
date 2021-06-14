@@ -18,13 +18,14 @@ import gui.ServerController;
 public class ActivateTest {
 	
 	/**validateAndActivate method to validate code and activate test
+	 * this method first validates the activition code and after that if the code is valid it activates the test.
 	 * @param msg				this msg contains a Test object	
 	 * @param codes				ResultSet holds holds table of activatedtest with given code, this is used to
 	 * 							check if code is in use
 	 * @param testForDuration	ResultSet to get test duration from test
 	 * @return					returns success or fail message to Client
 	 * 
-	 * this method first validates the activition code and after that if the code is valid it activates the test.
+
 	 */
 	public static Message validateAndActivate(Message msg){
 		ResultSet codes;

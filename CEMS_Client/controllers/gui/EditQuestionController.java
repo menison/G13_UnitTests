@@ -23,6 +23,26 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * Class EditQuestionController for EditQuestion FXML
+ * @author David
+ * 
+ * This class is used for editing questions
+ * @param EditQuestion_btnClose			FXML: Close Button.						
+ * @param EditQuestion_btnSubmit		FXML: Submit Button.			
+ * @param EditQuestion_questionField	FXML: Field for question.
+ * @param EditQuestion_asnwer1Field		FXML: First answer field.
+ * @param EditQuestion_answer2Field		FXML: Second answer field.
+ * @param EditQuestion_answer3Field		FXML: Third answer field.
+ * @param EditQuestion_answer4Field		FXML: Fourth answer field.
+ * @param EditQuestion_checkAnswer1		FXML: check answer 1
+ * @param EditQuestion_checkAnswer2		FXML: check answer 2
+ * @param EditQuestion_checkAnswer3		FXML: check answer 3
+ * @param EditQuestion_checkAnswer4		FXML: check answer 4
+ * @param EditQuestion_checkAnswer4		
+ * @param EditQuestion_btnClear			FXML: button for clear
+ * @param ToggleGroup1					
+ */
 public class EditQuestionController {
 
     @FXML
@@ -66,6 +86,10 @@ public class EditQuestionController {
 
 
 
+    /**
+     * clear: clears all fields
+     * @param event
+     */
     @FXML
     void clear(ActionEvent event) {
 		EditQuestion_questionField.setText("");
@@ -80,12 +104,28 @@ public class EditQuestionController {
 		
     }
 
+    /**
+     * Closes window
+     * @param event
+     */
     @FXML
     void close(ActionEvent event) {
 		Stage stage = (Stage) EditQuestion_btnClose.getScene().getWindow();
 		stage.close();
     }
 
+    /**
+     * Activated once submit is clicked
+     * this method submits the question in field for editing purpose
+     * @param event 
+     * @param answers			FXML:array of 4 answers
+     * @param questionText		question from question text field		
+     * @param answer			answer holds 4 answers in one string
+     * @param question			Question object for created question
+     * @param id				question id sent from previous window
+     * @param composer			question editor
+     * 
+     */
     @FXML
     void submitQuestion(ActionEvent event) {
     	if(EditQuestion_questionField.getText().isEmpty())
@@ -136,6 +176,9 @@ public class EditQuestionController {
 		newStage.setScene(scene);
 		newStage.show();
 	}
+	/**initialize
+	 * this methods initializes the window and fills its fields with chosen question information
+	 */
 	@FXML
 	public void initialize() {
 		String questionID=DataManager.getDataManager().getTestID();
@@ -161,13 +204,22 @@ public class EditQuestionController {
 			EditQuestion_checkAnswer4.setSelected(true);
 	}
 	
-    public void warningPopUp(String warning) {   //warnings func
+    /**
+     *  Warning alert
+     * @param warning			Warning String for alert.
+     *
+     */
+    public void warningPopUp(String warning) {
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setContentText(warning);
 
 		alert.showAndWait();
     }
-    public void confirmPopUp(String confirm) {   //warnings func
+    /**
+     *  confirm alert 
+     * @param confirm			confirm String for alert.
+     */
+    public void confirmPopUp(String confirm) {  
 		Alert alert = new Alert(AlertType.CONFIRMATION);
 		alert.setContentText(confirm);
 
