@@ -18,6 +18,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -88,6 +90,9 @@ import javafx.stage.Stage;
     			ClientUI.chat.accept(new Message(Operation.ConfirmTestWithoutChanges, "authorize"));
     			break;
     		}
+    		Alert alert = new Alert(AlertType.CONFIRMATION);
+    		alert.setContentText(op + "executed successfully!");
+    		alert.showAndWait();		
         }
         
         @FXML
