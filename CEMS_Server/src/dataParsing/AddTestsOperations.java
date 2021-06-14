@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import common.Operation;
 import database.Query;
-import entities.ActivatedTest;
 import entities.Course;
 import entities.Field;
 import entities.Message;

@@ -7,7 +7,6 @@ import common.Operation;
 import database.Query;
 import entities.ActivatedTest;
 import entities.Message;
-import entities.TestForFullTable;
 import gui.ServerController;
 
 

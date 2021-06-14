@@ -15,7 +15,6 @@ import gui.ServerController;
 public class GetTestTable {
 	
 	public static Message getTestTable(Message object) {
-		ArrayList<Object> arrayToSend = new ArrayList<>();
 		ArrayList<TestForTable> testList;
 		String studentID = (String)object.getObj();
 		Statement stmt;

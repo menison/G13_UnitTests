@@ -33,8 +33,8 @@ public class ManualTestDownloader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		EchoServer.SC.addToTextArea("Test downloaded successfully. You can find it in:" 
-				+ manualTest.getAbsolutePath() + "\n");
+		EchoServer.SC.addToTextArea("Test downloaded successfully. You can find it in: " 
+				+ manualTest.getAbsolutePath());
 		return new Message(Operation.DownloadManualTest, manualTest);
 	}
 }
