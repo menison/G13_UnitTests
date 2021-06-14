@@ -8,6 +8,10 @@ import entities.TestToConfirm;
 
 public class SetTestConfirmationTable {
 
+	/**
+	 * This methods receives from the server all the tests that require grade confirmation
+	 * @param receivedMessage
+	 */
 	public static void set(Message receivedMessage) {
 		ArrayList<TestToConfirm> testList = (ArrayList<TestToConfirm>) receivedMessage.getObj();
 		DataManager dm = DataManager.getDataManager();

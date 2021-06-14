@@ -6,6 +6,10 @@ import entities.Message;
 
 public class TestCodeValidation {
 
+	/**
+	 * This method sets the current executed test for student if the test code is correct
+	 * @param receivedMessage
+	 */
 	public static void informUser(Message receivedMessage) {
 		
 		if (receivedMessage.getObj() == "false") {
