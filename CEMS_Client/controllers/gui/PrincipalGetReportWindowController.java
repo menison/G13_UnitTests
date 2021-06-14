@@ -1,12 +1,9 @@
 package gui;
 
 import java.io.IOException;
-import java.util.ArrayList;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
@@ -20,7 +17,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+/**
+ * A controller class handling the interaction with principal in get report window.
+ */
 public class PrincipalGetReportWindowController {
 
 	@FXML

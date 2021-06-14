@@ -24,16 +24,22 @@ import request.SetTimeForExecExam;
 import request.StudentTestTable;
 import request.TeacherSetTableForSelfTests;
 import request.TestCodeValidation;
+import request.TestLocker;
 
 public class Parsing {
 	/**
-	 * @param This class receives all types of messages resulting from clicks in the
-	 *             system and routes them to the appropriate action for each of
-	 *             them.
+	 * This class receives messages represnting different requests
+	 *  resulting from clicks in the system and routes each and every 
+	 *  one of them to their appropriate handlers.
+	 */
+	
+	/**
+	 * This method  routes the receivedMessage to its appropriate case in this tremendous switch
+	 * case of ours, resulting in the requested actions to be executed to the user's will.
+	 * @param receivedMessage - A message that contains the desired operation to be executed.
 	 */
 	public static void Message(Message receivedMessage) {
 
-		
 		switch (receivedMessage.getOperationType()) {
 		
 		case Login:
@@ -151,6 +157,8 @@ public class Parsing {
 			EditTesterHandler.getMsg(receivedMessage);
 		case CheckFraud:
 			HandleCheaters.handle(receivedMessage);
+		case LockTest:
+			TestLocker.informUser(receivedMessage);
 		break;
 		case GetTestForReview:
 			SetRequestedTest.setTest(receivedMessage);

@@ -165,10 +165,9 @@ public class CreateQuestionController {
     	answers[2]=CreateQuestion_answer3Field.getText();
     	answers[3]=CreateQuestion_answer4Field.getText();
     	
-    	//ClientUI.chat.accept(new Message(Operation.GetCourseAmountOfQuestions,CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID()));
     	
     	
-    	Question qst=new Question(CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID().toString(),CreateQuestion_questionField.getText(),answers,correctAnswer,DataManager.getDataManager().getCurrentUser().getPersonalSID());
+    	Question qst=new Question(CreateQuestion_chooseSubjectBox.getSelectionModel().getSelectedItem().getID(),CreateQuestion_questionField.getText(),answers,correctAnswer,DataManager.getDataManager().getCurrentUser().getPersonalSID());
     	
     	ClientUI.chat.accept(new Message(Operation.AddQuestionToDatabase,qst));
     	confirmPopUp(DataManager.getDataManager().getQuestionMsg());

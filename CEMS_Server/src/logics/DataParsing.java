@@ -3,14 +3,15 @@ package logics;
 import common.Permission;
 import dataParsing.ActivateTest;
 import dataParsing.AddQuestionOperations;
-import dataParsing.GetCurrentExecutionExamEmail;
-import dataParsing.GetDurationForExecTest;
 import dataParsing.AddTestsOperations;
-import dataParsing.ExtensionRequest;
-import dataParsing.EditQuest;
+import dataParsing.CheckIfTestIsLocked;
 import dataParsing.ConfirmTestChangeGrade;
 import dataParsing.ConfirmTestWithoutChanges;
-import dataParsing.CheckIfTestIsLocked;
+import dataParsing.EditQuest;
+import dataParsing.EditTest;
+import dataParsing.ExtensionRequest;
+import dataParsing.GetCurrentExecutionExamEmail;
+import dataParsing.GetDurationForExecTest;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestForReview;
@@ -24,7 +25,7 @@ import dataParsing.PrincipalGetReport;
 import dataParsing.SetCompletedStudentExam;
 import dataParsing.TeacherGetAllSelfExecutedTests;
 import dataParsing.TestCodeValidation;
-import dataParsing.EditTest;
+import dataParsing.TestLocker;
 import database.GetLogin;
 import entities.Message;
 import server.EchoServer;
@@ -78,8 +79,8 @@ public class DataParsing {
 			return AddTestsOperations.addTest(receivedMessage);
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
-		case IncrementNumOfQuestionsInCourse:
-			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
+//		case IncrementNumOfQuestionsInCourse:
+//			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case CheckIfTestIsLocked:
@@ -114,6 +115,8 @@ public class DataParsing {
 			return FraudChecker.checkFraud(receivedMessage);
 		case GetTestForReview:
 			return GetTestForReview.getTest(receivedMessage);
+		case LockTest:
+			return TestLocker.lock(receivedMessage);
 		default:
 			break;
 		}

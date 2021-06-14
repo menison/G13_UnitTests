@@ -51,34 +51,34 @@ public class AddQuestionOperations {
 	}
 	public static Message addQuestionToDB(Message msg) {
 		Question qst=(Question) msg.getObj();
-		String courseID=qst.getQuestionID();
+		String fieldID=qst.getQuestionID();
 		Message messageToReturn;
 		
-		Integer number = getAmountOfCourseQuestionsbyString(courseID);
+		Integer number = getAmountOfFieldQuestionsbyString(fieldID);
 		
-		String ID=Generate(courseID,(int)number);
+		String ID=Generate(fieldID,(int)number);
 		
 		qst.setQuestionID(ID);
 		Query.InsertQuestionToDataBase(qst);
-		Query.IncreaseNumOfQuestionInCourse(courseID);
+		Query.IncreaseNumOfQuestionInField(fieldID);
 		ServerController.sc.addToTextArea("Added a question to the database with ID: "+qst.getQuestionID());
 		messageToReturn=new Message(Operation.AddQuestionToDatabase,"Question has been added");
 		return messageToReturn;
 	}
 	
-	public static Message increaseNumOfQuestionsInCourse(Message msg) {
-		String courseID=(String) msg.getObj();
-		Message messageToReturn;
-		Query.IncreaseNumOfQuestionInCourse(courseID);
-		ServerController.sc.addToTextArea("Increased number of questions in course ID: "+courseID);
-		messageToReturn=new Message(Operation.IncrementNumOfQuestionsInCourse,"Number of question has been increased");
-		return messageToReturn;
-	}
-	public static int  getAmountOfCourseQuestionsbyString(String msg) {
+//	public static Message increaseNumOfQuestionsInCourse(Message msg) {
+//		String courseID=(String) msg.getObj();
+//		Message messageToReturn;
+//		Query.IncreaseNumOfQuestionInCourse(courseID);
+//		ServerController.sc.addToTextArea("Increased number of questions in course ID: "+courseID);
+//		messageToReturn=new Message(Operation.IncrementNumOfQuestionsInCourse,"Number of question has been increased");
+//		return messageToReturn;
+//	}
+	public static int  getAmountOfFieldQuestionsbyString(String msg) {
 		Integer amountOfQuestions;
 		ResultSet rs;
 		try {
-			rs=Query.SelectColumnTableWhere("numOfQuestions", "course", "ID", msg);
+			rs=Query.SelectColumnTableWhere("numOfQuestions", "field", "ID", msg);
 			ServerController.sc.addToTextArea("Counting Questions For Course ID: "+msg);
 			rs.next();
 			amountOfQuestions=rs.getInt(1);
@@ -91,7 +91,7 @@ public class AddQuestionOperations {
 		return 0;
 
 }
-	public static String Generate(String courseID,int numOfExistingQuestions) {
+	public static String Generate(String fieldID,int numOfExistingQuestions) {
 		numOfExistingQuestions++;
 		int qNum=numOfExistingQuestions;
 		String generatedID="";
@@ -104,7 +104,7 @@ public class AddQuestionOperations {
 		}
 		else
 			qNumString=Integer.toString(qNum);
-		generatedID=courseID+qNumString;
+		generatedID=fieldID+qNumString;
 		return generatedID;
 	}
 }

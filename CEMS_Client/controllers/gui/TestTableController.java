@@ -21,6 +21,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+/**
+ * A controller class handling interaction with user in test table window.
+ */
 public class TestTableController{
 
     @FXML
@@ -79,6 +82,10 @@ public class TestTableController{
     	stage.close();
     }
     
+    /**
+     * Standard controller starting mechanism.
+     * @param primaryStage - a stage to start on.
+     */
     public void start(Stage primaryStage) throws Exception {	
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();

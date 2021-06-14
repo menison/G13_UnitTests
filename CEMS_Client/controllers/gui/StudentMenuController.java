@@ -15,7 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+/**
+ * A controller class handling interaction with user in student menu window.
+ */
 public class StudentMenuController {
 	@FXML
 	private Button studentMenu_takeTest;
@@ -25,6 +27,11 @@ public class StudentMenuController {
 	private Button studentMenu_logOut;
 	private TestTableController showTTController;
 	
+	/**
+	 * This method gets and sets the test table for student, and opens the test table window.
+	 * @param event - a click on the relevant button
+	 * @throws Exception
+	 */
 	@FXML
     void showTestTable(ActionEvent event) throws Exception {
 		FXMLLoader loader = new FXMLLoader();
@@ -45,6 +52,11 @@ public class StudentMenuController {
 		primaryStage.show();
     }
 	
+	/**
+	 * This method opens the enter test code window.
+	 * @param event - a click on the relevant button
+	 * @throws Exception
+	 */
 	@FXML
     void takeTest(ActionEvent event) throws Exception {
     	Stage newStage = new Stage();
@@ -54,6 +66,10 @@ public class StudentMenuController {
     	stage.close();
     }
 	
+	/**
+	 * A standard controller start mechanism.
+	 * @param primaryStage - a stage to start on.
+	 */
 	public void start(Stage primaryStage){	
 		Pane root;
     	FXMLLoader loader = new FXMLLoader();
@@ -69,14 +85,18 @@ public class StudentMenuController {
 		}
 	}
 	
+	/**
+	 * This methods logs out from the current user session and re-open login window.
+	 * @param event - a click on the relevant button.
+	 * @throws Exception
+	 */
 	@FXML
-	void logOut(ActionEvent event) throws IOException {
+	void logOut(ActionEvent event) throws Exception {
 		Stage newStage = new Stage();
 		LoginCemsController lcc = new LoginCemsController();
 		try {
 			lcc.start(newStage);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		((Node) event.getSource()).getScene().getWindow().hide();

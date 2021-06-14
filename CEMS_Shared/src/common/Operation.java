@@ -53,7 +53,9 @@ public enum Operation {
 	GetTestByID,
 	UpdateTest,
 	CheckFraud,
-	GetTestForReview
+	GetTestForReview,
+	LockTest
+
 
 
 }

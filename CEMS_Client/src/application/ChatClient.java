@@ -8,8 +8,12 @@ import entities.Message;
 import ocsf.client.AbstractClient;
 import dataParsing.Parsing;
 
-public class ChatClient extends AbstractClient {
-
+/**
+ * A class that extends OCSF's AbstractClient and handles incoming messages
+ * from both client and server.
+ */
+public class ChatClient extends AbstractClient { 
+	
 	public static boolean awaitResponse = false;
 
 	public ChatClient(String host, int port) throws IOException {
@@ -17,7 +21,8 @@ public class ChatClient extends AbstractClient {
 	}
 
 	/**
-	 * This function receives a message from the server and converts it so that the client side will understand it.
+	 * This function handles a message from server.
+	 *@param msg -> An Object that contains a message from server.
 	 */
 	public void handleMessageFromServer(Object msg) {
 		Message receivedMessage = (Message) msg;
@@ -26,8 +31,8 @@ public class ChatClient extends AbstractClient {
 
 	}
 
-	/**
-	 * @param This function receives a message from the client and converts it so that the server will understand it.
+	/**This function handles a message from client.
+	 * @param message -> An Object that contains a message from client.
 	 */
 	public void handleMessageFromClient(Message message) {
 		try {
@@ -51,6 +56,9 @@ public class ChatClient extends AbstractClient {
 
 	}
 
+	/**
+	 * This function closes the connection and exits the system totally.
+	 */
 	public void quit() {
 		try {
 			closeConnection();
