@@ -64,7 +64,7 @@ import dataParsing.PrincipalGetReport;
 import dataParsing.SetCompletedStudentExam;
 import dataParsing.TeacherGetAllSelfExecutedTests;
 import dataParsing.TestCodeValidation;
-
+import dataParsing.EditTest;
 
 import database.GetLogin;
 import entities.Message;
@@ -151,6 +151,8 @@ public class DataParsing {
 
 		case RequestExtension:
 			return ExtensionRequest.handleExtension(receivedMessage);
+		case GetTestByID:
+			return EditTest.getTest(receivedMessage);
 
 
 			

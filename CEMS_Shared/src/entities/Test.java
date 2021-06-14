@@ -28,7 +28,20 @@ public class Test implements Serializable {
 	private String pointsString;
 	private String questionIDString;
 
-
+	public Test (String testID,String questionString,int allocatedDuration,String commentsForStudents,String commentsForTeachers,String currExecutionCode,String pointsString,int isActivated,String teacherComposed) {
+	
+		this.testID=testID;
+		this.questionString=questionString;
+		this.allocatedDuration=allocatedDuration;
+		this.commentsForStudents=commentsForStudents;
+		this.commentsForTeachers=commentsForTeachers;
+		this.currExecutionCode=currExecutionCode;
+		this.pointsString=pointsString;
+		this.isActivated=isActivated;
+		this.teacherComposed=teacherComposed;
+		
+		
+	}
 	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,
 			String commentsForTeachers, String currExecutionCode, 
 			String[] pointDistribution, int isActivated, String composedBy) {
