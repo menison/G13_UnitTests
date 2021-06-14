@@ -10,6 +10,7 @@ import entities.Field;
 import entities.Question;
 import entities.QuestionForCreateTest;
 import entities.Report;
+import entities.Test;
 import entities.TestForFullTable;
 import entities.TestForTable;
 import entities.TestToConfirm;
@@ -30,36 +31,33 @@ public class DataManager {
 	private ArrayList<Course> courses;
 	private ArrayList<Question> questions;
 	private TableView<QuestionForCreateTest> CreateTest_tblQuestions;
-
-
 	private ArrayList<Extension> extensionRequests;
 	private String testID;
 	private Report report;
 	private TestToConfirm t;
-
 	private String currentExecEmail;
-
 	private String activateMsg;
-
 	private String addTestMsg;
-
 	private boolean activateSuccess;
-
 	private ArrayList<ActivatedTest> teacherActivatedTests;
 	private String addQuestionMsg;
 	private String incQuestionNumMsg;
 	private String amountOfQuestions;
-
 	private int tempNumOfQuestionsForCourse;
 	private Extension extension;
-
-
+	private Test test;
 	private Question question;
 
 
 
 
 
+	public Test getTest() {
+		return test;
+	}
+	public void setTest(Test test) {
+		this.test = test;
+	}
 	public void setAddQuestionMsg(String msg) {
 		this.addQuestionMsg=msg;
 	}
@@ -182,7 +180,6 @@ public class DataManager {
 	
 	public void clearAll() {
 		this.currentUser = null;
-		this.PreOrder = false;
 	}
 	
 	public ExecutedTest getTestInExecution() {

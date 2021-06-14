@@ -61,14 +61,31 @@ public class AddQuestionForTestController {
 	void AddQuestion(ActionEvent event) throws IOException {
 		Question q = ChooseQuestion_tblQuestion.getSelectionModel().getSelectedItem();
 		String points = ChooseQuestion_pointsField.getText();
+	  	try {
+	      	@SuppressWarnings("unused")
+	    	int x = Integer.parseInt(ChooseQuestion_pointsField.getText());
+		} catch (NumberFormatException e) {
+			Alert alert = new Alert(Alert.AlertType.ERROR);
+			alert.setTitle("Error");
+			alert.setContentText("Points is only of type integer");
+			alert.showAndWait(); //String is not an Integer
+			return;
+		}
 		if (q == null || points.isEmpty()) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setContentText("You have to choose a question and set points for it");
 			alert.showAndWait();
-		} else {
+		}
+		else {
 			QuestionForCreateTest questionForCreateTest = new QuestionForCreateTest(q, points);
 			DataManager.getDataManager().getCreateTest_tblQuestions().getItems().add(questionForCreateTest);
+			Alert alert=new Alert(Alert.AlertType.CONFIRMATION);
+			alert.setTitle("Success");
+			alert.setContentText("Question has been added to the test");
+			alert.showAndWait();
+			
+			 
 		}
 	}
 

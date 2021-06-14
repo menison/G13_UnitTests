@@ -56,6 +56,10 @@ public class Query {
 		updateQuery("UPDATE course SET numOfQuestions=numOfQuestions+1 WHERE ID= "+courseID+";");
 	}
 	
+	public static void IncreaseNumOfTestInCourse(String courseID) {
+		updateQuery("UPDATE course SET numOfTests=numOfTests+1 WHERE ID= "+courseID+";");
+	}
+	
 	public static ResultSet SelectColumnTableWhere(String selColumn,String tableName,String column,String item) {
 		return resultqueryFrom("SELECT "+selColumn+  " FROM `" + tableName + "` WHERE `" + column + "` = \"" + item + "\";");
 	}
@@ -245,7 +249,6 @@ public class Query {
 		try {
 			StatementOfResultSet = connection.createStatement();
 			StatementOfResultSet.executeUpdate(query);
-			System.out.println("POTATO\n");
 			// Resultset.next();
 			// System.out.println(Resultset.getString(1));
 

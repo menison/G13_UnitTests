@@ -1,13 +1,64 @@
 package logics;
+<<<<<<< HEAD
 
+=======
+
+
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import common.Permission;
+<<<<<<< HEAD
 import dataParsing.ActivateTest;
 import dataParsing.AddQuestionOperations;
 import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
+=======
+import dataParsing.ActivateTest;
+
+
+
+
+
+import dataParsing.AddQuestionOperations;
+
+
+
+
+
+
+import dataParsing.GetCurrentExecutionExamEmail;
+import dataParsing.GetDurationForExecTest;
+
+
+
+
+import common.Permission;
+import dataParsing.ActivateTest;
+
+
+import common.Permission;
+import dataParsing.ActivateTest;
+
+import dataParsing.AddTestsOperations;
+
+
+
+
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import dataParsing.AddTestsOperations;
 import dataParsing.ExtensionRequest;
+<<<<<<< HEAD
 import dataParsing.EditQuest;
+=======
+
+
+
+import dataParsing.EditQuest;
+import dataParsing.ExtensionRequest;
+
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 import dataParsing.ConfirmTestChangeGrade;
 import dataParsing.ConfirmTestWithoutChanges;
 import dataParsing.CheckIfTestIsLocked;
@@ -23,7 +74,7 @@ import dataParsing.PrincipalGetReport;
 import dataParsing.SetCompletedStudentExam;
 import dataParsing.TeacherGetAllSelfExecutedTests;
 import dataParsing.TestCodeValidation;
-
+import dataParsing.EditTest;
 
 import database.GetLogin;
 import entities.Message;
@@ -70,14 +121,21 @@ public class DataParsing {
 			return AddTestsOperations.getSubjectsAndCourses(receivedMessage);
 		case GetQuestions:
 			return AddTestsOperations.getQuestions(receivedMessage);
-		case GetAmountOfTests:
-			return AddTestsOperations.getAmountOfTests(receivedMessage);
 		case GetAmountOfQuestions:
 			return AddQuestionOperations.getAmountOfQuestions(receivedMessage);
 		case GetCourseAmountOfQuestions:
 			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
+<<<<<<< HEAD
 		case AddNewTest:
 			return AddTestsOperations.addTest(receivedMessage);
+=======
+		case AddNewTest:
+
+
+			return AddTestsOperations.addTest(receivedMessage);
+
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
 		case IncrementNumOfQuestionsInCourse:
@@ -106,6 +164,10 @@ public class DataParsing {
 
 		case RequestExtension:
 			return ExtensionRequest.handleExtension(receivedMessage);
+		case GetTestByID:
+			return EditTest.getTest(receivedMessage);
+		case UpdateTest:
+			return EditTest.updateTest(receivedMessage);
 
 
 			

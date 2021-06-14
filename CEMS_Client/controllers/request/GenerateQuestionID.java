@@ -3,9 +3,19 @@ package request;
 import cachedUserData.DataManager;
 import entities.Message;
 
+/**Class for generating question ID.
+ * In addition, uses the local cache(DataManager) for the purpose of creating question.
+ * @author Aviv
+ *
+ */
 public class GenerateQuestionID {
 
 
+	/**Method for generating question ID using the course ID and the number of questions as an input.
+	 * @param courseID course ID of affiliated question
+	 * @param numOfExistingQuestions number of existing questions affiliated with the course ID
+	 * @return
+	 */
 	public static String Generate(String courseID,int numOfExistingQuestions) {
 		numOfExistingQuestions++;
 		int qNum=numOfExistingQuestions;

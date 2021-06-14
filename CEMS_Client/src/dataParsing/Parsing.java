@@ -26,6 +26,7 @@ import request.HandleActivateStatus;
 
 import request.AddTeacherTestsToDM;
 import request.AfterGradeAuth;
+import request.EditTesterHandler;
 import request.FullTestTable;
 import request.GetCurrentExecEmail;
 import request.HandleActivateStatus;
@@ -177,6 +178,12 @@ public class Parsing {
 		case GetTestsActivatedByTeachger:
 			AddTeacherTestsToDM.add(receivedMessage);
 			break;
+		case GetTestByID:
+			EditTesterHandler.addToDB(receivedMessage);
+			break;
+		case UpdateTest:
+			EditTesterHandler.getMsg(receivedMessage);
+		break;
 		default:
 			break;
 		}

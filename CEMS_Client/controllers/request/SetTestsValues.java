@@ -7,6 +7,11 @@ import entities.Course;
 import entities.Field;
 import entities.Message;
 import entities.Question;
+
+/**Class for saving information that returned from the server in the cache affiliated with Test and Courses entities
+ * @author Aviv
+ *
+ */
 @SuppressWarnings("unchecked")
 public class SetTestsValues {
 

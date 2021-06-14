@@ -107,7 +107,16 @@ public class CreateQuestionController {
 
     @FXML
     void clear(ActionEvent event) {
-
+    	CreateQuestion_questionField.setText("");
+    	CreateQuestion_answer1Field.setText("");
+    	CreateQuestion_answer2Field.setText("");
+    	CreateQuestion_answer3Field.setText("");
+    	CreateQuestion_answer4Field.setText("");
+    	CreateQuestion_checkAnswer1.setSelected(true);
+    	CreateQuestion_checkAnswer2.setSelected(false);
+    	CreateQuestion_checkAnswer3.setSelected(false);
+    	CreateQuestion_checkAnswer4.setSelected(false);
+		
     }
 
     @FXML
@@ -155,9 +164,12 @@ public class CreateQuestionController {
     	answers[1]=CreateQuestion_answer2Field.getText();
     	answers[2]=CreateQuestion_answer3Field.getText();
     	answers[3]=CreateQuestion_answer4Field.getText();
-    	ClientUI.chat.accept(new Message(Operation.GetCourseAmountOfQuestions,CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID()));
-    	String generatedID=GenerateQuestionID.Generate(CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID(), DataManager.getDataManager().getTempAmountOfQuestionsForCourse());
-    	Question qst=new Question(generatedID,CreateQuestion_questionField.getText(),answers,correctAnswer,DataManager.getDataManager().getCurrentUser().getPersonalSID());
+    	
+    	//ClientUI.chat.accept(new Message(Operation.GetCourseAmountOfQuestions,CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID()));
+    	
+    	
+    	Question qst=new Question(CreateQuestion_chooseCourseBox.getSelectionModel().getSelectedItem().getID().toString(),CreateQuestion_questionField.getText(),answers,correctAnswer,DataManager.getDataManager().getCurrentUser().getPersonalSID());
+    	
     	ClientUI.chat.accept(new Message(Operation.AddQuestionToDatabase,qst));
     	confirmPopUp(DataManager.getDataManager().getQuestionMsg());
 		QuestionTableController qtc = new QuestionTableController();

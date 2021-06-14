@@ -50,7 +50,9 @@ public enum Operation {
 	GetExtensionRequests,
 	ApproveExtensionRequests,
 	DeclineExtensionRequests,
-	SubmitQuestionInfo
+	SubmitQuestionInfo,
+	GetTestByID,
+	UpdateTest
 
 
 }

@@ -72,30 +72,49 @@ public class AddTestsOperations {
 		return null;
 	}
 
-	public static Message getAmountOfTests(Message msg) {
-		String courseID = (String) msg.getObj();
+	public static int getAmountOfTests(String courseID) {
 		Integer amountOfTests;
 		String query = null;
 		query = "SELECT numOfTests FROM course WHERE ID = " + courseID + ";";
 		ResultSet rs;
-		Message messageToReturn;
 		try {
 			rs = Query.getReport(query);
 			ServerController.sc.addToTextArea("Coounting Tests");
 			rs.next();
 			amountOfTests = rs.getInt(1);
 			rs.close();
-			messageToReturn = new Message(Operation.GetAmountOfTests, amountOfTests.toString());
-			return messageToReturn;
+			return amountOfTests;
 		} catch (SQLException e) {
 			System.out.println("Error setting table");
 			e.printStackTrace();
 		}
-		return null;
+		return 0;
 	}
 
 	public static Message addTest(Message msg) {
 		Test test = (Test) msg.getObj();
+		int amountOfTests = getAmountOfTests(test.getTestID());
+		String newTestID;
+		amountOfTests++;
+		String fieldID="";
+		ResultSet rs;
+		try {
+			rs=Query.SelectColumnTableWhere("belongsToField", "course", "ID", test.getTestID());
+			rs.next();
+			fieldID=rs.getString(1);
+			rs.close();
+		}catch(SQLException e) {
+			System.out.println("Error getting data from server");
+			e.printStackTrace();
+		}
+		if(amountOfTests<10) {
+			newTestID=fieldID+test.getTestID()+"0"+Integer.toString(amountOfTests);
+		}
+		else {
+			newTestID=fieldID+test.getTestID()+Integer.toString(amountOfTests);
+		}
+		Query.IncreaseNumOfTestInCourse(test.getTestID());
+		test.setTestID(newTestID);
 		Query.update(
 				"INSERT INTO test (`testID`, `questions`, `allocatedDuration`, `commentsForStudents`, `commentsForTeachers`, `currExecCode`, `pointDistribution`, `isActivated`, `ComposedBy`) "
 						+ "VALUES ('" + test.getTestID() + "', '" + test.getQuestionIDString() + "', "
@@ -103,6 +122,7 @@ public class AddTestsOperations {
 						+ test.getCommentsForTeachers() + "', '" + test.getCurrExecutionCode() + "', '"
 						+ test.getPointsString() + "', " + test.isActivated() + ", '" + test.getComposedBy() + "');");
 		ServerController.sc.addToTextArea("test ID:" + test.getTestID() + " was added");
+		
 		return new Message(Operation.AddNewTest, "Added new test successfully");
 	}
 

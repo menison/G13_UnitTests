@@ -115,8 +115,20 @@ public class FullTestTableController {
     }
 
     @FXML
-    void EditTest(ActionEvent event) {
+    void EditTest(ActionEvent event) throws IOException {
+    	if(fullTestTbl.getSelectionModel().getSelectedItem()!=null){
+            Object selectedItems=fullTestTbl.getSelectionModel().getSelectedItem().getTestID();
+        	Stage stage = new Stage();
+        	EditTestController editTest= new EditTestController();
+    		DataManager dm = DataManager.getDataManager();
+    		dm.setTestID(selectedItems.toString());
+        	editTest.start(stage);
+        	}else {
+        		Alert alert = new Alert(AlertType.WARNING);
+        		alert.setContentText("Please choose a test first.");
 
+        		alert.showAndWait();
+        	}
     }
 
     @FXML
