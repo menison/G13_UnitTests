@@ -9,21 +9,22 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" stylesheets="@../css/das.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.TeacherMenuController">
    <children>
-      <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="7.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+      <JFXButton fx:id="teacherMenu_btnQuestionTable" focusTraversable="false" layoutX="48.0" layoutY="189.0" onAction="#questionTable" prefHeight="39.0" prefWidth="137.0" text="Question Table" />
+      <JFXButton fx:id="teacherMenu_btnTestTable" focusTraversable="false" layoutX="48.0" layoutY="259.0" onAction="#testTable" prefHeight="39.0" prefWidth="137.0" text="Test Table" />
+      <JFXButton fx:id="teacherMenu_btnTestExt" focusTraversable="false" layoutX="412.0" layoutY="189.0" onAction="#testExtension" prefHeight="39.0" prefWidth="137.0" text="Test Extensions" />
+      <Label layoutX="202.0" layoutY="30.0" prefHeight="64.0" prefWidth="215.0" styleClass="login-header" text="Teacher Menu" textFill="#b2b2b2">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="teacherMenu_btnTestsStats" focusTraversable="false" layoutX="412.0" layoutY="259.0" onAction="#testsForReport" prefHeight="39.0" prefWidth="137.0" text="Tests Statistics" />
+      <JFXButton fx:id="teacherMenu_btnLogout" focusTraversable="false" layoutX="262.0" layoutY="435.0" onAction="#logOut" styleClass="logout-btn" text="Logout" />
+      <JFXButton fx:id="teacherMenu_btnGConfirmation" focusTraversable="false" layoutX="215.0" layoutY="118.0" onAction="#loadGradeConfirmationWindow" text="Grades Confirmation" />
+      <JFXButton fx:id="teacherMenu_btnLock" focusTraversable="false" layoutX="239.0" layoutY="372.0" onAction="#lockTest" prefHeight="39.0" prefWidth="120.0" text="Lock Test" />
+      <ImageView fitHeight="168.0" fitWidth="170.0" layoutX="230.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/logo4.png" />
          </image>
       </ImageView>
-      <JFXButton fx:id="teacherMenu_btnQuestionTable" focusTraversable="false" layoutX="48.0" layoutY="169.0" onAction="#questionTable" prefHeight="39.0" prefWidth="137.0" text="Question Table" />
-      <JFXButton fx:id="teacherMenu_btnTestTable" focusTraversable="false" layoutX="48.0" layoutY="239.0" onAction="#testTable" prefHeight="39.0" prefWidth="137.0" text="Test Table" />
-      <JFXButton fx:id="teacherMenu_btnTestExt" focusTraversable="false" layoutX="412.0" layoutY="169.0" onAction="#testExtension" prefHeight="39.0" prefWidth="137.0" text="Test Extensions" />
-      <Label layoutX="210.0" layoutY="32.0" prefHeight="64.0" prefWidth="180.0" styleClass="login-header" text="Teacher Menu" textFill="#b2b2b2">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
-      <JFXButton fx:id="teacherMenu_btnTestsStats" focusTraversable="false" layoutX="412.0" layoutY="239.0" onAction="#testsForReport" prefHeight="39.0" prefWidth="137.0" text="Tests Statistics" />
-      <JFXButton fx:id="teacherMenu_btnLogout" focusTraversable="false" layoutX="263.0" layoutY="405.0" onAction="#logOut" styleClass="logout-btn" text="Logout" />
-      <JFXButton fx:id="teacherMenu_btnGConfirmation" focusTraversable="false" layoutX="215.0" layoutY="307.0" onAction="#loadGradeConfirmationWindow" text="Grades Confirmation" />
    </children>
 </Pane>

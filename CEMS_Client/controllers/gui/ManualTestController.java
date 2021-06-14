@@ -25,7 +25,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
-
+/**
+ * A controller class handling the interaction with student in manual test window.
+ */
 public class ManualTestController implements Initializable{
 
 	private File SolutionFile;

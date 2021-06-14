@@ -22,7 +22,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+/**
+ * A controller class handling interaction with user in test statistics window.
+ */
 public class TestsStatisticsController {
 
 	@FXML
@@ -37,6 +39,10 @@ public class TestsStatisticsController {
 	@FXML
 	private JFXButton testsStatistics_btnGetStatistics;
 
+	 /**
+     * Standard controller starting mechanism.
+     * @param primaryStage - a stage to start on.
+     */
 	public void start(Stage newStage) throws IOException {
 		Pane root;
 		FXMLLoader loader = new FXMLLoader();
@@ -48,6 +54,11 @@ public class TestsStatisticsController {
 		newStage.show();
 	}
 
+	/**
+	 * This method closes the current window and re-opens teacher main menu window.
+	 * @param event - a click on close has occured.
+	 * @throws Exception
+	 */
 	@FXML
 	void testsStatistics_btnCloseClicked(ActionEvent event) throws Exception {
 		Stage newStage = new Stage();
@@ -57,6 +68,12 @@ public class TestsStatisticsController {
 		currentStage.close();
 	}
 
+	/**
+	 * This method gets a report from the server using data saved within the DB
+	 * and displays it visually to the teacher.
+	 * @param event - a request to get report has occured.
+	 * @throws IOException
+	 */
 	@FXML
 	void getReport(ActionEvent event) throws IOException {
 		if (testStatisticsTable.getSelectionModel().getSelectedItem() == null) {
@@ -78,6 +95,10 @@ public class TestsStatisticsController {
 		}
 	}
 
+	
+	/**
+	 * This method Initializes the table cells.
+	 */
 	@FXML
 	public void initialize() {
 		DataManager dm = DataManager.getDataManager();
