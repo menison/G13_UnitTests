@@ -145,6 +145,10 @@ public class AddTestController {
 			notFilled += "-Test Duration\n";
 			notFilledFlag = true;
 		}
+		if(isNumeric(CreateTest_DurationField.getText())==false) {
+			notFilled+="Test duration is of type int only\n";
+			notFilledFlag = true;
+		}
 		if (notFilledFlag) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setTitle("Error");
@@ -189,6 +193,17 @@ public class AddTestController {
 	}
 	public void addQustionToTable(QuestionForCreateTest question) {
 		CreateTest_tblQuestions.getItems().add(question);
+	}
+	public static boolean isNumeric(String strNum) {
+	    if (strNum == null) {
+	        return false;
+	    }
+	    try {
+	        int d = Integer.parseInt(strNum);
+	    } catch (NumberFormatException nfe) {
+	        return false;
+	    }
+	    return true;
 	}
 
 }

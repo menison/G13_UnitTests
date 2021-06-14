@@ -14,13 +14,31 @@ import gui.ServerController;
 import logics.DataParsing;
 import server.EchoServer;
 
+/**Method for classifying user type from the request of the client, including a logout method.
+ * @author Aviv
+ *
+ */
 public class GetLogin {
 	
+	
+	/**ArrayList of type String of all the users that are currently logged into the system.
+	 * 
+	 */
 	public static ArrayList<String> usersloggedIn = new ArrayList<String>();
+	/**ResultSet for running queries.
+	 * 
+	 */
 	public static ResultSet resultSet;
+	/**
+	 * Data that includes user name and password that are inserted by the client.
+	 */
 	public static ArrayList<String> Data;
 	
-	//differentiate between the type of users
+
+	/**Method for classifying the type of user that is trying to log in.
+	 * @param object Contains the data of the user - user name and password.
+	 * @return Message with the current permission of the user (yes,no,NULL) and his details.
+	 */
 	@SuppressWarnings("unchecked")
 	public static Message userLoginData(Message object) {
 		Data = (ArrayList<String>) object.getObj();
@@ -52,6 +70,10 @@ public class GetLogin {
 		return null;
 	}
 	
+	/**Method of adding teacher to the connected users arraylist and defining the user permission.
+	 * @return Message with the user permission and his details.
+	 * @throws SQLException In case didn't managed to log into the database.
+	 */
 	public static Message teacherLoginData() throws SQLException {
 		Teacher teacher;
 		Message returnMessage;
@@ -73,6 +95,10 @@ public class GetLogin {
 		return returnMessage;
 	}
 	
+	/**Method of adding student to the connected users arraylist and defining the user permission.
+	 * @return Message with the user permission and his details.
+	 * @throws SQLException In case didn't managed to log into the database.
+	 */
 	public static Message studentLoginData() throws SQLException {
 		Student student;
 		Message returnMessage;
@@ -94,6 +120,10 @@ public class GetLogin {
 		return returnMessage;
 	}
 	
+	/**Method of adding student to the connected users arraylist and defining the user permission
+	 * @return Message with the user permission and his details.
+	 * @throws SQLException In case didn't managed to log into the database.
+	 */
 	public static Message principalLoginData() throws SQLException {
 		Principal principal;
 		Message returnMessage;
@@ -115,6 +145,10 @@ public class GetLogin {
 		return returnMessage;
 	}
 	
+	/**Log out method for removing a user from the connected users array list by using his ID.
+	 * @param msg Message that contains the specific user details.
+	 * @return Return message for the client with the use id and operation type (Logout).
+	 */
 	public static Message logOut(Message msg) {
 		String id=(String)msg.getObj();
 		usersloggedIn.remove(id);

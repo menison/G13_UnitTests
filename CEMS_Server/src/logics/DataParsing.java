@@ -77,8 +77,8 @@ public class DataParsing {
 			return AddTestsOperations.addTest(receivedMessage);
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
-		case IncrementNumOfQuestionsInCourse:
-			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
+//		case IncrementNumOfQuestionsInCourse:
+//			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case CheckIfTestIsLocked:
