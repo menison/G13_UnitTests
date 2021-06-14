@@ -35,12 +35,12 @@
          </font>
       </Label>
       <ProgressIndicator fx:id="manualTest_pieProgressIndicator" layoutX="197.0" layoutY="274.0" progress="0.0" />
-      <Label layoutX="231.0" layoutY="267.0" prefHeight="40.0" prefWidth="97.0" text=" Time Elapsed:" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
+      <Label layoutX="231.0" layoutY="267.0" prefHeight="40.0" prefWidth="118.0" text=" Time Remaning:" textAlignment="CENTER" textFill="#b2b2b2" wrapText="true">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="manualTest_txtElapsedTime" editable="false" focusTraversable="false" layoutX="328.0" layoutY="275.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="46.0" text="#min" />
+      <JFXTextField fx:id="manualTest_txtElapsedTime" alignment="CENTER" editable="false" focusTraversable="false" layoutX="361.0" layoutY="275.0" maxHeight="25.0" minHeight="25.0" prefHeight="25.0" prefWidth="59.0" text="#min" />
       <Button fx:id="manualTest_btnSend" focusTraversable="false" layoutX="269.0" layoutY="336.0" mnemonicParsing="false" onAction="#sendManualTest" text="Send" />
    </children>
    <stylesheets>
