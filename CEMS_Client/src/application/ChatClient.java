@@ -16,9 +16,6 @@ public class ChatClient extends AbstractClient {
 		super(host, port);
 	}
 
-	/**
-	 * This function receives a message from the server and converts it so that the client side will understand it.
-	 */
 	public void handleMessageFromServer(Object msg) {
 		Message receivedMessage = (Message) msg;
 		awaitResponse = false;
@@ -26,9 +23,6 @@ public class ChatClient extends AbstractClient {
 
 	}
 
-	/**
-	 * @param This function receives a message from the client and converts it so that the server will understand it.
-	 */
 	public void handleMessageFromClient(Message message) {
 		try {
 			openConnection();
