@@ -172,7 +172,7 @@ public class TestQuestionMiddleController implements Initializable{
 		SimpleDateFormat formatter = new SimpleDateFormat("ddMM"); 
 	    Date date = new Date();
 	    long diff = getTimeDifference();
-	    if(diff > 10) 
+	    if((diff > 10) || (diff < 0)) 
 	    	late = true;
 		setQuestions();
 		execTest.initAnswers();
@@ -326,7 +326,7 @@ public class TestQuestionMiddleController implements Initializable{
                 }
             });
             countUp++;
-            if((totalSeconds == 0) || (execTest.getTest().isActivated() == 0) || (late == true)) {
+            if((totalSeconds == 0) || (execTest.getTest().isActivated() == 0) || late) {
             	Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
@@ -353,7 +353,7 @@ public class TestQuestionMiddleController implements Initializable{
         		int durationToCompare = execTest.getTest().getAllocatedDuration();
         		if(durationToCompare != allocatedDuration) {
         			allocatedDuration = durationToCompare;
-        			totalSeconds = ((allocatedDuration*60)-totalSeconds);
+        			totalSeconds = ((allocatedDuration*60)-countUp);
         		}
         	}
             //--------------------------------------------------------------------
