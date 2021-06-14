@@ -10,7 +10,17 @@ import entities.Message;
 import entities.Question;
 import entities.Test;
 
+/**
+ * This class is responsible for validating a test code entered by the user.
+ *
+ */
 public class TestCodeValidation {
+	/**
+	 * This method validates a test code inserted by the user in order to begin a test execution.
+	 * @param object - a message from client containing the desired test code to validate
+	 * and the ID of the student that is executing.
+	 * @return
+	 */
 	public static Message validateTestCode(Message object) {
 		ResultSet rs;
 		String toSplit = (String)object.getObj();
@@ -68,9 +78,5 @@ public class TestCodeValidation {
 		}
 		return null;
 	}
-	public static String getExecTestStr(ExecutedTest test) {
-		String str = new String();
-		
-		return str;
-	}
+
 }

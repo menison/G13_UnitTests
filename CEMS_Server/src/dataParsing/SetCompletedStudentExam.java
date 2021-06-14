@@ -10,8 +10,18 @@ import database.SetConnectionDB;
 import entities.ExecutedTest;
 import entities.Message;
 
+/**
+ * This class is responsible for updating DB with executed test data that was retrieved 
+ * from the user during his test execution session.
+ */
 public class SetCompletedStudentExam {
 	
+	/**
+	 * This method is responsible for writing the executedtest data to the DB,
+	 * after the test's execution has completed.
+	 * @param object
+	 * @return Message containing the exams.
+	 */
 	public static Message setExam(Message object) {
 		ExecutedTest e = (ExecutedTest)object.getObj();
 		Connection con = SetConnectionDB.start();
