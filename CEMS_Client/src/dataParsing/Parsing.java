@@ -181,6 +181,9 @@ public class Parsing {
 		case GetTestByID:
 			EditTesterHandler.addToDB(receivedMessage);
 			break;
+		case UpdateTest:
+			EditTesterHandler.getMsg(receivedMessage);
+		break;
 		default:
 			break;
 		}

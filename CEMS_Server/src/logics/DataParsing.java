@@ -153,6 +153,8 @@ public class DataParsing {
 			return ExtensionRequest.handleExtension(receivedMessage);
 		case GetTestByID:
 			return EditTest.getTest(receivedMessage);
+		case UpdateTest:
+			return EditTest.updateTest(receivedMessage);
 
 
 			

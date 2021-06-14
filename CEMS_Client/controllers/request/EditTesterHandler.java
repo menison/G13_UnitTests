@@ -12,5 +12,11 @@ public class EditTesterHandler {
 		DataManager.getDataManager().setTest(test);
 		
 	}
+	public static void getMsg(Message msg) {
+		String str = (String)msg.getObj();
+		
+		DataManager.getDataManager().setActivateMsg(str);
+		
+		}
 
 }
