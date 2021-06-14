@@ -14,34 +14,19 @@ import server.EchoServer;
 public class SetConnectionDB {
 	private static SetConnectionDB instance = null;
 	private Connection conn = null;
-
 	public static String DBhost = "localhost";
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "sa1993sha";
-
-
-	public static String DBname = "query";
-	public static String DBPassword = "sa1993sha";
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "davidNkin1";
-
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "MattB123Pa55w0rd";
-
-//	public static String DBname = "query";
-//	public static String DBPassword = "In511995";
-
-
-	
+	public static String DBname = "test";
+	public static String DBPassword = "2694";
 	public static String DBuser = "root";
 
 	private SetConnectionDB() {
 		this.conn = setConnection();
 	}
 
+	/**
+	 * This method sets the connection to the DB by the relevant data defined earlier.
+	 * @return a connection to the DB.
+	 */
 	private Connection setConnection() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
@@ -64,6 +49,10 @@ public class SetConnectionDB {
 		return null;
 	}
 
+	/**
+	 * This method is the implementation of Singleton's getInstance method.
+	 * @return the single instance of the DBConnection.
+	 */
 	public static Connection start() {
 		if (instance == null) {
 			instance = new SetConnectionDB();

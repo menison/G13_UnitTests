@@ -31,6 +31,18 @@ import entities.Message;
 import server.EchoServer;
 
 public class DataParsing {
+	
+	/**
+	 * This class receives messages represnting different requests
+	 *  resulting from clicks in the system and routes each and every 
+	 *  one of them to their appropriate handlers.
+	 */
+	
+	/**
+	 * This method  routes the receivedMessage to its appropriate case in this tremendous switch
+	 * case of ours, resulting in the requested actions to be executed to the user's will.
+	 * @param receivedMessage - A message that contains the desired operation to be executed.
+	 */
 	public static Message Start(Object msg) {
 		Message receivedMessage;
 		if (msg instanceof Message)
@@ -79,8 +91,6 @@ public class DataParsing {
 			return AddTestsOperations.addTest(receivedMessage);
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
-//		case IncrementNumOfQuestionsInCourse:
-//			return AddQuestionOperations.increaseNumOfQuestionsInCourse(receivedMessage);
 		case ChangeAmountOfTestsInCourseTable:
 			return AddTestsOperations.changeAmountOfTestsInCourseTable(receivedMessage);
 		case CheckIfTestIsLocked:
