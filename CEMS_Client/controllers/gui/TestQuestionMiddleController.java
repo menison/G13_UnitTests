@@ -177,7 +177,7 @@ public class TestQuestionMiddleController implements Initializable{
 		SimpleDateFormat formatter = new SimpleDateFormat("ddMM"); 
 	    Date date = new Date();
 	    long diff = getTimeDifference();
-	    if(diff > 10) 
+	    if((diff > 10) || (diff < 0)) 
 	    	late = true;
 		setQuestions();
 		execTest.initAnswers();
@@ -332,7 +332,7 @@ public class TestQuestionMiddleController implements Initializable{
                 }
             });
             countUp++;
-            if((totalSeconds == 0) || (execTest.getTest().isActivated() == 0) || (late == true)) {
+            if((totalSeconds == 0) || (execTest.getTest().isActivated() == 0) || late) {
             	Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
@@ -352,14 +352,20 @@ public class TestQuestionMiddleController implements Initializable{
         		Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
+                    	System.out.println("Looking for new duration");
                     	ClientUI.chat.accept(new Message(Operation.GetTimeForTestInExecution,
                 				execTest.getExecutionCodePK())); 
+                    	System.out.println("Back from Looking for new duration");
                     }
                 });
         		int durationToCompare = execTest.getTest().getAllocatedDuration();
+        		System.out.println("durationToCompare: " + durationToCompare);
+        		System.out.println("allocatedDuration: " + allocatedDuration);
         		if(durationToCompare != allocatedDuration) {
         			allocatedDuration = durationToCompare;
-        			totalSeconds = ((allocatedDuration*60)-totalSeconds);
+        			System.out.println("totalSeconds before: " + totalSeconds);
+        			totalSeconds = ((allocatedDuration*60)-countUp);
+        			System.out.println("totalSeconds after: " + totalSeconds);
         		}
         	}
             //--------------------------------------------------------------------

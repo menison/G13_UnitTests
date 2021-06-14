@@ -28,9 +28,12 @@ public class SetCompletedStudentExam {
 		try {
 			stmt = con.createStatement();
 			stmt.executeUpdate("INSERT INTO executedtest VALUES (" + "'"+testID+"',"+"'"+testCode+"',"+
-					"'"+executedBy+"',"+"'"+date+"',"+"'"+allocatedDuration+"',"+"'"+actualDuration+"',"+
-					"'"+grade+"',"+"'"+composedBy+"',"+
-					"NULL,"+"'"+answers+"',"+"'0');");
+					"'"+executedBy+"',"+"'"+date+"',"+allocatedDuration+","+actualDuration+","+
+					grade+","+"'"+composedBy+"',"+
+					"'NULL',"+"'"+answers+"',"+"0,0);");
+			stmt = con.createStatement();
+			stmt.executeUpdate("UPDATE activatedtest SET howManyFinished = howManyFinished + 1 "
+					+ "WHERE code = \"" + testCode + "\";");
 		} catch (SQLException e1) {}
 		return new Message(Operation.SetCompletedExam);
 	}
