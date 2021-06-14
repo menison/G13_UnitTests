@@ -58,10 +58,23 @@ public class Query {
 
 	
 
+
+
+
+
+
+	public static ResultSet getExecutedTestByCodeAndID(String testExecCode,String userID) {
+		return resultqueryFrom(
+				"SELECT * FROM executedtest WHERE TestCode= \"" + testExecCode + "\" AND "
+						+ "ExecutedBy = \"" + userID +"\";");
+	}
+
+
 	/**SELECT * FROM activatedtest where code=test execution code.
 	 * @param testExecCode test execution code.
 	 * @return row of activated test with the specific test execution code.
 	 */
+
 	public static ResultSet getActivatedTestByExecutionCode(String testExecCode) {
 		return resultqueryFrom(
 				"SELECT * FROM activatedtest WHERE code= \"" + testExecCode + "\";");
@@ -366,7 +379,12 @@ public static int updateIsActivated(String testCode) {
 	
 
 
+<<<<<<< HEAD
 	// ------------------------------------------------------------------------------------------------------
+=======
+	// ------------------------------------------------------------------------------------------------------
+
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 
 
 	/**Method for running resultSet queries (SELECT) while connecting to the database using the setConnectionDB method.

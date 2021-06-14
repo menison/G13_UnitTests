@@ -14,6 +14,7 @@ import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
+import dataParsing.GetTestForReview;
 import dataParsing.GetTestTable;
 import dataParsing.GetTimeForExecExam;
 import dataParsing.HandleTestsActivatedByTeacher;
@@ -112,6 +113,8 @@ public class DataParsing {
 			return EditQuest.updateQuest(receivedMessage);
 		case CheckFraud:
 			return FraudChecker.checkFraud(receivedMessage);
+		case GetTestForReview:
+			return GetTestForReview.getTest(receivedMessage);
 		case LockTest:
 			return TestLocker.lock(receivedMessage);
 		default:
