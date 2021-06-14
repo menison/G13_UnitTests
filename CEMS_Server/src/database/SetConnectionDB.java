@@ -3,13 +3,10 @@ package database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
 import server.EchoServer;
 
-
-/**Singleton for setting a connection to the database using the schema's name and the password.
- * @author Aviv
- *
+/**
+ * Singleton for setting a connection to the database using the schema's name and the password.
  */
 public class SetConnectionDB {
 	/**
@@ -26,16 +23,9 @@ public class SetConnectionDB {
 
 
 
-//	public static String DBname = "query";
-//	public static String DBPassword = "sa1993sha";
-
-
-//	public static String DBname = "test";
-//	public static String DBPassword = "2694";
 
 
 
-	
 
 	public static String DBuser = "root";
 
