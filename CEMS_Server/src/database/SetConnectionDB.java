@@ -19,10 +19,12 @@ public class SetConnectionDB {
 
 
 
-	public static String DBname = "query";
-	public static String DBPassword = "sa1993sha";
+//	public static String DBname = "query";
+//	public static String DBPassword = "sa1993sha";
 
 
+	public static String DBname = "test";
+	public static String DBPassword = "2694";
 
 
 

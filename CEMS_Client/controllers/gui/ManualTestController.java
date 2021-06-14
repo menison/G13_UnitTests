@@ -2,9 +2,7 @@ package gui;
 
 import java.io.File;
 import java.io.IOException;
-
 import com.jfoenix.controls.JFXTextField;
-
 import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
@@ -25,6 +23,8 @@ import javafx.stage.Stage;
 public class ManualTestController {
 
 	private File SolutionFile;
+	
+	private File filepath;
 
 	@FXML
 	private Button manualTest_btnDownload;
@@ -40,8 +40,6 @@ public class ManualTestController {
 
 	@FXML
 	private Button manualTest_btnSend;
-	
-	private File filepath;
 
 	@FXML
     void downloadTest(ActionEvent event) {
@@ -58,7 +56,7 @@ public class ManualTestController {
 		arr[0] = (Object)file;
 		arr[1] = (Object)test;
 		ClientUI.chat.accept(new Message(Operation.DownloadManualTest, (Object)arr));
-		System.out.println("Test downloaded successfully. You can find it in:" 
+		System.out.println("Test downloaded successfully. You can find it in: " 
 				+ file.getAbsolutePath() + "\n");
     }
 
@@ -66,22 +64,22 @@ public class ManualTestController {
 	void uploadTest(ActionEvent event) {
 		Stage stage = (Stage) manualTest_btnUpload.getScene().getWindow();
 		FileChooser fc = new FileChooser();
-		//fc.setInitialDirectory(new File(filepath.getAbsolutePath()));
+		int index = filepath.getAbsolutePath().lastIndexOf("\\");
+		File folderpath = new File(filepath.getAbsolutePath().substring(0, index));
+		fc.setInitialDirectory(new File(folderpath.getAbsolutePath()));
 		fc.getExtensionFilters().addAll(new ExtensionFilter("Text Files", "*.txt"));
 		fc.setSelectedExtensionFilter(new ExtensionFilter("txt","*.txt"));
 		SolutionFile = fc.showOpenDialog(stage);
-		DataManager dm = DataManager.getDataManager();
-		Object[] arr = new Object[2];
-		ExecutedTest execTest = dm.getTestInExecution();
-		arr[0] = (Object) SolutionFile;
-		arr[1] = (Object) execTest;
-		ClientUI.chat.accept(new Message(Operation.UploadManualTest, (Object)arr));
-		System.out.println("Test uploaded successfully. You may send it now\n.");
 	}
 
 	@FXML
 	void sendManualTest(ActionEvent event) {
-		ClientUI.chat.accept(new Message(Operation.UploadManualTest, (Object)SolutionFile));
+		DataManager dm = DataManager.getDataManager();
+		ExecutedTest execTest = dm.getTestInExecution();
+		Object[] arr = new Object[2];
+		arr[0] = SolutionFile;
+		arr[1] = execTest;
+		ClientUI.chat.accept(new Message(Operation.UploadManualTest, arr));
 		System.out.println("Test sent succesfully. Good luck!\n");
 		TestFinalController tfc = new TestFinalController();
 		Stage primaryStage = new Stage();

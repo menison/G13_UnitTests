@@ -7,6 +7,7 @@ import java.io.IOException;
 import common.Operation;
 import entities.Message;
 import entities.Test;
+import server.EchoServer;
 
 public class ManualTestDownloader {
 	public static Message downloadManualTest(Object obj) {
@@ -32,6 +33,8 @@ public class ManualTestDownloader {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		EchoServer.SC.addToTextArea("Test downloaded successfully. You can find it in:" 
+				+ manualTest.getAbsolutePath() + "\n");
 		return new Message(Operation.DownloadManualTest, manualTest);
 	}
 }

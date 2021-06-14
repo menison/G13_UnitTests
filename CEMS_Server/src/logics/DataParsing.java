@@ -1,57 +1,16 @@
 package logics;
 
-
-
 import common.Permission;
 import dataParsing.ActivateTest;
-
-
-
-
-
 import dataParsing.AddQuestionOperations;
-
-
-
-
-
-
 import dataParsing.GetCurrentExecutionExamEmail;
 import dataParsing.GetDurationForExecTest;
-
-
-
-
-import common.Permission;
-import dataParsing.ActivateTest;
-
-
-import common.Permission;
-import dataParsing.ActivateTest;
-
-import dataParsing.AddTestsOperations;
-
-
-
-
-
 import dataParsing.AddTestsOperations;
 import dataParsing.ExtensionRequest;
-
-
-
 import dataParsing.EditQuest;
-import dataParsing.ExtensionRequest;
-
-
 import dataParsing.ConfirmTestChangeGrade;
 import dataParsing.ConfirmTestWithoutChanges;
-import dataParsing.AddQuestionOperations;
-import dataParsing.GetCurrentExecutionExamEmail;
-import dataParsing.GetDurationForExecTest;
 import dataParsing.CheckIfTestIsLocked;
-import dataParsing.ExtensionRequest;
-
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
 import dataParsing.GetTestTable;
@@ -118,11 +77,7 @@ public class DataParsing {
 		case GetCourseAmountOfQuestions:
 			return AddQuestionOperations.getAmountOfCourseQuestions(receivedMessage);
 		case AddNewTest:
-
-
 			return AddTestsOperations.addTest(receivedMessage);
-
-
 		case AddQuestionToDatabase:
 			return AddQuestionOperations.addQuestionToDB(receivedMessage);
 		case IncrementNumOfQuestionsInCourse:

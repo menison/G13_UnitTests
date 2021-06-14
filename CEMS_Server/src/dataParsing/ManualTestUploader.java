@@ -9,11 +9,13 @@ import database.Query;
 import database.SetConnectionDB;
 import entities.ExecutedTest;
 import entities.Message;
+import server.EchoServer;
 
 public class ManualTestUploader {
 	public static Message uploadManualTest(Object obj) {
 		Object[] arr = new Object[2];
-		arr = (Object[]) obj;
+		arr =  (Object[]) obj;
+		System.out.println(arr.toString());
 		File f = (File) arr[0];
 		ExecutedTest t = (ExecutedTest) arr[1];
 		
@@ -26,7 +28,8 @@ public class ManualTestUploader {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		EchoServer.SC.addToTextArea("Test downloaded successfully. You can find it in:" 
+				+ f.getAbsolutePath() + "\n");
 		return null;
 	}
 }

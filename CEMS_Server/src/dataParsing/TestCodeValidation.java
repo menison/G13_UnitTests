@@ -1,15 +1,10 @@
 package dataParsing;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-
 import common.Operation;
-import common.Permission;
 import database.Query;
-import database.SetConnectionDB;
 import entities.ExecutedTest;
 import entities.Message;
 import entities.Question;
@@ -17,9 +12,7 @@ import entities.Test;
 
 public class TestCodeValidation {
 	public static Message validateTestCode(Message object) {
-		Statement stmt;
 		ResultSet rs;
-		Connection con = SetConnectionDB.start();
 		String toSplit = (String)object.getObj();
 		String[] splitted = toSplit.split(",");
 		String desiredTestToValidate= splitted[0];
@@ -29,7 +22,6 @@ public class TestCodeValidation {
 		Message messageToReturn;
 		
 		try {
-			stmt = con.createStatement();
 			rs = Query.getTestByExecutionCode(desiredTestToValidate);
 			if (!rs.next()) {
 				return new Message(Operation.SendTestCode, "false");
