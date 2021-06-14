@@ -328,15 +328,15 @@ public class TestQuestionMiddleController implements Initializable{
                 public void run() {
                 	middleQuestion_pieProgressIndic.setProgress((double)countUp/(allocatedDuration*60));
                     middleQuestion_pieProgressIndic12.setText(h+":"+m+":"+s);
+                    ClientUI.chat.accept(new Message(Operation.CheckIfTestIsLocked,execTest.getExecutionCodePK()));
                 }
             });
-//            middleQuestion_pieProgressIndic.setProgress((double)countUp/(allocatedDuration*60));
-//            middleQuestion_pieProgressIndic12.setText(h+":"+m+":"+s);
             countUp++;
-            if((totalSeconds == 0) || (execTest.getTest().isActivated() == 0) || late) {
+            if((totalSeconds == 0) || (execTest.getTest().isActivated() == 0) || (late == true)) {
             	Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
+                    	execTest.setActualDuration(countUp/60);
                     	foceClose();
                     }
                 });
@@ -349,8 +349,13 @@ public class TestQuestionMiddleController implements Initializable{
             //Test Extension Checker
             //------------------------------------------------------------------
         	if((s == 0) && (totalSeconds != 0) && (totalSeconds != (allocatedDuration*60))) {
-        		ClientUI.chat.accept(new Message(Operation.GetTimeForTestInExecution,
-        				execTest.getExecutionCodePK())); 
+        		Platform.runLater(new Runnable() {
+                    @Override
+                    public void run() {
+                    	ClientUI.chat.accept(new Message(Operation.GetTimeForTestInExecution,
+                				execTest.getExecutionCodePK())); 
+                    }
+                });
         		int durationToCompare = execTest.getTest().getAllocatedDuration();
         		if(durationToCompare != allocatedDuration) {
         			allocatedDuration = durationToCompare;
@@ -359,7 +364,7 @@ public class TestQuestionMiddleController implements Initializable{
         	}
             //--------------------------------------------------------------------
         	totalSeconds--;
-        	ClientUI.chat.accept(new Message(Operation.CheckIfTestIsLocked,execTest.getExecutionCodePK()));
+        	
         }
     }
 
