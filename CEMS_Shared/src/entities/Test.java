@@ -106,6 +106,10 @@ public class Test implements Serializable {
 	public ArrayList<Question> getQuestions() {
 		return questions;
 	}
+	
+	public void setTestID(String testID) {
+		this.testID=testID;
+	}
 
 	public String getTestID() {
 		return testID;

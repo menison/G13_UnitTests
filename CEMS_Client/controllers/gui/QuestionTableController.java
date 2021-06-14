@@ -75,7 +75,7 @@ public class QuestionTableController{
 		CreateQuestionController cqc  = new CreateQuestionController();	
 		Stage primaryStage = new Stage();
 		cqc.start(primaryStage);
-		//((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
+		((Stage) ((Node) event.getSource()).getScene().getWindow()).close();	
 	}
 	
 	@FXML
