@@ -132,8 +132,11 @@ import javafx.stage.Stage;
     		confirmation_BtnSave.setText("Authorize");
     		calculatedGrade_txtField.setEditable(false);
     		HashSet<String> suspects = dm.getSuspectsForFraud();
-    		if (suspects.contains(t.getExecutedBy()))
-    			
+    		if (suspects.contains(t.getExecutedBy())){
+    			Alert alert = new Alert(AlertType.WARNING)
+    			alert.setContentText("WARNING - "
+    					+ "This student is involved in a fraud! worth a review");
+    			alert.showAndWait();
 			
 		}
         
