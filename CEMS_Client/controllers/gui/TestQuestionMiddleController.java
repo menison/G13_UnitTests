@@ -2,6 +2,7 @@ package gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -174,15 +175,10 @@ public class TestQuestionMiddleController implements Initializable{
 		CurrentQuestionIndex = 0;
 		ClientUI.chat.accept(new Message(Operation.getTimeForActiveExam,execTest.getExecutionCodePK()));
 		SimpleDateFormat formatter = new SimpleDateFormat("ddMM"); 
-		SimpleDateFormat formatterTime = new SimpleDateFormat("HHmm"); 
 	    Date date = new Date();
-	    Date timeNow = new Date();
-	    String strTimeNow = formatterTime.format(timeNow);
-	    int intTimeNow = Integer.parseInt(strTimeNow);
-	    int intTestTimeNow = Integer.parseInt(execTest.getsTime());
-	    if(((intTimeNow-intTestTimeNow) < 0) || ((intTimeNow-intTestTimeNow) > 10)) {
+	    long diff = getTimeDifference();
+	    if(diff > 10) 
 	    	late = true;
-	    }
 		setQuestions();
 		execTest.initAnswers();
 		execTest.getTest().setActivated(1);
@@ -199,6 +195,29 @@ public class TestQuestionMiddleController implements Initializable{
 		timer.schedule(new App(), 0, 1000);
 	}
     
+	public long getTimeDifference() {
+		SimpleDateFormat formatterTime = new SimpleDateFormat("HHmm"); 
+		SimpleDateFormat format = new SimpleDateFormat("HH:mm");
+		String testStartTime = execTest.getsTime();
+		Date timeNow = new Date();
+		String strTimeNow = formatterTime.format(timeNow);
+		String h = new String(testStartTime.substring(0,2));
+		String m = new String(testStartTime.substring(2,4));
+		testStartTime = new String(h+":"+m);
+		h = new String(strTimeNow.substring(0,2));
+		m = new String(strTimeNow.substring(2,4));
+		strTimeNow = new String(h+":"+m);
+		Date date1 = null;
+		Date date2 = null;
+		try {
+			date1 = format.parse(testStartTime);
+			date2 = format.parse(strTimeNow);
+		} catch (ParseException e) {}
+		long difference = date2.getTime() - date1.getTime(); 
+		long minutesDiff = ((difference/1000)/60);
+		return minutesDiff;
+	}
+	
 	public void calculateGrade() {
 		DataManager dm = DataManager.getDataManager();
 		int grade = 0;
@@ -304,8 +323,15 @@ public class TestQuestionMiddleController implements Initializable{
         	h = totalSeconds / 60;
         	m = h % 60;
         	h/=60;
-            middleQuestion_pieProgressIndic.setProgress((double)countUp/(allocatedDuration*60));
-            middleQuestion_pieProgressIndic12.setText(h+":"+m+":"+s);
+        	Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                	middleQuestion_pieProgressIndic.setProgress((double)countUp/(allocatedDuration*60));
+                    middleQuestion_pieProgressIndic12.setText(h+":"+m+":"+s);
+                }
+            });
+//            middleQuestion_pieProgressIndic.setProgress((double)countUp/(allocatedDuration*60));
+//            middleQuestion_pieProgressIndic12.setText(h+":"+m+":"+s);
             countUp++;
             if((totalSeconds == 0) || (execTest.getTest().isActivated() == 0) || late) {
             	Platform.runLater(new Runnable() {
