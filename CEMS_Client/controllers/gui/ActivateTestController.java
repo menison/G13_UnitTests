@@ -3,7 +3,7 @@ package gui;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+
 
 
 import com.jfoenix.controls.JFXButton;
@@ -26,6 +26,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 
+/**
+ * @author David
+ * This Class is a controller for the test activation
+ * @param ActivateTest_pinCodeField			pin code Field
+ * @param ActivateTest_btnActivate			button that checks if 
+ * 											entered code is valid and if yes it actiavates the test
+ *
+ * @param ActivateTest_dateSelect			date selector
+ * @param ActivateTest_timeSelect			time selector
+ * 
+ */
 public class ActivateTestController {
 	
     @FXML
@@ -36,15 +47,16 @@ public class ActivateTestController {
 
     @FXML
     private JFXButton ActivateTest_btnClose;
-    @FXML
-    private Label errorTxt;
+
     
     @FXML
     private JFXDatePicker ActivateTest_dateSelect;
 
     @FXML
     private JFXTimePicker ActivateTest_timeSelect;
-    
+    /**
+     * starts window
+     */
 	public void start(Stage newStage) throws IOException {
     	Pane root;
     	FXMLLoader loader = new FXMLLoader();
@@ -56,6 +68,9 @@ public class ActivateTestController {
 		newStage.show();
 	}
     @FXML
+    /**
+     * activate function
+     */
     void Activate(ActionEvent event) {
 		DataManager dm = DataManager.getDataManager();
     	String pinCode = ActivateTest_pinCodeField.getText();//check if code is 4 characters
@@ -84,12 +99,10 @@ public class ActivateTestController {
     		warningPopUp("Please provide a future time.");
     	}
 			
-    		//date2.compareTo(date1)
 
     	else {
+  	
 
-        	
-    	//	public ActivatedTest(String testCode, String testID, String activatedBy, String startDate, String startTime,isActive
     	ActivatedTest activeTest =new ActivatedTest(pinCode,dm.getTestID(),dm.getCurrentUser().getPersonalSID(),ActivateTest_dateSelect.getValue(),ActivateTest_timeSelect.getValue(),1);
 		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,activeTest));
 		
@@ -114,7 +127,7 @@ public class ActivateTestController {
     	Stage stage = (Stage) ActivateTest_btnClose.getScene().getWindow();
     	stage.close();
     }
-    public void warningPopUp(String warning) {   //warnings func
+    public void warningPopUp(String warning) {  
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setContentText(warning);
 
