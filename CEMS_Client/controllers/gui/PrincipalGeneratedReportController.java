@@ -1,10 +1,8 @@
 package gui;
 
 import java.io.IOException;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-
 import cachedUserData.DataManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +13,11 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-@SuppressWarnings({ "unchecked", "rawtypes" })
+
+/**
+ * /**
+ * A controller class handling the interaction with principal in get generated report window.
+ */
 public class PrincipalGeneratedReportController {
 
     @FXML

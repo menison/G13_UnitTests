@@ -24,7 +24,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+/**
+ * A controller class handling the interaction with principal in Grades Confirmation table window.
+ */
 public class GradesConfirmationController implements Initializable {
 
 	@FXML

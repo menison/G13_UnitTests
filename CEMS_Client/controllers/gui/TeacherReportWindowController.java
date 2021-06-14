@@ -18,7 +18,9 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
+/**
+ * A controller class handling interaction with user in teacher's report window.
+ */
 public class TeacherReportWindowController {
 
     @FXML
@@ -41,6 +43,12 @@ public class TeacherReportWindowController {
 
     @FXML
     private JFXButton teacherRprtWindow_btnExit;
+    
+    
+	/**
+	 * Standard controller starting mechanism.
+	 * @param newStage - a stage to start on.
+	 */
 	public void start(Stage newStage) {
 		Pane root = null;
 		FXMLLoader loader = new FXMLLoader();
@@ -56,6 +64,13 @@ public class TeacherReportWindowController {
 		newStage.setScene(scene);
 		newStage.show();
 	}
+	
+	
+	/**
+	 * This method exits the current window.
+	 * @param event - a click on exit button.
+	 * @throws Exception
+	 */
 	@FXML
 	void teacherRprtWindow_btnExit(ActionEvent event) throws Exception {
 		Stage newStage = new Stage();
@@ -66,6 +81,11 @@ public class TeacherReportWindowController {
 	}
 	
 	
+	/**
+	 * This controller implements Initializable - therefore implements initialize().
+	 * This method initializes the window first before every other thing happen - setting
+	 * the textfields with the relevant data before the user gets a chance to view.
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@FXML
 	public void initialize() {

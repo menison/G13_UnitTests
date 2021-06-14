@@ -18,6 +18,11 @@ import entities.TestToConfirm;
 import entities.User;
 import javafx.scene.control.TableView;
 
+/**
+ * This class saves information in a "cached" way, in a manner that allow to retrieve faster
+ * information that was already brought from the DB.
+ * It facilitates the variable management, and it optimizes program performance.
+ */
 public class DataManager {
 	private static DataManager instance = null;
 
@@ -152,14 +157,21 @@ public class DataManager {
 		return instance;
 	}
 
+	/**
+	 * @return the current user
+	 */
 	public User getCurrentUser() {
 		return currentUser;
 	}
 
+	/**
+	 * @param set the current user
+	 */
 	public void setCurrentUser(User currentUser) {
 		this.currentUser = currentUser;
 	}
 
+	
 	public boolean isPreOrder() {
 		return PreOrder;
 	}

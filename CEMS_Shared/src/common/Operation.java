@@ -52,7 +52,8 @@ public enum Operation {
 	SubmitQuestionInfo,
 	GetTestByID,
 	UpdateTest,
-	CheckFraud
+	CheckFraud,
+	LockTest
 
 
 }

@@ -234,6 +234,34 @@ public class Query {
 		return toReturn;
 		
 	}
+	
+public static int updateIsActivated(String testCode) {
+	Connection con = SetConnectionDB.start();
+	Statement stmt;
+	int toReturn = 0;
+	try {
+		stmt = con.createStatement();
+		toReturn = stmt.executeUpdate("UPDATE activatedtest SET isActive = 0" + " WHERE code= \""
+				+ testCode + "\";");
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return toReturn;
+	}
+	
+	public static ResultSet getLiveTestByExecutionCode(String testCode) {
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		ResultSet toReturn = null;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeQuery("SELECT * FROM activatedtest WHERE code= \"" + testCode + 
+					"\"AND isActive = 1;");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+	}
 	//------------------------------------------------------------------------------------------------------
 	
 
@@ -274,6 +302,8 @@ public class Query {
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	
 
