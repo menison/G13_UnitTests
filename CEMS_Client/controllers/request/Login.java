@@ -75,7 +75,6 @@ public class Login extends AbstractController {
 			switch (receivedMessage.getPermission()) {
 			case yes:
 				dataManager.setCurrentUser(teacher);
-				dataManager.setPreOrder(false);
 				LoginCemsController.setTeacherLogin(teacher, event);
 				break;
 			case no:
@@ -95,7 +94,6 @@ public class Login extends AbstractController {
 			switch (receivedMessage.getPermission()) {
 			case yes:
 				dataManager.setCurrentUser(student);
-				dataManager.setPreOrder(false);
 				LoginCemsController.setStudentLogin(student, event);
 				break;
 			case no:
@@ -115,7 +113,6 @@ public class Login extends AbstractController {
 			switch (receivedMessage.getPermission()) {
 			case yes:
 				dataManager.setCurrentUser(principal);
-				dataManager.setPreOrder(false);
 				LoginCemsController.setPrincipalLogin(principal, event);
 				break;
 			case no:
