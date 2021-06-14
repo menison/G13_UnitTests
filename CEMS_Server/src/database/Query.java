@@ -379,12 +379,6 @@ public static int updateIsActivated(String testCode) {
 	
 
 
-<<<<<<< HEAD
-	// ------------------------------------------------------------------------------------------------------
-=======
-	// ------------------------------------------------------------------------------------------------------
-
->>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 
 
 	/**Method for running resultSet queries (SELECT) while connecting to the database using the setConnectionDB method.
