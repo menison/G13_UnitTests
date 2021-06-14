@@ -205,19 +205,35 @@ public class Query {
 		return toReturn;
 	}
 	
-	public static int updateIsAuthorized() {
+	public static int updateIsAuthorized(String testCode, String executedBy) {
 		Connection con = SetConnectionDB.start();
 		Statement stmt;
 		int toReturn = 0;
 		try {
 			stmt = con.createStatement();
-			toReturn = stmt.executeUpdate("UPDATE executedtest SET isGradeAuthorized= 1;");
+			toReturn = stmt.executeUpdate("UPDATE executedtest SET isGradeAuthorized = 1"+ " WHERE testCode= \""
+					+ testCode + "\" AND executedBy = \"" + executedBy + "\";");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return toReturn;
 	}
 	
+	
+	public static int updateIsSuspect(String testCode, String executedBy) {
+		Connection con = SetConnectionDB.start();
+		Statement stmt;
+		int toReturn = 0;
+		try {
+			stmt = con.createStatement();
+			toReturn = stmt.executeUpdate("UPDATE executedtest SET isSuspect = 1"+ " WHERE testCode= \""
+					+ testCode + "\" AND executedBy = \"" + executedBy + "\";");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return toReturn;
+		
+	}
 	//------------------------------------------------------------------------------------------------------
 	
 
@@ -258,6 +274,7 @@ public class Query {
 			e.printStackTrace();
 		}
 	}
+	
 	
 
 	

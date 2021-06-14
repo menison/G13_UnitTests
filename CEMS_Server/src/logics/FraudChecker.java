@@ -6,13 +6,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 
+import common.Operation;
 import database.Query;
+import entities.Message;
+import entities.TestToConfirm;
 
 public class FraudChecker {
 	
-	public static HashSet<String> checkFraud(String testCode) {
+	public static Message checkFraud(Message receivedMessage) {
 		ArrayList<Suspect> potentionalCriminals = new ArrayList<>();
 		HashSet <String> guiltyStudents = new HashSet<>();
+		TestToConfirm t = (TestToConfirm) receivedMessage.getObj();
+		String testCode = t.getTestCode();
 		ResultSet rs = Query.getAllExecutedTestsByCode(testCode);
 		
 		try {
@@ -34,16 +39,18 @@ public class FraudChecker {
 				}	
 			}
 		}
-		
-		return guiltyStudents;
+		for (int i=0; i<guiltyStudents.size();i++) {
+			Query.updateIsSuspect(testCode, (String)(guiltyStudents.toArray())[i]);
+		}
+		return new Message(Operation.CheckFraud, guiltyStudents);
 	}
 	
 	private static boolean isCouplesGuilty(Suspect s1, Suspect s2) {
 		
 		int[] answers1 = s1.getIntAnswers();
 		int[] answers2 = s2.getIntAnswers();
-		int counter = 0;
-		int loopSize = answers1.length;
+//		int counter = 0;
+//		int loopSize = answers1.length;
 		
 		if (Arrays.equals(answers1, answers2)) 
 			return true;

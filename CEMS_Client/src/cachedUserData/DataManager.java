@@ -1,6 +1,7 @@
 package cachedUserData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import entities.ActivatedTest;
 import entities.Course;
@@ -47,10 +48,7 @@ public class DataManager {
 	private Extension extension;
 	private Test test;
 	private Question question;
-
-
-
-
+	private HashSet<String> suspectsForFraud;
 
 	public Test getTest() {
 		return test;
@@ -280,6 +278,12 @@ public class DataManager {
 	}
 	public void setQuestion(Question question) {
 		this.question = question;
+	}
+	public HashSet<String> getSuspectsForFraud() {
+		return suspectsForFraud;
+	}
+	public void setSuspectsForFraud(HashSet<String> suspectsForFraud) {
+		this.suspectsForFraud = suspectsForFraud;
 	}
 
 }

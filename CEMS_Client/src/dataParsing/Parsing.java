@@ -8,6 +8,7 @@ import request.FullTestTable;
 import request.GenerateQuestionID;
 import request.GetCurrentExecEmail;
 import request.HandleActivateStatus;
+import request.HandleCheaters;
 import request.Login;
 import request.ManualTestDownloader;
 import request.ManualTestUploader;
@@ -147,6 +148,8 @@ public class Parsing {
 			break;
 		case UpdateTest:
 			EditTesterHandler.getMsg(receivedMessage);
+		case CheckFraud:
+			HandleCheaters.handle(receivedMessage);
 		break;
 		default:
 			break;
