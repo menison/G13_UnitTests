@@ -8,6 +8,10 @@ import entities.Message;
 
 public class ManualTestDownloader {
 
+	/**
+	 * This method receives a manual test file from server and writes a line in to it
+	 * @param receivedMessage
+	 */
 	public static void simulateManualTestExecution(Message receivedMessage) {
 		File f = (File) receivedMessage.getObj();
 		FileWriter fw;

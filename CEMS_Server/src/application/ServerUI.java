@@ -14,6 +14,10 @@ public class ServerUI extends Application {
 
 	final public static int DEFAULT_PORT = 5556;
 
+	/**
+	 * Standard application starting mechanism.
+	 * @param stage - a stage to start on.
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		ServerController aFrame = new ServerController();

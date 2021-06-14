@@ -8,6 +8,11 @@ import database.Query;
 import entities.Message;
 
 public class GetDurationForExecTest {
+	/**
+	 * This method is responsible for retrieving
+	 * @param object
+	 * @return
+	 */
 	public static Message getDuration(Message object) {
 		String execCode = (String)object.getObj();
 		int durationToReturn = 0;

@@ -10,8 +10,17 @@ import entities.Message;
 import entities.QaForTable;
 import entities.TestForRequestedTest;
 
+/**
+ * This class is responsible for managing the data transfer from the server to the client,
+ * transferring executed test data to create a test view for the student.
+ */
 public class GetTestForReview {
 	
+	/**
+	 * This method is responsible for retrieving an executed test view, requested by a student.
+	 * @param object
+	 * @return a message containing the test data to display
+	 */
 	public static Message getTest(Message object) {
 		ResultSet rs;
 		ArrayList<QaForTable> qaList = new ArrayList<QaForTable>();
