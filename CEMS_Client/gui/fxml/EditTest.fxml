@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
@@ -36,8 +35,6 @@
         </columns>
       </TableView>
       <JFXTextField fx:id="EditTest_DurationField" labelFloat="true" layoutX="313.0" layoutY="226.0" prefHeight="25.0" prefWidth="150.0" promptText="Test Duration(min)*" />
-      <JFXComboBox fx:id="EditTest_chooseSubjectBox" layoutX="313.0" layoutY="135.0" promptText="Subject*" />
-      <JFXComboBox fx:id="EditTest_chooseCourseBox" layoutX="314.0" layoutY="173.0" prefHeight="25.0" prefWidth="86.0" promptText="Course*" />
       <JFXTextArea fx:id="EditTest_teacherCommentsField" focusColor="#ffff8d" layoutX="313.0" layoutY="278.0" prefHeight="133.0" prefWidth="319.0" style="-fx-text-fill: #B2B2B2;" text="Teacher Comments" />
       <JFXTextArea fx:id="EditTest_studentComentsField" focusColor="#ffff8d" layoutX="313.0" layoutY="433.0" prefHeight="133.0" prefWidth="319.0" style="-fx-text-fill: #B2B2B2;" text="Student Comments" />
    </children>
