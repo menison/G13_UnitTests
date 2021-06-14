@@ -346,20 +346,14 @@ public class TestQuestionMiddleController implements Initializable{
         		Platform.runLater(new Runnable() {
                     @Override
                     public void run() {
-                    	System.out.println("Looking for new duration");
                     	ClientUI.chat.accept(new Message(Operation.GetTimeForTestInExecution,
                 				execTest.getExecutionCodePK())); 
-                    	System.out.println("Back from Looking for new duration");
                     }
                 });
         		int durationToCompare = execTest.getTest().getAllocatedDuration();
-        		System.out.println("durationToCompare: " + durationToCompare);
-        		System.out.println("allocatedDuration: " + allocatedDuration);
         		if(durationToCompare != allocatedDuration) {
         			allocatedDuration = durationToCompare;
-        			System.out.println("totalSeconds before: " + totalSeconds);
         			totalSeconds = ((allocatedDuration*60)-countUp);
-        			System.out.println("totalSeconds after: " + totalSeconds);
         		}
         	}
             //--------------------------------------------------------------------
