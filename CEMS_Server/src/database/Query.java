@@ -41,7 +41,11 @@ public class Query {
 
 
 
-	
+	public static ResultSet getExecutedTestByCodeAndID(String testExecCode,String userID) {
+		return resultqueryFrom(
+				"SELECT * FROM executedtest WHERE TestCode= \"" + testExecCode + "\" AND "
+						+ "ExecutedBy = \"" + userID +"\";");
+	}
 
 	public static ResultSet getActivatedTestByExecutionCode(String testExecCode) {
 		return resultqueryFrom(

@@ -17,6 +17,7 @@ import request.PrincipalSetReport;
 import request.QuestionInfoHandler;
 import request.SetDurationForExecTest;
 import request.SetIfCurrentExecutedTestIsActive;
+import request.SetRequestedTest;
 import request.SetTestConfirmationTable;
 import request.SetTestsValues;
 import request.SetTimeForExecExam;
@@ -151,6 +152,9 @@ public class Parsing {
 		case CheckFraud:
 			HandleCheaters.handle(receivedMessage);
 		break;
+		case GetTestForReview:
+			SetRequestedTest.setTest(receivedMessage);
+			break;
 		default:
 			break;
 		}

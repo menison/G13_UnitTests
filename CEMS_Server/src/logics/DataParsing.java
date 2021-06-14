@@ -13,6 +13,7 @@ import dataParsing.ConfirmTestWithoutChanges;
 import dataParsing.CheckIfTestIsLocked;
 import dataParsing.GetFullTestTable;
 import dataParsing.GetTestConfirmationTable;
+import dataParsing.GetTestForReview;
 import dataParsing.GetTestTable;
 import dataParsing.GetTimeForExecExam;
 import dataParsing.HandleTestsActivatedByTeacher;
@@ -110,7 +111,9 @@ public class DataParsing {
 		case SubmitQuestionInfo:
 			return EditQuest.updateQuest(receivedMessage);
 		case CheckFraud:
-			FraudChecker.checkFraud(receivedMessage);
+			return FraudChecker.checkFraud(receivedMessage);
+		case GetTestForReview:
+			return GetTestForReview.getTest(receivedMessage);
 		default:
 			break;
 		}

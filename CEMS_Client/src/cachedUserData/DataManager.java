@@ -13,6 +13,7 @@ import entities.QuestionForCreateTest;
 import entities.Report;
 import entities.Test;
 import entities.TestForFullTable;
+import entities.TestForRequestedTest;
 import entities.TestForTable;
 import entities.TestToConfirm;
 import entities.User;
@@ -49,7 +50,14 @@ public class DataManager {
 	private Test test;
 	private Question question;
 	private HashSet<String> suspectsForFraud;
+	private TestForRequestedTest reviewTest;
 
+	public TestForRequestedTest getReviewTest() {
+		return reviewTest;
+	}
+	public void setReviewTest(TestForRequestedTest reviewTest) {
+		this.reviewTest = reviewTest;
+	}
 	public Test getTest() {
 		return test;
 	}

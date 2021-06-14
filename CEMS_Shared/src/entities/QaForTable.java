@@ -1,7 +1,13 @@
 package entities;
 
-public class QaForTable {
+import java.io.Serializable;
+
+public class QaForTable implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6235476027646410793L;
 	private String questionNum;
 	private int answer;
 	public QaForTable(String questionNum,int answer) {
