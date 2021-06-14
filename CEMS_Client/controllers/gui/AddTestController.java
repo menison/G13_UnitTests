@@ -162,6 +162,7 @@ public class AddTestController {
 				pointsArray[i] = points.get(i);
 			}
 			ClientUI.chat.accept(new Message(Operation.GetAmountOfTests,CreateTest_chooseCourseBox.getSelectionModel().getSelectedItem().getID()));
+
 			Integer NumberOfTest = (Integer.parseInt(DataManager.getDataManager().getTestID())+1);
 			String testID = CreateTest_chooseSubjectBox.getSelectionModel().getSelectedItem().getID()
 					+ CreateTest_chooseCourseBox.getSelectionModel().getSelectedItem().getID()
@@ -169,13 +170,17 @@ public class AddTestController {
 			Test newTest = new Test(questions, testID, Integer.parseInt(CreateTest_DurationField.getText()),
 					CreateTest_StudentCommentsField.getText(), CreateTest_TeacherCommentsField.getText(), "-1",
 					pointsArray, 0, DataManager.getDataManager().getCurrentUser().getPersonalSID());
+
 			ClientUI.chat.accept(new Message(Operation.AddNewTest,newTest));
+
 			if(DataManager.getDataManager().getAddTestMsg().equals("Added new test successfully")) {
 				Alert alert = new Alert(Alert.AlertType.INFORMATION);
 				alert.setTitle("Success");
 				alert.setContentText("Added new test successfully");
 				alert.showAndWait();
+
 				ClientUI.chat.accept(new Message(Operation.ChangeAmountOfTestsInCourseTable,CreateTest_chooseCourseBox.getSelectionModel().getSelectedItem().getID()+"_"+NumberOfTest.toString()));
+
 				FullTestTableController ftt = new FullTestTableController();
 				Stage primaryStage = new Stage();
 				ftt.start(primaryStage);
