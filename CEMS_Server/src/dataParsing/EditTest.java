@@ -10,7 +10,17 @@ import entities.Message;
 import entities.Question;
 import entities.Test;
 
+/**Class EditTest 
+ * @author David
+ *this class handles requests from client for editing test
+ */
 public class EditTest {
+	/**
+	 * @param msg			contains message of String with test ID
+	 * @param rs			ResultSet that holds a test from SQL
+	 * @return 				return Test object
+	 * this method receives test ID as a parameter finds a test with that id and returns it to client
+	 */
 	public static Message getTest(Message msg){
 		ResultSet rs;
 		String ID= (String)msg.getObj();
@@ -28,17 +38,13 @@ public class EditTest {
 				String pointDistribution  = rs.getString(7);
 				int isActivated = rs.getInt(8);
 				String ComposedBy = rs.getString(9);
-				ArrayList<Question> questionArray=new ArrayList<Question>();
-				
-				//	public Test(ArrayList<Question> questions, String testID, int allocatedDuration, String commentsForStudents,String commentsForTeachers, String currExecutionCode, String[] pointDistribution, String teacherComposed,String subject, String course, int isActivated) {
-				//	public Test (String testID,String questionString,int allocatedDuration,String commentsForStudents,String commentsForTeachers,String currExecutionCode,String pointsString,int isActivated,String teacherComposed)
 
+				
 				
 				Test test = new Test(testID, questions, allocatedDuration, commentsForStudents,commentsForTeachers ,currExecCode,pointDistribution,isActivated, ComposedBy);
 				return new Message(Operation.GetTestByID,test);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -46,6 +52,11 @@ public class EditTest {
 
 	}
 	
+	/**
+	 * @param msg			message holds Test object for update
+	 * @return				returns success message
+	 * this method updates a certain test according to the test that was passed through msg parameter
+	 */
 	public static Message updateTest(Message msg){
 		Test test =(Test)msg.getObj();
 		Query.update("UPDATE test SET questions  = '"+test.getQuestionString()+"', allocatedDuration = '"+test.getAllocatedDuration()+"'"
