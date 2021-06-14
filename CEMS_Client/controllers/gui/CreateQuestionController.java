@@ -1,7 +1,6 @@
 package gui;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;

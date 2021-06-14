@@ -9,9 +9,16 @@ import database.Query;
 import entities.Message;
 import entities.TestToConfirm;
 
+/**
+ * This class is responsible for retrieving the relevant data tuples from the DB to
+ * create a Test Confirmation Table which will display a teacher all of the tests that she activated
+ * AND that were not grade-authorized yet, allowing her to confirm grades for the relevant tests.
+ */
 public class GetTestConfirmationTable {
 
 	/**
+	 * This method retrieves the relevant data from the DB to create a test and then a list
+	 * of tests that will be sent on towards the client - to create a tableview for him.
 	 * @param receivedMessage
 	 * @return
 	 */
