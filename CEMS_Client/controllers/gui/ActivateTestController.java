@@ -26,7 +26,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 
-/**
+/**Class ActivateTestController for ActivateTest.fxml
  * @author David
  * This Class is a controller for the test activation
  * @param ActivateTest_pinCodeField			pin code Field
@@ -35,7 +35,7 @@ import javafx.scene.control.Alert.AlertType;
  *
  * @param ActivateTest_dateSelect			date selector
  * @param ActivateTest_timeSelect			time selector
- * 
+ *
  */
 public class ActivateTestController {
 	
@@ -67,26 +67,29 @@ public class ActivateTestController {
 		newStage.setScene(scene);
 		newStage.show();
 	}
-    @FXML
-    /**
-     * activate function
+    /**Activate function 
+     * checks if all fields are filled correct 
+     * if all fields are filled correct the code is taken from the code field
+     * and sent to the server for validation and activate
+     *
      */
+    @FXML
     void Activate(ActionEvent event) {
 		DataManager dm = DataManager.getDataManager();
-    	String pinCode = ActivateTest_pinCodeField.getText();//check if code is 4 characters
+    	String pinCode = ActivateTest_pinCodeField.getText();
     	if(pinCode.length()!=4) {
 			warningPopUp("Code must be 4 characters.");
 
     	}
-    	else if(!pinCode.matches("[a-zA-Z0-9]*")){ // check if code is letters and numbers only
+    	else if(!pinCode.matches("[a-zA-Z0-9]*")){ 
 			warningPopUp("Letters and numbers only please.");
     	}
-    	else if(ActivateTest_dateSelect.getValue()==null){ // checks if user chose a date
+    	else if(ActivateTest_dateSelect.getValue()==null){
 
 			warningPopUp("Please choose a date.");
 
     	}
-    	else if(ActivateTest_timeSelect.getValue()==null){ // checks if user chose a time
+    	else if(ActivateTest_timeSelect.getValue()==null){ 
 			warningPopUp("Please choose time.");
     	}
 
@@ -101,7 +104,6 @@ public class ActivateTestController {
 			
 
     	else {
-  	
 
     	ActivatedTest activeTest =new ActivatedTest(pinCode,dm.getTestID(),dm.getCurrentUser().getPersonalSID(),ActivateTest_dateSelect.getValue(),ActivateTest_timeSelect.getValue(),1);
 		ClientUI.chat.accept(new Message(Operation.ActivateTestCode,activeTest));
@@ -122,11 +124,20 @@ public class ActivateTestController {
     	
     }
 
+    /**
+     * @param event
+     * @throws Exception
+     * closes the window
+     */
     @FXML
     void close(ActionEvent event) throws Exception {
     	Stage stage = (Stage) ActivateTest_btnClose.getScene().getWindow();
     	stage.close();
     }
+    /**
+     * @param warning			warning message
+     * This method generates warning alarm with warning message
+     */
     public void warningPopUp(String warning) {  
 		Alert alert = new Alert(AlertType.WARNING);
 		alert.setContentText(warning);

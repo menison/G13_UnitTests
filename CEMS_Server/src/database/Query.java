@@ -209,9 +209,9 @@ public class Query {
 		return toReturn;
 	}
 	
-	/**
-	 * @param b1
-	 * @param excTest
+	/**Write a manual test for the DB.
+	 * @param b1 blob for the manual test.
+	 * @param excTest executed test.
 	 */
 	public static void writeManualTestBlobToDB(Blob b1, ExecutedTest excTest) {
 		Connection con = SetConnectionDB.start();
@@ -232,6 +232,10 @@ public class Query {
 		}
 	}
 	
+	/**Get all the tests that are activated by the teacher id.
+	 * @param teacherID Teacher personal ID.
+	 * @return get all the tests that activated by the desired teacher ID.
+	 */
 	public static ResultSet getAllTestsActivatedByTeacherID(String teacherID) {
 		Connection con = SetConnectionDB.start();
 		Statement stmt;
@@ -247,6 +251,10 @@ public class Query {
 		
 	}
 	
+	/**Get all the executed test that are waiting for the teacher's confirmation.
+	 * @param testCode test execution code.
+	 * @return return the executed tests that are waiting for the teacher's confirmation.
+	 */
 	public static ResultSet getAllExecutedTestsToConfirmByCode(String testCode) {
 		Connection con = SetConnectionDB.start();
 		Statement stmt;
@@ -263,6 +271,12 @@ public class Query {
 		return toReturn;
 	}
 	
+	/**Confirm and change for the new grade for an executed test.
+	 * @param newGrade New grade.
+	 * @param executedBy test executed by.
+	 * @param testCode test execution code.
+	 * @return
+	 */
 	public static int confirmAndChangeGrade(int newGrade, String executedBy, String testCode) {
 		Connection con = SetConnectionDB.start();
 		Statement stmt;
@@ -285,6 +299,11 @@ public class Query {
 		return toReturn;
 	}
 	
+	/**Authorize the grade of a specific test.
+	 * @param testCode test execution code.
+	 * @param executedBy id of the person who executed the test.
+	 * @return authorize a grade for a specific test.
+	 */
 	public static int updateIsAuthorized(String testCode, String executedBy) {
 		Connection con = SetConnectionDB.start();
 		Statement stmt;
@@ -300,6 +319,11 @@ public class Query {
 	}
 	
 	
+	/**Update a test to be suspect for copying.
+	 * @param testCode test execution code.
+	 * @param executedBy id of the user who executed the test.
+	 * @return
+	 */
 	public static int updateIsSuspect(String testCode, String executedBy) {
 		Connection con = SetConnectionDB.start();
 		Statement stmt;
@@ -316,6 +340,10 @@ public class Query {
 	}
 
 	
+/**Update a test to be inactive.
+ * @param testCode test execution code.
+ * @return
+ */
 public static int updateIsActivated(String testCode) {
 	Connection con = SetConnectionDB.start();
 	Statement stmt;
@@ -330,6 +358,10 @@ public static int updateIsActivated(String testCode) {
 	return toReturn;
 	}
 	
+	/**Get a specific active test from the database.
+	 * @param testCode test execution code.
+	 * @return
+	 */
 	public static ResultSet getLiveTestByExecutionCode(String testCode) {
 		Connection con = SetConnectionDB.start();
 		Statement stmt;
@@ -343,14 +375,17 @@ public static int updateIsActivated(String testCode) {
 		}
 		return toReturn;
 	}
-	//------------------------------------------------------------------------------------------------------
-	
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> branch 'master' of https://github.com/menison/G13_TheGreatProject.git
 
 
-	// ------------------------------------------------------------------------------------------------------
-
-
-
+	/**Method for running resultSet queries (SELECT) while connecting to the database using the setConnectionDB method.
+	 * @param query the query which is needed for running.
+	 * @return
+	 */
 	private static ResultSet resultqueryFrom(String query) {
 		Connection connection = SetConnectionDB.start();
 		Statement StatementOfResultSet;
@@ -367,6 +402,9 @@ public static int updateIsActivated(String testCode) {
 		return null;
 	}
 
+	/**Method for running all the INSERT and UPDATE queries while connecting to the database using the setConnectionDB mothod.
+	 * @param query the query which is needed for running.
+	 */
 	private static void updateQuery(String query) {
 		Connection connection = SetConnectionDB.start();
 		Statement StatementOfResultSet;

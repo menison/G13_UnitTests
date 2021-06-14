@@ -8,7 +8,18 @@ import database.Query;
 import entities.Message;
 import entities.Question;
 
+/**Class EditQuest handles requests for editing questions
+ * @author David
+ *
+ */
 public class EditQuest {
+	/**
+	 * @param msg			message contains String with questionID
+	 * @param questID		holds questionID from message msg
+	 * @param rs			ResultSet holds question with given ID
+	 * @return				returns message with question if succeeded			
+	 * this method gets info bout a question from the SQL server given a question ID
+	 */
 	public static Message getInfo(Message msg){
 		String questID = (String)msg.getObj();
 		ResultSet rs;
@@ -24,7 +35,7 @@ public class EditQuest {
 				return new Message(Operation.GetQuestionInfo,null);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 	
@@ -32,6 +43,12 @@ public class EditQuest {
 		return new Message(Operation.GetQuestionInfo,null);
 		
 	}
+	
+	/**
+	 * @param msg			msg contains Question object from client	
+	 * @return				returns feedback message of success
+	 * method to update a certaion question in database
+	 */
 	public static Message updateQuest(Message msg){
 		Question quest = (Question)msg.getObj();
 		Query.update("UPDATE question SET text = '"+ quest.getText()+"', answers = '"+quest.getAnswersString()+"', correctAnswerIndex = '"+quest.getCorrectAnswerIndex()+"', composedBy = '"+quest.getTeacherComposed()+"' WHERE questionID = '"+quest.getQuestionID()+"';");
