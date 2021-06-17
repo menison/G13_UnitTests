@@ -12,16 +12,16 @@ import entities.Report;
  */
 @SuppressWarnings("unchecked")
 
-public class PrincipalSetReport {
+public class SetReport {
 	private static Report report;
-	public PrincipalSetReport(Report report) {//Constructor for tests
+	public SetReport(Report report) {//Constructor for tests
 		super();
-		PrincipalSetReport.report = report;
+		SetReport.report = report;
 	}
 	
-	public PrincipalSetReport() {//Constructor for production
+	public SetReport() {//Constructor for production
 		super();
-		PrincipalSetReport.report = new Report();
+		SetReport.report = new Report();
 	}
 	/**
 	 * @param msg

@@ -15,7 +15,7 @@ import cachedUserData.DataManager;
 import entities.Message;
 import entities.Report;
 
-class PrincipalSetReportTest {
+class SetReportTest {
 	private Message mockMsg;
 	private Report report;
 	private String GegeneratedBy;
@@ -31,7 +31,7 @@ class PrincipalSetReportTest {
 		report = new Report();
 		returnedValuesFromMsg = new ArrayList<String>();
 		expectedGradesAndAppearance = new HashMap<Integer, Integer>();
-		new PrincipalSetReport(report);
+		new SetReport(report);
 	}
 
 	@Test
@@ -51,7 +51,7 @@ class PrincipalSetReportTest {
 		expectedGradesAndAppearance.put(88, 2);
 		expectedGradesAndAppearance.put(73, 2);
 		expectedAverage =80.5;
-		PrincipalSetReport.generateReport(mockMsg);
+		SetReport.generateReport(mockMsg);
 		assertEquals(GegeneratedBy , report.getGegeneratedBy());
 		assertEquals(Value,report.getValue());
 		assertEquals(expectedGradesAndAppearance,report.getGradesAndAppearance());
