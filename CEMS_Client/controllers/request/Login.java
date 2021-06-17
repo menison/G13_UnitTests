@@ -1,8 +1,6 @@
 package request;
 
 import java.util.ArrayList;
-
-import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
 import common.Permission;
@@ -27,7 +25,7 @@ public class Login extends AbstractController {
 	/**
 	 * transfer the action event from a pressed button
 	 */
-	private static ActionEvent event;
+	public static ActionEvent event;
 	private static LoginCemsController lcc;
 	private static ILoginCemsController ilcc;
 
