@@ -10,7 +10,9 @@ import entities.Message;
 import entities.Principal;
 import entities.Student;
 import entities.Teacher;
+import gui.ILoginCemsController;
 import gui.LoginCemsController;
+import gui.MyLoginCemsController;
 import javafx.event.ActionEvent;
 
 
@@ -27,6 +29,7 @@ public class Login extends AbstractController {
 	 */
 	private static ActionEvent event;
 	private static LoginCemsController lcc;
+	private static ILoginCemsController ilcc;
 
 
 	/**Method for sending Logout message to the server
@@ -39,11 +42,11 @@ public class Login extends AbstractController {
 	}
 
 		public Login() {
-			lcc = LoginCemsController.loginCemsController;
+			ilcc = new MyLoginCemsController();
 		}
 		
-		public Login(LoginCemsController lcc) {
-			Login.lcc = lcc;
+		public Login(ILoginCemsController lcc) {
+			Login.ilcc = lcc;
 		}
 		
 		
