@@ -6,6 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="UnitTest"/>
 	<classpathentry kind="src" path="gui"/>
 	<classpathentry kind="src" path="controller"/>
 	<classpathentry exported="true" kind="src" path="/OCSF"/>

@@ -22,6 +22,10 @@ public class Report {
 		this.gegeneratedBy = gegeneratedBy;
 		this.value = value;
 	}
+	
+	public Report() {
+		super();
+	}
 
 	public String getGegeneratedBy() {
 		return gegeneratedBy;

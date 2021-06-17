@@ -13,10 +13,10 @@ import request.Login;
 import request.ManualTestDownloader;
 import request.ManualTestUploader;
 import request.PrincipalExtentionRequests;
-import request.PrincipalSetReport;
 import request.QuestionInfoHandler;
 import request.SetDurationForExecTest;
 import request.SetIfCurrentExecutedTestIsActive;
+import request.SetReport;
 import request.SetRequestedTest;
 import request.SetTestConfirmationTable;
 import request.SetTestsValues;
@@ -64,7 +64,7 @@ public class Parsing {
 			ManualTestUploader.checkUploadStatus(receivedMessage);
 			break;
 		case GetReport:
-			PrincipalSetReport.generateReport(receivedMessage);
+			SetReport.generateReport(receivedMessage);
 			break;
 		case GetTestsForTeacherReport:
 			TeacherSetTableForSelfTests.setTableForSelfTests(receivedMessage);

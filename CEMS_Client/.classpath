@@ -17,5 +17,9 @@
 	<classpathentry kind="lib" path="/CEMS_Shared/src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="lib" path="C:/Users/Bradl/Desktop/mockito-all-2.0.2-beta.jar"/>
+>>>>>>> branch 'master' of https://github.com/menison/G13_UnitTests.git
 	<classpathentry kind="output" path="bin"/>
 </classpath>
