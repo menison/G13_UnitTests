@@ -2,14 +2,15 @@ package request;
 
 import java.util.ArrayList;
 
+import application.ClientUI;
 import cachedUserData.DataManager;
 import common.Operation;
 import common.Permission;
 import entities.Message;
+import entities.Principal;
+import entities.Student;
 import entities.Teacher;
 import gui.LoginCemsController;
-import entities.Student;
-import entities.Principal;
 import javafx.event.ActionEvent;
 
 
@@ -25,6 +26,7 @@ public class Login extends AbstractController {
 	 * transfer the action event from a pressed button
 	 */
 	private static ActionEvent event;
+	private static LoginCemsController lcc;
 
 
 	/**Method for sending Logout message to the server
@@ -36,6 +38,15 @@ public class Login extends AbstractController {
 		SendToServer(sendMessage);
 	}
 
+		public Login() {
+			lcc = LoginCemsController.loginCemsController;
+		}
+		
+		public Login(LoginCemsController lcc) {
+			Login.lcc = lcc;
+		}
+		
+		
 	/**Method that receives a message from the server after sending the logout message
 	 * @param msg received from the server
 	 */
@@ -75,7 +86,7 @@ public class Login extends AbstractController {
 			switch (receivedMessage.getPermission()) {
 			case yes:
 				dataManager.setCurrentUser(teacher);
-				LoginCemsController.setTeacherLogin(teacher, event);
+				lcc.setTeacherLogin(teacher, event);
 				break;
 			case no:
 				LoginCemsController.loginCemsController.setError("Wrong User Name or Password");

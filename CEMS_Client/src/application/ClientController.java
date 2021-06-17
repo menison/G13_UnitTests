@@ -11,7 +11,7 @@ import entities.Message;
  */
 public class ClientController {
 	ChatClient client;
-
+	IClientController icc;
 	/**
 	 * Constructor
 	 * @param host - String representing host.
@@ -25,6 +25,15 @@ public class ClientController {
 			e.printStackTrace();
 		      System.exit(1);
 		}
+		
+	}
+	
+	public ClientController(IClientController icc) {
+		this.icc = icc;
+	}
+	
+	public ClientController() {
+		
 	}
 
 	/**
